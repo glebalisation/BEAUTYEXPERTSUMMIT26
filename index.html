@@ -1,0 +1,2375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beauty Expert Summit 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --navy-deep: #0D1B2A;
+  --navy-mid: #1A3A5C;
+  --navy-soft: #1E4570;
+  --gold: #C9A96E;
+  --gold-light: #E8D5B0;
+  --gold-pale: #F5F0E8;
+  --ivory: #FAF8F4;
+  --text-dark: #0D1B2A;
+  --text-muted: #5A7A9A;
+  --border: rgba(201,169,110,0.2);
+  --ff-display: 'Cormorant Garamond', Georgia, serif;
+  --ff-body: 'Outfit', sans-serif;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--ff-body);
+  background: var(--navy-deep);
+  color: var(--gold-light);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── NOISE TEXTURE ── */
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(13,27,42,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 68px;
+  transition: var(--transition);
+}
+
+.nav-logo {
+  display: flex; align-items: center; gap: 12px;
+  text-decoration: none;
+}
+
+.nav-logo-text {
+  font-family: var(--ff-display);
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--gold);
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+.nav-logo-sub {
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+.nav-links {
+  display: flex; align-items: center; gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--gold-light);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  opacity: 0.75;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.nav-links a:hover { opacity: 1; color: var(--gold); }
+
+.nav-cta {
+  background: var(--gold) !important;
+  color: var(--navy-deep) !important;
+  padding: 8px 20px !important;
+  border-radius: 4px !important;
+  font-weight: 600 !important;
+  opacity: 1 !important;
+  font-size: 12px !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  transition: var(--transition) !important;
+}
+.nav-cta:hover { background: var(--gold-light) !important; }
+
+/* Language switcher */
+.lang-switcher {
+  display: flex; gap: 4px; align-items: center;
+  margin-left: 24px;
+}
+.lang-btn {
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  background: none; border: none; cursor: pointer;
+  padding: 3px 6px; border-radius: 3px;
+  transition: var(--transition);
+  font-family: var(--ff-body);
+}
+.lang-btn.active, .lang-btn:hover {
+  color: var(--gold);
+  background: rgba(201,169,110,0.1);
+}
+.lang-sep { color: var(--text-muted); font-size: 10px; opacity: 0.4; }
+
+/* Hamburger */
+.nav-hamburger {
+  display: none; flex-direction: column; gap: 5px; cursor: pointer;
+  background: none; border: none; padding: 4px;
+}
+.nav-hamburger span { display: block; width: 22px; height: 1.5px; background: var(--gold); transition: var(--transition); }
+
+/* ── PAGES ── */
+.page { display: none; min-height: 100vh; padding-top: 68px; position: relative; z-index: 1; }
+.page.active { display: block; }
+
+/* ── HERO ── */
+#page-home {
+  display: none;
+  background: linear-gradient(160deg, #0D1B2A 0%, #0F2336 40%, #1A3A5C 100%);
+  position: relative; overflow: hidden;
+}
+#page-home.active { display: block; }
+
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.hero-orb-1 {
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(201,169,110,0.08) 0%, transparent 70%);
+  top: -100px; right: -150px;
+  animation: orbFloat 8s ease-in-out infinite;
+}
+.hero-orb-2 {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(26,58,92,0.6) 0%, transparent 70%);
+  bottom: 0; left: -100px;
+  animation: orbFloat 11s ease-in-out infinite reverse;
+}
+
+@keyframes orbFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-30px); }
+}
+
+.hero-inner {
+  max-width: 1200px; margin: 0 auto;
+  padding: 80px 40px 80px;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: center;
+  min-height: calc(100vh - 68px);
+}
+
+.hero-eyebrow {
+  font-size: 15px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gold); font-weight: 500;
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.2s forwards;
+}
+.hero-eyebrow::before {
+  content: ''; display: block; width: 32px; height: 1px; background: var(--gold);
+}
+
+.hero-title {
+  font-family: var(--ff-display);
+  font-size: clamp(64px, 8.5vw, 110px);
+  font-weight: 300;
+  line-height: 1.05;
+  color: var(--gold-light);
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.35s forwards;
+  letter-spacing: -0.01em;
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.hero-motto {
+  font-family: var(--ff-body);
+  font-size: clamp(16px, 2vw, 22px);
+  font-weight: 400;
+  color: var(--gold);
+  line-height: 1.5;
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.4s forwards;
+  max-width: 500px;
+  letter-spacing: 0.02em;
+}
+
+.hero-year {
+  font-family: var(--ff-display);
+  font-size: clamp(120px, 14vw, 180px);
+  font-weight: 300;
+  line-height: 0.8;
+  color: rgba(201,169,110,0.55);
+  letter-spacing: -0.03em;
+  display: block;
+  margin-bottom: 24px;
+  margin-top: -16px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.45s forwards;
+  text-shadow: 0 8px 24px rgba(201,169,110,0.15);
+}
+
+.hero-desc {
+  font-size: 14px; line-height: 1.6;
+  color: var(--text-muted); opacity: 0.85;
+  margin-bottom: 40px;
+  max-width: 420px;
+  animation: fadeUp 0.8s 0.5s forwards;
+  opacity: 0;
+  letter-spacing: 0.01em;
+}
+
+.hero-buttons {
+  display: flex; gap: 12px; flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.65s forwards;
+}
+
+.btn-gold {
+  background: var(--gold);
+  color: var(--navy-deep);
+  padding: 14px 32px;
+  border-radius: 4px;
+  font-size: 13px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  border: none; cursor: pointer;
+  transition: var(--transition);
+  font-family: var(--ff-body);
+  text-decoration: none; display: inline-block;
+}
+.btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+.btn-outline {
+  background: transparent;
+  color: var(--gold-light);
+  padding: 14px 32px;
+  border-radius: 4px;
+  font-size: 13px; font-weight: 400;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: var(--ff-body);
+  text-decoration: none; display: inline-block;
+}
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+.hero-stats {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.75s forwards;
+}
+.hero-stat {
+  background: rgba(13,27,42,0.6);
+  padding: 28px 20px;
+  text-align: center;
+}
+.stat-num {
+  font-family: var(--ff-display);
+  font-size: 36px; font-weight: 300;
+  color: var(--gold);
+  display: block; margin-bottom: 4px;
+}
+.stat-label {
+  font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--text-muted); font-weight: 400;
+}
+
+.hero-right {
+  opacity: 0;
+  animation: fadeIn 1.2s 0.5s forwards;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-statue {
+  position: absolute;
+  inset: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500"><defs><mask id="fade"><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:black;stop-opacity:0.3"/><stop offset="20%" style="stop-color:black;stop-opacity:1"/><stop offset="80%" style="stop-color:black;stop-opacity:1"/><stop offset="100%" style="stop-color:black;stop-opacity:0.3"/></linearGradient><rect width="400" height="500" fill="url(%23grad)"/></mask></defs></svg>') center/cover no-repeat;
+  opacity: 0.15;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-card {
+  background: rgba(26,58,92,0.4);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 36px;
+  backdrop-filter: blur(8px);
+  position: relative;
+  z-index: 1;
+}
+.hero-card-title {
+  font-family: var(--ff-display);
+  font-size: 22px; font-weight: 400;
+  color: var(--gold-light);
+  margin-bottom: 24px;
+}
+.hero-card-item {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+.hero-card-item:last-child { border-bottom: none; }
+.hero-card-icon {
+  width: 32px; height: 32px;
+  background: rgba(201,169,110,0.1);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  font-size: 14px;
+}
+.hero-card-item-title {
+  font-size: 14px; font-weight: 500; color: var(--gold-light);
+  margin-bottom: 2px;
+}
+.hero-card-item-sub {
+  font-size: 12px; color: var(--text-muted);
+}
+
+.scroll-indicator {
+  position: absolute; bottom: 32px; left: 50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  opacity: 0.4;
+  animation: scrollBob 2s ease-in-out infinite;
+  cursor: pointer;
+}
+.scroll-indicator span { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); }
+.scroll-arrow { width: 1px; height: 32px; background: linear-gradient(to bottom, var(--gold), transparent); }
+
+@keyframes scrollBob {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(6px); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ── SHARED SECTION STYLES ── */
+.section-inner {
+  max-width: 1200px; margin: 0 auto;
+  padding: 80px 40px;
+}
+
+.section-eyebrow {
+  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); font-weight: 500;
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 16px;
+}
+.section-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--gold); display: block; }
+
+.section-title {
+  font-family: var(--ff-display);
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 300; line-height: 1.1;
+  color: var(--gold-light);
+  margin-bottom: 16px;
+}
+.section-title em { font-style: italic; color: var(--gold); }
+
+.section-lead {
+  font-size: 15px; line-height: 1.7;
+  color: var(--text-muted);
+  max-width: 560px; margin-bottom: 56px;
+}
+
+.divider-line {
+  width: 100%; height: 1px;
+  background: var(--border);
+  margin: 0;
+}
+
+/* ── PROGRAM ── */
+#page-program { background: var(--navy-deep); }
+
+.day-tabs {
+  display: flex; gap: 0;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  width: fit-content;
+  margin-bottom: 48px;
+}
+.day-tab {
+  padding: 12px 28px;
+  font-size: 13px; font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  background: none; border: none; cursor: pointer;
+  transition: var(--transition);
+  font-family: var(--ff-body);
+}
+.day-tab.active {
+  background: var(--gold);
+  color: var(--navy-deep);
+}
+.day-tab:hover:not(.active) { color: var(--gold-light); background: rgba(201,169,110,0.05); }
+
+.schedule-panel { display: none; }
+.schedule-panel.active { display: block; }
+
+.schedule-item {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 32px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+  transition: var(--transition);
+}
+.schedule-item:hover { background: rgba(201,169,110,0.03); margin: 0 -20px; padding: 28px 20px; border-radius: 6px; }
+
+.schedule-time {
+  font-size: 13px;
+  color: var(--gold);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  padding-top: 2px;
+}
+
+.schedule-track {
+  display: inline-block;
+  font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 99px;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+.track-ophth { background: rgba(74,144,226,0.15); color: #7BB8F0; }
+.track-cosm  { background: rgba(201,169,110,0.15); color: var(--gold); }
+.track-surg  { background: rgba(160,120,180,0.15); color: #C4A0D8; }
+.track-gen   { background: rgba(100,180,120,0.15); color: #8ECFA0; }
+
+.schedule-title {
+  font-family: var(--ff-display);
+  font-size: 20px; font-weight: 400;
+  color: var(--gold-light);
+  margin-bottom: 6px;
+}
+.schedule-speaker {
+  font-size: 13px; color: var(--text-muted);
+}
+
+/* ── SPEAKERS ── */
+#page-speakers { background: linear-gradient(180deg, var(--navy-deep) 0%, #0F2336 100%); }
+
+.speakers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.speaker-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: var(--transition);
+  cursor: pointer;
+  background: rgba(26,58,92,0.2);
+}
+.speaker-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+}
+
+.speaker-photo {
+  aspect-ratio: 3/4;
+  background: linear-gradient(160deg, rgba(26,58,92,0.8), rgba(13,27,42,0.9));
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.speaker-initials {
+  font-family: var(--ff-display);
+  font-size: 48px; font-weight: 300;
+  color: rgba(201,169,110,0.3);
+}
+.speaker-photo-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, transparent 50%, rgba(13,27,42,0.8));
+}
+
+.speaker-info { padding: 18px 20px; }
+.speaker-name {
+  font-family: var(--ff-display);
+  font-size: 19px; font-weight: 400;
+  color: var(--gold-light);
+  margin-bottom: 4px;
+}
+.speaker-role { font-size: 12px; color: var(--text-muted); line-height: 1.4; margin-bottom: 10px; }
+.speaker-tag {
+  font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 99px;
+}
+
+/* ── VENUE ── */
+#page-venue { background: var(--navy-deep); }
+
+.venue-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 48px; align-items: start;
+}
+
+.venue-photo-placeholder {
+  aspect-ratio: 4/3;
+  background: linear-gradient(135deg, rgba(26,58,92,0.6), rgba(13,27,42,0.9));
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 12px;
+}
+.venue-photo-placeholder span { font-size: 32px; }
+.venue-photo-placeholder p { font-size: 12px; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; }
+
+.venue-details { display: flex; flex-direction: column; gap: 24px; }
+
+.venue-detail-item {
+  display: flex; gap: 16px; align-items: flex-start;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+.venue-detail-item:last-child { border-bottom: none; }
+.venue-detail-icon {
+  width: 40px; height: 40px; flex-shrink: 0;
+  background: rgba(201,169,110,0.08);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+}
+.venue-detail-label {
+  font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 4px; font-weight: 500;
+}
+.venue-detail-value {
+  font-size: 16px; color: var(--gold-light); font-family: var(--ff-display); font-weight: 400;
+  margin-bottom: 2px;
+}
+.venue-detail-sub { font-size: 12px; color: var(--text-muted); }
+
+.travel-cards {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 16px; margin-top: 56px;
+}
+.travel-card {
+  border: 1px solid var(--border);
+  border-radius: 10px; padding: 24px 20px;
+  background: rgba(26,58,92,0.15);
+}
+.travel-icon { font-size: 28px; margin-bottom: 12px; }
+.travel-title { font-size: 14px; font-weight: 500; color: var(--gold-light); margin-bottom: 6px; }
+.travel-text { font-size: 12px; color: var(--text-muted); line-height: 1.6; }
+
+/* ── REGISTER / TICKETS ── */
+#page-register {
+  background: linear-gradient(160deg, #0F2336 0%, var(--navy-deep) 100%);
+}
+
+.tickets-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.ticket-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 36px 28px;
+  background: rgba(13,27,42,0.6);
+  display: flex; flex-direction: column;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.ticket-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+.ticket-card.featured {
+  border-color: var(--gold);
+  background: rgba(26,58,92,0.4);
+}
+.ticket-card.featured::before {
+  content: 'MOST POPULAR';
+  position: absolute; top: 0; right: 0;
+  background: var(--gold);
+  color: var(--navy-deep);
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 0.1em;
+  padding: 6px 14px;
+  border-radius: 0 12px 0 8px;
+}
+
+.ticket-type {
+  font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--gold); font-weight: 500;
+  margin-bottom: 12px;
+}
+.ticket-name {
+  font-family: var(--ff-display);
+  font-size: 28px; font-weight: 300;
+  color: var(--gold-light);
+  margin-bottom: 8px;
+}
+.ticket-price {
+  font-family: var(--ff-display);
+  font-size: 48px; font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.ticket-price span { font-size: 20px; vertical-align: top; margin-top: 10px; display: inline-block; }
+.ticket-price-note { font-size: 12px; color: var(--text-muted); margin-bottom: 28px; }
+
+.ticket-features {
+  list-style: none; flex: 1;
+  display: flex; flex-direction: column; gap: 10px;
+  margin-bottom: 32px;
+}
+.ticket-features li {
+  font-size: 13px; color: var(--gold-light); opacity: 0.8;
+  display: flex; align-items: center; gap: 10px;
+}
+.ticket-features li::before {
+  content: '✦'; color: var(--gold); font-size: 8px; flex-shrink: 0;
+}
+
+.btn-ticket {
+  width: 100%;
+  padding: 14px;
+  border-radius: 6px;
+  font-size: 13px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  border: 1px solid var(--gold);
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: var(--ff-body);
+  background: transparent;
+  color: var(--gold);
+}
+.btn-ticket:hover, .ticket-card.featured .btn-ticket {
+  background: var(--gold);
+  color: var(--navy-deep);
+}
+.ticket-card.featured .btn-ticket:hover {
+  background: var(--gold-light);
+  border-color: var(--gold-light);
+}
+
+.stripe-note {
+  text-align: center; margin-top: 24px;
+  font-size: 12px; color: var(--text-muted);
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.stripe-note::before { content: ''; font-size: 11px; }
+
+/* ── SPONSORS ── */
+#page-sponsors { background: var(--navy-deep); }
+
+.sponsor-tiers { display: flex; flex-direction: column; gap: 56px; }
+
+.sponsor-tier-label {
+  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); font-weight: 500;
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 12px;
+}
+.sponsor-tier-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+.sponsor-logos {
+  display: flex; flex-wrap: wrap; gap: 16px; align-items: center;
+}
+
+.sponsor-placeholder {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-muted);
+  font-size: 12px; letter-spacing: 0.08em;
+  transition: var(--transition);
+  background: rgba(26,58,92,0.1);
+}
+.sponsor-placeholder:hover { border-color: var(--gold); color: var(--gold); }
+.sponsor-lg  { width: 220px; height: 80px; }
+.sponsor-md  { width: 160px; height: 64px; }
+.sponsor-sm  { width: 120px; height: 52px; }
+
+.become-sponsor {
+  margin-top: 56px;
+  border: 1px solid var(--border);
+  border-radius: 12px; padding: 40px;
+  background: rgba(26,58,92,0.15);
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  flex-wrap: wrap;
+}
+.become-sponsor-text h3 {
+  font-family: var(--ff-display); font-size: 26px; font-weight: 300;
+  color: var(--gold-light); margin-bottom: 6px;
+}
+.become-sponsor-text p { font-size: 13px; color: var(--text-muted); }
+
+/* ── FAQ ── */
+#page-faq { background: linear-gradient(180deg, var(--navy-deep) 0%, #0F2336 100%); }
+
+.faq-list { max-width: 760px; }
+
+.faq-item {
+  border-bottom: 1px solid var(--border);
+}
+.faq-question {
+  width: 100%; text-align: left;
+  padding: 24px 0;
+  font-size: 16px; font-weight: 400;
+  color: var(--gold-light);
+  background: none; border: none; cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  font-family: var(--ff-body);
+  transition: var(--transition);
+}
+.faq-question:hover { color: var(--gold); }
+.faq-chevron {
+  width: 20px; height: 20px; flex-shrink: 0;
+  border: 1px solid var(--border); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  transition: var(--transition); font-size: 10px; color: var(--gold);
+}
+.faq-item.open .faq-chevron { transform: rotate(180deg); border-color: var(--gold); }
+.faq-answer {
+  font-size: 14px; line-height: 1.8; color: var(--text-muted);
+  max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s;
+}
+.faq-item.open .faq-answer { max-height: 200px; padding-bottom: 24px; }
+
+/* ── CONTACT ── */
+#page-contact { background: var(--navy-deep); }
+
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1.2fr;
+  gap: 64px;
+}
+
+.contact-info { display: flex; flex-direction: column; gap: 28px; }
+.contact-info-item { display: flex; gap: 16px; align-items: flex-start; }
+.contact-info-icon {
+  width: 40px; height: 40px; flex-shrink: 0;
+  background: rgba(201,169,110,0.08);
+  border: 1px solid var(--border); border-radius: 8px;
+  display: flex; align-items: center; justify-content: center; font-size: 16px;
+}
+.contact-info-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; font-weight: 500; }
+.contact-info-value { font-size: 15px; color: var(--gold-light); }
+
+.contact-form { display: flex; flex-direction: column; gap: 16px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); font-weight: 500; }
+.form-input, .form-textarea, .form-select {
+  background: rgba(26,58,92,0.2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px 16px;
+  font-size: 14px; color: var(--gold-light);
+  font-family: var(--ff-body);
+  transition: var(--transition);
+  outline: none; width: 100%;
+}
+.form-input:focus, .form-textarea:focus, .form-select:focus {
+  border-color: var(--gold);
+  background: rgba(26,58,92,0.35);
+}
+.form-input::placeholder, .form-textarea::placeholder { color: var(--text-muted); opacity: 0.5; }
+.form-textarea { resize: vertical; min-height: 120px; }
+.form-select option { background: var(--navy-deep); }
+
+/* ── FOOTER ── */
+footer {
+  background: #080F16;
+  border-top: 1px solid var(--border);
+  padding: 48px 40px 28px;
+  position: relative; z-index: 1;
+}
+.footer-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px; margin-bottom: 40px;
+}
+.footer-brand-name {
+  font-family: var(--ff-display); font-size: 22px; font-weight: 400;
+  color: var(--gold); margin-bottom: 6px;
+}
+.footer-brand-sub { font-size: 11px; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px; }
+.footer-tagline { font-size: 13px; color: var(--text-muted); line-height: 1.6; max-width: 240px; }
+.footer-col-title { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 16px; }
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-links a { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: var(--transition); cursor: pointer; }
+.footer-links a:hover { color: var(--gold-light); }
+.footer-bottom {
+  max-width: 1200px; margin: 0 auto;
+  padding-top: 24px; border-top: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+}
+.footer-copy { font-size: 12px; color: var(--text-muted); }
+.footer-ugamc { font-size: 12px; color: var(--text-muted); display: flex; align-items: center; gap: 6px; }
+.footer-ugamc span { color: var(--gold); font-weight: 500; }
+
+/* ── STRIPE MODAL ── */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(8,15,22,0.85);
+  backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: var(--transition);
+}
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+.modal-box {
+  background: #0D1B2A;
+  border: 1px solid var(--border);
+  border-radius: 16px; padding: 40px;
+  max-width: 480px; width: calc(100% - 32px);
+  transform: translateY(20px);
+  transition: var(--transition);
+}
+.modal-overlay.open .modal-box { transform: translateY(0); }
+.modal-title { font-family: var(--ff-display); font-size: 28px; font-weight: 300; color: var(--gold-light); margin-bottom: 4px; }
+.modal-sub { font-size: 13px; color: var(--text-muted); margin-bottom: 28px; }
+.modal-price-display {
+  background: rgba(201,169,110,0.06);
+  border: 1px solid var(--border);
+  border-radius: 8px; padding: 20px;
+  margin-bottom: 24px; text-align: center;
+}
+.modal-price-display .price { font-family: var(--ff-display); font-size: 42px; color: var(--gold); font-weight: 300; }
+.modal-price-display .tier { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+.modal-stripe-area {
+  border: 1px dashed var(--border);
+  border-radius: 8px; padding: 28px;
+  text-align: center; margin-bottom: 20px;
+  background: rgba(26,58,92,0.1);
+}
+.modal-stripe-area p { font-size: 13px; color: var(--text-muted); margin-top: 8px; }
+.modal-stripe-logo { font-size: 22px; letter-spacing: 0.05em; color: #635BFF; font-weight: 700; }
+.modal-close {
+  position: absolute; top: 20px; right: 20px;
+  background: none; border: none; color: var(--text-muted); cursor: pointer;
+  font-size: 20px; line-height: 1; transition: var(--transition);
+}
+.modal-close:hover { color: var(--gold-light); }
+.modal-box { position: relative; }
+
+/* ── TOAST ── */
+.toast {
+  position: fixed; bottom: 32px; right: 32px; z-index: 300;
+  background: var(--navy-mid);
+  border: 1px solid var(--gold);
+  border-radius: 8px; padding: 16px 24px;
+  font-size: 13px; color: var(--gold-light);
+  transform: translateY(80px); opacity: 0;
+  transition: var(--transition);
+  pointer-events: none;
+}
+.toast.show { transform: translateY(0); opacity: 1; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  .hero-inner { grid-template-columns: 1fr; gap: 40px; padding: 60px 20px 60px; }
+  .hero-right { display: none; }
+  .hero-stats { grid-template-columns: repeat(3, 1fr); }
+  .section-inner { padding: 60px 20px; }
+  .venue-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .travel-cards { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .hero-stats { grid-template-columns: 1fr; }
+  .tickets-grid { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+}
+
+/* ── UGAMC NAV LOGO ── */
+.nav-ugamc-logo {
+  height: 40px;
+  width: auto;
+  mix-blend-mode: screen;
+  filter: brightness(0.95);
+  flex-shrink: 0;
+  border-radius: 4px;
+}
+
+/* ── SUMMIT TITLE IMAGE ── */
+.hero-summit-logo {
+  position: relative;
+  max-width: 400px;
+  margin-bottom: 12px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.2s forwards;
+}
+.hero-summit-logo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right, var(--navy-deep) 0%, transparent 18%, transparent 82%, var(--navy-deep) 100%),
+    linear-gradient(to bottom, var(--navy-deep) 0%, transparent 12%, transparent 75%, var(--navy-deep) 100%);
+  pointer-events: none;
+}
+.hero-summit-logo img {
+  display: block;
+  width: 100%;
+  filter: drop-shadow(0 0 20px rgba(201,169,110,0.3)) drop-shadow(0 0 6px rgba(201,169,110,0.12));
+}
+
+/* ── MOTTO GLOW ── */
+.hero-motto-glow {
+  font-family: var(--ff-body);
+  font-size: clamp(12px, 1.35vw, 15px);
+  font-weight: 400;
+  color: var(--gold);
+  line-height: 1.65;
+  margin-bottom: 32px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.38s forwards;
+  max-width: 480px;
+  letter-spacing: 0.04em;
+  text-shadow: 0 0 14px rgba(201,169,110,0.38), 0 0 28px rgba(201,169,110,0.12);
+}
+
+/* ── ANIMATED GOLDEN GRADIENT BUTTON ── */
+@keyframes gold-shimmer {
+  0%   { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+.btn-gold-anim {
+  background: linear-gradient(90deg, #7A5C22, #C9A96E, #F5D998, #EAC97E, #C9A96E, #8B6D2A, #C9A96E, #F0D490);
+  background-size: 300% auto;
+  animation: gold-shimmer 8s linear infinite;
+  color: var(--navy-deep);
+  padding: 14px 32px;
+  border-radius: 4px;
+  font-size: 13px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  border: none; cursor: pointer;
+  font-family: var(--ff-body);
+  text-decoration: none; display: inline-block;
+  box-shadow: 0 4px 16px rgba(201,169,110,0.38), 0 0 40px rgba(201,169,110,0.1);
+  transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+.btn-gold-anim:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(201,169,110,0.55), 0 0 60px rgba(201,169,110,0.2);
+}
+.btn-gold-anim:active { transform: translateY(0); }
+
+/* ── DAMA IMAGE + GLITCH EFFECT ── */
+.hero-right { align-items: flex-start !important; }
+
+.dama-container { position: relative; width: 100%; }
+
+.dama-wrapper {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.55), 0 0 80px rgba(201,169,110,0.06);
+  cursor: crosshair;
+}
+
+.dama-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.7s cubic-bezier(0.4,0,0.2,1);
+}
+.dama-wrapper:hover .dama-img { transform: scale(1.03); }
+
+.dama-glitch {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+.dama-glitch::before,
+.dama-glitch::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('IDENTITY/La-Dama-de-Elche.jpg') center/cover no-repeat;
+  opacity: 0;
+}
+.dama-wrapper:hover .dama-glitch::before {
+  animation: glitch-slice-1 0.7s steps(1) infinite;
+}
+.dama-wrapper:hover .dama-glitch::after {
+  animation: glitch-slice-2 0.95s steps(1) infinite;
+}
+
+@keyframes glitch-slice-1 {
+  0%   { opacity:0; transform:translate(0);    clip-path:polygon(0 0,100% 0,100% 0,0 0); filter:none; }
+  7%   { opacity:1; transform:translateX(-10px); clip-path:polygon(0 15%,100% 15%,100% 28%,0 28%); filter:hue-rotate(30deg) saturate(2) brightness(1.3); }
+  13%  { opacity:0; transform:translate(0);    clip-path:polygon(0 0,100% 0,100% 0,0 0); filter:none; }
+  47%  { opacity:0; }
+  50%  { opacity:1; transform:translateX(8px);  clip-path:polygon(0 62%,100% 62%,100% 75%,0 75%); filter:hue-rotate(55deg) saturate(1.8); }
+  56%  { opacity:0; transform:translate(0);    clip-path:polygon(0 0,100% 0,100% 0,0 0); filter:none; }
+  100% { opacity:0; }
+}
+
+@keyframes glitch-slice-2 {
+  0%   { opacity:0; clip-path:polygon(0 0,100% 0,100% 0,0 0); filter:none; }
+  22%  { opacity:0; }
+  24%  { opacity:1; transform:translateX(12px); clip-path:polygon(0 42%,100% 42%,100% 56%,0 56%); filter:hue-rotate(-55deg) saturate(2) brightness(1.2); }
+  30%  { opacity:0; transform:translate(0);    clip-path:polygon(0 0,100% 0,100% 0,0 0); filter:none; }
+  73%  { opacity:0; }
+  76%  { opacity:1; transform:translateX(-7px); clip-path:polygon(0 7%,100% 7%,100% 17%,0 17%); filter:hue-rotate(-80deg) saturate(1.6); }
+  81%  { opacity:0; transform:translate(0);    clip-path:polygon(0 0,100% 0,100% 0,0 0); filter:none; }
+  100% { opacity:0; }
+}
+
+/* faded corners vignette */
+.dama-corners {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 80% at 50% 50%, transparent 48%, rgba(13,27,42,0.78) 100%);
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* hero-card floated below the dama image */
+.dama-card-overlay {
+  margin-top: -64px;
+  position: relative;
+  z-index: 5;
+  padding: 0 16px;
+}
+.hero-card-compact {
+  background: rgba(10,20,34,0.88);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(201,169,110,0.25);
+  border-radius: 10px;
+  padding: 20px 24px;
+}
+.hero-card-compact .hero-card-title { font-size: 17px; margin-bottom: 14px; }
+.hero-card-compact .hero-card-item  { padding: 11px 0; }
+
+/* Mobile nav menu */
+.mobile-menu {
+  display: none;
+  position: fixed; top: 68px; left: 0; right: 0;
+  background: rgba(13,27,42,0.97);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  z-index: 99;
+  padding: 20px;
+  flex-direction: column; gap: 4px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  padding: 12px 16px; font-size: 14px; color: var(--gold-light);
+  border-radius: 6px; cursor: pointer; transition: var(--transition);
+}
+.mobile-menu a:hover { background: rgba(201,169,110,0.08); color: var(--gold); }
+
+/* ══════════════════════════════════════════
+   HERO BACKGROUND — WebGL mesh gradient
+   (canvas injected by JS replaces CSS bg)
+══════════════════════════════════════════ */
+#page-home {
+  background: #0D1B2A !important;
+  animation: none !important;
+}
+#mesh-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  display: block;
+}
+
+/* ══════════════════════════════════════════
+   LIQUID GLASS SYSTEM
+══════════════════════════════════════════ */
+nav {
+  background: rgba(8,16,28,0.65) !important;
+  backdrop-filter: blur(24px) saturate(1.6) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(1.6) !important;
+  border-bottom: 1px solid rgba(201,169,110,0.14) !important;
+  box-shadow: 0 1px 0 rgba(201,169,110,0.07), 0 4px 32px rgba(0,0,0,0.24) !important;
+}
+.mobile-menu {
+  background: rgba(6,12,22,0.88) !important;
+  backdrop-filter: blur(28px) saturate(1.5) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(1.5) !important;
+  border-bottom: 1px solid rgba(201,169,110,0.12) !important;
+}
+.hero-card, .hero-card-compact {
+  background: rgba(10,20,34,0.5) !important;
+  backdrop-filter: blur(22px) saturate(1.7) !important;
+  -webkit-backdrop-filter: blur(22px) saturate(1.7) !important;
+  border: 1px solid rgba(201,169,110,0.16) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.05),
+    inset 0 -1px 0 rgba(0,0,0,0.12),
+    0 8px 40px rgba(0,0,0,0.35) !important;
+}
+.speaker-card {
+  background: rgba(10,20,34,0.42) !important;
+  backdrop-filter: blur(14px) saturate(1.5) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(1.5) !important;
+  border: 1px solid rgba(201,169,110,0.1) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), 0 4px 20px rgba(0,0,0,0.25) !important;
+}
+.speaker-card:hover {
+  background: rgba(20,40,66,0.65) !important;
+  border-color: var(--gold) !important;
+}
+.day-tabs {
+  background: rgba(10,20,34,0.5) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  border: 1px solid rgba(201,169,110,0.14) !important;
+}
+.ticket-card, .sponsor-placeholder, .venue-highlight, .travel-card {
+  background: rgba(10,20,34,0.48) !important;
+  backdrop-filter: blur(16px) saturate(1.4) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(1.4) !important;
+  border: 1px solid rgba(201,169,110,0.12) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), 0 4px 24px rgba(0,0,0,0.28) !important;
+}
+.faq-item {
+  background: rgba(10,20,34,0.38) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(201,169,110,0.1) !important;
+  border-radius: 8px !important;
+  margin-bottom: 4px !important;
+}
+.contact-form-wrap, form.contact-form {
+  background: rgba(10,20,34,0.45) !important;
+  backdrop-filter: blur(18px) !important;
+  -webkit-backdrop-filter: blur(18px) !important;
+  border: 1px solid rgba(201,169,110,0.12) !important;
+  border-radius: 12px !important;
+}
+.modal-inner {
+  background: rgba(8,16,28,0.88) !important;
+  backdrop-filter: blur(28px) saturate(1.5) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(1.5) !important;
+  border: 1px solid rgba(201,169,110,0.18) !important;
+}
+.hero-stats { backdrop-filter: blur(10px) !important; }
+.hero-stat {
+  background: rgba(10,20,34,0.45) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+}
+footer {
+  background: rgba(5,11,20,0.78) !important;
+  backdrop-filter: blur(24px) saturate(1.3) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(1.3) !important;
+  border-top: 1px solid rgba(201,169,110,0.1) !important;
+  box-shadow: inset 0 1px 0 rgba(201,169,110,0.06) !important;
+}
+
+/* ══════════════════════════════════════════
+   TITLE IMAGE — TRANSPARENT BACKGROUND
+   invert(1) + hue-rotate(180deg) = white→black,
+   then mix-blend-mode:screen makes black invisible
+   on the dark background while restoring gold hue.
+══════════════════════════════════════════ */
+.hero-summit-logo {
+  position: relative;
+  max-width: 420px;
+  margin-bottom: 8px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.2s forwards;
+  /* clear the ::after gradient set earlier */
+}
+.hero-summit-logo::after { display: none !important; }
+.hero-summit-logo img {
+  display: block;
+  width: 100%;
+  filter: drop-shadow(0 0 24px rgba(201,169,110,0.22));
+}
+
+/* ══════════════════════════════════════════
+   MOTTO — SERIF DISPLAY STYLE
+══════════════════════════════════════════ */
+.hero-motto-serif {
+  font-family: var(--ff-display);
+  font-size: clamp(52px, 6.4vw, 92px);
+  font-weight: 300;
+  line-height: 1.05;
+  color: var(--gold-light);
+  margin-bottom: 14px;
+  letter-spacing: -0.02em;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.38s forwards;
+  text-align: center;
+}
+.hero-motto-serif em { font-style: italic; color: var(--gold); }
+.hero-motto-tagline {
+  font-size: clamp(15px, 1.5vw, 19px);
+  font-weight: 400;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin-bottom: 32px;
+  max-width: 620px;
+  letter-spacing: 0.02em;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.46s forwards;
+  text-align: center;
+}
+
+/* Hero: single column centered */
+.hero-inner {
+  grid-template-columns: 1fr !important;
+  justify-items: center;
+  max-width: 900px;
+  gap: 0 !important;
+}
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+}
+.hero-summit-logo {
+  max-width: 560px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.hero-eyebrow { justify-content: center; }
+.hero-desc { text-align: center; max-width: 520px; }
+.hero-buttons { justify-content: center; }
+.hero-right { display: none !important; }
+
+/* ══════════════════════════════════════════
+   DAMA SHOWCASE — GLOW / MIST / MYSTERY
+══════════════════════════════════════════ */
+.dama-showcase {
+  max-width: 460px;
+  margin: 40px auto 20px;
+  position: relative;
+  padding-bottom: 56px;
+}
+
+.dama-frame {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.dama-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: saturate(1.05) brightness(0.92);
+  transition: transform 1s cubic-bezier(0.4,0,0.2,1);
+}
+.dama-frame:hover .dama-img { transform: scale(1.04); }
+
+/* Glow / mist layers */
+@keyframes mist-drift {
+  0%,100% { transform: scale(1)   translate(0,0);       opacity: 0.65; }
+  25%      { transform: scale(1.06) translate(2%,1%);   opacity: 1;    }
+  50%      { transform: scale(1.10) translate(-1%,2%);  opacity: 0.75; }
+  75%      { transform: scale(1.04) translate(1%,-1%);  opacity: 0.9;  }
+}
+@keyframes mist-drift-alt {
+  0%,100% { transform: scale(1)   rotate(0deg);   opacity: 0.4; }
+  33%      { transform: scale(1.08) rotate(3deg); opacity: 0.7; }
+  66%      { transform: scale(0.96) rotate(-3deg);opacity: 0.5; }
+}
+
+.dama-mist {
+  position: absolute;
+  inset: -30%;
+  background: radial-gradient(ellipse 55% 65% at 50% 45%,
+    rgba(201,169,110,0.20) 0%,
+    rgba(190,150,70,0.08) 40%,
+    transparent 70%);
+  animation: mist-drift 7s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 2;
+  mix-blend-mode: screen;
+}
+.dama-mist-2 {
+  position: absolute;
+  inset: -20%;
+  background: radial-gradient(ellipse 75% 55% at 45% 55%,
+    rgba(240,210,120,0.10) 0%,
+    rgba(220,180,90,0.04) 45%,
+    transparent 70%);
+  animation: mist-drift-alt 10s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 2;
+  mix-blend-mode: screen;
+}
+
+/* Edge fade — blends into background */
+.dama-vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right,  rgba(13,27,42,0.92) 0%, transparent 22%, transparent 78%, rgba(13,27,42,0.92) 100%),
+    linear-gradient(to bottom, rgba(13,27,42,0.5)  0%, transparent 18%, transparent 55%, rgba(13,27,42,1)    100%);
+  z-index: 3;
+  pointer-events: none;
+  border-radius: 24px;
+}
+
+/* Quote popup */
+@keyframes quote-glow-pulse {
+  0%,100% { text-shadow: 0 0 16px rgba(201,169,110,0.5), 0 0 32px rgba(201,169,110,0.15); }
+  50%      { text-shadow: 0 0 24px rgba(201,169,110,0.8), 0 0 48px rgba(201,169,110,0.3); }
+}
+.dama-quote-text {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(12px);
+  white-space: nowrap;
+  font-family: var(--ff-display);
+  font-style: italic;
+  font-size: clamp(15px, 1.8vw, 20px);
+  color: var(--gold);
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 16px rgba(201,169,110,0.5), 0 0 32px rgba(201,169,110,0.15);
+  opacity: 0;
+  transition: opacity 1.2s cubic-bezier(0.4,0,0.2,1), transform 1.2s cubic-bezier(0.4,0,0.2,1);
+  pointer-events: none;
+}
+.dama-quote-text.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  animation: quote-glow-pulse 3s ease-in-out infinite;
+}
+</style>
+</head>
+<body>
+
+<!-- SVG filter: removes white background from images using luminance-based alpha -->
+<svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+  <defs>
+    <filter id="bg-remove" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feColorMatrix type="matrix" values="
+        1  0  0  0  0
+        0  1  0  0  0
+        0  0  1  0  0
+       -0.299 -0.587 -0.114  0  1
+      " result="alphaByLum"/>
+      <feComponentTransfer in="alphaByLum">
+        <feFuncA type="gamma" amplitude="1.15" exponent="0.32" offset="0"/>
+      </feComponentTransfer>
+    </filter>
+  </defs>
+</svg>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a class="nav-logo" onclick="showPage('home')">
+    <img src="IDENTITY/UGAMC.JPG" class="nav-ugamc-logo" alt="UGAMC">
+    <div>
+      <div class="nav-logo-text">Beauty Expert Summit</div>
+      <div class="nav-logo-sub">28–29 Nov 2026 · Elche, Spain</div>
+    </div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a onclick="showPage('program')" data-page="program">Program</a></li>
+    <li><a onclick="showPage('speakers')" data-page="speakers">Speakers</a></li>
+    <li><a onclick="showPage('venue')" data-page="venue">Venue</a></li>
+    <li><a onclick="showPage('sponsors')" data-page="sponsors">Sponsors</a></li>
+    <li><a onclick="showPage('faq')" data-page="faq">FAQ</a></li>
+    <li><a onclick="showPage('contact')" data-page="contact">Contact</a></li>
+    <li><a onclick="showPage('register')" class="nav-cta" data-page="register">Register</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:8px;">
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <span class="lang-sep">·</span>
+      <button class="lang-btn" onclick="setLang('es')">ES</button>
+      <span class="lang-sep">·</span>
+      <button class="lang-btn" onclick="setLang('uk')">УК</button>
+    </div>
+    <button class="nav-hamburger" onclick="toggleMobileMenu()" id="hamburger">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a onclick="showPage('program');toggleMobileMenu()">Program</a>
+  <a onclick="showPage('speakers');toggleMobileMenu()">Speakers</a>
+  <a onclick="showPage('venue');toggleMobileMenu()">Venue</a>
+  <a onclick="showPage('sponsors');toggleMobileMenu()">Sponsors</a>
+  <a onclick="showPage('faq');toggleMobileMenu()">FAQ</a>
+  <a onclick="showPage('contact');toggleMobileMenu()">Contact</a>
+  <a onclick="showPage('register');toggleMobileMenu()" style="color:var(--gold);font-weight:500;">Register & Tickets</a>
+</div>
+
+<!-- ══════════ HOME ══════════ -->
+<div class="page active" id="page-home">
+  <canvas id="mesh-canvas" aria-hidden="true"></canvas>
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-summit-logo">
+        <img src="IDENTITY/BEAUTY_EXPERT_SUMMIT26.png" alt="Beauty Expert Summit 2026">
+      </div>
+      <h2 class="hero-motto-serif">Built for <em>Medical Leaders</em></h2>
+      <p class="hero-motto-tagline">Connecting Visionaries Across Ophthalmology, Plastic &amp; Reconstructive Surgery, and Cosmetology.</p>
+      <p class="hero-desc">28–29 November · Centro de Congresos de Elche, Alicante, Spain</p>
+      <div class="hero-buttons">
+        <button class="btn-gold-anim" onclick="showPage('register')">Get Your Ticket</button>
+        <button class="btn-outline" onclick="showPage('program')">View Program</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAMA SHOWCASE -->
+  <div class="dama-showcase">
+    <div class="dama-frame">
+      <img src="IDENTITY/La-Dama-de-Elche.jpg" class="dama-img" alt="La Dama de Elche">
+      <div class="dama-mist"></div>
+      <div class="dama-mist dama-mist-2"></div>
+      <div class="dama-vignette"></div>
+    </div>
+    <div class="dama-quote-text" id="damaQuote">✦ La Dama de Elche invites you ✦</div>
+  </div>
+
+  <div style="max-width:1200px;margin:0 auto;padding:0 40px 80px;">
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="stat-num">21</span>
+        <span class="stat-label">Expert Speakers</span>
+      </div>
+      <div class="hero-stat">
+        <span class="stat-num">2</span>
+        <span class="stat-label">Days of Sessions</span>
+      </div>
+      <div class="hero-stat">
+        <span class="stat-num">500+</span>
+        <span class="stat-label">Attendees Expected</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-indicator" onclick="showPage('program')">
+    <span>Explore</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</div>
+
+<!-- ══════════ PROGRAM ══════════ -->
+<div class="page" id="page-program">
+  <div class="section-inner">
+    <div class="section-eyebrow">Scientific Program</div>
+    <h2 class="section-title">Two Days of <em>Excellence</em></h2>
+    <p class="section-lead">World-class presentations, live demonstrations and interactive workshops across three specialist tracks: Ophthalmology, Cosmetology, and Plastic & Reconstructive Surgery.</p>
+
+    <div class="day-tabs">
+      <button class="day-tab active" onclick="switchDay(1)">Day 1 · 28 Nov</button>
+      <button class="day-tab" onclick="switchDay(2)">Day 2 · 29 Nov</button>
+    </div>
+
+    <div class="schedule-panel active" id="day1">
+      <div class="schedule-item">
+        <div class="schedule-time">10:00–17:00</div>
+        <div>
+          <span class="schedule-track track-surg">Plastic &amp; Reconstructive Surgery</span>
+          <span class="schedule-track track-cosm" style="margin-left:6px;">Cosmetology</span>
+          <div class="schedule-title">Day 1 · 28 November</div>
+          <div class="schedule-speaker">Full program details to be announced</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="schedule-panel" id="day2">
+      <div class="schedule-item">
+        <div class="schedule-time">10:00–17:00</div>
+        <div>
+          <span class="schedule-track track-ophth">Ophthalmology</span>
+          <div class="schedule-title">Day 2 · 29 November</div>
+          <div class="schedule-speaker">Full program details to be announced</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ SPEAKERS ══════════ -->
+<div class="page" id="page-speakers">
+  <div class="section-inner">
+    <div class="section-eyebrow">Faculty</div>
+    <h2 class="section-title">Meet the <em>Speakers</em></h2>
+    <p class="section-lead">An international faculty of practicing surgeons, clinicians and innovators at the forefront of aesthetic medicine.</p>
+
+    <div class="speakers-grid">
+      <div class="speaker-card">
+        <div class="speaker-photo"><span class="speaker-initials">SH</span><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-info">
+          <div class="speaker-name">Serhii Havryliuk</div>
+          <div class="speaker-role">MD · Ophthalmologist, Plastic Surgeon<br>President UGAMC · Ukraine</div>
+          <span class="speaker-tag track-ophth">Ophthalmology</span>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-photo"><span class="speaker-initials">RN</span><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-info">
+          <div class="speaker-name">Renato De Natale</div>
+          <div class="speaker-role">MD · Refractive & Aesthetic Ophthalmologist<br>France</div>
+          <span class="speaker-tag track-ophth">Ophthalmology</span>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-photo"><span class="speaker-initials">TD</span><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-info">
+          <div class="speaker-name">Tetyana Dovzhuk</div>
+          <div class="speaker-role">MD, PhD · Ophthalmologist<br>USA / Ukraine</div>
+          <span class="speaker-tag track-ophth">Ophthalmology</span>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-photo"><span class="speaker-initials">NL</span><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-info">
+          <div class="speaker-name">Nicolas Lutrand</div>
+          <div class="speaker-role">Optometrist<br>France</div>
+          <span class="speaker-tag track-ophth">Ophthalmology</span>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-photo"><span class="speaker-initials">EE</span><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-info">
+          <div class="speaker-name">Edmond Esufai</div>
+          <div class="speaker-role">MD · Ophthalmologist<br>Albania</div>
+          <span class="speaker-tag track-ophth">Ophthalmology</span>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-photo"><span class="speaker-initials">DZ</span><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-info">
+          <div class="speaker-name">Dmitry Zhaboedov</div>
+          <div class="speaker-role">MD, PhD · Ophthalmologist<br>Expert IARPS · Ukraine</div>
+          <span class="speaker-tag track-ophth">Ophthalmology</span>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-photo"><span class="speaker-initials">AC</span><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-info">
+          <div class="speaker-name">Andrea Cusumano</div>
+          <div class="speaker-role">MD, PhD · Ophthalmologist<br>Italy</div>
+          <span class="speaker-tag track-ophth">Ophthalmology</span>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-photo"><span class="speaker-initials">VS</span><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-info">
+          <div class="speaker-name">Vasyl Shevchyk</div>
+          <div class="speaker-role">MD, PhD · Ophthalmic Surgeon<br>Member of ESCRS · Ukraine</div>
+          <span class="speaker-tag track-ophth">Ophthalmology</span>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-photo"><span class="speaker-initials">ID</span><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-info">
+          <div class="speaker-name">Ivo Durkovic</div>
+          <div class="speaker-role">MD · Ophthalmologist<br>President IARPS · Slovakia</div>
+          <span class="speaker-tag track-ophth">Ophthalmology</span>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-photo"><span class="speaker-initials">EJ</span><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-info">
+          <div class="speaker-name">Eduardo Fernández Jover</div>
+          <div class="speaker-role">MD, PhD · Neuroengineering<br>& Neuroprosthesis · Spain</div>
+          <span class="speaker-tag track-ophth">Ophthalmology</span>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-photo"><span class="speaker-initials">MD</span><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-info">
+          <div class="speaker-name">Mykola Dovbish</div>
+          <div class="speaker-role">MD · Refractive Surgeon<br>Slovakia</div>
+          <span class="speaker-tag track-ophth">Ophthalmology</span>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-photo"><span class="speaker-initials">EC</span><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-info">
+          <div class="speaker-name">Elena Chugaj</div>
+          <div class="speaker-role">MD · Ophthalmoplastic Surgeon<br>Ukraine</div>
+          <span class="speaker-tag track-surg">Plastic & Reconstructive Surgery</span>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-photo"><span class="speaker-initials">OL</span><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-info">
+          <div class="speaker-name">Olesya Lebedynets</div>
+          <div class="speaker-role">MD · Plastic Surgeon<br>Ukraine</div>
+          <span class="speaker-tag track-surg">Plastic & Reconstructive Surgery</span>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-photo"><span class="speaker-initials">AC</span><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-info">
+          <div class="speaker-name">Agassi Charchoglyan</div>
+          <div class="speaker-role">MD · Plastic Surgeon<br>Spain</div>
+          <span class="speaker-tag track-surg">Plastic & Reconstructive Surgery</span>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-photo"><span class="speaker-initials">RM</span><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-info">
+          <div class="speaker-name">Rozprym Martin</div>
+          <div class="speaker-role">MD · Plastic Surgeon<br>Czech Republic</div>
+          <span class="speaker-tag track-surg">Plastic & Reconstructive Surgery</span>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-photo"><span class="speaker-initials">AB</span><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-info">
+          <div class="speaker-name">Alexander Borodko</div>
+          <div class="speaker-role">MD · Plastic & Reconstructive Surgeon<br>Expert UGAMC · Ukraine</div>
+          <span class="speaker-tag track-surg">Plastic & Reconstructive Surgery</span>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-photo"><span class="speaker-initials">IJ</span><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-info">
+          <div class="speaker-name">Igor Janik</div>
+          <div class="speaker-role">MD · Plastic Surgeon<br>Czech Republic</div>
+          <span class="speaker-tag track-surg">Plastic & Reconstructive Surgery</span>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-photo"><span class="speaker-initials">RC</span><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-info">
+          <div class="speaker-name">Rashit Chevizch</div>
+          <div class="speaker-role">MD, PhD · Plastic Surgeon<br>Rhinoplasty Specialist · Turkey</div>
+          <span class="speaker-tag track-surg">Plastic & Reconstructive Surgery</span>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-photo"><span class="speaker-initials">YK</span><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-info">
+          <div class="speaker-name">Yulia Kichik</div>
+          <div class="speaker-role">Cosmetologist<br>Secretary UGAMC · Ukraine</div>
+          <span class="speaker-tag track-cosm">Cosmetology</span>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-photo"><span class="speaker-initials">YB</span><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-info">
+          <div class="speaker-name">Yulia Bilenko</div>
+          <div class="speaker-role">MD · Dermatologist-Cosmetologist<br>Ukraine</div>
+          <span class="speaker-tag track-cosm">Cosmetology</span>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-photo"><span class="speaker-initials">TM</span><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-info">
+          <div class="speaker-name">Tatevik Melkumyan</div>
+          <div class="speaker-role">MD · Aesthetic Specialist & Dentist<br>Ukraine</div>
+          <span class="speaker-tag track-cosm">Cosmetology</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:48px;text-align:center;">
+      <p style="font-size:13px;color:var(--text-muted);margin-bottom:16px;">Interested in speaking at Beauty Expert Summit 2026?</p>
+      <button class="btn-outline" onclick="showPage('contact')">Submit Speaker Inquiry</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ VENUE ══════════ -->
+<div class="page" id="page-venue">
+  <div class="section-inner">
+    <div class="section-eyebrow">Location</div>
+    <h2 class="section-title">Elche, <em>Alicante</em></h2>
+    <p class="section-lead">Centro de Congresos de Elche — a modern congress centre in the heart of Alicante province, easily accessible from across Europe.</p>
+
+    <div class="venue-grid">
+      <div>
+        <div style="border-radius:12px;overflow:hidden;border:1px solid var(--border);box-shadow:0 8px 32px rgba(0,0,0,0.4);">
+          <img src="IDENTITY/centro-de-congresos4.jpeg" alt="Centro de Congresos de Elche" style="width:100%;height:380px;object-fit:cover;display:block;">
+        </div>
+        <div style="margin-top:16px;border:1px solid var(--border);border-radius:8px;padding:20px;background:rgba(201,169,110,0.04);">
+          <p style="font-size:12px;color:var(--text-muted);line-height:1.7;">The conference will take place at the Centro de Congresos de Elche — a state-of-the-art venue with full A/V facilities, live demonstration theatres and exhibition space for partner companies.</p>
+        </div>
+      </div>
+      <div class="venue-details">
+        <div class="venue-detail-item">
+          <div class="venue-detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+          <div>
+            <div class="venue-detail-label">Venue</div>
+            <div class="venue-detail-value">Centro de Congresos de Elche</div>
+            <div class="venue-detail-sub">Carrer del Filet de Fora, 1, 03203 Elx, Alicante, Spain</div>
+          </div>
+        </div>
+        <div class="venue-detail-item">
+          <div class="venue-detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+          <div>
+            <div class="venue-detail-label">Dates</div>
+            <div class="venue-detail-value">28–29 November 2026</div>
+            <div class="venue-detail-sub">Two full days · Registration from 08:30</div>
+          </div>
+        </div>
+        <div class="venue-detail-item">
+          <div class="venue-detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <div>
+            <div class="venue-detail-label">Nearest Airport</div>
+            <div class="venue-detail-value">Alicante–Elche Airport (ALC)</div>
+            <div class="venue-detail-sub">~15 min drive · International connections</div>
+          </div>
+        </div>
+        <div class="venue-detail-item">
+          <div class="venue-detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <div>
+            <div class="venue-detail-label">Partner Hotel</div>
+            <div class="venue-detail-value">Official hotel TBA</div>
+            <div class="venue-detail-sub">Discounted rates for delegates</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="travel-cards">
+      <div class="travel-card">
+        <div class="travel-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 3 12.79 19.79 19.79 0 0 1 .21 4.13 2 2 0 0 1 2.18 2h3.09a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L6.91 9.6a16 16 0 0 0 5.49 5.49l.96-.96a2 2 0 0 1 2.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/><path d="M16 2l6 6-6 6"/><line x1="22" y1="8" x2="12" y2="8"/></svg></div>
+        <div class="travel-title">By Air</div>
+        <div class="travel-text">Alicante–Elche Airport (ALC) is just 15 minutes from the venue, with direct connections from major European and CIS cities.</div>
+      </div>
+      <div class="travel-card">
+        <div class="travel-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+        <div class="travel-title">Local Transport</div>
+        <div class="travel-text">Shuttle service will be arranged between the official partner hotel and the venue for all registered attendees.</div>
+      </div>
+      <div class="travel-card">
+        <div class="travel-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="travel-title">Visa Support</div>
+        <div class="travel-text">Official invitation letters available upon registration to support visa applications for international attendees.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ REGISTER ══════════ -->
+<div class="page" id="page-register">
+  <div class="section-inner">
+    <div class="section-eyebrow">Registration</div>
+    <h2 class="section-title">Choose Your <em>Ticket</em></h2>
+    <p class="section-lead">Early bird prices available for a limited time. All tickets include certificate of attendance and access to recorded sessions.</p>
+
+    <div class="tickets-grid">
+      <!-- 2-Day In-Person -->
+      <div class="ticket-card featured">
+        <div class="ticket-type">Early Bird · Limited</div>
+        <div class="ticket-name">2-Day In-Person</div>
+        <div class="ticket-price"><span>€</span>300</div>
+        <div class="ticket-price-note">Final price €550 · Save €250</div>
+        <ul class="ticket-features">
+          <li>Access to all sessions — both days</li>
+          <li>Conference materials &amp; badge</li>
+          <li>Coffee breaks included</li>
+          <li>Certificate of attendance</li>
+          <li>Access to recorded sessions</li>
+        </ul>
+        <a href="https://buy.stripe.com/aFaaEY9KEcMM4QodzugEg0v" target="_blank" class="btn-ticket" style="display:block;text-align:center;text-decoration:none;">Buy Now — Stripe</a>
+      </div>
+
+      <!-- 1-Day In-Person -->
+      <div class="ticket-card">
+        <div class="ticket-type">Early Bird · 1 Day</div>
+        <div class="ticket-name">1-Day In-Person</div>
+        <div class="ticket-price"><span>€</span>150</div>
+        <div class="ticket-price-note">Final price €270 · Choose your day</div>
+        <ul class="ticket-features">
+          <li>Ophthalmology + Reconstructive Surgery</li>
+          <li>or Plastic Surgery + Cosmetology</li>
+          <li>Conference materials &amp; badge</li>
+          <li>Coffee breaks included</li>
+          <li>Certificate of attendance</li>
+          <li>Access to recorded sessions</li>
+        </ul>
+        <a href="https://buy.stripe.com/6oUeVe2icaEEciQfHCgEg0u" target="_blank" class="btn-ticket" style="display:block;text-align:center;text-decoration:none;">Buy Now — Stripe</a>
+      </div>
+
+      <!-- Online Streaming -->
+      <div class="ticket-card">
+        <div class="ticket-type">Early Bird · Online</div>
+        <div class="ticket-name">Live Streaming</div>
+        <div class="ticket-price"><span>€</span>100</div>
+        <div class="ticket-price-note">Final price €200 · 2 days online</div>
+        <ul class="ticket-features">
+          <li>Live stream — both days</li>
+          <li>Interactive live chat</li>
+          <li>Web certificate of attendance</li>
+          <li>Access to recorded sessions</li>
+        </ul>
+        <a href="https://buy.stripe.com/dRm7sMaOI7ss3Mk9jegEg0t" target="_blank" class="btn-ticket" style="display:block;text-align:center;text-decoration:none;">Buy Now — Stripe</a>
+      </div>
+
+      <!-- Student -->
+      <div class="ticket-card">
+        <div class="ticket-type">Academic</div>
+        <div class="ticket-name">Student</div>
+        <div class="ticket-price"><span>€</span>100</div>
+        <div class="ticket-price-note">Valid student ID required · 2 days</div>
+        <ul class="ticket-features">
+          <li>Access to all sessions — both days</li>
+          <li>Conference materials &amp; badge</li>
+          <li>Coffee breaks included</li>
+          <li>Certificate of attendance</li>
+          <li>Access to recorded sessions</li>
+        </ul>
+        <a href="https://buy.stripe.com/dRm7sMaOI7ss3Mk9jegEg0t" target="_blank" class="btn-ticket" style="display:block;text-align:center;text-decoration:none;">Buy Now — Stripe</a>
+      </div>
+    </div>
+
+    <div class="stripe-note">Secure payment powered by Stripe. All major cards accepted.</div>
+
+    <div style="margin-top:48px;border:1px solid var(--border);border-radius:10px;padding:28px 32px;background:rgba(26,58,92,0.1);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
+      <div>
+        <div style="font-size:14px;font-weight:500;color:var(--gold-light);margin-bottom:4px;">Need a group booking or invoice?</div>
+        <div style="font-size:13px;color:var(--text-muted);">Groups of 5+ receive a 15% discount. Contact us for corporate invoicing.</div>
+      </div>
+      <button class="btn-outline" onclick="showPage('contact')">Contact for Group Rates</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ SPONSORS ══════════ -->
+<div class="page" id="page-sponsors">
+  <div class="section-inner">
+    <div class="section-eyebrow">Partners & Sponsors</div>
+    <h2 class="section-title">Our <em>Partners</em></h2>
+    <p class="section-lead">Beauty Expert Summit 2026 is supported by leading companies in the aesthetic medicine, pharmaceutical and technology sectors.</p>
+
+    <div class="sponsor-tiers">
+      <div>
+        <div class="sponsor-tier-label">Institutional Partners</div>
+        <div class="sponsor-logos">
+          <div class="sponsor-placeholder sponsor-lg">UGAMC</div>
+          <div class="sponsor-placeholder sponsor-lg">IARPS</div>
+          <div class="sponsor-placeholder sponsor-lg" style="width:280px;">UMH Universidad Miguel Hernández de Elche</div>
+        </div>
+      </div>
+      <div>
+        <div class="sponsor-tier-label">Clinic Partners</div>
+        <div class="sponsor-logos">
+          <div class="sponsor-placeholder sponsor-md">iClinic</div>
+          <div class="sponsor-placeholder sponsor-md">LLC Clinic</div>
+          <div class="sponsor-placeholder sponsor-md">FLAAK</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="become-sponsor">
+      <div class="become-sponsor-text">
+        <h3>Become a Sponsor</h3>
+        <p>Reach 500+ specialists in ophthalmology, cosmetology and plastic surgery. Download our sponsorship brochure or contact us directly.</p>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <button class="btn-gold">Download Brochure</button>
+        <button class="btn-outline" onclick="showPage('contact')">Contact Us</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ FAQ ══════════ -->
+<div class="page" id="page-faq">
+  <div class="section-inner">
+    <div class="section-eyebrow">FAQ</div>
+    <h2 class="section-title">Frequently Asked <em>Questions</em></h2>
+    <p class="section-lead">Everything you need to know before registering.</p>
+
+    <div class="faq-list" id="faqList">
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Who should attend Beauty Expert Summit 2026?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">The summit is designed for licensed medical professionals including ophthalmologists, dermatologists, cosmetologists, plastic surgeons, reconstructive surgeons, and residents or fellows in these specialties. Medical students are welcome with a Student ticket.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Will sessions be available in multiple languages?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">Yes. The conference will be conducted in English, Spanish and Ukrainian. Simultaneous interpretation will be available for the main plenary sessions. Workshop materials will be provided in all three languages.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What is included in the ticket price?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">All tickets include access to all plenary and track sessions across both days, conference materials, name badge, certificate of attendance and access to session recordings. Standard and VIP tickets additionally include the welcome dinner. VIP tickets include workshop sessions and the VIP networking dinner.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Can I get an invitation letter for my visa application?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">Yes. Upon completing your registration and payment, you can request an official invitation letter from UGAMC which can be used to support your visa application for Spain. Please allow 3–5 business days for processing.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What is the refund / cancellation policy?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">Cancellations made more than 60 days before the event receive a full refund minus a €25 processing fee. Cancellations 30–60 days before receive a 50% refund. No refund is issued for cancellations within 30 days of the event, however tickets may be transferred to a colleague at no charge.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Is there a group discount?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">Groups of 5 or more delegates from the same institution or clinic receive a 15% discount. Please contact us directly at the email on the Contact page to arrange group registration and invoicing.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Will CME / CPD credits be awarded?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">The conference is being submitted for CME/CPD accreditation. Details will be confirmed and published on this website once accreditation is granted. All registered attendees will receive a certificate of attendance which can be submitted to most licensing bodies.</div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:48px;text-align:center;">
+      <p style="font-size:14px;color:var(--text-muted);margin-bottom:16px;">Still have questions?</p>
+      <button class="btn-gold" onclick="showPage('contact')">Contact the Organising Team</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ CONTACT ══════════ -->
+<div class="page" id="page-contact">
+  <div class="section-inner">
+    <div class="section-eyebrow">Get in Touch</div>
+    <h2 class="section-title">Contact <em>Us</em></h2>
+    <p class="section-lead">For general enquiries, speaker submissions, sponsorship proposals or group bookings.</p>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-info-item">
+          <div class="contact-info-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div>
+            <div class="contact-info-label">Email</div>
+            <div class="contact-info-value">info@beautyexpertsummit.com</div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <div>
+            <div class="contact-info-label">Website</div>
+            <div class="contact-info-value">beautyexpertsummit.com</div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg></div>
+          <div>
+            <div class="contact-info-label">Organiser</div>
+            <div class="contact-info-value">UGAMC Non Profit Organisation</div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+          <div>
+            <div class="contact-info-label">Conference Location</div>
+            <div class="contact-info-value">Centro de Congresos de Elche, Alicante, Spain</div>
+          </div>
+        </div>
+        <div style="margin-top:8px;padding:20px;border:1px solid var(--border);border-radius:8px;background:rgba(201,169,110,0.04);">
+          <div style="font-size:12px;color:var(--text-muted);margin-bottom:8px;letter-spacing:0.08em;text-transform:uppercase;font-weight:500;">Response Time</div>
+          <div style="font-size:13px;color:var(--gold-light);">We aim to respond to all enquiries within 2 business days.</div>
+        </div>
+      </div>
+
+      <form class="contact-form" onsubmit="submitContact(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">First Name</label>
+            <input class="form-input" type="text" placeholder="Your first name">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Last Name</label>
+            <input class="form-input" type="text" placeholder="Your last name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input class="form-input" type="email" placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Enquiry Type</label>
+          <select class="form-select">
+            <option value="">Select a topic</option>
+            <option>General Information</option>
+            <option>Registration & Tickets</option>
+            <option>Speaker Submission</option>
+            <option>Sponsorship & Partnerships</option>
+            <option>Group Booking</option>
+            <option>Visa Invitation Letter</option>
+            <option>Press & Media</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Message</label>
+          <textarea class="form-textarea" placeholder="How can we help you?"></textarea>
+        </div>
+        <button type="submit" class="btn-gold" style="width:100%;padding:16px;font-size:14px;">Send Message</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand-name">Beauty Expert Summit</div>
+      <div class="footer-brand-sub">28–29 November 2026 · Elche, Spain</div>
+      <div class="footer-tagline">An international conference on Ophthalmology, Cosmetology, and Plastic & Reconstructive Surgery.</div>
+    </div>
+    <div>
+      <div class="footer-col-title">Navigate</div>
+      <ul class="footer-links">
+        <li><a onclick="showPage('home')">Home</a></li>
+        <li><a onclick="showPage('program')">Program</a></li>
+        <li><a onclick="showPage('speakers')">Speakers</a></li>
+        <li><a onclick="showPage('venue')">Venue & Travel</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Event</div>
+      <ul class="footer-links">
+        <li><a onclick="showPage('register')">Register</a></li>
+        <li><a onclick="showPage('sponsors')">Sponsors</a></li>
+        <li><a onclick="showPage('faq')">FAQ</a></li>
+        <li><a onclick="showPage('contact')">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Organiser</div>
+      <ul class="footer-links">
+        <li><a>UGAMC</a></li>
+        <li><a>Non Profit Organisation</a></li>
+        <li><a onclick="showPage('contact')">Sponsorship</a></li>
+        <li><a onclick="showPage('contact')">Press Enquiries</a></li>
+      </ul>
+    </div>
+  </div>
+  <div style="margin-top:40px;border-radius:12px;overflow:hidden;border:1px solid var(--border);box-shadow:0 8px 32px rgba(0,0,0,0.4);">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d483.26634005382806!2d-0.6958276999999999!3d38.2636107!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd63b68d3015fb67%3A0x8a5d9268d846445c!2sCentro%20De%20Congresos%20De%20Elche!5e1!3m2!1suk!2spl!4v1778981995049!5m2!1suk!2spl" width="100%" height="280" style="border:0;display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Beauty Expert Summit. All rights reserved.</div>
+    <div class="footer-ugamc">Organised by <span>UGAMC Non Profit Organisation</span></div>
+  </div>
+</footer>
+
+<!-- ══════════ TICKET MODAL ══════════ -->
+<div class="modal-overlay" id="ticketModal" onclick="closeModalOutside(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-title" id="modalTitle">Early Bird</div>
+    <div class="modal-sub">Beauty Expert Summit 2026 · Spain</div>
+    <div class="modal-price-display">
+      <div class="price" id="modalPrice">€299</div>
+      <div class="tier" id="modalTier">Early Bird ticket</div>
+    </div>
+    <div class="modal-stripe-area">
+      <div class="modal-stripe-logo">stripe</div>
+      <p>Stripe payment integration goes here.<br>Replace this block with your Stripe Payment Link or Stripe.js embed.</p>
+    </div>
+    <button class="btn-gold" style="width:100%;padding:14px;font-size:13px;letter-spacing:0.08em;" onclick="showToast()">
+      Proceed to Payment
+    </button>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast">Redirecting to Stripe checkout…</div>
+
+<script>
+// ── PAGE ROUTING ──
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const target = document.getElementById('page-' + name);
+  if (target) { target.classList.add('active'); window.scrollTo(0,0); }
+  // Update nav active state
+  document.querySelectorAll('[data-page]').forEach(a => {
+    a.style.opacity = a.dataset.page === name ? '1' : '';
+    a.style.color = a.dataset.page === name ? 'var(--gold)' : '';
+  });
+}
+
+// ── DAY TABS ──
+function switchDay(n) {
+  document.querySelectorAll('.day-tab').forEach((t,i) => t.classList.toggle('active', i === n-1));
+  document.querySelectorAll('.schedule-panel').forEach((p,i) => p.classList.toggle('active', i === n-1));
+}
+
+// ── FAQ ──
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// ── LANG SWITCHER ──
+function setLang(lang) {
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  // Hook in i18n here when ready
+}
+
+// ── MOBILE MENU ──
+function toggleMobileMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+// ── TICKET MODAL ──
+function openTicketModal(tier, price) {
+  document.getElementById('modalTitle').textContent = tier;
+  document.getElementById('modalPrice').textContent = price;
+  document.getElementById('modalTier').textContent = tier + ' ticket · Beauty Expert Summit 2026';
+  document.getElementById('ticketModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('ticketModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeModalOutside(e) {
+  if (e.target === document.getElementById('ticketModal')) closeModal();
+}
+
+// ── TOAST ──
+function showToast() {
+  const t = document.getElementById('toast');
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+// ── CONTACT FORM ──
+function submitContact(e) {
+  e.preventDefault();
+  showToast();
+  document.getElementById('toast').textContent = 'Message sent! We\'ll be in touch within 2 business days.';
+  setTimeout(() => {
+    document.getElementById('toast').textContent = '🔒 Redirecting to Stripe checkout…';
+  }, 3000);
+}
+
+// ── MESH GRADIENT (WebGL) — mirrors @paper-design/shaders MeshGradient ──
+(function () {
+  var canvas = document.getElementById('mesh-canvas');
+  var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return; // graceful fallback — CSS solid navy stays
+
+  var VS = [
+    'attribute vec2 a_pos;',
+    'void main(){gl_Position=vec4(a_pos,0.0,1.0);}'
+  ].join('\n');
+
+  var FS = [
+    'precision mediump float;',
+    'uniform float u_t;',
+    'uniform vec2  u_r;',
+
+    // Palette — espresso navy / gold / gold-light / mid-navy / steel-blue
+    'const vec3 C1=vec3(0.051,0.106,0.165);', // #0D1B2A
+    'const vec3 C2=vec3(0.788,0.663,0.431);', // #C9A96E
+    'const vec3 C3=vec3(0.910,0.835,0.690);', // #E8D5B0
+    'const vec3 C4=vec3(0.102,0.227,0.361);', // #1A3A5C
+    'const vec3 C5=vec3(0.353,0.478,0.604);', // #5A7A9A
+
+    'float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}',
+
+    'float sn(vec2 p){',
+    '  vec2 i=floor(p),f=fract(p);',
+    '  vec2 u=f*f*(3.0-2.0*f);',
+    '  return mix(mix(h(i),h(i+vec2(1,0)),u.x),',
+    '             mix(h(i+vec2(0,1)),h(i+vec2(1,1)),u.x),u.y);',
+    '}',
+
+    'float fbm(vec2 p){',
+    '  float v=0.0,a=0.5;',
+    '  for(int i=0;i<5;i++){v+=a*sn(p);p*=2.1;a*=0.5;}',
+    '  return v;',
+    '}',
+
+    'void main(){',
+    '  vec2 uv=gl_FragCoord.xy/u_r;',
+    '  vec2 p=vec2(uv.x*u_r.x/u_r.y,uv.y);',
+    '  float t=u_t*0.10;',
+
+    '  float f1=fbm(p*1.8+vec2(t*0.28,t*0.17));',
+    '  float f2=fbm(p*2.3+vec2(-t*0.19,t*0.25)+vec2(3.2,1.7));',
+    '  float f3=fbm(p*1.4+vec2(t*0.11,-t*0.22)+vec2(6.1,8.3));',
+    '  float f4=fbm(p*2.8+vec2(t*0.15, t*0.13)+vec2(12.5,4.1));',
+
+    '  vec3 col=C1;',
+    '  col=mix(col,C4,smoothstep(0.28,0.72,f1));',       // navy depth
+    '  col=mix(col,C2,smoothstep(0.52,0.92,f2)*0.55);',  // gold bloom
+    '  col=mix(col,C5,smoothstep(0.42,0.82,f3)*0.38);',  // steel-blue haze
+    '  col=mix(col,C3,f1*f2*0.28);',                     // gold-light shimmer
+    '  col=mix(col,C2,f4*f2*0.18);',                     // extra gold veins
+
+    '  gl_FragColor=vec4(col,1.0);',
+    '}'
+  ].join('\n');
+
+  function shader(type, src) {
+    var s = gl.createShader(type);
+    gl.shaderSource(s, src); gl.compileShader(s); return s;
+  }
+  var prog = gl.createProgram();
+  gl.attachShader(prog, shader(gl.VERTEX_SHADER,   VS));
+  gl.attachShader(prog, shader(gl.FRAGMENT_SHADER, FS));
+  gl.linkProgram(prog); gl.useProgram(prog);
+
+  var buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER,
+    new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  var aPos = gl.getAttribLocation(prog, 'a_pos');
+  gl.enableVertexAttribArray(aPos);
+  gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+
+  var uT = gl.getUniformLocation(prog, 'u_t');
+  var uR = gl.getUniformLocation(prog, 'u_r');
+  var t0 = performance.now();
+
+  function resize() {
+    var dpr = Math.min(devicePixelRatio, 2); // cap at 2× for perf
+    canvas.width  = canvas.offsetWidth  * dpr | 0;
+    canvas.height = canvas.offsetHeight * dpr | 0;
+    gl.viewport(0, 0, canvas.width, canvas.height);
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function tick() {
+    requestAnimationFrame(tick);
+    // only paint when home page is visible
+    if (!document.getElementById('page-home').classList.contains('active')) return;
+    gl.uniform1f(uT, (performance.now() - t0) / 1000);
+    gl.uniform2f(uR, canvas.width, canvas.height);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+  }
+  tick();
+})();
+
+// ── LOGO: canvas white-background removal (preserves original gold hue) ──
+(function() {
+  function removeWhiteBg(imgEl) {
+    try {
+      var canvas = document.createElement('canvas');
+      canvas.width  = imgEl.naturalWidth;
+      canvas.height = imgEl.naturalHeight;
+      var ctx = canvas.getContext('2d');
+      ctx.drawImage(imgEl, 0, 0);
+      var id = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      var d  = id.data;
+      for (var i = 0; i < d.length; i += 4) {
+        var minCh = Math.min(d[i], d[i+1], d[i+2]);
+        var w = minCh / 255; // 1.0 = pure white
+        if (w > 0.82) {
+          var t = (w - 0.82) / 0.18; // 0→1 as pixel goes white→pure-white
+          d[i+3] = Math.round(255 * (1 - Math.pow(t, 0.75)));
+        }
+      }
+      ctx.putImageData(id, 0, 0);
+      imgEl._bgDone = true;
+      imgEl.src = canvas.toDataURL('image/png');
+    } catch(e) {}
+  }
+  window.addEventListener('load', function() {
+    var img = document.querySelector('.hero-summit-logo img');
+    if (!img || img._bgDone) return;
+    if (img.complete && img.naturalWidth > 0) {
+      removeWhiteBg(img);
+    } else {
+      img.addEventListener('load', function h() {
+        img.removeEventListener('load', h);
+        if (!img._bgDone) removeWhiteBg(img);
+      });
+    }
+  });
+})();
+
+// ── LA DAMA QUOTE ──
+function showDamaQuote() {
+  const q = document.getElementById('damaQuote');
+  if (!q) return;
+  q.classList.add('visible');
+  setTimeout(() => q.classList.remove('visible'), 5000);
+}
+setTimeout(showDamaQuote, 4000);          // first show after 4 s
+setInterval(showDamaQuote, 15000);        // then every 15 s
+
+// Init
+showPage('home');
+</script>
+</body>
+</html>

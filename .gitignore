@@ -1,4 +1,5 @@
 temporary screenshots/
-shader-hero/
+shader-hero/node_modules/
+shader-hero/.next/
 CLAUDE.md
 *.mjs

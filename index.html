@@ -428,21 +428,22 @@ nav {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  overflow: hidden;
 }
 #chromata-source {
   position: absolute;
-  width: 100%;
-  height: 100%;
   opacity: 0;
+  width: 1px;
+  height: 1px;
 }
 #chromataCanvas {
   position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
   width: 100% !important;
   height: 100% !important;
-  opacity: 0.75;
+  object-fit: cover;
+  opacity: 0.6;
   mix-blend-mode: screen;
 }
 #page-program .section-inner { position: relative; z-index: 1; }
@@ -2274,18 +2275,21 @@ function initChromata() {
   var img = document.getElementById('chromata-source');
   var page = document.getElementById('page-program');
   if (!img || !page) return;
-  var w = page.offsetWidth || window.innerWidth;
-  var h = page.offsetHeight || window.innerHeight;
-  if (w < 10) { setTimeout(initChromata, 100); return; }
-  img.setAttribute('width', w);
-  img.setAttribute('height', h);
+  var pw = page.offsetWidth || window.innerWidth;
+  if (pw < 10) { setTimeout(initChromata, 100); return; }
+  // Cap canvas at 700×500 — larger arrays cause silent OOM in Chromata
+  var ratio = (page.offsetHeight || window.innerHeight) / pw;
+  var cw = Math.min(pw, 700);
+  var ch = Math.round(cw * ratio);
+  img.setAttribute('width', cw);
+  img.setAttribute('height', ch);
   _chromataInst = new Chromata(img, {
     colorMode: 'color',
     key: 'high',
     lineMode: 'smooth',
     speed: 20,
-    lineWidth: 1,
-    pathFinderCount: 60,
+    lineWidth: 2,
+    pathFinderCount: 40,
     compositeOperation: 'lighten',
     origin: ['bottom', 'top', 'left', 'right'],
     outputSize: 'original'

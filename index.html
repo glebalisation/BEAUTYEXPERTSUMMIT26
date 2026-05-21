@@ -2036,20 +2036,20 @@ footer {
         <div class="form-row">
           <div class="form-group">
             <label class="form-label">First Name</label>
-            <input class="form-input" type="text" placeholder="Your first name">
+            <input class="form-input" type="text" name="first_name" placeholder="Your first name" required>
           </div>
           <div class="form-group">
             <label class="form-label">Last Name</label>
-            <input class="form-input" type="text" placeholder="Your last name">
+            <input class="form-input" type="text" name="last_name" placeholder="Your last name" required>
           </div>
         </div>
         <div class="form-group">
           <label class="form-label">Email</label>
-          <input class="form-input" type="email" placeholder="your@email.com">
+          <input class="form-input" type="email" name="email" placeholder="your@email.com" required>
         </div>
         <div class="form-group">
           <label class="form-label">Enquiry Type</label>
-          <select class="form-select">
+          <select class="form-select" name="enquiry_type">
             <option value="">Select a topic</option>
             <option>General Information</option>
             <option>Registration & Tickets</option>
@@ -2063,7 +2063,7 @@ footer {
         </div>
         <div class="form-group">
           <label class="form-label">Message</label>
-          <textarea class="form-textarea" placeholder="How can we help you?"></textarea>
+          <textarea class="form-textarea" name="message" placeholder="How can we help you?" required></textarea>
         </div>
         <button type="submit" class="btn-gold" style="width:100%;padding:16px;font-size:14px;">Send Message</button>
       </form>
@@ -2202,13 +2202,32 @@ function showToast() {
 }
 
 // ── CONTACT FORM ──
-function submitContact(e) {
+async function submitContact(e) {
   e.preventDefault();
-  showToast();
-  document.getElementById('toast').textContent = 'Message sent! We\'ll be in touch within 2 business days.';
-  setTimeout(() => {
-    document.getElementById('toast').textContent = '🔒 Redirecting to Stripe checkout…';
-  }, 3000);
+  const form = e.target;
+  const btn = form.querySelector('button[type="submit"]');
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+  try {
+    const res = await fetch('https://formspree.io/f/REPLACE_WITH_YOUR_ID', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form)
+    });
+    if (res.ok) {
+      form.reset();
+      showToast();
+      document.getElementById('toast').textContent = 'Message sent! We\'ll be in touch within 2 business days.';
+    } else {
+      showToast();
+      document.getElementById('toast').textContent = 'Something went wrong. Please email us directly.';
+    }
+  } catch {
+    showToast();
+    document.getElementById('toast').textContent = 'Something went wrong. Please email us directly.';
+  }
+  btn.disabled = false;
+  btn.textContent = 'Send Message';
 }
 
 // ── MESH GRADIENT (WebGL) — mirrors @paper-design/shaders MeshGradient ──

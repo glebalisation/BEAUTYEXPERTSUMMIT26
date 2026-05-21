@@ -2032,24 +2032,27 @@ footer {
         </div>
       </div>
 
-      <form class="contact-form" onsubmit="submitContact(event)">
+      <div data-fs-success style="display:none;color:var(--gold-light);padding:20px;text-align:center;font-size:15px;">Thank you! We'll be in touch within 2 business days.</div>
+      <div data-fs-error style="display:none;color:#e07070;padding:12px;font-size:13px;"></div>
+      <form id="contact-form" class="contact-form">
         <div class="form-row">
           <div class="form-group">
             <label class="form-label">First Name</label>
-            <input class="form-input" type="text" name="first_name" placeholder="Your first name" required>
+            <input class="form-input" type="text" name="first_name" placeholder="Your first name" required data-fs-field>
           </div>
           <div class="form-group">
             <label class="form-label">Last Name</label>
-            <input class="form-input" type="text" name="last_name" placeholder="Your last name" required>
+            <input class="form-input" type="text" name="last_name" placeholder="Your last name" required data-fs-field>
           </div>
         </div>
         <div class="form-group">
           <label class="form-label">Email</label>
-          <input class="form-input" type="email" name="email" placeholder="your@email.com" required>
+          <input class="form-input" type="email" name="email" placeholder="your@email.com" required data-fs-field>
+          <span data-fs-error="email" style="color:#e07070;font-size:12px;margin-top:4px;"></span>
         </div>
         <div class="form-group">
           <label class="form-label">Enquiry Type</label>
-          <select class="form-select" name="enquiry_type">
+          <select class="form-select" name="enquiry_type" data-fs-field>
             <option value="">Select a topic</option>
             <option>General Information</option>
             <option>Registration & Tickets</option>
@@ -2063,10 +2066,16 @@ footer {
         </div>
         <div class="form-group">
           <label class="form-label">Message</label>
-          <textarea class="form-textarea" name="message" placeholder="How can we help you?" required></textarea>
+          <textarea class="form-textarea" name="message" placeholder="How can we help you?" required data-fs-field></textarea>
+          <span data-fs-error="message" style="color:#e07070;font-size:12px;margin-top:4px;"></span>
         </div>
-        <button type="submit" class="btn-gold" style="width:100%;padding:16px;font-size:14px;">Send Message</button>
+        <button type="submit" class="btn-gold" style="width:100%;padding:16px;font-size:14px;" data-fs-submit-btn>Send Message</button>
       </form>
+      <script>
+        window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+        formspree('initForm', { formElement: '#contact-form', formId: 'xnjrddde' });
+      </script>
+      <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
     </div>
   </div>
 </div>
@@ -2201,34 +2210,6 @@ function showToast() {
   setTimeout(() => t.classList.remove('show'), 3000);
 }
 
-// ── CONTACT FORM ──
-async function submitContact(e) {
-  e.preventDefault();
-  const form = e.target;
-  const btn = form.querySelector('button[type="submit"]');
-  btn.disabled = true;
-  btn.textContent = 'Sending…';
-  try {
-    const res = await fetch('https://formspree.io/f/REPLACE_WITH_YOUR_ID', {
-      method: 'POST',
-      headers: { 'Accept': 'application/json' },
-      body: new FormData(form)
-    });
-    if (res.ok) {
-      form.reset();
-      showToast();
-      document.getElementById('toast').textContent = 'Message sent! We\'ll be in touch within 2 business days.';
-    } else {
-      showToast();
-      document.getElementById('toast').textContent = 'Something went wrong. Please email us directly.';
-    }
-  } catch {
-    showToast();
-    document.getElementById('toast').textContent = 'Something went wrong. Please email us directly.';
-  }
-  btn.disabled = false;
-  btn.textContent = 'Send Message';
-}
 
 // ── MESH GRADIENT (WebGL) — mirrors @paper-design/shaders MeshGradient ──
 (function () {

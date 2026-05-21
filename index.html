@@ -2032,31 +2032,30 @@ footer {
         </div>
       </div>
 
-      <div data-fs-success style="display:none;text-align:center;padding:48px 24px;border:1px solid rgba(201,169,110,0.3);border-radius:12px;background:rgba(201,169,110,0.06);">
-        <div style="font-size:36px;margin-bottom:16px;">✓</div>
+      <div id="contact-success" style="display:none;text-align:center;padding:48px 24px;border:1px solid rgba(201,169,110,0.3);border-radius:12px;background:rgba(201,169,110,0.06);">
+        <div style="font-size:40px;margin-bottom:16px;">✓</div>
         <div style="color:var(--gold-light);font-size:20px;font-weight:600;margin-bottom:10px;">Message Sent!</div>
         <div style="color:var(--text-muted);font-size:14px;line-height:1.6;">Thank you for reaching out.<br>We'll be in touch within 2 business days.</div>
       </div>
-      <div data-fs-error style="display:none;color:#e07070;padding:12px;font-size:13px;border:1px solid rgba(224,112,112,0.3);border-radius:8px;margin-bottom:12px;"></div>
-      <form id="contact-form" class="contact-form">
+      <div id="contact-error" style="display:none;color:#e07070;padding:12px;font-size:13px;border:1px solid rgba(224,112,112,0.3);border-radius:8px;margin-bottom:12px;">Something went wrong. Please email us at info.beautyexpertsummit@gmail.com</div>
+      <form id="contact-form" class="contact-form" onsubmit="submitContact(event)">
         <div class="form-row">
           <div class="form-group">
             <label class="form-label">First Name</label>
-            <input class="form-input" type="text" name="first_name" placeholder="Your first name" required data-fs-field>
+            <input class="form-input" type="text" name="first_name" placeholder="Your first name" required>
           </div>
           <div class="form-group">
             <label class="form-label">Last Name</label>
-            <input class="form-input" type="text" name="last_name" placeholder="Your last name" required data-fs-field>
+            <input class="form-input" type="text" name="last_name" placeholder="Your last name" required>
           </div>
         </div>
         <div class="form-group">
           <label class="form-label">Email</label>
-          <input class="form-input" type="email" name="email" placeholder="your@email.com" required data-fs-field>
-          <span data-fs-error="email" style="color:#e07070;font-size:12px;margin-top:4px;"></span>
+          <input class="form-input" type="email" name="email" placeholder="your@email.com" required>
         </div>
         <div class="form-group">
           <label class="form-label">Enquiry Type</label>
-          <select class="form-select" name="enquiry_type" data-fs-field>
+          <select class="form-select" name="enquiry_type">
             <option value="">Select a topic</option>
             <option>General Information</option>
             <option>Registration & Tickets</option>
@@ -2070,16 +2069,10 @@ footer {
         </div>
         <div class="form-group">
           <label class="form-label">Message</label>
-          <textarea class="form-textarea" name="message" placeholder="How can we help you?" required data-fs-field></textarea>
-          <span data-fs-error="message" style="color:#e07070;font-size:12px;margin-top:4px;"></span>
+          <textarea class="form-textarea" name="message" placeholder="How can we help you?" required></textarea>
         </div>
-        <button type="submit" class="btn-gold" style="width:100%;padding:16px;font-size:14px;" data-fs-submit-btn>Send Message</button>
+        <button type="submit" id="contact-btn" class="btn-gold" style="width:100%;padding:16px;font-size:14px;">Send Message</button>
       </form>
-      <script>
-        window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
-        formspree('initForm', { formElement: '#contact-form', formId: 'xnjrddde' });
-      </script>
-      <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
     </div>
   </div>
 </div>
@@ -2212,6 +2205,36 @@ function showToast() {
   const t = document.getElementById('toast');
   t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+async function submitContact(e) {
+  e.preventDefault();
+  const form = document.getElementById('contact-form');
+  const btn = document.getElementById('contact-btn');
+  const successEl = document.getElementById('contact-success');
+  const errorEl = document.getElementById('contact-error');
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+  errorEl.style.display = 'none';
+  try {
+    const res = await fetch('https://formspree.io/f/xnjrddde', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form)
+    });
+    if (res.ok) {
+      form.style.display = 'none';
+      successEl.style.display = 'block';
+    } else {
+      errorEl.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'Send Message';
+    }
+  } catch {
+    errorEl.style.display = 'block';
+    btn.disabled = false;
+    btn.textContent = 'Send Message';
+  }
 }
 
 

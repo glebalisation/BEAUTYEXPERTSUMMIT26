@@ -442,7 +442,7 @@ nav {
   left: 0 !important;
   width: 100% !important;
   height: 100% !important;
-  opacity: 0.55;
+  opacity: 0.75;
   mix-blend-mode: screen;
 }
 #page-program .section-inner { position: relative; z-index: 1; }
@@ -2179,7 +2179,7 @@ function showPage(name) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   const target = document.getElementById('page-' + name);
   if (target) { target.classList.add('active'); window.scrollTo(0,0); }
-  if (name === 'program') requestAnimationFrame(initChromata);
+  if (name === 'program') setTimeout(initChromata, 80);
   // Update nav active state
   document.querySelectorAll('[data-page]').forEach(a => {
     a.style.opacity = a.dataset.page === name ? '1' : '';
@@ -2272,7 +2272,13 @@ var _chromataInst = null;
 function initChromata() {
   if (_chromataInst) return;
   var img = document.getElementById('chromata-source');
-  if (!img) return;
+  var page = document.getElementById('page-program');
+  if (!img || !page) return;
+  var w = page.offsetWidth || window.innerWidth;
+  var h = page.offsetHeight || window.innerHeight;
+  if (w < 10) { setTimeout(initChromata, 100); return; }
+  img.setAttribute('width', w);
+  img.setAttribute('height', h);
   _chromataInst = new Chromata(img, {
     colorMode: 'color',
     key: 'high',

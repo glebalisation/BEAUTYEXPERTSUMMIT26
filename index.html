@@ -1380,6 +1380,30 @@ footer {
   transform: translateX(-50%) translateY(0);
   animation: quote-glow-pulse 3s ease-in-out infinite;
 }
+
+/* ── HEADING SHADER ── */
+.heading-wrap {
+  position: relative;
+  overflow: visible;
+  display: block;
+  width: 100%;
+}
+.heading-wrap > *:not(.heading-shader-canvas) {
+  position: relative;
+  z-index: 1;
+}
+.heading-shader-canvas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% + 140px);
+  height: 250px;
+  pointer-events: none;
+  z-index: 0;
+  mix-blend-mode: screen;
+  opacity: 0.92;
+}
 </style>
 </head>
 <body>
@@ -2385,6 +2409,114 @@ function showDamaQuote() {
 }
 setTimeout(showDamaQuote, 4000);          // first show after 4 s
 setInterval(showDamaQuote, 15000);        // then every 15 s
+
+// ── HEADING SHADER (chromatic sine-wave glow behind section headings) ──
+(function () {
+  var VS = [
+    'attribute vec2 a_pos;',
+    'void main(){ gl_Position = vec4(a_pos, 0.0, 1.0); }'
+  ].join('\n');
+
+  var FS = [
+    'precision highp float;',
+    'uniform vec2  u_res;',
+    'uniform float u_t;',
+    'uniform float u_xs;',
+    'uniform float u_ys;',
+    'uniform float u_d;',
+    'void main() {',
+    '  vec2 uv = gl_FragCoord.xy / u_res;',
+    '  vec2 p  = (gl_FragCoord.xy * 2.0 - u_res) / min(u_res.x, u_res.y);',
+    '  float dv = length(p) * u_d;',
+    '  float r = 0.038 / max(abs(p.y + sin((p.x*(1.0+dv) + u_t) * u_xs) * u_ys), 0.001);',
+    '  float g = 0.038 / max(abs(p.y + sin((p.x           + u_t) * u_xs) * u_ys), 0.001);',
+    '  float b = 0.038 / max(abs(p.y + sin((p.x*(1.0-dv) + u_t) * u_xs) * u_ys), 0.001);',
+    '  vec3 col = r * vec3(0.788, 0.663, 0.431)',
+    '           + g * vec3(0.910, 0.835, 0.690)',
+    '           + b * vec3(0.353, 0.478, 0.604);',
+    '  float fx = 1.0 - pow(abs(uv.x - 0.5) * 2.0, 2.5);',
+    '  float fy = 1.0 - pow(abs(uv.y - 0.5) * 2.0, 1.8);',
+    '  gl_FragColor = vec4(col * clamp(fx, 0.0, 1.0) * clamp(fy, 0.0, 1.0), 1.0);',
+    '}'
+  ].join('\n');
+
+  // Wrap eyebrow + title in a .heading-wrap for each subpage
+  document.querySelectorAll('.page:not(#page-home) .section-inner').forEach(function(inner) {
+    var ey = inner.querySelector('.section-eyebrow');
+    var ti = inner.querySelector('.section-title');
+    if (!ey || !ti) return;
+    var wrap = document.createElement('div');
+    wrap.className = 'heading-wrap';
+    inner.insertBefore(wrap, ey);
+    wrap.appendChild(ey);
+    wrap.appendChild(ti);
+  });
+
+  // Single shared WebGL canvas — moves to whichever page is active
+  var cv = document.createElement('canvas');
+  cv.className = 'heading-shader-canvas';
+  var gl = cv.getContext('webgl') || cv.getContext('experimental-webgl');
+  if (!gl) return;
+
+  function mkShader(type, src) {
+    var s = gl.createShader(type);
+    gl.shaderSource(s, src); gl.compileShader(s); return s;
+  }
+  var prog = gl.createProgram();
+  gl.attachShader(prog, mkShader(gl.VERTEX_SHADER, VS));
+  gl.attachShader(prog, mkShader(gl.FRAGMENT_SHADER, FS));
+  gl.linkProgram(prog); gl.useProgram(prog);
+
+  var buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  var aPos = gl.getAttribLocation(prog, 'a_pos');
+  gl.enableVertexAttribArray(aPos);
+  gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+
+  var uT   = gl.getUniformLocation(prog, 'u_t');
+  var uRes = gl.getUniformLocation(prog, 'u_res');
+  var uXs  = gl.getUniformLocation(prog, 'u_xs');
+  var uYs  = gl.getUniformLocation(prog, 'u_ys');
+  var uD   = gl.getUniformLocation(prog, 'u_d');
+
+  var t0 = performance.now();
+  var active = false;
+
+  function resize() {
+    if (!cv.parentNode) return;
+    var dpr = Math.min(devicePixelRatio, 2);
+    cv.width  = (cv.offsetWidth  * dpr) | 0;
+    cv.height = (cv.offsetHeight * dpr) | 0;
+    gl.viewport(0, 0, cv.width, cv.height);
+  }
+
+  (function tick() {
+    requestAnimationFrame(tick);
+    if (!active || !cv.width) return;
+    gl.uniform1f(uT,   (performance.now() - t0) / 1000);
+    gl.uniform2f(uRes, cv.width, cv.height);
+    gl.uniform1f(uXs,  0.9);
+    gl.uniform1f(uYs,  0.32);
+    gl.uniform1f(uD,   0.07);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+  })();
+
+  var _sp = window.showPage;
+  window.showPage = function(name) {
+    _sp.call(this, name);
+    if (cv.parentNode) cv.parentNode.removeChild(cv);
+    active = false;
+    if (name === 'home') return;
+    var wrap = document.querySelector('#page-' + name + ' .heading-wrap');
+    if (!wrap) return;
+    wrap.insertBefore(cv, wrap.firstChild);
+    active = true;
+    requestAnimationFrame(resize);
+  };
+
+  window.addEventListener('resize', resize);
+})();
 
 // Init
 showPage('home');

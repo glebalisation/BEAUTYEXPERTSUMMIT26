@@ -619,15 +619,14 @@ nav {
   display: flex; flex-direction: column;
   transition: var(--transition);
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 .ticket-card:hover { border-color: var(--gold); transform: translateY(-4px); }
 .ticket-card.featured {
   border-color: var(--gold);
   background: rgba(26,58,92,0.4);
 }
-.ticket-card.featured::before {
-  content: 'MOST POPULAR';
+.ticket-badge {
   position: absolute; top: 0; right: 0;
   background: var(--gold);
   color: var(--navy-deep);
@@ -635,6 +634,8 @@ nav {
   letter-spacing: 0.1em;
   padding: 6px 14px;
   border-radius: 0 12px 0 8px;
+  z-index: 2;
+  pointer-events: none;
 }
 
 .ticket-type {
@@ -1404,6 +1405,63 @@ footer {
   mix-blend-mode: screen;
   opacity: 0.92;
 }
+
+/* ── TICKET SPOTLIGHT GLOW ── */
+.ticket-card[data-glow] {
+  --hue-base: 40;
+  --hue-spread: 30;
+  --sat: 65;
+  --lit: 62;
+  --bg-opacity: 0.20;
+  --bdr-opacity: 1.0;
+  --bdr-lite: 0.65;
+  --glow-r: 12;
+  --glow-size: 340;
+  --ss: calc(var(--glow-size) * 1px);
+  --hue: calc(var(--hue-base) + (var(--xp, 0.5) * var(--hue-spread)));
+  background-image: radial-gradient(
+    var(--ss) var(--ss) at calc(var(--cx, -9999) * 1px) calc(var(--cy, -9999) * 1px),
+    hsl(var(--hue) calc(var(--sat) * 1%) calc(var(--lit) * 1%) / var(--bg-opacity)),
+    transparent
+  ) !important;
+}
+
+.ticket-card[data-glow]::before,
+.ticket-card[data-glow]::after {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border: 1px solid transparent;
+  border-radius: calc(var(--glow-r) * 1px);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: 0 0;
+  mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
+  mask-clip: padding-box, border-box;
+  mask-composite: intersect;
+  -webkit-mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
+  -webkit-mask-clip: padding-box, border-box;
+  -webkit-mask-composite: destination-in;
+  z-index: 1;
+}
+
+.ticket-card[data-glow]::before {
+  background-image: radial-gradient(
+    calc(var(--ss) * 0.75) calc(var(--ss) * 0.75) at calc(var(--cx, -9999) * 1px) calc(var(--cy, -9999) * 1px),
+    hsl(var(--hue) calc(var(--sat) * 1%) calc(var(--lit) * 1%) / var(--bdr-opacity)),
+    transparent 100%
+  );
+  filter: brightness(2);
+}
+
+.ticket-card[data-glow]::after {
+  background-image: radial-gradient(
+    calc(var(--ss) * 0.5) calc(var(--ss) * 0.5) at calc(var(--cx, -9999) * 1px) calc(var(--cy, -9999) * 1px),
+    hsl(0 100% 100% / var(--bdr-lite)),
+    transparent 100%
+  );
+}
 </style>
 </head>
 <body>
@@ -1824,7 +1882,8 @@ footer {
 
     <div class="tickets-grid">
       <!-- 2-Day In-Person -->
-      <div class="ticket-card featured">
+      <div class="ticket-card featured" data-glow>
+        <span class="ticket-badge">MOST POPULAR</span>
         <div class="ticket-type">Early Bird · Limited</div>
         <div class="ticket-name">2-Day In-Person</div>
         <div class="ticket-price"><span>€</span>300</div>
@@ -1840,7 +1899,7 @@ footer {
       </div>
 
       <!-- 1-Day In-Person -->
-      <div class="ticket-card">
+      <div class="ticket-card" data-glow>
         <div class="ticket-type">Early Bird · 1 Day</div>
         <div class="ticket-name">1-Day In-Person</div>
         <div class="ticket-price"><span>€</span>150</div>
@@ -1857,7 +1916,7 @@ footer {
       </div>
 
       <!-- Online Streaming -->
-      <div class="ticket-card">
+      <div class="ticket-card" data-glow>
         <div class="ticket-type">Early Bird · Online</div>
         <div class="ticket-name">Live Streaming</div>
         <div class="ticket-price"><span>€</span>100</div>
@@ -1872,7 +1931,7 @@ footer {
       </div>
 
       <!-- Student -->
-      <div class="ticket-card">
+      <div class="ticket-card" data-glow>
         <div class="ticket-type">Academic</div>
         <div class="ticket-name">Student</div>
         <div class="ticket-price"><span>€</span>100</div>
@@ -2516,6 +2575,26 @@ setInterval(showDamaQuote, 15000);        // then every 15 s
   };
 
   window.addEventListener('resize', resize);
+})();
+
+// ── TICKET SPOTLIGHT GLOW ──
+(function () {
+  var xp = 0.5;
+  document.addEventListener('pointermove', function (e) {
+    xp = (e.clientX / window.innerWidth).toFixed(4);
+    document.querySelectorAll('.ticket-card[data-glow]').forEach(function (el) {
+      var r  = el.getBoundingClientRect();
+      el.style.setProperty('--cx', (e.clientX - r.left).toFixed(1));
+      el.style.setProperty('--cy', (e.clientY - r.top).toFixed(1));
+      el.style.setProperty('--xp', xp);
+    });
+  });
+  document.addEventListener('pointerleave', function () {
+    document.querySelectorAll('.ticket-card[data-glow]').forEach(function (el) {
+      el.style.setProperty('--cx', '-9999');
+      el.style.setProperty('--cy', '-9999');
+    });
+  });
 })();
 
 // Init

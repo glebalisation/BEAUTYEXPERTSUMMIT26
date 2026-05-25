@@ -138,7 +138,7 @@ nav {
 .nav-hamburger span { display: block; width: 22px; height: 1.5px; background: var(--gold); transition: var(--transition); }
 
 /* ── PAGES ── */
-.page { display: none; min-height: 100vh; padding-top: 68px; position: relative; z-index: 1; }
+.page { display: none; min-height: 100vh; padding-top: 68px; position: relative; z-index: 1; overflow-x: hidden; }
 .page.active { display: block; }
 
 /* ── HERO ── */
@@ -1385,7 +1385,7 @@ footer {
 /* ── HEADING SHADER ── */
 .heading-wrap {
   position: relative;
-  overflow: visible;
+  overflow: hidden;
   display: block;
   width: 100%;
 }
@@ -1404,6 +1404,10 @@ footer {
   z-index: 0;
   mix-blend-mode: screen;
   opacity: 0.92;
+  background: transparent;
+}
+@media (max-width: 768px) {
+  .heading-shader-canvas { width: 100%; }
 }
 
 /* ── TICKET SPOTLIGHT GLOW ── */
@@ -2514,8 +2518,10 @@ setInterval(showDamaQuote, 15000);        // then every 15 s
   // Single shared WebGL canvas — moves to whichever page is active
   var cv = document.createElement('canvas');
   cv.className = 'heading-shader-canvas';
-  var gl = cv.getContext('webgl') || cv.getContext('experimental-webgl');
+  var gl = cv.getContext('webgl', { alpha: true, premultipliedAlpha: false }) ||
+           cv.getContext('experimental-webgl', { alpha: true, premultipliedAlpha: false });
   if (!gl) return;
+  gl.clearColor(0, 0, 0, 0);
 
   function mkShader(type, src) {
     var s = gl.createShader(type);
@@ -2553,6 +2559,7 @@ setInterval(showDamaQuote, 15000);        // then every 15 s
   (function tick() {
     requestAnimationFrame(tick);
     if (!active || !cv.width) return;
+    gl.clear(gl.COLOR_BUFFER_BIT);
     gl.uniform1f(uT,   (performance.now() - t0) / 1000);
     gl.uniform2f(uRes, cv.width, cv.height);
     gl.uniform1f(uXs,  0.9);

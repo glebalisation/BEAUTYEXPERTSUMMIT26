@@ -588,18 +588,82 @@ nav {
 }
 .venue-detail-sub { font-size: 12px; color: var(--text-muted); }
 
-.travel-cards {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 16px; margin-top: 56px;
+/* ── PARTNER HOTEL ── */
+.partner-hotel-section {
+  margin-top: 64px;
+  padding-top: 56px;
+  border-top: 1px solid var(--border);
 }
-.travel-card {
-  border: 1px solid var(--border);
-  border-radius: 10px; padding: 24px 20px;
-  background: rgba(26,58,92,0.15);
+.partner-hotel-eyebrow {
+  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--gold); font-weight: 500; margin-bottom: 28px;
+  display: flex; align-items: center; gap: 12px;
 }
-.travel-icon { font-size: 28px; margin-bottom: 12px; }
-.travel-title { font-size: 14px; font-weight: 500; color: var(--gold-light); margin-bottom: 6px; }
-.travel-text { font-size: 12px; color: var(--text-muted); line-height: 1.6; }
+.partner-hotel-eyebrow::after {
+  content: ''; flex: 1; height: 1px; background: var(--border);
+}
+.hotel-gallery {
+  display: flex; gap: 20px; align-items: flex-end;
+  margin-bottom: 36px; padding: 24px 0 8px;
+}
+.hotel-card {
+  border-radius: 14px; overflow: hidden; flex: 1;
+  border: 1px solid rgba(201,169,110,0.18);
+  box-shadow: 0 28px 64px rgba(0,0,0,0.55), 0 0 0 1px rgba(201,169,110,0.06), inset 0 1px 0 rgba(255,255,255,0.06);
+  will-change: transform;
+}
+.hotel-card img { width: 100%; height: 220px; object-fit: cover; display: block; }
+.hotel-card-main { flex: 1.4; }
+.hotel-card-main img { height: 280px; }
+.hf1 { animation: hotelFloat1 6s ease-in-out infinite; transform: rotate(-1.8deg) translateY(0); }
+.hf2 { animation: hotelFloat2 7.5s ease-in-out infinite; animation-delay: -2.5s; }
+.hf3 { animation: hotelFloat3 5.8s ease-in-out infinite; animation-delay: -1.2s; transform: rotate(1.4deg); }
+@keyframes hotelFloat1 {
+  0%,100% { transform: rotate(-1.8deg) translateY(0px); }
+  50%      { transform: rotate(-1deg) translateY(-16px); }
+}
+@keyframes hotelFloat2 {
+  0%,100% { transform: rotate(0.3deg) translateY(-6px); }
+  50%      { transform: rotate(-0.3deg) translateY(10px); }
+}
+@keyframes hotelFloat3 {
+  0%,100% { transform: rotate(1.4deg) translateY(0px); }
+  50%      { transform: rotate(0.8deg) translateY(-12px); }
+}
+.hotel-info-row {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 32px; flex-wrap: wrap;
+}
+.hotel-name-display {
+  font-family: var(--ff-display);
+  font-size: 36px; font-weight: 300; color: var(--gold-light);
+  margin-bottom: 10px; letter-spacing: -0.01em;
+}
+.hotel-desc { font-size: 14px; color: var(--text-muted); line-height: 1.75; max-width: 480px; }
+.hotel-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; flex-shrink: 0; margin-top: 4px; }
+.walk-badge {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: rgba(201,169,110,0.08);
+  border: 1px solid rgba(201,169,110,0.25);
+  padding: 8px 16px; border-radius: 24px;
+  font-size: 12px; letter-spacing: 0.04em; color: var(--gold-light);
+}
+.hotel-map-btn {
+  display: inline-block; text-decoration: none;
+  padding: 10px 22px; border-radius: 6px;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  background: var(--gold); color: var(--navy-deep);
+  transition: var(--transition); font-family: var(--ff-body);
+}
+.hotel-map-btn:hover { background: var(--gold-light); }
+.hotel-web-btn {
+  display: inline-block; text-decoration: none;
+  padding: 10px 22px; border-radius: 6px;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  border: 1px solid var(--border); color: var(--gold-light);
+  transition: var(--transition); font-family: var(--ff-body);
+}
+.hotel-web-btn:hover { border-color: var(--gold); }
 
 /* ── REGISTER / TICKETS ── */
 #page-register {
@@ -925,7 +989,11 @@ footer {
   .contact-grid { grid-template-columns: 1fr; }
   .footer-inner { grid-template-columns: 1fr 1fr; }
   .form-row { grid-template-columns: 1fr; }
-  .travel-cards { grid-template-columns: 1fr; }
+  .hotel-gallery { flex-direction: column; align-items: stretch; }
+  .hotel-card img, .hotel-card-main img { height: 200px; }
+  .hotel-card { animation: none !important; transform: none !important; }
+  .hotel-info-row { flex-direction: column; }
+  .hotel-name-display { font-size: 28px; }
 }
 
 @media (max-width: 600px) {
@@ -1850,28 +1918,45 @@ footer {
           <div class="venue-detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
           <div>
             <div class="venue-detail-label">Partner Hotel</div>
-            <div class="venue-detail-value">Official hotel TBA</div>
-            <div class="venue-detail-sub">Discounted rates for delegates</div>
+            <div class="venue-detail-value">Hotel Huerto del Cura</div>
+            <div class="venue-detail-sub">3–5 min walk · Discounted rates for delegates</div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="travel-cards">
-      <div class="travel-card">
-        <div class="travel-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 3 12.79 19.79 19.79 0 0 1 .21 4.13 2 2 0 0 1 2.18 2h3.09a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L6.91 9.6a16 16 0 0 0 5.49 5.49l.96-.96a2 2 0 0 1 2.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/><path d="M16 2l6 6-6 6"/><line x1="22" y1="8" x2="12" y2="8"/></svg></div>
-        <div class="travel-title">By Air</div>
-        <div class="travel-text">Alicante–Elche Airport (ALC) is just 15 minutes from the venue, with direct connections from major European and CIS cities.</div>
+    <!-- ── PARTNER HOTEL ── -->
+    <div class="partner-hotel-section">
+      <div class="partner-hotel-eyebrow">Official Partner Hotel</div>
+
+      <div class="hotel-gallery">
+        <div class="hotel-card hf1">
+          <img src="https://cdn2.paraty.es/port-huerto/images/5998ce4962cab43" alt="Hotel Huerto del Cura gardens"
+               onerror="this.src='https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80'">
+        </div>
+        <div class="hotel-card hotel-card-main hf2">
+          <img src="https://cdn2.paraty.es/port-huerto/images/965a1ad5704de43=s1900" alt="Hotel Huerto del Cura pool"
+               onerror="this.src='https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80'">
+        </div>
+        <div class="hotel-card hf3">
+          <img src="https://cdn2.paraty.es/port-huerto/images/88e179a716888e6=s1900" alt="Hotel Huerto del Cura evening"
+               onerror="this.src='https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800&q=80'">
+        </div>
       </div>
-      <div class="travel-card">
-        <div class="travel-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
-        <div class="travel-title">Local Transport</div>
-        <div class="travel-text">Shuttle service will be arranged between the official partner hotel and the venue for all registered attendees.</div>
-      </div>
-      <div class="travel-card">
-        <div class="travel-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <div class="travel-title">Visa Support</div>
-        <div class="travel-text">Official invitation letters available upon registration to support visa applications for international attendees.</div>
+
+      <div class="hotel-info-row">
+        <div>
+          <div class="hotel-name-display">Hotel Huerto del Cura</div>
+          <p class="hotel-desc">A UNESCO-listed palm grove oasis in the heart of Elche — the ideal retreat for summit delegates. Nestled within ancient date palms, this award-winning garden hotel is just a short stroll from the congress centre. Discounted rates available for registered attendees upon request.</p>
+        </div>
+        <div class="hotel-actions">
+          <span class="walk-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M10 22V13l-2-3h8l-2 3v9"/><path d="M7 9l-2 4h10l-2-4"/></svg>
+            3–5 min walk to venue
+          </span>
+          <a href="https://maps.app.goo.gl/RGaphK6Re7LYJvCA7" target="_blank" class="hotel-map-btn">View on Map</a>
+          <a href="https://www.hotelhuertodelcura.com/en/" target="_blank" class="hotel-web-btn">Hotel Website</a>
+        </div>
       </div>
     </div>
   </div>

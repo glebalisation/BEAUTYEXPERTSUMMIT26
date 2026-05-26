@@ -562,8 +562,11 @@ nav {
   font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
   padding: 3px 8px; border-radius: 99px;
 }
+@media (max-width: 768px) {
+  .speakers-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+}
 @media (max-width: 600px) {
-  .speakers-grid { gap: 8px; }
+  .speakers-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
   .speaker-info { padding: 8px 10px 10px; }
   .speaker-name { font-size: 12px; }
   .speaker-role { font-size: 10px; margin-bottom: 5px; }
@@ -1734,7 +1737,7 @@ footer {
       </div>
       <!-- 2 -->
       <div class="speaker-card">
-        <div class="speaker-photo"><img src="IDENTITY/SPEAKERS/2.Eduardo Fernández Jover, MD, PhD, expert in  Artificial Vision, Neuroengineering and Neuroprosthesis, Spain.png" alt="Eduardo Fernández Jover" loading="lazy"><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-photo"><img src="IDENTITY/SPEAKERS/2.Eduardo Fernandez Jover, MD, PhD, expert in Artificial Vision, Neuroengineering and Neuroprosthesis, Spain.png" alt="Eduardo Fernández Jover" loading="lazy"><div class="speaker-photo-overlay"></div></div>
         <div class="speaker-info">
           <div class="speaker-name">Eduardo Fernández Jover</div>
           <div class="speaker-role">MD, PhD · Artificial Vision & Neuroprosthesis<br>Spain</div>

@@ -1594,25 +1594,25 @@ footer {
     <img src="IDENTITY/UGAMC.JPG" class="nav-ugamc-logo" alt="UGAMC">
     <div>
       <div class="nav-logo-text">Beauty Expert Summit</div>
-      <div class="nav-logo-sub">28–29 Nov 2026 · Elche, Spain</div>
+      <div class="nav-logo-sub" data-i18n="nav.logo_sub">28–29 Nov 2026 · Elche, Spain</div>
     </div>
   </a>
   <ul class="nav-links" id="navLinks">
-    <li><a onclick="showPage('program')" data-page="program">Program</a></li>
-    <li><a onclick="showPage('speakers')" data-page="speakers">Speakers</a></li>
-    <li><a onclick="showPage('venue')" data-page="venue">Venue</a></li>
-    <li><a onclick="showPage('sponsors')" data-page="sponsors">Sponsors</a></li>
-    <li><a onclick="showPage('faq')" data-page="faq">FAQ</a></li>
-    <li><a onclick="showPage('contact')" data-page="contact">Contact</a></li>
-    <li><a onclick="showPage('register')" class="nav-cta" data-page="register">Register</a></li>
+    <li><a onclick="showPage('program')" data-page="program" data-i18n="nav.program">Program</a></li>
+    <li><a onclick="showPage('speakers')" data-page="speakers" data-i18n="nav.speakers">Speakers</a></li>
+    <li><a onclick="showPage('venue')" data-page="venue" data-i18n="nav.venue">Venue</a></li>
+    <li><a onclick="showPage('sponsors')" data-page="sponsors" data-i18n="nav.sponsors">Sponsors</a></li>
+    <li><a onclick="showPage('faq')" data-page="faq" data-i18n="nav.faq">FAQ</a></li>
+    <li><a onclick="showPage('contact')" data-page="contact" data-i18n="nav.contact">Contact</a></li>
+    <li><a onclick="showPage('register')" class="nav-cta" data-page="register" data-i18n="nav.register">Register</a></li>
   </ul>
   <div style="display:flex;align-items:center;gap:8px;">
     <div class="lang-switcher">
-      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn active" onclick="setLang('en')" data-lang="en">EN</button>
       <span class="lang-sep">·</span>
-      <button class="lang-btn" onclick="setLang('es')">ES</button>
+      <button class="lang-btn" onclick="setLang('es')" data-lang="es">ES</button>
       <span class="lang-sep">·</span>
-      <button class="lang-btn" onclick="setLang('uk')">УК</button>
+      <button class="lang-btn" onclick="setLang('uk')" data-lang="uk">УК</button>
     </div>
     <button class="nav-hamburger" onclick="toggleMobileMenu()" id="hamburger">
       <span></span><span></span><span></span>
@@ -1622,13 +1622,13 @@ footer {
 
 <!-- Mobile menu -->
 <div class="mobile-menu" id="mobileMenu">
-  <a onclick="showPage('program');toggleMobileMenu()">Program</a>
-  <a onclick="showPage('speakers');toggleMobileMenu()">Speakers</a>
-  <a onclick="showPage('venue');toggleMobileMenu()">Venue</a>
-  <a onclick="showPage('sponsors');toggleMobileMenu()">Sponsors</a>
-  <a onclick="showPage('faq');toggleMobileMenu()">FAQ</a>
-  <a onclick="showPage('contact');toggleMobileMenu()">Contact</a>
-  <a onclick="showPage('register');toggleMobileMenu()" style="color:var(--gold);font-weight:500;">Register & Tickets</a>
+  <a onclick="showPage('program');toggleMobileMenu()" data-i18n="nav.program">Program</a>
+  <a onclick="showPage('speakers');toggleMobileMenu()" data-i18n="nav.speakers">Speakers</a>
+  <a onclick="showPage('venue');toggleMobileMenu()" data-i18n="nav.venue">Venue</a>
+  <a onclick="showPage('sponsors');toggleMobileMenu()" data-i18n="nav.sponsors">Sponsors</a>
+  <a onclick="showPage('faq');toggleMobileMenu()" data-i18n="nav.faq">FAQ</a>
+  <a onclick="showPage('contact');toggleMobileMenu()" data-i18n="nav.contact">Contact</a>
+  <a onclick="showPage('register');toggleMobileMenu()" style="color:var(--gold);font-weight:500;" data-i18n="mobile.register">Register & Tickets</a>
 </div>
 
 <!-- ══════════ HOME ══════════ -->
@@ -1641,12 +1641,12 @@ footer {
       <div class="hero-summit-logo">
         <img src="IDENTITY/BEAUTY_EXPERT_SUMMIT26.png" alt="Beauty Expert Summit 2026">
       </div>
-      <h2 class="hero-motto-serif">Built for <em>Medical Leaders</em></h2>
-      <p class="hero-motto-tagline">Connecting Visionaries Across Ophthalmology, Plastic Surgery, and Cosmetology.</p>
-      <p class="hero-desc">28–29 November · Centro de Congresos de Elche, Alicante, Spain</p>
+      <h2 class="hero-motto-serif" data-i18n-html="home.motto">Built for <em>Medical Leaders</em></h2>
+      <p class="hero-motto-tagline" data-i18n="home.tagline">Connecting Visionaries Across Ophthalmology, Plastic Surgery, and Cosmetology.</p>
+      <p class="hero-desc" data-i18n="home.date">28–29 November · Centro de Congresos de Elche, Alicante, Spain</p>
       <div class="hero-buttons">
-        <button class="btn-gold-anim" onclick="showPage('register')">Get Your Ticket</button>
-        <button class="btn-outline" onclick="showPage('program')">View Program</button>
+        <button class="btn-gold-anim" onclick="showPage('register')" data-i18n="home.cta_ticket">Get Your Ticket</button>
+        <button class="btn-outline" onclick="showPage('program')" data-i18n="home.cta_program">View Program</button>
       </div>
     </div>
   </div>
@@ -1658,11 +1658,11 @@ footer {
       <div class="dama-mist"></div>
       <div class="dama-mist dama-mist-2"></div>
     </div>
-    <div class="dama-quote-text" id="damaQuote">✦ La Dama de Elche invites you ✦</div>
+    <div class="dama-quote-text" id="damaQuote" data-i18n="home.dama">✦ La Dama de Elche invites you ✦</div>
   </div>
 
   <div class="scroll-indicator" onclick="showPage('program')">
-    <span>Explore</span>
+    <span data-i18n="home.explore">Explore</span>
     <div class="scroll-arrow"></div>
   </div>
 </div>
@@ -1670,13 +1670,13 @@ footer {
 <!-- ══════════ PROGRAM ══════════ -->
 <div class="page" id="page-program">
   <div class="section-inner">
-    <div class="section-eyebrow">Scientific Program</div>
-    <h2 class="section-title">Two Days of <em>Excellence</em></h2>
-    <p class="section-lead">World-class presentations, live demonstrations and interactive workshops across three specialist tracks: Ophthalmology, Cosmetology, and Plastic Surgery.</p>
+    <div class="section-eyebrow" data-i18n="program.eyebrow">Scientific Program</div>
+    <h2 class="section-title" data-i18n-html="program.title">Two Days of <em>Excellence</em></h2>
+    <p class="section-lead" data-i18n="program.lead">World-class presentations, live demonstrations and interactive workshops across three specialist tracks: Ophthalmology, Cosmetology, and Plastic Surgery.</p>
 
     <div class="day-tabs">
-      <button class="day-tab active" onclick="switchDay(1)">Day 1 · 28 Nov</button>
-      <button class="day-tab" onclick="switchDay(2)">Day 2 · 29 Nov</button>
+      <button class="day-tab active" onclick="switchDay(1)" data-i18n="program.day1_tab">Day 1 · 28 Nov</button>
+      <button class="day-tab" onclick="switchDay(2)" data-i18n="program.day2_tab">Day 2 · 29 Nov</button>
     </div>
 
     <div class="schedule-panel active" id="day1">
@@ -1685,8 +1685,8 @@ footer {
         <div>
           <span class="schedule-track track-surg">Plastic Surgery</span>
           <span class="schedule-track track-cosm" style="margin-left:6px;">Cosmetology</span>
-          <div class="schedule-title">Day 1 · 28 November</div>
-          <div class="schedule-speaker">Full program details to be announced</div>
+          <div class="schedule-title" data-i18n="program.day1_title">Day 1 · 28 November</div>
+          <div class="schedule-speaker" data-i18n="program.tba">Full program details to be announced</div>
         </div>
       </div>
     </div>
@@ -1696,8 +1696,8 @@ footer {
         <div class="schedule-time">10:00–17:00</div>
         <div>
           <span class="schedule-track track-ophth">Ophthalmology</span>
-          <div class="schedule-title">Day 2 · 29 November</div>
-          <div class="schedule-speaker">Full program details to be announced</div>
+          <div class="schedule-title" data-i18n="program.day2_title">Day 2 · 29 November</div>
+          <div class="schedule-speaker" data-i18n="program.tba">Full program details to be announced</div>
         </div>
       </div>
     </div>
@@ -1707,9 +1707,9 @@ footer {
 <!-- ══════════ SPEAKERS ══════════ -->
 <div class="page" id="page-speakers">
   <div class="section-inner">
-    <div class="section-eyebrow">Faculty</div>
-    <h2 class="section-title">Meet the <em>Speakers</em></h2>
-    <p class="section-lead">An international faculty of practicing surgeons, clinicians and innovators at the forefront of aesthetic medicine.</p>
+    <div class="section-eyebrow" data-i18n="speakers.eyebrow">Faculty</div>
+    <h2 class="section-title" data-i18n-html="speakers.title">Meet the <em>Speakers</em></h2>
+    <p class="section-lead" data-i18n="speakers.lead">An international faculty of practicing surgeons, clinicians and innovators at the forefront of aesthetic medicine.</p>
 
     <div class="speakers-grid">
       <!-- 1 -->
@@ -1913,18 +1913,18 @@ footer {
       <!-- TBA -->
       <div class="speaker-card" style="border-style:dashed;border-color:rgba(201,169,110,0.25);background:rgba(201,169,110,0.03);">
         <div class="speaker-photo" style="background:linear-gradient(160deg,rgba(26,58,92,0.4),rgba(13,27,42,0.6));">
-          <div class="speaker-tba">More speakers<br>to be announced</div>
+          <div class="speaker-tba" data-i18n-html="speakers.tba_text">More speakers<br>to be announced</div>
         </div>
         <div class="speaker-info">
-          <div class="speaker-name" style="color:rgba(232,213,176,0.4);font-size:13px;">Coming Soon</div>
-          <div class="speaker-role">Additional faculty<br>to be confirmed</div>
+          <div class="speaker-name" style="color:rgba(232,213,176,0.4);font-size:13px;" data-i18n="speakers.tba_name">Coming Soon</div>
+          <div class="speaker-role" data-i18n-html="speakers.tba_role">Additional faculty<br>to be confirmed</div>
         </div>
       </div>
     </div>
 
     <div style="margin-top:48px;text-align:center;">
-      <p style="font-size:13px;color:var(--text-muted);margin-bottom:16px;">Interested in speaking at Beauty Expert Summit 2026?</p>
-      <button class="btn-outline" onclick="showPage('contact')">Submit Speaker Inquiry</button>
+      <p style="font-size:13px;color:var(--text-muted);margin-bottom:16px;" data-i18n="speakers.inquiry">Interested in speaking at Beauty Expert Summit 2026?</p>
+      <button class="btn-outline" onclick="showPage('contact')" data-i18n="speakers.inquiry_btn">Submit Speaker Inquiry</button>
     </div>
   </div>
 </div>
@@ -1932,9 +1932,9 @@ footer {
 <!-- ══════════ VENUE ══════════ -->
 <div class="page" id="page-venue">
   <div class="section-inner">
-    <div class="section-eyebrow">Location</div>
-    <h2 class="section-title">Elche, <em>Alicante</em></h2>
-    <p class="section-lead">Centro de Congresos de Elche — a modern congress centre in the heart of Alicante province, easily accessible from across Europe.</p>
+    <div class="section-eyebrow" data-i18n="venue.eyebrow">Location</div>
+    <h2 class="section-title" data-i18n-html="venue.title">Elche, <em>Alicante</em></h2>
+    <p class="section-lead" data-i18n="venue.lead">Centro de Congresos de Elche — a modern congress centre in the heart of Alicante province, easily accessible from across Europe.</p>
 
     <div class="venue-grid">
       <div>
@@ -1942,14 +1942,14 @@ footer {
           <img src="IDENTITY/centro-de-congresos4.jpeg" alt="Centro de Congresos de Elche" style="width:100%;height:380px;object-fit:cover;display:block;">
         </div>
         <div style="margin-top:16px;border:1px solid var(--border);border-radius:8px;padding:20px;background:rgba(201,169,110,0.04);">
-          <p style="font-size:12px;color:var(--text-muted);line-height:1.7;">The conference will take place at the Centro de Congresos de Elche — a state-of-the-art venue with full A/V facilities, live demonstration theatres and exhibition space for partner companies.</p>
+          <p style="font-size:12px;color:var(--text-muted);line-height:1.7;" data-i18n="venue.desc">The conference will take place at the Centro de Congresos de Elche — a state-of-the-art venue with full A/V facilities, live demonstration theatres and exhibition space for partner companies.</p>
         </div>
       </div>
       <div class="venue-details">
         <div class="venue-detail-item">
           <div class="venue-detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
           <div>
-            <div class="venue-detail-label">Venue</div>
+            <div class="venue-detail-label" data-i18n="venue.lbl.venue">Venue</div>
             <div class="venue-detail-value">Centro de Congresos de Elche</div>
             <div class="venue-detail-sub">Carrer del Filet de Fora, 1, 03203 Elx, Alicante, Spain</div>
           </div>
@@ -1957,25 +1957,25 @@ footer {
         <div class="venue-detail-item">
           <div class="venue-detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
           <div>
-            <div class="venue-detail-label">Dates</div>
-            <div class="venue-detail-value">28–29 November 2026</div>
-            <div class="venue-detail-sub">Two full days · Registration from 08:30</div>
+            <div class="venue-detail-label" data-i18n="venue.lbl.dates">Dates</div>
+            <div class="venue-detail-value" data-i18n="venue.val.dates">28–29 November 2026</div>
+            <div class="venue-detail-sub" data-i18n="venue.sub.dates">Two full days · Registration from 08:30</div>
           </div>
         </div>
         <div class="venue-detail-item">
           <div class="venue-detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
           <div>
-            <div class="venue-detail-label">Nearest Airport</div>
-            <div class="venue-detail-value">Alicante–Elche Airport (ALC)</div>
-            <div class="venue-detail-sub">~15 min drive · International connections</div>
+            <div class="venue-detail-label" data-i18n="venue.lbl.airport">Nearest Airport</div>
+            <div class="venue-detail-value" data-i18n="venue.val.airport">Alicante–Elche Airport (ALC)</div>
+            <div class="venue-detail-sub" data-i18n="venue.sub.airport">~15 min drive · International connections</div>
           </div>
         </div>
         <div class="venue-detail-item">
           <div class="venue-detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
           <div>
-            <div class="venue-detail-label">Partner Hotel</div>
+            <div class="venue-detail-label" data-i18n="venue.lbl.hotel">Partner Hotel</div>
             <div class="venue-detail-value">Hotel Huerto del Cura</div>
-            <div class="venue-detail-sub">3–5 min walk · Discounted rates for delegates</div>
+            <div class="venue-detail-sub" data-i18n="venue.sub.hotel">3–5 min walk · Discounted rates for delegates</div>
           </div>
         </div>
       </div>
@@ -1983,7 +1983,7 @@ footer {
 
     <!-- ── PARTNER HOTEL ── -->
     <div class="partner-hotel-section">
-      <div class="partner-hotel-eyebrow">Official Partner Hotel</div>
+      <div class="partner-hotel-eyebrow" data-i18n="hotel.eyebrow">Official Partner Hotel</div>
 
       <div class="hotel-gallery">
         <div class="hotel-card hf1">
@@ -2003,15 +2003,15 @@ footer {
       <div class="hotel-info-row">
         <div>
           <div class="hotel-name-display">Hotel Huerto del Cura</div>
-          <p class="hotel-desc">A UNESCO-listed palm grove oasis in the heart of Elche — the ideal retreat for summit delegates. Nestled within ancient date palms, this award-winning garden hotel is just a short stroll from the congress centre. Discounted rates available for registered attendees upon request.</p>
+          <p class="hotel-desc" data-i18n="hotel.desc">A UNESCO-listed palm grove oasis in the heart of Elche — the ideal retreat for summit delegates. Nestled within ancient date palms, this award-winning garden hotel is just a short stroll from the congress centre. Discounted rates available for registered attendees upon request.</p>
         </div>
         <div class="hotel-actions">
           <span class="walk-badge">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M10 22V13l-2-3h8l-2 3v9"/><path d="M7 9l-2 4h10l-2-4"/></svg>
-            3–5 min walk to venue
+            <span data-i18n="hotel.walk">3–5 min walk to venue</span>
           </span>
-          <a href="https://maps.app.goo.gl/RGaphK6Re7LYJvCA7" target="_blank" class="hotel-map-btn">View on Map</a>
-          <a href="https://www.hotelhuertodelcura.com/en/" target="_blank" class="hotel-web-btn">Hotel Website</a>
+          <a href="https://maps.app.goo.gl/RGaphK6Re7LYJvCA7" target="_blank" class="hotel-map-btn" data-i18n="hotel.map">View on Map</a>
+          <a href="https://www.hotelhuertodelcura.com/en/" target="_blank" class="hotel-web-btn" data-i18n="hotel.website">Hotel Website</a>
         </div>
       </div>
     </div>
@@ -2021,85 +2021,85 @@ footer {
 <!-- ══════════ REGISTER ══════════ -->
 <div class="page" id="page-register">
   <div class="section-inner">
-    <div class="section-eyebrow">Registration</div>
-    <h2 class="section-title">Choose Your <em>Ticket</em></h2>
-    <p class="section-lead">Early bird prices available for a limited time. All tickets include certificate of attendance and access to recorded sessions.</p>
+    <div class="section-eyebrow" data-i18n="register.eyebrow">Registration</div>
+    <h2 class="section-title" data-i18n-html="register.title">Choose Your <em>Ticket</em></h2>
+    <p class="section-lead" data-i18n="register.lead">Early bird prices available for a limited time. All tickets include certificate of attendance and access to recorded sessions.</p>
 
     <div class="tickets-grid">
       <!-- 2-Day In-Person -->
       <div class="ticket-card featured" data-glow>
-        <span class="ticket-badge">MOST POPULAR</span>
-        <div class="ticket-type">Early Bird · Limited</div>
-        <div class="ticket-name">2-Day In-Person</div>
+        <span class="ticket-badge" data-i18n="ticket.popular">MOST POPULAR</span>
+        <div class="ticket-type" data-i18n="ticket.2day_type">Early Bird · Limited</div>
+        <div class="ticket-name" data-i18n="ticket.2day_name">2-Day In-Person</div>
         <div class="ticket-price"><span>€</span>300</div>
-        <div class="ticket-price-note">Final price €550 · Save €250</div>
+        <div class="ticket-price-note" data-i18n="ticket.2day_note">Final price €550 · Save €250</div>
         <ul class="ticket-features">
-          <li>Access to all sessions — both days</li>
-          <li>Conference materials &amp; badge</li>
-          <li>Coffee breaks included</li>
-          <li>Certificate of attendance</li>
-          <li>Access to recorded sessions</li>
+          <li data-i18n="ticket.2day_f1">Access to all sessions — both days</li>
+          <li data-i18n="ticket.2day_f2">Conference materials &amp; badge</li>
+          <li data-i18n="ticket.2day_f3">Coffee breaks included</li>
+          <li data-i18n="ticket.2day_f4">Certificate of attendance</li>
+          <li data-i18n="ticket.2day_f5">Access to recorded sessions</li>
         </ul>
-        <a href="https://buy.stripe.com/aFaaEY9KEcMM4QodzugEg0v" target="_blank" class="btn-ticket" style="display:block;text-align:center;text-decoration:none;">Buy Now — Stripe</a>
+        <a href="https://buy.stripe.com/aFaaEY9KEcMM4QodzugEg0v" target="_blank" class="btn-ticket" style="display:block;text-align:center;text-decoration:none;" data-i18n="ticket.buy_now">Buy Now — Stripe</a>
       </div>
 
       <!-- 1-Day In-Person -->
       <div class="ticket-card" data-glow>
-        <div class="ticket-type">Early Bird · 1 Day</div>
-        <div class="ticket-name">1-Day In-Person</div>
+        <div class="ticket-type" data-i18n="ticket.1day_type">Early Bird · 1 Day</div>
+        <div class="ticket-name" data-i18n="ticket.1day_name">1-Day In-Person</div>
         <div class="ticket-price"><span>€</span>150</div>
-        <div class="ticket-price-note">Final price €270 · Choose your day</div>
+        <div class="ticket-price-note" data-i18n="ticket.1day_note">Final price €270 · Choose your day</div>
         <ul class="ticket-features">
-          <li>Ophthalmology + Plastic Surgery</li>
-          <li>or Plastic Surgery + Cosmetology</li>
-          <li>Conference materials &amp; badge</li>
-          <li>Coffee breaks included</li>
-          <li>Certificate of attendance</li>
-          <li>Access to recorded sessions</li>
+          <li data-i18n="ticket.1day_f1">Ophthalmology + Plastic Surgery</li>
+          <li data-i18n="ticket.1day_f2">or Plastic Surgery + Cosmetology</li>
+          <li data-i18n="ticket.1day_f3">Conference materials &amp; badge</li>
+          <li data-i18n="ticket.1day_f4">Coffee breaks included</li>
+          <li data-i18n="ticket.1day_f5">Certificate of attendance</li>
+          <li data-i18n="ticket.1day_f6">Access to recorded sessions</li>
         </ul>
-        <a href="https://buy.stripe.com/6oUeVe2icaEEciQfHCgEg0u" target="_blank" class="btn-ticket" style="display:block;text-align:center;text-decoration:none;">Buy Now — Stripe</a>
+        <a href="https://buy.stripe.com/6oUeVe2icaEEciQfHCgEg0u" target="_blank" class="btn-ticket" style="display:block;text-align:center;text-decoration:none;" data-i18n="ticket.buy_now">Buy Now — Stripe</a>
       </div>
 
       <!-- Online Streaming -->
       <div class="ticket-card" data-glow>
-        <div class="ticket-type">Early Bird · Online</div>
-        <div class="ticket-name">Live Streaming</div>
+        <div class="ticket-type" data-i18n="ticket.online_type">Early Bird · Online</div>
+        <div class="ticket-name" data-i18n="ticket.online_name">Live Streaming</div>
         <div class="ticket-price"><span>€</span>100</div>
-        <div class="ticket-price-note">Final price €200 · 2 days online</div>
+        <div class="ticket-price-note" data-i18n="ticket.online_note">Final price €200 · 2 days online</div>
         <ul class="ticket-features">
-          <li>Live stream — both days</li>
-          <li>Interactive live chat</li>
-          <li>Web certificate of attendance</li>
-          <li>Access to recorded sessions</li>
+          <li data-i18n="ticket.online_f1">Live stream — both days</li>
+          <li data-i18n="ticket.online_f2">Interactive live chat</li>
+          <li data-i18n="ticket.online_f3">Web certificate of attendance</li>
+          <li data-i18n="ticket.online_f4">Access to recorded sessions</li>
         </ul>
-        <a href="https://buy.stripe.com/dRm7sMaOI7ss3Mk9jegEg0t" target="_blank" class="btn-ticket" style="display:block;text-align:center;text-decoration:none;">Buy Now — Stripe</a>
+        <a href="https://buy.stripe.com/dRm7sMaOI7ss3Mk9jegEg0t" target="_blank" class="btn-ticket" style="display:block;text-align:center;text-decoration:none;" data-i18n="ticket.buy_now">Buy Now — Stripe</a>
       </div>
 
       <!-- Student -->
       <div class="ticket-card" data-glow>
-        <div class="ticket-type">Academic</div>
-        <div class="ticket-name">Student</div>
+        <div class="ticket-type" data-i18n="ticket.student_type">Academic</div>
+        <div class="ticket-name" data-i18n="ticket.student_name">Student</div>
         <div class="ticket-price"><span>€</span>100</div>
-        <div class="ticket-price-note">Valid student ID required · 2 days</div>
+        <div class="ticket-price-note" data-i18n="ticket.student_note">Valid student ID required · 2 days</div>
         <ul class="ticket-features">
-          <li>Access to all sessions — both days</li>
-          <li>Conference materials &amp; badge</li>
-          <li>Coffee breaks included</li>
-          <li>Certificate of attendance</li>
-          <li>Access to recorded sessions</li>
+          <li data-i18n="ticket.student_f1">Access to all sessions — both days</li>
+          <li data-i18n="ticket.student_f2">Conference materials &amp; badge</li>
+          <li data-i18n="ticket.student_f3">Coffee breaks included</li>
+          <li data-i18n="ticket.student_f4">Certificate of attendance</li>
+          <li data-i18n="ticket.student_f5">Access to recorded sessions</li>
         </ul>
-        <a href="https://buy.stripe.com/dRm7sMaOI7ss3Mk9jegEg0t" target="_blank" class="btn-ticket" style="display:block;text-align:center;text-decoration:none;">Buy Now — Stripe</a>
+        <a href="https://buy.stripe.com/dRm7sMaOI7ss3Mk9jegEg0t" target="_blank" class="btn-ticket" style="display:block;text-align:center;text-decoration:none;" data-i18n="ticket.buy_now">Buy Now — Stripe</a>
       </div>
     </div>
 
-    <div class="stripe-note">Secure payment powered by Stripe. All major cards accepted.</div>
+    <div class="stripe-note" data-i18n="register.stripe_note">Secure payment powered by Stripe. All major cards accepted.</div>
 
     <div style="margin-top:48px;border:1px solid var(--border);border-radius:10px;padding:28px 32px;background:rgba(26,58,92,0.1);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
       <div>
-        <div style="font-size:14px;font-weight:500;color:var(--gold-light);margin-bottom:4px;">Need a group booking or invoice?</div>
-        <div style="font-size:13px;color:var(--text-muted);">Groups of 5+ receive a 15% discount. Contact us for corporate invoicing.</div>
+        <div style="font-size:14px;font-weight:500;color:var(--gold-light);margin-bottom:4px;" data-i18n="register.group_title">Need a group booking or invoice?</div>
+        <div style="font-size:13px;color:var(--text-muted);" data-i18n="register.group_desc">Groups of 5+ receive a 15% discount. Contact us for corporate invoicing.</div>
       </div>
-      <button class="btn-outline" onclick="showPage('contact')">Contact for Group Rates</button>
+      <button class="btn-outline" onclick="showPage('contact')" data-i18n="register.group_btn">Contact for Group Rates</button>
     </div>
   </div>
 </div>
@@ -2107,13 +2107,13 @@ footer {
 <!-- ══════════ SPONSORS ══════════ -->
 <div class="page" id="page-sponsors">
   <div class="section-inner">
-    <div class="section-eyebrow">Partners & Sponsors</div>
-    <h2 class="section-title">Our <em>Partners</em></h2>
-    <p class="section-lead">Beauty Expert Summit 2026 is supported by leading companies in the aesthetic medicine, pharmaceutical and technology sectors.</p>
+    <div class="section-eyebrow" data-i18n="sponsors.eyebrow">Partners & Sponsors</div>
+    <h2 class="section-title" data-i18n-html="sponsors.title">Our <em>Partners</em></h2>
+    <p class="section-lead" data-i18n="sponsors.lead">Beauty Expert Summit 2026 is supported by leading companies in the aesthetic medicine, pharmaceutical and technology sectors.</p>
 
     <div class="sponsor-tiers">
       <div>
-        <div class="sponsor-tier-label">Institutional Partners</div>
+        <div class="sponsor-tier-label" data-i18n="sponsors.institutional">Institutional Partners</div>
         <div class="sponsor-logos">
           <a href="https://www.ugamc.info/" target="_blank" class="sponsor-placeholder sponsor-lg" style="text-decoration:none;cursor:pointer;">UGAMC</a>
           <div class="sponsor-placeholder sponsor-lg">IARPS</div>
@@ -2121,7 +2121,7 @@ footer {
         </div>
       </div>
       <div>
-        <div class="sponsor-tier-label">Clinic Partners</div>
+        <div class="sponsor-tier-label" data-i18n="sponsors.clinic">Clinic Partners</div>
         <div class="sponsor-logos">
           <div class="sponsor-placeholder sponsor-md">iClinic</div>
           <div class="sponsor-placeholder sponsor-md">LLC Clinic</div>
@@ -2132,12 +2132,12 @@ footer {
 
     <div class="become-sponsor">
       <div class="become-sponsor-text">
-        <h3>Become a Sponsor</h3>
-        <p>Reach 500+ specialists in ophthalmology, cosmetology and plastic surgery. Download our sponsorship brochure or contact us directly.</p>
+        <h3 data-i18n="sponsors.become_title">Become a Sponsor</h3>
+        <p data-i18n="sponsors.become_desc">Reach 500+ specialists in ophthalmology, cosmetology and plastic surgery. Download our sponsorship brochure or contact us directly.</p>
       </div>
       <div style="display:flex;gap:12px;flex-wrap:wrap;">
-        <button class="btn-gold">Download Brochure</button>
-        <button class="btn-outline" onclick="showPage('contact')">Contact Us</button>
+        <button class="btn-gold" data-i18n="sponsors.download">Download Brochure</button>
+        <button class="btn-outline" onclick="showPage('contact')" data-i18n="sponsors.contact">Contact Us</button>
       </div>
     </div>
   </div>
@@ -2146,73 +2146,73 @@ footer {
 <!-- ══════════ FAQ ══════════ -->
 <div class="page" id="page-faq">
   <div class="section-inner">
-    <div class="section-eyebrow">FAQ</div>
-    <h2 class="section-title">Frequently Asked <em>Questions</em></h2>
-    <p class="section-lead">Everything you need to know before registering.</p>
+    <div class="section-eyebrow" data-i18n="faq.eyebrow">FAQ</div>
+    <h2 class="section-title" data-i18n-html="faq.title">Frequently Asked <em>Questions</em></h2>
+    <p class="section-lead" data-i18n="faq.lead">Everything you need to know before registering.</p>
 
     <div class="faq-list" id="faqList">
 
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
-          Who should attend Beauty Expert Summit 2026?
+          <span data-i18n="faq.q1">Who should attend Beauty Expert Summit 2026?</span>
           <span class="faq-chevron">▾</span>
         </button>
-        <div class="faq-answer">The summit is designed for licensed medical professionals including ophthalmologists, dermatologists, cosmetologists, plastic surgeons, and residents or fellows in these specialties. Medical students are welcome with a Student ticket.</div>
+        <div class="faq-answer" data-i18n="faq.a1">The summit is designed for licensed medical professionals including ophthalmologists, dermatologists, cosmetologists, plastic surgeons, and residents or fellows in these specialties. Medical students are welcome with a Student ticket.</div>
       </div>
 
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
-          Will sessions be available in multiple languages?
+          <span data-i18n="faq.q2">Will sessions be available in multiple languages?</span>
           <span class="faq-chevron">▾</span>
         </button>
-        <div class="faq-answer">Yes. The conference will be conducted in English, Spanish and Ukrainian. Simultaneous interpretation will be available for the main plenary sessions. Workshop materials will be provided in all three languages.</div>
+        <div class="faq-answer" data-i18n="faq.a2">Yes. The conference will be conducted in English, Spanish and Ukrainian. Simultaneous interpretation will be available for the main plenary sessions. Workshop materials will be provided in all three languages.</div>
       </div>
 
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
-          What is included in the ticket price?
+          <span data-i18n="faq.q3">What is included in the ticket price?</span>
           <span class="faq-chevron">▾</span>
         </button>
-        <div class="faq-answer">All tickets include access to all plenary and track sessions across both days, conference materials, name badge, certificate of attendance and access to session recordings. Standard and VIP tickets additionally include the welcome dinner. VIP tickets include workshop sessions and the VIP networking dinner.</div>
+        <div class="faq-answer" data-i18n="faq.a3">All tickets include access to all plenary and track sessions across both days, conference materials, name badge, certificate of attendance and access to session recordings. Standard and VIP tickets additionally include the welcome dinner. VIP tickets include workshop sessions and the VIP networking dinner.</div>
       </div>
 
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
-          Can I get an invitation letter for my visa application?
+          <span data-i18n="faq.q4">Can I get an invitation letter for my visa application?</span>
           <span class="faq-chevron">▾</span>
         </button>
-        <div class="faq-answer">Yes. Upon completing your registration and payment, you can request an official invitation letter from UGAMC which can be used to support your visa application for Spain. Please allow 3–5 business days for processing.</div>
+        <div class="faq-answer" data-i18n="faq.a4">Yes. Upon completing your registration and payment, you can request an official invitation letter from UGAMC which can be used to support your visa application for Spain. Please allow 3–5 business days for processing.</div>
       </div>
 
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
-          What is the refund / cancellation policy?
+          <span data-i18n="faq.q5">What is the refund / cancellation policy?</span>
           <span class="faq-chevron">▾</span>
         </button>
-        <div class="faq-answer">Cancellations made more than 60 days before the event receive a full refund minus a €25 processing fee. Cancellations 30–60 days before receive a 50% refund. No refund is issued for cancellations within 30 days of the event, however tickets may be transferred to a colleague at no charge.</div>
+        <div class="faq-answer" data-i18n="faq.a5">Cancellations made more than 60 days before the event receive a full refund minus a €25 processing fee. Cancellations 30–60 days before receive a 50% refund. No refund is issued for cancellations within 30 days of the event, however tickets may be transferred to a colleague at no charge.</div>
       </div>
 
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
-          Is there a group discount?
+          <span data-i18n="faq.q6">Is there a group discount?</span>
           <span class="faq-chevron">▾</span>
         </button>
-        <div class="faq-answer">Groups of 5 or more delegates from the same institution or clinic receive a 15% discount. Please contact us directly at the email on the Contact page to arrange group registration and invoicing.</div>
+        <div class="faq-answer" data-i18n="faq.a6">Groups of 5 or more delegates from the same institution or clinic receive a 15% discount. Please contact us directly at the email on the Contact page to arrange group registration and invoicing.</div>
       </div>
 
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
-          Will CME / CPD credits be awarded?
+          <span data-i18n="faq.q7">Will CME / CPD credits be awarded?</span>
           <span class="faq-chevron">▾</span>
         </button>
-        <div class="faq-answer">The conference is being submitted for CME/CPD accreditation. Details will be confirmed and published on this website once accreditation is granted. All registered attendees will receive a certificate of attendance which can be submitted to most licensing bodies.</div>
+        <div class="faq-answer" data-i18n="faq.a7">The conference is being submitted for CME/CPD accreditation. Details will be confirmed and published on this website once accreditation is granted. All registered attendees will receive a certificate of attendance which can be submitted to most licensing bodies.</div>
       </div>
 
     </div>
 
     <div style="margin-top:48px;text-align:center;">
-      <p style="font-size:14px;color:var(--text-muted);margin-bottom:16px;">Still have questions?</p>
-      <button class="btn-gold" onclick="showPage('contact')">Contact the Organising Team</button>
+      <p style="font-size:14px;color:var(--text-muted);margin-bottom:16px;" data-i18n="faq.still_q">Still have questions?</p>
+      <button class="btn-gold" onclick="showPage('contact')" data-i18n="faq.contact_btn">Contact the Organising Team</button>
     </div>
   </div>
 </div>
@@ -2220,86 +2220,86 @@ footer {
 <!-- ══════════ CONTACT ══════════ -->
 <div class="page" id="page-contact">
   <div class="section-inner">
-    <div class="section-eyebrow">Get in Touch</div>
-    <h2 class="section-title">Contact <em>Us</em></h2>
-    <p class="section-lead">For general enquiries, speaker submissions, sponsorship proposals or group bookings.</p>
+    <div class="section-eyebrow" data-i18n="contact.eyebrow">Get in Touch</div>
+    <h2 class="section-title" data-i18n-html="contact.title">Contact <em>Us</em></h2>
+    <p class="section-lead" data-i18n="contact.lead">For general enquiries, speaker submissions, sponsorship proposals or group bookings.</p>
 
     <div class="contact-grid">
       <div class="contact-info">
         <div class="contact-info-item">
           <div class="contact-info-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
           <div>
-            <div class="contact-info-label">Email</div>
+            <div class="contact-info-label" data-i18n="contact.lbl.email">Email</div>
             <div class="contact-info-value">info.beautyexpertsummit@gmail.com</div>
           </div>
         </div>
         <div class="contact-info-item">
           <div class="contact-info-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
           <div>
-            <div class="contact-info-label">Website</div>
+            <div class="contact-info-label" data-i18n="contact.lbl.website">Website</div>
             <div class="contact-info-value">beautyexpertsummit.com</div>
           </div>
         </div>
         <div class="contact-info-item">
           <div class="contact-info-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg></div>
           <div>
-            <div class="contact-info-label">Organiser</div>
+            <div class="contact-info-label" data-i18n="contact.lbl.organiser">Organiser</div>
             <div class="contact-info-value"><a href="https://www.ugamc.info/" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(201,169,110,0.3);transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(201,169,110,0.8)'" onmouseout="this.style.borderColor='rgba(201,169,110,0.3)'">UGAMC Non Profit Organisation</a></div>
           </div>
         </div>
         <div class="contact-info-item">
           <div class="contact-info-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
           <div>
-            <div class="contact-info-label">Conference Location</div>
+            <div class="contact-info-label" data-i18n="contact.lbl.location">Conference Location</div>
             <div class="contact-info-value">Centro de Congresos de Elche, Alicante, Spain</div>
           </div>
         </div>
         <div style="margin-top:8px;padding:20px;border:1px solid var(--border);border-radius:8px;background:rgba(201,169,110,0.04);">
-          <div style="font-size:12px;color:var(--text-muted);margin-bottom:8px;letter-spacing:0.08em;text-transform:uppercase;font-weight:500;">Response Time</div>
-          <div style="font-size:13px;color:var(--gold-light);">We aim to respond to all enquiries within 2 business days.</div>
+          <div style="font-size:12px;color:var(--text-muted);margin-bottom:8px;letter-spacing:0.08em;text-transform:uppercase;font-weight:500;" data-i18n="contact.lbl.response">Response Time</div>
+          <div style="font-size:13px;color:var(--gold-light);" data-i18n="contact.response_val">We aim to respond to all enquiries within 2 business days.</div>
         </div>
       </div>
 
       <div id="contact-success" style="display:none;text-align:center;padding:48px 24px;border:1px solid rgba(201,169,110,0.3);border-radius:12px;background:rgba(201,169,110,0.06);">
         <div style="font-size:40px;margin-bottom:16px;">✓</div>
-        <div style="color:var(--gold-light);font-size:20px;font-weight:600;margin-bottom:10px;">Message Sent!</div>
-        <div style="color:var(--text-muted);font-size:14px;line-height:1.6;">Thank you for reaching out.<br>We'll be in touch within 2 business days.</div>
+        <div style="color:var(--gold-light);font-size:20px;font-weight:600;margin-bottom:10px;" data-i18n="contact.success_title">Message Sent!</div>
+        <div style="color:var(--text-muted);font-size:14px;line-height:1.6;" data-i18n="contact.success_sub">Thank you for reaching out.<br>We'll be in touch within 2 business days.</div>
       </div>
-      <div id="contact-error" style="display:none;color:#e07070;padding:12px;font-size:13px;border:1px solid rgba(224,112,112,0.3);border-radius:8px;margin-bottom:12px;">Something went wrong. Please email us at info.beautyexpertsummit@gmail.com</div>
+      <div id="contact-error" style="display:none;color:#e07070;padding:12px;font-size:13px;border:1px solid rgba(224,112,112,0.3);border-radius:8px;margin-bottom:12px;" data-i18n="contact.error">Something went wrong. Please email us at info.beautyexpertsummit@gmail.com</div>
       <form id="contact-form" class="contact-form" onsubmit="submitContact(event)">
         <div class="form-row">
           <div class="form-group">
-            <label class="form-label">First Name</label>
-            <input class="form-input" type="text" name="first_name" placeholder="Your first name" required>
+            <label class="form-label" data-i18n="contact.form.first">First Name</label>
+            <input class="form-input" type="text" name="first_name" placeholder="Your first name" required data-i18n-ph="contact.ph.first">
           </div>
           <div class="form-group">
-            <label class="form-label">Last Name</label>
-            <input class="form-input" type="text" name="last_name" placeholder="Your last name" required>
+            <label class="form-label" data-i18n="contact.form.last">Last Name</label>
+            <input class="form-input" type="text" name="last_name" placeholder="Your last name" required data-i18n-ph="contact.ph.last">
           </div>
         </div>
         <div class="form-group">
           <label class="form-label">Email</label>
-          <input class="form-input" type="email" name="email" placeholder="your@email.com" required>
+          <input class="form-input" type="email" name="email" placeholder="your@email.com" required data-i18n-ph="contact.ph.email">
         </div>
         <div class="form-group">
-          <label class="form-label">Enquiry Type</label>
+          <label class="form-label" data-i18n="contact.form.enquiry">Enquiry Type</label>
           <select class="form-select" name="enquiry_type">
-            <option value="">Select a topic</option>
-            <option>General Information</option>
-            <option>Registration & Tickets</option>
-            <option>Speaker Submission</option>
-            <option>Sponsorship & Partnerships</option>
-            <option>Group Booking</option>
-            <option>Visa Invitation Letter</option>
-            <option>Press & Media</option>
-            <option>Other</option>
+            <option value="" data-i18n="contact.form.select">Select a topic</option>
+            <option data-i18n="contact.form.opt1">General Information</option>
+            <option data-i18n="contact.form.opt2">Registration & Tickets</option>
+            <option data-i18n="contact.form.opt3">Speaker Submission</option>
+            <option data-i18n="contact.form.opt4">Sponsorship & Partnerships</option>
+            <option data-i18n="contact.form.opt5">Group Booking</option>
+            <option data-i18n="contact.form.opt6">Visa Invitation Letter</option>
+            <option data-i18n="contact.form.opt7">Press & Media</option>
+            <option data-i18n="contact.form.opt8">Other</option>
           </select>
         </div>
         <div class="form-group">
-          <label class="form-label">Message</label>
-          <textarea class="form-textarea" name="message" placeholder="How can we help you?" required></textarea>
+          <label class="form-label" data-i18n="contact.form.message">Message</label>
+          <textarea class="form-textarea" name="message" placeholder="How can we help you?" required data-i18n-ph="contact.ph.message"></textarea>
         </div>
-        <button type="submit" id="contact-btn" class="btn-gold" style="width:100%;padding:16px;font-size:14px;">Send Message</button>
+        <button type="submit" id="contact-btn" class="btn-gold" style="width:100%;padding:16px;font-size:14px;" data-i18n="contact.form.send">Send Message</button>
       </form>
     </div>
   </div>
@@ -2310,34 +2310,34 @@ footer {
   <div class="footer-inner">
     <div>
       <div class="footer-brand-name">Beauty Expert Summit</div>
-      <div class="footer-brand-sub">28–29 November 2026 · Elche, Spain</div>
-      <div class="footer-tagline">An international conference on Ophthalmology, Cosmetology, and Plastic Surgery.</div>
+      <div class="footer-brand-sub" data-i18n="footer.brand_sub">28–29 November 2026 · Elche, Spain</div>
+      <div class="footer-tagline" data-i18n="footer.tagline">An international conference on Ophthalmology, Cosmetology, and Plastic Surgery.</div>
     </div>
     <div>
-      <div class="footer-col-title">Navigate</div>
+      <div class="footer-col-title" data-i18n="footer.nav.title">Navigate</div>
       <ul class="footer-links">
-        <li><a onclick="showPage('home')">Home</a></li>
-        <li><a onclick="showPage('program')">Program</a></li>
-        <li><a onclick="showPage('speakers')">Speakers</a></li>
-        <li><a onclick="showPage('venue')">Venue & Travel</a></li>
+        <li><a onclick="showPage('home')" data-i18n="footer.nav.home">Home</a></li>
+        <li><a onclick="showPage('program')" data-i18n="footer.nav.program">Program</a></li>
+        <li><a onclick="showPage('speakers')" data-i18n="footer.nav.speakers">Speakers</a></li>
+        <li><a onclick="showPage('venue')" data-i18n="footer.nav.venue">Venue & Travel</a></li>
       </ul>
     </div>
     <div>
-      <div class="footer-col-title">Event</div>
+      <div class="footer-col-title" data-i18n="footer.event.title">Event</div>
       <ul class="footer-links">
-        <li><a onclick="showPage('register')">Register</a></li>
-        <li><a onclick="showPage('sponsors')">Sponsors</a></li>
-        <li><a onclick="showPage('faq')">FAQ</a></li>
-        <li><a onclick="showPage('contact')">Contact</a></li>
+        <li><a onclick="showPage('register')" data-i18n="footer.event.register">Register</a></li>
+        <li><a onclick="showPage('sponsors')" data-i18n="footer.event.sponsors">Sponsors</a></li>
+        <li><a onclick="showPage('faq')" data-i18n="footer.event.faq">FAQ</a></li>
+        <li><a onclick="showPage('contact')" data-i18n="footer.event.contact">Contact</a></li>
       </ul>
     </div>
     <div>
-      <div class="footer-col-title">Organiser</div>
+      <div class="footer-col-title" data-i18n="footer.org.title">Organiser</div>
       <ul class="footer-links">
         <li><a href="https://www.ugamc.info/" target="_blank">UGAMC</a></li>
         <li><a href="https://www.ugamc.info/" target="_blank">Non Profit Organisation</a></li>
-        <li><a onclick="showPage('contact')">Sponsorship</a></li>
-        <li><a onclick="showPage('contact')">Press Enquiries</a></li>
+        <li><a onclick="showPage('contact')" data-i18n="footer.org.sponsorship">Sponsorship</a></li>
+        <li><a onclick="showPage('contact')" data-i18n="footer.org.press">Press Enquiries</a></li>
       </ul>
     </div>
   </div>
@@ -2345,8 +2345,8 @@ footer {
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d483.26634005382806!2d-0.6958276999999999!3d38.2636107!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd63b68d3015fb67%3A0x8a5d9268d846445c!2sCentro%20De%20Congresos%20De%20Elche!5e1!3m2!1suk!2spl!4v1778981995049!5m2!1suk!2spl" width="100%" height="280" style="border:0;display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
   <div class="footer-bottom">
-    <div class="footer-copy">© 2026 Beauty Expert Summit. All rights reserved.</div>
-    <div class="footer-ugamc">Organised by <a href="https://www.ugamc.info/" target="_blank" style="color:var(--gold);font-weight:500;text-decoration:none;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">UGAMC Non Profit Organisation</a></div>
+    <div class="footer-copy" data-i18n="footer.copyright">© 2026 Beauty Expert Summit. All rights reserved.</div>
+    <div class="footer-ugamc"><span data-i18n="footer.organised">Organised by</span> <a href="https://www.ugamc.info/" target="_blank" style="color:var(--gold);font-weight:500;text-decoration:none;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">UGAMC Non Profit Organisation</a></div>
   </div>
 </footer>
 
@@ -2400,11 +2400,138 @@ function toggleFaq(btn) {
   if (!isOpen) item.classList.add('open');
 }
 
-// ── LANG SWITCHER ──
+// ── i18n ──
+var i18n = {
+en:{
+'nav.program':'Program','nav.speakers':'Speakers','nav.venue':'Venue','nav.sponsors':'Sponsors','nav.faq':'FAQ','nav.contact':'Contact','nav.register':'Register','nav.logo_sub':'28–29 Nov 2026 · Elche, Spain','mobile.register':'Register & Tickets',
+'home.motto':'Built for <em>Medical Leaders</em>','home.tagline':'Connecting Visionaries Across Ophthalmology, Plastic Surgery, and Cosmetology.','home.date':'28–29 November · Centro de Congresos de Elche, Alicante, Spain','home.cta_ticket':'Get Your Ticket','home.cta_program':'View Program','home.explore':'Explore','home.dama':'✦ La Dama de Elche invites you ✦',
+'program.eyebrow':'Scientific Program','program.title':'Two Days of <em>Excellence</em>','program.lead':'World-class presentations, live demonstrations and interactive workshops across three specialist tracks: Ophthalmology, Cosmetology, and Plastic Surgery.','program.day1_tab':'Day 1 · 28 Nov','program.day2_tab':'Day 2 · 29 Nov','program.day1_title':'Day 1 · 28 November','program.day2_title':'Day 2 · 29 November','program.tba':'Full program details to be announced',
+'track.ophth':'Ophthalmology','track.cosm':'Cosmetology','track.surg':'Plastic Surgery','track.gen':'General',
+'speakers.eyebrow':'Faculty','speakers.title':'Meet the <em>Speakers</em>','speakers.lead':'An international faculty of practicing surgeons, clinicians and innovators at the forefront of aesthetic medicine.','speakers.tba_text':'More speakers<br>to be announced','speakers.tba_name':'Coming Soon','speakers.tba_role':'Additional faculty<br>to be confirmed','speakers.inquiry':'Interested in speaking at Beauty Expert Summit 2026?','speakers.inquiry_btn':'Submit Speaker Inquiry',
+'venue.eyebrow':'Location','venue.title':'Elche, <em>Alicante</em>','venue.lead':'Centro de Congresos de Elche — a modern congress centre in the heart of Alicante province, easily accessible from across Europe.','venue.desc':'The conference will take place at the Centro de Congresos de Elche — a state-of-the-art venue with full A/V facilities, live demonstration theatres and exhibition space for partner companies.',
+'venue.lbl.venue':'Venue','venue.lbl.dates':'Dates','venue.val.dates':'28–29 November 2026','venue.sub.dates':'Two full days · Registration from 08:30','venue.lbl.airport':'Nearest Airport','venue.val.airport':'Alicante–Elche Airport (ALC)','venue.sub.airport':'~15 min drive · International connections','venue.lbl.hotel':'Partner Hotel','venue.sub.hotel':'3–5 min walk · Discounted rates for delegates',
+'hotel.eyebrow':'Official Partner Hotel','hotel.desc':'A UNESCO-listed palm grove oasis in the heart of Elche — the ideal retreat for summit delegates. Nestled within ancient date palms, this award-winning garden hotel is just a short stroll from the congress centre. Discounted rates available for registered attendees upon request.','hotel.walk':'3–5 min walk to venue','hotel.map':'View on Map','hotel.website':'Hotel Website',
+'register.eyebrow':'Registration','register.title':'Choose Your <em>Ticket</em>','register.lead':'Early bird prices available for a limited time. All tickets include certificate of attendance and access to recorded sessions.',
+'ticket.popular':'MOST POPULAR','ticket.2day_type':'Early Bird · Limited','ticket.2day_name':'2-Day In-Person','ticket.2day_note':'Final price €550 · Save €250','ticket.2day_f1':'Access to all sessions — both days','ticket.2day_f2':'Conference materials & badge','ticket.2day_f3':'Coffee breaks included','ticket.2day_f4':'Certificate of attendance','ticket.2day_f5':'Access to recorded sessions',
+'ticket.1day_type':'Early Bird · 1 Day','ticket.1day_name':'1-Day In-Person','ticket.1day_note':'Final price €270 · Choose your day','ticket.1day_f1':'Ophthalmology + Plastic Surgery','ticket.1day_f2':'or Plastic Surgery + Cosmetology','ticket.1day_f3':'Conference materials & badge','ticket.1day_f4':'Coffee breaks included','ticket.1day_f5':'Certificate of attendance','ticket.1day_f6':'Access to recorded sessions',
+'ticket.online_type':'Early Bird · Online','ticket.online_name':'Live Streaming','ticket.online_note':'Final price €200 · 2 days online','ticket.online_f1':'Live stream — both days','ticket.online_f2':'Interactive live chat','ticket.online_f3':'Web certificate of attendance','ticket.online_f4':'Access to recorded sessions',
+'ticket.student_type':'Academic','ticket.student_name':'Student','ticket.student_note':'Valid student ID required · 2 days','ticket.student_f1':'Access to all sessions — both days','ticket.student_f2':'Conference materials & badge','ticket.student_f3':'Coffee breaks included','ticket.student_f4':'Certificate of attendance','ticket.student_f5':'Access to recorded sessions',
+'ticket.buy_now':'Buy Now — Stripe','register.stripe_note':'Secure payment powered by Stripe. All major cards accepted.','register.group_title':'Need a group booking or invoice?','register.group_desc':'Groups of 5+ receive a 15% discount. Contact us for corporate invoicing.','register.group_btn':'Contact for Group Rates',
+'sponsors.eyebrow':'Partners & Sponsors','sponsors.title':'Our <em>Partners</em>','sponsors.lead':'Beauty Expert Summit 2026 is supported by leading companies in the aesthetic medicine, pharmaceutical and technology sectors.','sponsors.institutional':'Institutional Partners','sponsors.clinic':'Clinic Partners','sponsors.become_title':'Become a Sponsor','sponsors.become_desc':'Reach 500+ specialists in ophthalmology, cosmetology and plastic surgery. Download our sponsorship brochure or contact us directly.','sponsors.download':'Download Brochure','sponsors.contact':'Contact Us',
+'faq.eyebrow':'FAQ','faq.title':'Frequently Asked <em>Questions</em>','faq.lead':'Everything you need to know before registering.',
+'faq.q1':'Who should attend Beauty Expert Summit 2026?','faq.a1':'The summit is designed for licensed medical professionals including ophthalmologists, dermatologists, cosmetologists, plastic surgeons, and residents or fellows in these specialties. Medical students are welcome with a Student ticket.',
+'faq.q2':'Will sessions be available in multiple languages?','faq.a2':'Yes. The conference will be conducted in English, Spanish and Ukrainian. Simultaneous interpretation will be available for the main plenary sessions. Workshop materials will be provided in all three languages.',
+'faq.q3':'What is included in the ticket price?','faq.a3':'All tickets include access to all plenary and track sessions across both days, conference materials, name badge, certificate of attendance and access to session recordings. Standard and VIP tickets additionally include the welcome dinner. VIP tickets include workshop sessions and the VIP networking dinner.',
+'faq.q4':'Can I get an invitation letter for my visa application?','faq.a4':'Yes. Upon completing your registration and payment, you can request an official invitation letter from UGAMC which can be used to support your visa application for Spain. Please allow 3–5 business days for processing.',
+'faq.q5':'What is the refund / cancellation policy?','faq.a5':'Cancellations made more than 60 days before the event receive a full refund minus a €25 processing fee. Cancellations 30–60 days before receive a 50% refund. No refund is issued for cancellations within 30 days of the event, however tickets may be transferred to a colleague at no charge.',
+'faq.q6':'Is there a group discount?','faq.a6':'Groups of 5 or more delegates from the same institution or clinic receive a 15% discount. Please contact us directly at the email on the Contact page to arrange group registration and invoicing.',
+'faq.q7':'Will CME / CPD credits be awarded?','faq.a7':'The conference is being submitted for CME/CPD accreditation. Details will be confirmed and published on this website once accreditation is granted. All registered attendees will receive a certificate of attendance which can be submitted to most licensing bodies.',
+'faq.still_q':'Still have questions?','faq.contact_btn':'Contact the Organising Team',
+'contact.eyebrow':'Get in Touch','contact.title':'Contact <em>Us</em>','contact.lead':'For general enquiries, speaker submissions, sponsorship proposals or group bookings.',
+'contact.lbl.email':'Email','contact.lbl.website':'Website','contact.lbl.organiser':'Organiser','contact.lbl.location':'Conference Location','contact.lbl.response':'Response Time','contact.response_val':'We aim to respond to all enquiries within 2 business days.',
+'contact.success_title':'Message Sent!','contact.success_sub':'Thank you for reaching out. We\'ll be in touch within 2 business days.','contact.error':'Something went wrong. Please email us at info.beautyexpertsummit@gmail.com',
+'contact.form.first':'First Name','contact.form.last':'Last Name','contact.form.enquiry':'Enquiry Type','contact.form.select':'Select a topic','contact.form.opt1':'General Information','contact.form.opt2':'Registration & Tickets','contact.form.opt3':'Speaker Submission','contact.form.opt4':'Sponsorship & Partnerships','contact.form.opt5':'Group Booking','contact.form.opt6':'Visa Invitation Letter','contact.form.opt7':'Press & Media','contact.form.opt8':'Other','contact.form.message':'Message','contact.form.send':'Send Message',
+'contact.ph.first':'Your first name','contact.ph.last':'Your last name','contact.ph.email':'your@email.com','contact.ph.message':'How can we help you?',
+'footer.brand_sub':'28–29 November 2026 · Elche, Spain','footer.tagline':'An international conference on Ophthalmology, Cosmetology, and Plastic Surgery.',
+'footer.nav.title':'Navigate','footer.nav.home':'Home','footer.nav.program':'Program','footer.nav.speakers':'Speakers','footer.nav.venue':'Venue & Travel',
+'footer.event.title':'Event','footer.event.register':'Register','footer.event.sponsors':'Sponsors','footer.event.faq':'FAQ','footer.event.contact':'Contact',
+'footer.org.title':'Organiser','footer.org.sponsorship':'Sponsorship','footer.org.press':'Press Enquiries',
+'footer.copyright':'© 2026 Beauty Expert Summit. All rights reserved.','footer.organised':'Organised by'
+},
+es:{
+'nav.program':'Programa','nav.speakers':'Ponentes','nav.venue':'Sede','nav.sponsors':'Patrocinadores','nav.faq':'FAQ','nav.contact':'Contacto','nav.register':'Registro','nav.logo_sub':'28–29 Nov 2026 · Elche, España','mobile.register':'Registro y Entradas',
+'home.motto':'Para <em>Líderes Médicos</em>','home.tagline':'Conectando visionarios en Oftalmología, Cirugía Plástica y Cosmetología.','home.date':'28–29 de noviembre · Centro de Congresos de Elche, Alicante, España','home.cta_ticket':'Obtener Entrada','home.cta_program':'Ver Programa','home.explore':'Explorar','home.dama':'✦ La Dama de Elche te invita ✦',
+'program.eyebrow':'Programa Científico','program.title':'Dos Días de <em>Excelencia</em>','program.lead':'Presentaciones de clase mundial, demostraciones en vivo y talleres interactivos en tres áreas especializadas: Oftalmología, Cosmetología y Cirugía Plástica.','program.day1_tab':'Día 1 · 28 Nov','program.day2_tab':'Día 2 · 29 Nov','program.day1_title':'Día 1 · 28 de noviembre','program.day2_title':'Día 2 · 29 de noviembre','program.tba':'El programa completo será anunciado próximamente',
+'track.ophth':'Oftalmología','track.cosm':'Cosmetología','track.surg':'Cirugía Plástica','track.gen':'General',
+'speakers.eyebrow':'Facultad','speakers.title':'Conozca a los <em>Ponentes</em>','speakers.lead':'Un claustro internacional de cirujanos en ejercicio, clínicos e innovadores a la vanguardia de la medicina estética.','speakers.tba_text':'Más ponentes<br>por anunciar','speakers.tba_name':'Próximamente','speakers.tba_role':'Profesorado adicional<br>por confirmar','speakers.inquiry':'¿Interesado en hablar en Beauty Expert Summit 2026?','speakers.inquiry_btn':'Enviar Solicitud de Ponente',
+'venue.eyebrow':'Ubicación','venue.title':'Elche, <em>Alicante</em>','venue.lead':'Centro de Congresos de Elche — un moderno centro de congresos en el corazón de la provincia de Alicante, fácilmente accesible desde toda Europa.','venue.desc':'La conferencia tendrá lugar en el Centro de Congresos de Elche — un recinto de última generación con instalaciones audiovisuales completas, teatros de demostración en vivo y espacio para empresas socias.',
+'venue.lbl.venue':'Sede','venue.lbl.dates':'Fechas','venue.val.dates':'28–29 de noviembre de 2026','venue.sub.dates':'Dos días completos · Registro desde las 08:30','venue.lbl.airport':'Aeropuerto más cercano','venue.val.airport':'Aeropuerto de Alicante–Elche (ALC)','venue.sub.airport':'~15 min en coche · Conexiones internacionales','venue.lbl.hotel':'Hotel Socio','venue.sub.hotel':'3–5 min a pie · Tarifas con descuento para delegados',
+'hotel.eyebrow':'Hotel Socio Oficial','hotel.desc':'Un oasis en el palmeral catalogado por la UNESCO en el corazón de Elche — el retiro ideal para los delegados del congreso. Rodeado de antiguas palmeras datileras, este galardonado hotel jardín está a solo unos pasos del centro de congresos. Tarifas con descuento disponibles para los asistentes registrados previa solicitud.','hotel.walk':'3–5 min a pie al recinto','hotel.map':'Ver en el Mapa','hotel.website':'Sitio Web del Hotel',
+'register.eyebrow':'Registro','register.title':'Elige Tu <em>Entrada</em>','register.lead':'Precios de inscripción anticipada disponibles por tiempo limitado. Todas las entradas incluyen certificado de asistencia y acceso a sesiones grabadas.',
+'ticket.popular':'MÁS POPULAR','ticket.2day_type':'Inscripción Anticipada · Limitada','ticket.2day_name':'2 Días Presencial','ticket.2day_note':'Precio final €550 · Ahorre €250','ticket.2day_f1':'Acceso a todas las sesiones — ambos días','ticket.2day_f2':'Materiales del congreso y acreditación','ticket.2day_f3':'Pausas para café incluidas','ticket.2day_f4':'Certificado de asistencia','ticket.2day_f5':'Acceso a sesiones grabadas',
+'ticket.1day_type':'Inscripción Anticipada · 1 Día','ticket.1day_name':'1 Día Presencial','ticket.1day_note':'Precio final €270 · Elija su día','ticket.1day_f1':'Oftalmología + Cirugía Plástica','ticket.1day_f2':'o Cirugía Plástica + Cosmetología','ticket.1day_f3':'Materiales del congreso y acreditación','ticket.1day_f4':'Pausas para café incluidas','ticket.1day_f5':'Certificado de asistencia','ticket.1day_f6':'Acceso a sesiones grabadas',
+'ticket.online_type':'Inscripción Anticipada · Online','ticket.online_name':'Retransmisión en Vivo','ticket.online_note':'Precio final €200 · 2 días online','ticket.online_f1':'Retransmisión en vivo — ambos días','ticket.online_f2':'Chat en vivo interactivo','ticket.online_f3':'Certificado de asistencia web','ticket.online_f4':'Acceso a sesiones grabadas',
+'ticket.student_type':'Académico','ticket.student_name':'Estudiante','ticket.student_note':'ID de estudiante válido requerido · 2 días','ticket.student_f1':'Acceso a todas las sesiones — ambos días','ticket.student_f2':'Materiales del congreso y acreditación','ticket.student_f3':'Pausas para café incluidas','ticket.student_f4':'Certificado de asistencia','ticket.student_f5':'Acceso a sesiones grabadas',
+'ticket.buy_now':'Comprar — Stripe','register.stripe_note':'Pago seguro a través de Stripe. Se aceptan todas las tarjetas principales.','register.group_title':'¿Necesita reserva grupal o factura?','register.group_desc':'Grupos de 5+ reciben un 15% de descuento. Contáctenos para facturación corporativa.','register.group_btn':'Contactar para Tarifas Grupales',
+'sponsors.eyebrow':'Socios y Patrocinadores','sponsors.title':'Nuestros <em>Socios</em>','sponsors.lead':'Beauty Expert Summit 2026 cuenta con el apoyo de empresas líderes en los sectores de medicina estética, farmacéutica y tecnología.','sponsors.institutional':'Socios Institucionales','sponsors.clinic':'Socios Clínicos','sponsors.become_title':'Conviértase en Patrocinador','sponsors.become_desc':'Llegue a más de 500 especialistas en oftalmología, cosmetología y cirugía plástica. Descargue nuestro folleto de patrocinio o contáctenos directamente.','sponsors.download':'Descargar Folleto','sponsors.contact':'Contáctenos',
+'faq.eyebrow':'FAQ','faq.title':'Preguntas <em>Frecuentes</em>','faq.lead':'Todo lo que necesita saber antes de registrarse.',
+'faq.q1':'¿Quién debería asistir a Beauty Expert Summit 2026?','faq.a1':'El congreso está diseñado para profesionales médicos con licencia: oftalmólogos, dermatólogos, cosmetólogos, cirujanos plásticos y residentes o becarios en estas especialidades. Los estudiantes de medicina son bienvenidos con una entrada de Estudiante.',
+'faq.q2':'¿Las sesiones estarán disponibles en varios idiomas?','faq.a2':'Sí. La conferencia se realizará en inglés, español y ucraniano. Se dispondrá de interpretación simultánea para las sesiones plenarias principales. Los materiales de los talleres se proporcionarán en los tres idiomas.',
+'faq.q3':'¿Qué incluye el precio de la entrada?','faq.a3':'Todas las entradas incluyen acceso a todas las sesiones plenarias y de área durante ambos días, materiales del congreso, acreditación, certificado de asistencia y acceso a las grabaciones. Las entradas estándar y VIP incluyen además la cena de bienvenida. Las entradas VIP incluyen talleres y la cena de networking VIP.',
+'faq.q4':'¿Puedo obtener una carta de invitación para mi solicitud de visado?','faq.a4':'Sí. Tras completar su registro y pago, puede solicitar una carta de invitación oficial de UGAMC para apoyar su solicitud de visado para España. El plazo de tramitación es de 3 a 5 días hábiles.',
+'faq.q5':'¿Cuál es la política de reembolso y cancelación?','faq.a5':'Las cancelaciones realizadas más de 60 días antes del evento reciben un reembolso completo menos una tarifa de gestión de €25. Las cancelaciones entre 30 y 60 días antes reciben un reembolso del 50%. No se realiza reembolso para cancelaciones dentro de los 30 días previos al evento, aunque las entradas pueden transferirse a un colega sin cargo.',
+'faq.q6':'¿Existe descuento para grupos?','faq.a6':'Los grupos de 5 o más delegados de la misma institución o clínica reciben un descuento del 15%. Contáctenos directamente en el correo electrónico de la página de Contacto para gestionar el registro grupal y la facturación.',
+'faq.q7':'¿Se otorgarán créditos CME/CPD?','faq.a7':'La conferencia está siendo presentada para acreditación CME/CPD. Los detalles se confirmarán y publicarán en este sitio web una vez concedida la acreditación. Todos los asistentes registrados recibirán un certificado de asistencia.',
+'faq.still_q':'¿Todavía tiene preguntas?','faq.contact_btn':'Contactar al Equipo Organizador',
+'contact.eyebrow':'Contáctenos','contact.title':'Contáctenos','contact.lead':'Para consultas generales, presentaciones de ponentes, propuestas de patrocinio o reservas grupales.',
+'contact.lbl.email':'Correo electrónico','contact.lbl.website':'Sitio web','contact.lbl.organiser':'Organizador','contact.lbl.location':'Lugar del congreso','contact.lbl.response':'Tiempo de respuesta','contact.response_val':'Nos comprometemos a responder todas las consultas en un plazo de 2 días hábiles.',
+'contact.success_title':'¡Mensaje Enviado!','contact.success_sub':'Gracias por ponerse en contacto. Le responderemos en 2 días hábiles.','contact.error':'Algo salió mal. Por favor escríbanos a info.beautyexpertsummit@gmail.com',
+'contact.form.first':'Nombre','contact.form.last':'Apellido','contact.form.enquiry':'Tipo de consulta','contact.form.select':'Seleccione un tema','contact.form.opt1':'Información General','contact.form.opt2':'Registro y Entradas','contact.form.opt3':'Solicitud de Ponente','contact.form.opt4':'Patrocinio y Asociaciones','contact.form.opt5':'Reserva de Grupo','contact.form.opt6':'Carta de Invitación para Visado','contact.form.opt7':'Prensa y Medios','contact.form.opt8':'Otro','contact.form.message':'Mensaje','contact.form.send':'Enviar Mensaje',
+'contact.ph.first':'Su nombre','contact.ph.last':'Su apellido','contact.ph.email':'su@correo.com','contact.ph.message':'¿En qué podemos ayudarle?',
+'footer.brand_sub':'28–29 de noviembre 2026 · Elche, España','footer.tagline':'Una conferencia internacional sobre Oftalmología, Cosmetología y Cirugía Plástica.',
+'footer.nav.title':'Navegar','footer.nav.home':'Inicio','footer.nav.program':'Programa','footer.nav.speakers':'Ponentes','footer.nav.venue':'Sede y Viaje',
+'footer.event.title':'Evento','footer.event.register':'Registro','footer.event.sponsors':'Patrocinadores','footer.event.faq':'FAQ','footer.event.contact':'Contacto',
+'footer.org.title':'Organizador','footer.org.sponsorship':'Patrocinio','footer.org.press':'Consultas de Prensa',
+'footer.copyright':'© 2026 Beauty Expert Summit. Todos los derechos reservados.','footer.organised':'Organizado por'
+},
+uk:{
+'nav.program':'Програма','nav.speakers':'Доповідачі','nav.venue':'Місце','nav.sponsors':'Спонсори','nav.faq':'FAQ','nav.contact':'Контакт','nav.register':'Реєстрація','nav.logo_sub':'28–29 Лист 2026 · Ельче, Іспанія','mobile.register':'Реєстрація та Квитки',
+'home.motto':'Для <em>Медичних Лідерів</em>','home.tagline':"Об'єднуємо лідерів офтальмології, пластичної хірургії та косметології.",'home.date':'28–29 листопада · Centro de Congresos de Elche, Аліканте, Іспанія','home.cta_ticket':'Отримати Квиток','home.cta_program':'Переглянути Програму','home.explore':'Досліджувати','home.dama':'✦ Дама Ельчська запрошує вас ✦',
+'program.eyebrow':'Наукова Програма','program.title':'Два Дні <em>Досконалості</em>','program.lead':'Доповіді світового рівня, живі демонстрації та інтерактивні майстер-класи у трьох спеціалізованих напрямках: офтальмологія, косметологія та пластична хірургія.','program.day1_tab':'День 1 · 28 Лист','program.day2_tab':'День 2 · 29 Лист','program.day1_title':'День 1 · 28 листопада','program.day2_title':'День 2 · 29 листопада','program.tba':'Повна програма буде оголошена найближчим часом',
+'track.ophth':'Офтальмологія','track.cosm':'Косметологія','track.surg':'Пластична Хірургія','track.gen':'Загальне',
+'speakers.eyebrow':'Факультет','speakers.title':'Знайомтеся з <em>Доповідачами</em>','speakers.lead':'Міжнародна команда практикуючих хірургів, клініцистів та інноваторів у галузі естетичної медицини.','speakers.tba_text':'Більше доповідачів<br>буде оголошено','speakers.tba_name':'Незабаром','speakers.tba_role':'Додатковий склад<br>буде підтверджено','speakers.inquiry':'Бажаєте виступити на Beauty Expert Summit 2026?','speakers.inquiry_btn':'Подати Заявку Доповідача',
+'venue.eyebrow':'Місце проведення','venue.title':'Ельче, <em>Аліканте</em>','venue.lead':'Centro de Congresos de Elche — сучасний конгрес-центр у серці провінції Аліканте, легко доступний з усієї Європи.','venue.desc':'Конференція відбудеться в Centro de Congresos de Elche — сучасному майданчику з повним аудіовізуальним обладнанням, театрами для живих демонстрацій та виставковими площами для компаній-партнерів.',
+'venue.lbl.venue':'Місце','venue.lbl.dates':'Дати','venue.val.dates':'28–29 листопада 2026','venue.sub.dates':'Два повних дні · Реєстрація з 08:30','venue.lbl.airport':'Найближчий Аеропорт','venue.val.airport':'Аеропорт Аліканте–Ельче (ALC)','venue.sub.airport':'~15 хв їзди · Міжнародні рейси','venue.lbl.hotel':'Готель-Партнер','venue.sub.hotel':'3–5 хв пішки · Знижені тарифи для делегатів',
+'hotel.eyebrow':'Офіційний Готель-Партнер','hotel.desc':"Оаза серед пальмового гаю, внесеного до списку ЮНЕСКО, у серці Ельче — ідеальне місце для делегатів конференції. Оточений стародавніми фінікові пальмами, цей відзначений нагородами готель-сад знаходиться за кілька хвилин ходьби від конгрес-центру. Знижені тарифи доступні для зареєстрованих учасників за запитом.",'hotel.walk':'3–5 хв пішки до місця','hotel.map':'Переглянути на Карті','hotel.website':'Сайт Готелю',
+'register.eyebrow':'Реєстрація','register.title':'Оберіть Свій <em>Квиток</em>','register.lead':'Ціни раннього продажу діють обмежений час. Усі квитки включають сертифікат участі та доступ до записів сесій.',
+'ticket.popular':'НАЙПОПУЛЯРНІШИЙ','ticket.2day_type':'Ранній Продаж · Обмежено','ticket.2day_name':'2 Дні Очно','ticket.2day_note':'Кінцева ціна €550 · Економія €250','ticket.2day_f1':'Доступ до всіх сесій — обидва дні','ticket.2day_f2':'Матеріали конференції та бейдж','ticket.2day_f3':'Кавові паузи включені','ticket.2day_f4':'Сертифікат участі','ticket.2day_f5':'Доступ до записів сесій',
+'ticket.1day_type':'Ранній Продаж · 1 День','ticket.1day_name':'1 День Очно','ticket.1day_note':'Кінцева ціна €270 · Оберіть свій день','ticket.1day_f1':'Офтальмологія + Пластична Хірургія','ticket.1day_f2':'або Пластична Хірургія + Косметологія','ticket.1day_f3':'Матеріали конференції та бейдж','ticket.1day_f4':'Кавові паузи включені','ticket.1day_f5':'Сертифікат участі','ticket.1day_f6':'Доступ до записів сесій',
+'ticket.online_type':'Ранній Продаж · Онлайн','ticket.online_name':'Онлайн Трансляція','ticket.online_note':'Кінцева ціна €200 · 2 дні онлайн','ticket.online_f1':'Пряма трансляція — обидва дні','ticket.online_f2':'Інтерактивний чат','ticket.online_f3':'Електронний сертифікат участі','ticket.online_f4':'Доступ до записів сесій',
+'ticket.student_type':'Академічний','ticket.student_name':'Студентський','ticket.student_note':'Потрібне дійсне студентське посвідчення · 2 дні','ticket.student_f1':'Доступ до всіх сесій — обидва дні','ticket.student_f2':'Матеріали конференції та бейдж','ticket.student_f3':'Кавові паузи включені','ticket.student_f4':'Сертифікат участі','ticket.student_f5':'Доступ до записів сесій',
+'ticket.buy_now':'Купити — Stripe','register.stripe_note':'Захищена оплата через Stripe. Приймаються всі основні картки.','register.group_title':'Потрібне групове бронювання або рахунок-фактура?','register.group_desc':"Групи від 5 осіб отримують знижку 15%. Зв'яжіться з нами для корпоративного виставлення рахунків.",'register.group_btn':"Зв'язатися для Групових Цін",
+'sponsors.eyebrow':'Партнери та Спонсори','sponsors.title':'Наші <em>Партнери</em>','sponsors.lead':'Beauty Expert Summit 2026 підтримується провідними компаніями у галузі естетичної медицини, фармацевтики та технологій.','sponsors.institutional':'Інституційні Партнери','sponsors.clinic':'Клінічні Партнери','sponsors.become_title':'Стати Спонсором','sponsors.become_desc':"Охопіть 500+ спеціалістів з офтальмології, косметології та пластичної хірургії. Завантажте нашу спонсорську брошуру або зв'яжіться з нами.",'sponsors.download':'Завантажити Брошуру','sponsors.contact':"Зв'язатися",
+'faq.eyebrow':'FAQ','faq.title':'Часті <em>Запитання</em>','faq.lead':'Все, що вам потрібно знати перед реєстрацією.',
+'faq.q1':'Кому призначений Beauty Expert Summit 2026?','faq.a1':'Конференція розроблена для ліцензованих медичних фахівців: офтальмологів, дерматологів, косметологів, пластичних хірургів, а також інтернів і ординаторів цих спеціальностей. Студенти медичних закладів можуть взяти участь за студентським квитком.',
+'faq.q2':'Чи будуть сесії доступні кількома мовами?','faq.a2':'Так. Конференція проводитиметься англійською, іспанською та українською мовами. На головних пленарних сесіях буде забезпечено синхронний переклад. Матеріали майстер-класів надаватимуться трьома мовами.',
+'faq.q3':'Що включено у вартість квитка?','faq.a3':'Усі квитки включають доступ до всіх пленарних і тематичних сесій обох днів, матеріали конференції, бейдж, сертифікат участі та доступ до записів. Стандартні та VIP-квитки також включають вечерю-привітання. VIP-квитки включають майстер-класи та VIP-нетворкінг вечерю.',
+'faq.q4':'Чи можу я отримати запрошення для оформлення візи?','faq.a4':"Так. Після завершення реєстрації та оплати ви можете запросити офіційний лист-запрошення від UGAMC для підтримки вашої заявки на візу до Іспанії. Строк обробки — 3–5 робочих днів.",
+'faq.q5':'Яка політика повернення коштів та скасування?','faq.a5':'Скасування за більш ніж 60 днів до події отримує повне відшкодування за вирахуванням комісії €25. Скасування за 30–60 днів — 50% відшкодування. За скасування менш ніж за 30 днів кошти не повертаються, однак квиток можна безкоштовно передати колезі.',
+'faq.q6':'Чи є групова знижка?','faq.a6':"Групи від 5 делегатів з однієї установи або клініки отримують знижку 15%. Зв'яжіться з нами безпосередньо на email зі сторінки Контакт для організації групової реєстрації.",
+'faq.q7':'Чи будуть нараховуватися кредити CME/CPD?','faq.a7':'Конференція подана на акредитацію CME/CPD. Деталі будуть підтверджені та опубліковані на цьому сайті після отримання акредитації. Усі зареєстровані учасники отримають сертифікат участі.',
+'faq.still_q':'Ще є запитання?','faq.contact_btn':"Зв'язатися з Командою",
+'contact.eyebrow':"Зв'язатися",'contact.title':"Зв'яжіться <em>з Нами</em>",'contact.lead':"Для загальних запитів, заявок доповідачів, спонсорських пропозицій або групового бронювання.",
+'contact.lbl.email':'Електронна пошта','contact.lbl.website':'Вебсайт','contact.lbl.organiser':'Організатор','contact.lbl.location':'Місце проведення','contact.lbl.response':'Час відповіді','contact.response_val':'Ми прагнемо відповідати на всі запити протягом 2 робочих днів.',
+'contact.success_title':'Повідомлення Надіслано!','contact.success_sub':'Дякуємо за звернення. Ми відповімо протягом 2 робочих днів.','contact.error':'Щось пішло не так. Будь ласка, напишіть нам на info.beautyexpertsummit@gmail.com',
+'contact.form.first':"Ім'я",'contact.form.last':'Прізвище','contact.form.enquiry':'Тип запиту','contact.form.select':'Виберіть тему','contact.form.opt1':'Загальна Інформація','contact.form.opt2':'Реєстрація та Квитки','contact.form.opt3':'Заявка Доповідача','contact.form.opt4':'Спонсорство та Партнерство','contact.form.opt5':'Групове Бронювання','contact.form.opt6':'Лист-Запрошення для Візи','contact.form.opt7':'Преса та ЗМІ','contact.form.opt8':'Інше','contact.form.message':'Повідомлення','contact.form.send':'Надіслати Повідомлення',
+'contact.ph.first':"Ваше ім'я",'contact.ph.last':'Ваше прізвище','contact.ph.email':'ваша@пошта.com','contact.ph.message':'Чим ми можемо допомогти?',
+'footer.brand_sub':'28–29 листопада 2026 · Ельче, Іспанія','footer.tagline':'Міжнародна конференція з офтальмології, косметології та пластичної хірургії.',
+'footer.nav.title':'Навігація','footer.nav.home':'Головна','footer.nav.program':'Програма','footer.nav.speakers':'Доповідачі','footer.nav.venue':'Місце та Подорож',
+'footer.event.title':'Подія','footer.event.register':'Зареєструватися','footer.event.sponsors':'Спонсори','footer.event.faq':'FAQ','footer.event.contact':'Контакт',
+'footer.org.title':'Організатор','footer.org.sponsorship':'Спонсорство','footer.org.press':'Запити ЗМІ',
+'footer.copyright':'© 2026 Beauty Expert Summit. Усі права захищені.','footer.organised':'Організовано'
+}
+};
+var currentLang = localStorage.getItem('lang') || 'en';
+
 function setLang(lang) {
-  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-  event.target.classList.add('active');
-  // Hook in i18n here when ready
+  currentLang = lang;
+  document.querySelectorAll('.lang-btn').forEach(function(b){ b.classList.remove('active'); });
+  var btn = document.querySelector('.lang-btn[data-lang="'+lang+'"]');
+  if (btn) btn.classList.add('active');
+  var t = i18n[lang] || i18n.en;
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k = el.getAttribute('data-i18n'); if(t[k]!==undefined) el.textContent = t[k];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(function(el){
+    var k = el.getAttribute('data-i18n-html'); if(t[k]!==undefined) el.innerHTML = t[k];
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(function(el){
+    var k = el.getAttribute('data-i18n-ph'); if(t[k]!==undefined) el.placeholder = t[k];
+  });
+  document.querySelectorAll('.track-ophth').forEach(function(el){ el.textContent = t['track.ophth']; });
+  document.querySelectorAll('.track-cosm').forEach(function(el){ el.textContent = t['track.cosm']; });
+  document.querySelectorAll('.track-surg').forEach(function(el){ el.textContent = t['track.surg']; });
+  localStorage.setItem('lang', lang);
 }
 
 // ── MOBILE MENU ──
@@ -2747,6 +2874,7 @@ setInterval(showDamaQuote, 15000);        // then every 15 s
 
 // Init
 showPage('home');
+if (currentLang !== 'en') setLang(currentLang);
 </script>
 </body>
 </html>

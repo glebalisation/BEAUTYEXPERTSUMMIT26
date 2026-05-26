@@ -509,8 +509,8 @@ nav {
 
 .speakers-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
 }
 
 .speaker-card {
@@ -530,30 +530,44 @@ nav {
 .speaker-photo {
   aspect-ratio: 3/4;
   background: linear-gradient(160deg, rgba(26,58,92,0.8), rgba(13,27,42,0.9));
-  display: flex; align-items: center; justify-content: center;
   position: relative; overflow: hidden;
 }
-.speaker-initials {
+.speaker-photo img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: top center;
+  display: block;
+}
+.speaker-tba {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
   font-family: var(--ff-display);
-  font-size: 48px; font-weight: 300;
-  color: rgba(201,169,110,0.3);
+  font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(201,169,110,0.35); text-align: center; padding: 12px;
 }
 .speaker-photo-overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(to bottom, transparent 50%, rgba(13,27,42,0.8));
+  background: linear-gradient(to bottom, transparent 55%, rgba(13,27,42,0.75));
 }
 
-.speaker-info { padding: 18px 20px; }
+.speaker-info { padding: 12px 14px 14px; }
 .speaker-name {
   font-family: var(--ff-display);
-  font-size: 19px; font-weight: 400;
+  font-size: 16px; font-weight: 400;
   color: var(--gold-light);
-  margin-bottom: 4px;
+  margin-bottom: 3px; line-height: 1.25;
 }
-.speaker-role { font-size: 12px; color: var(--text-muted); line-height: 1.4; margin-bottom: 10px; }
+.speaker-role { font-size: 11px; color: var(--text-muted); line-height: 1.4; margin-bottom: 8px; }
 .speaker-tag {
-  font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
-  padding: 3px 10px; border-radius: 99px;
+  font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 3px 8px; border-radius: 99px;
+}
+@media (max-width: 600px) {
+  .speakers-grid { gap: 8px; }
+  .speaker-info { padding: 8px 10px 10px; }
+  .speaker-name { font-size: 12px; }
+  .speaker-role { font-size: 10px; margin-bottom: 5px; }
+  .speaker-tag { font-size: 8px; padding: 2px 6px; }
 }
 
 /* ── VENUE ── */
@@ -1709,172 +1723,212 @@ footer {
     <p class="section-lead">An international faculty of practicing surgeons, clinicians and innovators at the forefront of aesthetic medicine.</p>
 
     <div class="speakers-grid">
+      <!-- 1 -->
       <div class="speaker-card">
-        <div class="speaker-photo"><span class="speaker-initials">SH</span><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-photo"><img src="IDENTITY/SPEAKERS/1.Serhii Havryliuk, MD, Ophthalmologist, plastic surgeon, President UGAMC, Ukraine.png" alt="Serhii Havryliuk" loading="lazy"><div class="speaker-photo-overlay"></div></div>
         <div class="speaker-info">
           <div class="speaker-name">Serhii Havryliuk</div>
-          <div class="speaker-role">MD · Ophthalmologist, Plastic Surgeon<br>President UGAMC · Ukraine</div>
+          <div class="speaker-role">MD · Ophthalmologist & Plastic Surgeon<br>President UGAMC · Ukraine</div>
           <span class="speaker-tag track-ophth">Ophthalmology</span>
         </div>
       </div>
+      <!-- 2 -->
       <div class="speaker-card">
-        <div class="speaker-photo"><span class="speaker-initials">RN</span><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-photo"><img src="IDENTITY/SPEAKERS/2.Eduardo Fernández Jover, MD, PhD, expert in  Artificial Vision, Neuroengineering and Neuroprosthesis, Spain.png" alt="Eduardo Fernández Jover" loading="lazy"><div class="speaker-photo-overlay"></div></div>
         <div class="speaker-info">
-          <div class="speaker-name">Renato De Natale</div>
-          <div class="speaker-role">MD · Refractive & Aesthetic Ophthalmologist<br>France</div>
+          <div class="speaker-name">Eduardo Fernández Jover</div>
+          <div class="speaker-role">MD, PhD · Artificial Vision & Neuroprosthesis<br>Spain</div>
           <span class="speaker-tag track-ophth">Ophthalmology</span>
         </div>
       </div>
+      <!-- 3 -->
       <div class="speaker-card">
-        <div class="speaker-photo"><span class="speaker-initials">TD</span><div class="speaker-photo-overlay"></div></div>
-        <div class="speaker-info">
-          <div class="speaker-name">Tetyana Dovzhuk</div>
-          <div class="speaker-role">MD, PhD · Ophthalmologist<br>USA / Ukraine</div>
-          <span class="speaker-tag track-ophth">Ophthalmology</span>
-        </div>
-      </div>
-      <div class="speaker-card">
-        <div class="speaker-photo"><span class="speaker-initials">NL</span><div class="speaker-photo-overlay"></div></div>
-        <div class="speaker-info">
-          <div class="speaker-name">Nicolas Lutrand</div>
-          <div class="speaker-role">Optometrist<br>France</div>
-          <span class="speaker-tag track-ophth">Ophthalmology</span>
-        </div>
-      </div>
-      <div class="speaker-card">
-        <div class="speaker-photo"><span class="speaker-initials">EE</span><div class="speaker-photo-overlay"></div></div>
-        <div class="speaker-info">
-          <div class="speaker-name">Edmond Esufai</div>
-          <div class="speaker-role">MD · Ophthalmologist<br>Albania</div>
-          <span class="speaker-tag track-ophth">Ophthalmology</span>
-        </div>
-      </div>
-      <div class="speaker-card">
-        <div class="speaker-photo"><span class="speaker-initials">DZ</span><div class="speaker-photo-overlay"></div></div>
-        <div class="speaker-info">
-          <div class="speaker-name">Dmitry Zhaboedov</div>
-          <div class="speaker-role">MD, PhD · Ophthalmologist<br>Expert IARPS · Ukraine</div>
-          <span class="speaker-tag track-ophth">Ophthalmology</span>
-        </div>
-      </div>
-      <div class="speaker-card">
-        <div class="speaker-photo"><span class="speaker-initials">AC</span><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-photo"><img src="IDENTITY/SPEAKERS/3.Andrea Cusumano, MD, PhD, Ophthalmologist, Italy.png" alt="Andrea Cusumano" loading="lazy"><div class="speaker-photo-overlay"></div></div>
         <div class="speaker-info">
           <div class="speaker-name">Andrea Cusumano</div>
           <div class="speaker-role">MD, PhD · Ophthalmologist<br>Italy</div>
           <span class="speaker-tag track-ophth">Ophthalmology</span>
         </div>
       </div>
+      <!-- 4 -->
       <div class="speaker-card">
-        <div class="speaker-photo"><span class="speaker-initials">VS</span><div class="speaker-photo-overlay"></div></div>
-        <div class="speaker-info">
-          <div class="speaker-name">Vasyl Shevchyk</div>
-          <div class="speaker-role">MD, PhD · Ophthalmic Surgeon<br>Member of ESCRS · Ukraine</div>
-          <span class="speaker-tag track-ophth">Ophthalmology</span>
-        </div>
-      </div>
-      <div class="speaker-card">
-        <div class="speaker-photo"><span class="speaker-initials">ID</span><div class="speaker-photo-overlay"></div></div>
-        <div class="speaker-info">
-          <div class="speaker-name">Ivo Durkovic</div>
-          <div class="speaker-role">MD · Ophthalmologist<br>President IARPS · Slovakia</div>
-          <span class="speaker-tag track-ophth">Ophthalmology</span>
-        </div>
-      </div>
-      <div class="speaker-card">
-        <div class="speaker-photo"><span class="speaker-initials">EJ</span><div class="speaker-photo-overlay"></div></div>
-        <div class="speaker-info">
-          <div class="speaker-name">Eduardo Fernández Jover</div>
-          <div class="speaker-role">MD, PhD · Neuroengineering<br>& Neuroprosthesis · Spain</div>
-          <span class="speaker-tag track-ophth">Ophthalmology</span>
-        </div>
-      </div>
-      <div class="speaker-card">
-        <div class="speaker-photo"><span class="speaker-initials">MD</span><div class="speaker-photo-overlay"></div></div>
-        <div class="speaker-info">
-          <div class="speaker-name">Mykola Dovbish</div>
-          <div class="speaker-role">MD · Refractive Surgeon<br>Slovakia</div>
-          <span class="speaker-tag track-ophth">Ophthalmology</span>
-        </div>
-      </div>
-      <div class="speaker-card">
-        <div class="speaker-photo"><span class="speaker-initials">EC</span><div class="speaker-photo-overlay"></div></div>
-        <div class="speaker-info">
-          <div class="speaker-name">Elena Chugaj</div>
-          <div class="speaker-role">MD · Ophthalmoplastic Surgeon<br>Ukraine</div>
-          <span class="speaker-tag track-surg">Plastic Surgery</span>
-        </div>
-      </div>
-      <div class="speaker-card">
-        <div class="speaker-photo"><span class="speaker-initials">OL</span><div class="speaker-photo-overlay"></div></div>
-        <div class="speaker-info">
-          <div class="speaker-name">Olesya Lebedynets</div>
-          <div class="speaker-role">MD · Plastic Surgeon<br>Ukraine</div>
-          <span class="speaker-tag track-surg">Plastic Surgery</span>
-        </div>
-      </div>
-      <div class="speaker-card">
-        <div class="speaker-photo"><span class="speaker-initials">AC</span><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-photo"><img src="IDENTITY/SPEAKERS/4.Agassi Charchoglyan, MD, Plastic Surgeon, Spain.png" alt="Agassi Charchoglyan" loading="lazy"><div class="speaker-photo-overlay"></div></div>
         <div class="speaker-info">
           <div class="speaker-name">Agassi Charchoglyan</div>
           <div class="speaker-role">MD · Plastic Surgeon<br>Spain</div>
           <span class="speaker-tag track-surg">Plastic Surgery</span>
         </div>
       </div>
+      <!-- 5 -->
       <div class="speaker-card">
-        <div class="speaker-photo"><span class="speaker-initials">RM</span><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-photo"><img src="IDENTITY/SPEAKERS/5.Yulia Kichik, Cosmetologist, secretary UGAMC, Ukraine.png" alt="Yulia Kichik" loading="lazy"><div class="speaker-photo-overlay"></div></div>
         <div class="speaker-info">
-          <div class="speaker-name">Rozprym Martin</div>
-          <div class="speaker-role">MD · Plastic Surgeon<br>Czech Republic</div>
-          <span class="speaker-tag track-surg">Plastic Surgery</span>
+          <div class="speaker-name">Yulia Kichik</div>
+          <div class="speaker-role">Cosmetologist · Secretary UGAMC<br>Ukraine</div>
+          <span class="speaker-tag track-cosm">Cosmetology</span>
         </div>
       </div>
+      <!-- 6 -->
       <div class="speaker-card">
-        <div class="speaker-photo"><span class="speaker-initials">AB</span><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-photo"><img src="IDENTITY/SPEAKERS/6.Renato De Natale, MD, Refractive and aesthetic ophthalmologist, France.png" alt="Renato De Natale" loading="lazy"><div class="speaker-photo-overlay"></div></div>
         <div class="speaker-info">
-          <div class="speaker-name">Alexander Borodko</div>
-          <div class="speaker-role">MD · Plastic Surgeon<br>Expert UGAMC · Ukraine</div>
-          <span class="speaker-tag track-surg">Plastic Surgery</span>
+          <div class="speaker-name">Renato De Natale</div>
+          <div class="speaker-role">MD · Refractive & Aesthetic Ophthalmologist<br>France</div>
+          <span class="speaker-tag track-ophth">Ophthalmology</span>
         </div>
       </div>
+      <!-- 7 -->
       <div class="speaker-card">
-        <div class="speaker-photo"><span class="speaker-initials">IJ</span><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-photo"><img src="IDENTITY/SPEAKERS/7.Ivo Durkovic MD, Ophthalmologist, President IARPS, Slovakia.png" alt="Ivo Durkovic" loading="lazy"><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-info">
+          <div class="speaker-name">Ivo Durkovic</div>
+          <div class="speaker-role">MD · Ophthalmologist<br>President IARPS · Slovakia</div>
+          <span class="speaker-tag track-ophth">Ophthalmology</span>
+        </div>
+      </div>
+      <!-- 8 -->
+      <div class="speaker-card">
+        <div class="speaker-photo"><img src="IDENTITY/SPEAKERS/8.Dmitry Zhaboedov, MD, PhD, Ophthalmologist, expert IARPS, Ukraine.png" alt="Dmitry Zhaboedov" loading="lazy"><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-info">
+          <div class="speaker-name">Dmitry Zhaboedov</div>
+          <div class="speaker-role">MD, PhD · Ophthalmologist<br>Expert IARPS · Ukraine</div>
+          <span class="speaker-tag track-ophth">Ophthalmology</span>
+        </div>
+      </div>
+      <!-- 9 -->
+      <div class="speaker-card">
+        <div class="speaker-photo"><img src="IDENTITY/SPEAKERS/9.Igor Janik, MD, Plastic surgeon, Czech Republic.png" alt="Igor Janik" loading="lazy"><div class="speaker-photo-overlay"></div></div>
         <div class="speaker-info">
           <div class="speaker-name">Igor Janik</div>
           <div class="speaker-role">MD · Plastic Surgeon<br>Czech Republic</div>
           <span class="speaker-tag track-surg">Plastic Surgery</span>
         </div>
       </div>
+      <!-- 10 -->
       <div class="speaker-card">
-        <div class="speaker-photo"><span class="speaker-initials">RC</span><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-photo"><img src="IDENTITY/SPEAKERS/10.Alexander Borodko, MD, Plastic and reconstructive surgeon, expert UGAMC, Ukraine.png" alt="Alexander Borodko" loading="lazy"><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-info">
+          <div class="speaker-name">Alexander Borodko</div>
+          <div class="speaker-role">MD · Plastic & Reconstructive Surgeon<br>Expert UGAMC · Ukraine</div>
+          <span class="speaker-tag track-surg">Plastic Surgery</span>
+        </div>
+      </div>
+      <!-- 11 -->
+      <div class="speaker-card">
+        <div class="speaker-photo"><img src="IDENTITY/SPEAKERS/11.Englant Fabio Ferazi MD, Ophthalmologist, Albania.png" alt="Fabio Ferazi" loading="lazy"><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-info">
+          <div class="speaker-name">Fabio Ferazi</div>
+          <div class="speaker-role">MD · Ophthalmologist<br>Albania</div>
+          <span class="speaker-tag track-ophth">Ophthalmology</span>
+        </div>
+      </div>
+      <!-- 12 -->
+      <div class="speaker-card">
+        <div class="speaker-photo"><img src="IDENTITY/SPEAKERS/12.Rozprym Martin, MD, Plastic surgeon, Czech republic.png" alt="Martin Rozprym" loading="lazy"><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-info">
+          <div class="speaker-name">Martin Rozprym</div>
+          <div class="speaker-role">MD · Plastic Surgeon<br>Czech Republic</div>
+          <span class="speaker-tag track-surg">Plastic Surgery</span>
+        </div>
+      </div>
+      <!-- 13 -->
+      <div class="speaker-card">
+        <div class="speaker-photo"><img src="IDENTITY/SPEAKERS/13.Nicolas Lutrand, Optometrist, France.png" alt="Nicolas Lutrand" loading="lazy"><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-info">
+          <div class="speaker-name">Nicolas Lutrand</div>
+          <div class="speaker-role">Optometrist<br>France</div>
+          <span class="speaker-tag track-ophth">Ophthalmology</span>
+        </div>
+      </div>
+      <!-- 14 -->
+      <div class="speaker-card">
+        <div class="speaker-photo"><img src="IDENTITY/SPEAKERS/14.Vasyl Shevchyk, MD, PhD, Ophthalmic surgeon, member of ESCRS, Ukraine.png" alt="Vasyl Shevchyk" loading="lazy"><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-info">
+          <div class="speaker-name">Vasyl Shevchyk</div>
+          <div class="speaker-role">MD, PhD · Ophthalmic Surgeon<br>ESCRS Member · Ukraine</div>
+          <span class="speaker-tag track-ophth">Ophthalmology</span>
+        </div>
+      </div>
+      <!-- 15 -->
+      <div class="speaker-card">
+        <div class="speaker-photo"><img src="IDENTITY/SPEAKERS/15.Olesya Lebedynets MD, Plastic surgeon, Ukraine.png" alt="Olesya Lebedynets" loading="lazy"><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-info">
+          <div class="speaker-name">Olesya Lebedynets</div>
+          <div class="speaker-role">MD · Plastic Surgeon<br>Ukraine</div>
+          <span class="speaker-tag track-surg">Plastic Surgery</span>
+        </div>
+      </div>
+      <!-- 16 -->
+      <div class="speaker-card">
+        <div class="speaker-photo"><img src="IDENTITY/SPEAKERS/16.Edmond Esufai, MD, Ophthalmologist, Albania.png" alt="Edmond Esufai" loading="lazy"><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-info">
+          <div class="speaker-name">Edmond Esufai</div>
+          <div class="speaker-role">MD · Ophthalmologist<br>Albania</div>
+          <span class="speaker-tag track-ophth">Ophthalmology</span>
+        </div>
+      </div>
+      <!-- 17 -->
+      <div class="speaker-card">
+        <div class="speaker-photo"><img src="IDENTITY/SPEAKERS/17.Elena Chugaj, MD, Ophthalmoplastic surgeon, Ukraine.png" alt="Elena Chugaj" loading="lazy"><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-info">
+          <div class="speaker-name">Elena Chugaj</div>
+          <div class="speaker-role">MD · Ophthalmoplastic Surgeon<br>Ukraine</div>
+          <span class="speaker-tag track-ophth">Ophthalmology</span>
+        </div>
+      </div>
+      <!-- 18 -->
+      <div class="speaker-card">
+        <div class="speaker-photo"><img src="IDENTITY/SPEAKERS/18.Rashit Chevizch, MD, PhD, Plastic surgeon, rhinoplasty specialist, Turkey.png" alt="Rashit Chevizch" loading="lazy"><div class="speaker-photo-overlay"></div></div>
         <div class="speaker-info">
           <div class="speaker-name">Rashit Chevizch</div>
           <div class="speaker-role">MD, PhD · Plastic Surgeon<br>Rhinoplasty Specialist · Turkey</div>
           <span class="speaker-tag track-surg">Plastic Surgery</span>
         </div>
       </div>
+      <!-- 19 -->
       <div class="speaker-card">
-        <div class="speaker-photo"><span class="speaker-initials">YK</span><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-photo"><img src="IDENTITY/SPEAKERS/19.Tatevik Melkumyan, MD, Aesthetic specialist, dentist, Ukraine.png" alt="Tatevik Melkumyan" loading="lazy"><div class="speaker-photo-overlay"></div></div>
         <div class="speaker-info">
-          <div class="speaker-name">Yulia Kichik</div>
-          <div class="speaker-role">Cosmetologist<br>Secretary UGAMC · Ukraine</div>
+          <div class="speaker-name">Tatevik Melkumyan</div>
+          <div class="speaker-role">MD · Aesthetic Specialist & Dentist<br>Ukraine</div>
           <span class="speaker-tag track-cosm">Cosmetology</span>
         </div>
       </div>
+      <!-- 20 -->
       <div class="speaker-card">
-        <div class="speaker-photo"><span class="speaker-initials">YB</span><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-photo"><img src="IDENTITY/SPEAKERS/20.Yulia Bilenko, MD, Dermatologist-Cosmetologist, Ukraine.png" alt="Yulia Bilenko" loading="lazy"><div class="speaker-photo-overlay"></div></div>
         <div class="speaker-info">
           <div class="speaker-name">Yulia Bilenko</div>
           <div class="speaker-role">MD · Dermatologist-Cosmetologist<br>Ukraine</div>
           <span class="speaker-tag track-cosm">Cosmetology</span>
         </div>
       </div>
+      <!-- 21 -->
       <div class="speaker-card">
-        <div class="speaker-photo"><span class="speaker-initials">TM</span><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-photo"><img src="IDENTITY/SPEAKERS/21.Tetyana Dovzhuk, MD, PhD, Ophthalmologist, USA_Ukraine.png" alt="Tetyana Dovzhuk" loading="lazy"><div class="speaker-photo-overlay"></div></div>
         <div class="speaker-info">
-          <div class="speaker-name">Tatevik Melkumyan</div>
-          <div class="speaker-role">MD · Aesthetic Specialist & Dentist<br>Ukraine</div>
-          <span class="speaker-tag track-cosm">Cosmetology</span>
+          <div class="speaker-name">Tetyana Dovzhuk</div>
+          <div class="speaker-role">MD, PhD · Ophthalmologist<br>USA / Ukraine</div>
+          <span class="speaker-tag track-ophth">Ophthalmology</span>
+        </div>
+      </div>
+      <!-- 22 -->
+      <div class="speaker-card">
+        <div class="speaker-photo"><img src="IDENTITY/SPEAKERS/22.Mykola Dovbysh, MD, Refractive surgeon, Slovakia.png" alt="Mykola Dovbysh" loading="lazy"><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-info">
+          <div class="speaker-name">Mykola Dovbysh</div>
+          <div class="speaker-role">MD · Refractive Surgeon<br>Slovakia</div>
+          <span class="speaker-tag track-ophth">Ophthalmology</span>
+        </div>
+      </div>
+      <!-- TBA -->
+      <div class="speaker-card" style="border-style:dashed;border-color:rgba(201,169,110,0.25);background:rgba(201,169,110,0.03);">
+        <div class="speaker-photo" style="background:linear-gradient(160deg,rgba(26,58,92,0.4),rgba(13,27,42,0.6));">
+          <div class="speaker-tba">More speakers<br>to be announced</div>
+        </div>
+        <div class="speaker-info">
+          <div class="speaker-name" style="color:rgba(232,213,176,0.4);font-size:13px;">Coming Soon</div>
+          <div class="speaker-role">Additional faculty<br>to be confirmed</div>
         </div>
       </div>
     </div>

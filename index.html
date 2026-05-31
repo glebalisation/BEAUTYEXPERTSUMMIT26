@@ -1598,13 +1598,13 @@ footer {
     </div>
   </a>
   <ul class="nav-links" id="navLinks">
-    <li><a onclick="showPage('program')" data-page="program" data-i18n="nav.program">Program</a></li>
-    <li><a onclick="showPage('speakers')" data-page="speakers" data-i18n="nav.speakers">Speakers</a></li>
-    <li><a onclick="showPage('venue')" data-page="venue" data-i18n="nav.venue">Venue</a></li>
-    <li><a onclick="showPage('sponsors')" data-page="sponsors" data-i18n="nav.sponsors">Sponsors</a></li>
-    <li><a onclick="showPage('faq')" data-page="faq" data-i18n="nav.faq">FAQ</a></li>
-    <li><a onclick="showPage('contact')" data-page="contact" data-i18n="nav.contact">Contact</a></li>
-    <li><a onclick="showPage('register')" class="nav-cta" data-page="register" data-i18n="nav.register">Register</a></li>
+    <li><a href="/program" onclick="event.preventDefault();showPage('program')" data-page="program" data-i18n="nav.program">Program</a></li>
+    <li><a href="/speakers" onclick="event.preventDefault();showPage('speakers')" data-page="speakers" data-i18n="nav.speakers">Speakers</a></li>
+    <li><a href="/venue" onclick="event.preventDefault();showPage('venue')" data-page="venue" data-i18n="nav.venue">Venue</a></li>
+    <li><a href="/sponsors" onclick="event.preventDefault();showPage('sponsors')" data-page="sponsors" data-i18n="nav.sponsors">Sponsors</a></li>
+    <li><a href="/faq" onclick="event.preventDefault();showPage('faq')" data-page="faq" data-i18n="nav.faq">FAQ</a></li>
+    <li><a href="/contact" onclick="event.preventDefault();showPage('contact')" data-page="contact" data-i18n="nav.contact">Contact</a></li>
+    <li><a href="/tickets" onclick="event.preventDefault();showPage('register')" class="nav-cta" data-page="register" data-i18n="nav.register">Tickets</a></li>
   </ul>
   <div style="display:flex;align-items:center;gap:8px;">
     <div class="lang-switcher">
@@ -1622,13 +1622,13 @@ footer {
 
 <!-- Mobile menu -->
 <div class="mobile-menu" id="mobileMenu">
-  <a onclick="showPage('program');toggleMobileMenu()" data-i18n="nav.program">Program</a>
-  <a onclick="showPage('speakers');toggleMobileMenu()" data-i18n="nav.speakers">Speakers</a>
-  <a onclick="showPage('venue');toggleMobileMenu()" data-i18n="nav.venue">Venue</a>
-  <a onclick="showPage('sponsors');toggleMobileMenu()" data-i18n="nav.sponsors">Sponsors</a>
-  <a onclick="showPage('faq');toggleMobileMenu()" data-i18n="nav.faq">FAQ</a>
-  <a onclick="showPage('contact');toggleMobileMenu()" data-i18n="nav.contact">Contact</a>
-  <a onclick="showPage('register');toggleMobileMenu()" style="color:var(--gold);font-weight:500;" data-i18n="mobile.register">Register & Tickets</a>
+  <a href="/program" onclick="event.preventDefault();showPage('program');toggleMobileMenu()" data-i18n="nav.program">Program</a>
+  <a href="/speakers" onclick="event.preventDefault();showPage('speakers');toggleMobileMenu()" data-i18n="nav.speakers">Speakers</a>
+  <a href="/venue" onclick="event.preventDefault();showPage('venue');toggleMobileMenu()" data-i18n="nav.venue">Venue</a>
+  <a href="/sponsors" onclick="event.preventDefault();showPage('sponsors');toggleMobileMenu()" data-i18n="nav.sponsors">Sponsors</a>
+  <a href="/faq" onclick="event.preventDefault();showPage('faq');toggleMobileMenu()" data-i18n="nav.faq">FAQ</a>
+  <a href="/contact" onclick="event.preventDefault();showPage('contact');toggleMobileMenu()" data-i18n="nav.contact">Contact</a>
+  <a href="/tickets" onclick="event.preventDefault();showPage('register');toggleMobileMenu()" style="color:var(--gold);font-weight:500;" data-i18n="mobile.register">Tickets</a>
 </div>
 
 <!-- ══════════ HOME ══════════ -->
@@ -2317,19 +2317,19 @@ footer {
     <div>
       <div class="footer-col-title" data-i18n="footer.nav.title">Navigate</div>
       <ul class="footer-links">
-        <li><a onclick="showPage('home')" data-i18n="footer.nav.home">Home</a></li>
-        <li><a onclick="showPage('program')" data-i18n="footer.nav.program">Program</a></li>
-        <li><a onclick="showPage('speakers')" data-i18n="footer.nav.speakers">Speakers</a></li>
-        <li><a onclick="showPage('venue')" data-i18n="footer.nav.venue">Venue & Travel</a></li>
+        <li><a href="/" onclick="event.preventDefault();showPage('home')" data-i18n="footer.nav.home">Home</a></li>
+        <li><a href="/program" onclick="event.preventDefault();showPage('program')" data-i18n="footer.nav.program">Program</a></li>
+        <li><a href="/speakers" onclick="event.preventDefault();showPage('speakers')" data-i18n="footer.nav.speakers">Speakers</a></li>
+        <li><a href="/venue" onclick="event.preventDefault();showPage('venue')" data-i18n="footer.nav.venue">Venue & Travel</a></li>
       </ul>
     </div>
     <div>
       <div class="footer-col-title" data-i18n="footer.event.title">Event</div>
       <ul class="footer-links">
-        <li><a onclick="showPage('register')" data-i18n="footer.event.register">Register</a></li>
-        <li><a onclick="showPage('sponsors')" data-i18n="footer.event.sponsors">Sponsors</a></li>
-        <li><a onclick="showPage('faq')" data-i18n="footer.event.faq">FAQ</a></li>
-        <li><a onclick="showPage('contact')" data-i18n="footer.event.contact">Contact</a></li>
+        <li><a href="/tickets" onclick="event.preventDefault();showPage('register')" data-i18n="footer.event.register">Tickets</a></li>
+        <li><a href="/sponsors" onclick="event.preventDefault();showPage('sponsors')" data-i18n="footer.event.sponsors">Sponsors</a></li>
+        <li><a href="/faq" onclick="event.preventDefault();showPage('faq')" data-i18n="footer.event.faq">FAQ</a></li>
+        <li><a href="/contact" onclick="event.preventDefault();showPage('contact')" data-i18n="footer.event.contact">Contact</a></li>
       </ul>
     </div>
     <div>
@@ -2376,15 +2376,28 @@ footer {
 
 <script>
 // ── PAGE ROUTING ──
-function showPage(name) {
+var PAGE_TO_SLUG = {
+  home:'/', program:'/program', speakers:'/speakers',
+  venue:'/venue', sponsors:'/sponsors', faq:'/faq',
+  contact:'/contact', register:'/tickets'
+};
+var SLUG_TO_PAGE = {
+  '':'home','program':'program','speakers':'speakers',
+  'venue':'venue','sponsors':'sponsors','faq':'faq',
+  'contact':'contact','tickets':'register','register':'register'
+};
+
+function showPage(name, skipHistory) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   const target = document.getElementById('page-' + name);
   if (target) { target.classList.add('active'); window.scrollTo(0,0); }
-  // Update nav active state
   document.querySelectorAll('[data-page]').forEach(a => {
     a.style.opacity = a.dataset.page === name ? '1' : '';
     a.style.color = a.dataset.page === name ? 'var(--gold)' : '';
   });
+  if (!skipHistory) {
+    history.pushState({page: name}, '', PAGE_TO_SLUG[name] || '/');
+  }
 }
 
 // ── DAY TABS ──
@@ -2404,7 +2417,7 @@ function toggleFaq(btn) {
 // ── i18n ──
 var i18n = {
 en:{
-'nav.program':'Program','nav.speakers':'Speakers','nav.venue':'Venue','nav.sponsors':'Sponsors','nav.faq':'FAQ','nav.contact':'Contact','nav.register':'Register','nav.logo_sub':'28–29 Nov 2026 · Elche, Spain','mobile.register':'Register & Tickets',
+'nav.program':'Program','nav.speakers':'Speakers','nav.venue':'Venue','nav.sponsors':'Sponsors','nav.faq':'FAQ','nav.contact':'Contact','nav.register':'Tickets','nav.logo_sub':'28–29 Nov 2026 · Elche, Spain','mobile.register':'Tickets',
 'home.motto':'Built for <em>Medical Leaders</em>','home.tagline':'Connecting Visionaries Across Ophthalmology, Plastic Surgery, and Cosmetology.','home.date':'28–29 November · Centro de Congresos de Elche, Alicante, Spain','home.cta_ticket':'Get Your Ticket','home.cta_program':'View Program','home.explore':'Explore','home.dama':'✦ La Dama de Elche invites you ✦',
 'program.eyebrow':'Scientific Program','program.title':'Two Days of <em>Excellence</em>','program.lead':'World-class presentations, live demonstrations and interactive workshops across three specialist tracks: Ophthalmology, Cosmetology, and Plastic Surgery.','program.day1_tab':'Day 1 · 28 Nov','program.day2_tab':'Day 2 · 29 Nov','program.day1_title':'Day 1 · 28 November','program.day2_title':'Day 2 · 29 November','program.tba':'Full program details to be announced',
 'track.ophth':'Ophthalmology','track.cosm':'Cosmetology','track.surg':'Plastic Surgery','track.gen':'General',
@@ -2435,12 +2448,12 @@ en:{
 'contact.ph.first':'Your first name','contact.ph.last':'Your last name','contact.ph.email':'your@email.com','contact.ph.message':'How can we help you?',
 'footer.brand_sub':'28–29 November 2026 · Elche, Spain','footer.tagline':'An international conference on Ophthalmology, Cosmetology, and Plastic Surgery.',
 'footer.nav.title':'Navigate','footer.nav.home':'Home','footer.nav.program':'Program','footer.nav.speakers':'Speakers','footer.nav.venue':'Venue & Travel',
-'footer.event.title':'Event','footer.event.register':'Register','footer.event.sponsors':'Sponsors','footer.event.faq':'FAQ','footer.event.contact':'Contact',
+'footer.event.title':'Event','footer.event.register':'Tickets','footer.event.sponsors':'Sponsors','footer.event.faq':'FAQ','footer.event.contact':'Contact',
 'footer.org.title':'Organiser','footer.org.sponsorship':'Sponsorship','footer.org.press':'Press Enquiries',
 'footer.copyright':'© 2026 Beauty Expert Summit. All rights reserved.','footer.organised':'Organised by'
 },
 es:{
-'nav.program':'Programa','nav.speakers':'Ponentes','nav.venue':'Sede','nav.sponsors':'Patrocinadores','nav.faq':'FAQ','nav.contact':'Contacto','nav.register':'Registro','nav.logo_sub':'28–29 Nov 2026 · Elche, España','mobile.register':'Registro y Entradas',
+'nav.program':'Programa','nav.speakers':'Ponentes','nav.venue':'Sede','nav.sponsors':'Patrocinadores','nav.faq':'FAQ','nav.contact':'Contacto','nav.register':'Entradas','nav.logo_sub':'28–29 Nov 2026 · Elche, España','mobile.register':'Entradas',
 'home.motto':'Para <em>Líderes Médicos</em>','home.tagline':'Conectando visionarios en Oftalmología, Cirugía Plástica y Cosmetología.','home.date':'28–29 de noviembre · Centro de Congresos de Elche, Alicante, España','home.cta_ticket':'Obtener Entrada','home.cta_program':'Ver Programa','home.explore':'Explorar','home.dama':'✦ La Dama de Elche te invita ✦',
 'program.eyebrow':'Programa Científico','program.title':'Dos Días de <em>Excelencia</em>','program.lead':'Presentaciones de clase mundial, demostraciones en vivo y talleres interactivos en tres áreas especializadas: Oftalmología, Cosmetología y Cirugía Plástica.','program.day1_tab':'Día 1 · 28 Nov','program.day2_tab':'Día 2 · 29 Nov','program.day1_title':'Día 1 · 28 de noviembre','program.day2_title':'Día 2 · 29 de noviembre','program.tba':'El programa completo será anunciado próximamente',
 'track.ophth':'Oftalmología','track.cosm':'Cosmetología','track.surg':'Cirugía Plástica','track.gen':'General',
@@ -2471,12 +2484,12 @@ es:{
 'contact.ph.first':'Su nombre','contact.ph.last':'Su apellido','contact.ph.email':'su@correo.com','contact.ph.message':'¿En qué podemos ayudarle?',
 'footer.brand_sub':'28–29 de noviembre 2026 · Elche, España','footer.tagline':'Una conferencia internacional sobre Oftalmología, Cosmetología y Cirugía Plástica.',
 'footer.nav.title':'Navegar','footer.nav.home':'Inicio','footer.nav.program':'Programa','footer.nav.speakers':'Ponentes','footer.nav.venue':'Sede y Viaje',
-'footer.event.title':'Evento','footer.event.register':'Registro','footer.event.sponsors':'Patrocinadores','footer.event.faq':'FAQ','footer.event.contact':'Contacto',
+'footer.event.title':'Evento','footer.event.register':'Entradas','footer.event.sponsors':'Patrocinadores','footer.event.faq':'FAQ','footer.event.contact':'Contacto',
 'footer.org.title':'Organizador','footer.org.sponsorship':'Patrocinio','footer.org.press':'Consultas de Prensa',
 'footer.copyright':'© 2026 Beauty Expert Summit. Todos los derechos reservados.','footer.organised':'Organizado por'
 },
 uk:{
-'nav.program':'Програма','nav.speakers':'Доповідачі','nav.venue':'Місце','nav.sponsors':'Спонсори','nav.faq':'FAQ','nav.contact':'Контакт','nav.register':'Реєстрація','nav.logo_sub':'28–29 Лист 2026 · Ельче, Іспанія','mobile.register':'Реєстрація та Квитки',
+'nav.program':'Програма','nav.speakers':'Доповідачі','nav.venue':'Місце','nav.sponsors':'Спонсори','nav.faq':'FAQ','nav.contact':'Контакт','nav.register':'Квитки','nav.logo_sub':'28–29 Лист 2026 · Ельче, Іспанія','mobile.register':'Квитки',
 'home.motto':'Для <em>Медичних Лідерів</em>','home.tagline':"Об'єднуємо лідерів офтальмології, пластичної хірургії та косметології.",'home.date':'28–29 листопада · Centro de Congresos de Elche, Аліканте, Іспанія','home.cta_ticket':'Отримати Квиток','home.cta_program':'Переглянути Програму','home.explore':'Досліджувати','home.dama':'✦ Дама Ельчська запрошує вас ✦',
 'program.eyebrow':'Наукова Програма','program.title':'Два Дні <em>Досконалості</em>','program.lead':'Доповіді світового рівня, живі демонстрації та інтерактивні майстер-класи у трьох спеціалізованих напрямках: офтальмологія, косметологія та пластична хірургія.','program.day1_tab':'День 1 · 28 Лист','program.day2_tab':'День 2 · 29 Лист','program.day1_title':'День 1 · 28 листопада','program.day2_title':'День 2 · 29 листопада','program.tba':'Повна програма буде оголошена найближчим часом',
 'track.ophth':'Офтальмологія','track.cosm':'Косметологія','track.surg':'Пластична Хірургія','track.gen':'Загальне',
@@ -2507,7 +2520,7 @@ uk:{
 'contact.ph.first':"Ваше ім'я",'contact.ph.last':'Ваше прізвище','contact.ph.email':'ваша@пошта.com','contact.ph.message':'Чим ми можемо допомогти?',
 'footer.brand_sub':'28–29 листопада 2026 · Ельче, Іспанія','footer.tagline':'Міжнародна конференція з офтальмології, косметології та пластичної хірургії.',
 'footer.nav.title':'Навігація','footer.nav.home':'Головна','footer.nav.program':'Програма','footer.nav.speakers':'Доповідачі','footer.nav.venue':'Місце та Подорож',
-'footer.event.title':'Подія','footer.event.register':'Зареєструватися','footer.event.sponsors':'Спонсори','footer.event.faq':'FAQ','footer.event.contact':'Контакт',
+'footer.event.title':'Подія','footer.event.register':'Квитки','footer.event.sponsors':'Спонсори','footer.event.faq':'FAQ','footer.event.contact':'Контакт',
 'footer.org.title':'Організатор','footer.org.sponsorship':'Спонсорство','footer.org.press':'Запити ЗМІ',
 'footer.copyright':'© 2026 Beauty Expert Summit. Усі права захищені.','footer.organised':'Організовано'
 }
@@ -2838,8 +2851,8 @@ setInterval(showDamaQuote, 15000);        // then every 15 s
   })();
 
   var _sp = window.showPage;
-  window.showPage = function(name) {
-    _sp.call(this, name);
+  window.showPage = function(name, skipHistory) {
+    _sp.call(this, name, skipHistory);
     if (cv.parentNode) cv.parentNode.removeChild(cv);
     active = false;
     if (name === 'home') return;
@@ -2874,8 +2887,14 @@ setInterval(showDamaQuote, 15000);        // then every 15 s
 })();
 
 // Init
-showPage('home');
+var initSlug = location.pathname.replace(/^\//, '').replace(/\/$/, '');
+var initPage = SLUG_TO_PAGE[initSlug] || 'home';
+showPage(initPage, true);
 if (currentLang !== 'en') setLang(currentLang);
+window.addEventListener('popstate', function(e) {
+  var page = (e.state && e.state.page) ? e.state.page : 'home';
+  showPage(page, true);
+});
 </script>
 </body>
 </html>

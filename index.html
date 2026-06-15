@@ -1567,6 +1567,95 @@ footer {
     transparent 100%
   );
 }
+
+/* ── PROGRAM HIGHLIGHTS ── */
+.program-highlights {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px 80px;
+}
+.ph-separator {
+  width: 100%; height: 1px;
+  background: var(--border);
+  margin-bottom: 60px;
+}
+.ph-eyebrow {
+  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); font-weight: 500;
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 20px;
+}
+.ph-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--gold); display: block; }
+.ph-title {
+  font-family: var(--ff-display);
+  font-size: clamp(26px, 3.2vw, 42px);
+  font-weight: 300; line-height: 1.15;
+  color: var(--gold-light);
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+}
+.ph-intro {
+  font-size: 15px; line-height: 1.75;
+  color: var(--text-muted);
+  max-width: 760px;
+  margin-bottom: 14px;
+}
+.ph-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin: 40px 0;
+}
+.ph-item {
+  padding: 22px 26px;
+  border-left: 2px solid rgba(201,169,110,0.5);
+  background: rgba(201,169,110,0.04);
+  border-radius: 0 8px 8px 0;
+}
+.ph-item-full { grid-column: 1 / -1; }
+.ph-topic {
+  font-family: var(--ff-display);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--gold-light);
+  margin: 0 0 5px;
+  line-height: 1.3;
+}
+.ph-expert {
+  font-size: 12px;
+  color: var(--gold);
+  font-style: italic;
+  letter-spacing: 0.02em;
+  margin-bottom: 11px;
+  opacity: 0.9;
+}
+.ph-desc {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin: 0;
+}
+.ph-outro {
+  font-size: 15px; line-height: 1.75;
+  color: var(--text-muted);
+  max-width: 760px;
+  padding-top: 36px;
+  border-top: 1px solid var(--border);
+}
+.ph-join {
+  display: block;
+  font-family: var(--ff-display);
+  font-size: 1.6rem;
+  font-style: italic;
+  color: var(--gold);
+  margin-top: 16px;
+}
+@media (max-width: 900px) {
+  .program-highlights { padding: 0 20px 60px; }
+  .ph-separator { margin-bottom: 40px; }
+  .ph-grid { grid-template-columns: 1fr; gap: 14px; }
+  .ph-item-full { grid-column: 1; }
+}
 </style>
 </head>
 <body>
@@ -1702,6 +1791,213 @@ footer {
       </div>
     </div>
   </div>
+
+  <!-- Program Highlights -->
+  <div class="program-highlights">
+    <div class="ph-separator"></div>
+
+    <!-- EN -->
+    <div class="lang-block" data-lang="en">
+      <div class="ph-eyebrow">Program Highlights</div>
+      <p class="ph-intro">Beauty Expert Summit 2026 is an international scientific and practical medical summit bringing together leading experts in ophthalmology, plastic and reconstructive surgery, periorbital surgery, aesthetic medicine, cosmetology, and innovative medical technologies.</p>
+      <p class="ph-intro">Before publishing the final timetable and exact order of sessions, we are pleased to introduce the key topics and expert-led directions that will shape this year's program. The summit will combine scientific lectures, clinical case discussions, practical Wet Lab sessions, educational intensives, and professional exchange between international specialists.</p>
+      <div class="ph-grid">
+        <div class="ph-item">
+          <div class="ph-topic">Artificial Vision and Neurotechnology</div>
+          <div class="ph-expert">Prof. Eduardo Fernández, UMH, Spain</div>
+          <p class="ph-desc">The program will feature advanced research in artificial vision, neuroprosthetics, and the restoration of visual function. Participants will be introduced to modern approaches in the bioengineering of the visual system and the future of vision-related medical innovation.</p>
+        </div>
+        <div class="ph-item">
+          <div class="ph-topic">Retinal Technologies and Macular Degeneration</div>
+          <div class="ph-expert">Prof. Andrea Cusumano, Università Tor Vergata, Italy</div>
+          <p class="ph-desc">This section will focus on the restoration of central vision in patients with macular degeneration, including the PRIMA retinal implant, clinical results, and future perspectives for retinal technologies in ophthalmology.</p>
+        </div>
+        <div class="ph-item">
+          <div class="ph-topic">Keratopigmentation</div>
+          <div class="ph-expert">Dr. Renato de Natale</div>
+          <p class="ph-desc">The keratopigmentation program will present current possibilities in corneal pigmentation, with a focus on safety, modern clinical protocols, and practical applications in reconstructive ophthalmology.</p>
+        </div>
+        <div class="ph-item">
+          <div class="ph-topic">Artificial Cornea and Surgical Techniques</div>
+          <div class="ph-expert">Dr. Tetiana Dovzhuk</div>
+          <p class="ph-desc">This session will explore indications and areas of application for artificial cornea procedures. The program will include step-by-step video demonstrations, clinical cases, and surgical techniques.</p>
+        </div>
+        <div class="ph-item">
+          <div class="ph-topic">Wet Lab Practical Training</div>
+          <div class="ph-expert">Led by UMH experts: Prof. Jorge Alió and Mr. Nicolas Lutrand</div>
+          <p class="ph-desc">The practical Wet Lab program will offer hands-on training in key ophthalmological procedures, including keratopigmentation, refractive surgery, and ICL phakic lens implantation.</p>
+        </div>
+        <div class="ph-item">
+          <div class="ph-topic">Periorbital Surgery and CO₂ Laser Technologies</div>
+          <div class="ph-expert">Dr. Serhiy Gavryliuk</div>
+          <p class="ph-desc">This section will focus on the use of CO₂ laser technologies in the surgical correction of upper eyelid ptosis, complex cases involving volume deficiency in the mid-orbital zone, and authorial surgical algorithms.</p>
+        </div>
+        <div class="ph-item">
+          <div class="ph-topic">CO₂ Laser Surgery and Periorbital Aesthetics</div>
+          <div class="ph-expert">Dr. Igor Janik, LLS Clinic, Czech Republic</div>
+          <p class="ph-desc">The program will include modern results in CO₂ laser surgery, clinical case analysis, and current standards in periorbital aesthetics.</p>
+        </div>
+        <div class="ph-item">
+          <div class="ph-topic">ScalprumPro Educational Program</div>
+          <div class="ph-expert">Curated by Dr. Igor Janik and Dr. Serhiy Gavryliuk</div>
+          <p class="ph-desc">ScalprumPro will provide a focused educational format dedicated to professional exchange, individual mentorship, and the development of advanced skills in periorbitoplasty and surgical practice.</p>
+        </div>
+        <div class="ph-item">
+          <div class="ph-topic">Additional Surgical Directions</div>
+          <div class="ph-expert">Rasit Cervizci, Istanbul, Turkey</div>
+          <p class="ph-desc">The summit will also introduce advanced topics in voice modification surgery, including aesthetic and functional aspects of voice transformation, as well as the gold standard in secondary rhinoplasty, complex revision procedures, and methods for achieving stable aesthetic results.</p>
+        </div>
+        <div class="ph-item">
+          <div class="ph-topic">Digital Solutions in Ophthalmology</div>
+          <div class="ph-expert">DuDo Software</div>
+          <p class="ph-desc">The digital ophthalmology section will focus on increasing the precision of intraocular lens calculation, supporting patients with myopia, hyperopia, and astigmatism, and improving calculations after refractive procedures and keratopigmentation. The aim is to increase the predictability, safety, and quality of surgical outcomes.</p>
+        </div>
+        <div class="ph-item ph-item-full">
+          <div class="ph-topic">Aesthetic Medicine and Cosmetology</div>
+          <p class="ph-desc">The aesthetic medicine and cosmetology program will include innovative lectures, clinical experience exchange, and modern approaches to the treatment of age-related changes. Key topics will include exosome-based protocols, regenerative methods, neofibrolifting, advanced cosmetology technologies, and patient-centered strategies for natural and long-lasting results.</p>
+        </div>
+      </div>
+      <div class="ph-outro">
+        Beauty Expert Summit 2026 is a synthesis of science, surgical practice, technology, and clinical innovation. The program is designed to create a professional environment where different medical specialties meet, exchange experience, and contribute to new standards in modern medicine and aesthetic surgery.
+        <em class="ph-join">Join us.</em>
+      </div>
+    </div>
+
+    <!-- UK -->
+    <div class="lang-block" data-lang="uk" style="display:none">
+      <div class="ph-eyebrow">Ключові напрямки</div>
+      <p class="ph-intro">Beauty Expert Summit 2026 — це міжнародний науково-практичний медичний саміт, який об'єднує провідних експертів у галузі офтальмології, пластичної та реконструктивної хірургії, періорбітальної хірургії, естетичної медицини, косметології та інноваційних медичних технологій.</p>
+      <p class="ph-intro">Перед публікацією фінального розкладу та точного порядку сесій ми представляємо ключові теми й експертні напрямки, які формуватимуть програму цього року. Саміт поєднає наукові доповіді, обговорення клінічних кейсів, практичні Wet Lab-сесії, освітні інтенсиви та професійний обмін досвідом між міжнародними спеціалістами.</p>
+      <div class="ph-grid">
+        <div class="ph-item">
+          <div class="ph-topic">Штучний зір і нейротехнології</div>
+          <div class="ph-expert">Prof. Eduardo Fernández, UMH, Spain</div>
+          <p class="ph-desc">Програма представить передові дослідження у сфері штучного зору, нейропротезування та відновлення зорових функцій. Учасники ознайомляться із сучасними підходами до біоінженерії зорової системи та майбутнім медичних інновацій, пов'язаних із відновленням зору.</p>
+        </div>
+        <div class="ph-item">
+          <div class="ph-topic">Ретинальні технології та макулодистрофія</div>
+          <div class="ph-expert">Prof. Andrea Cusumano, Università Tor Vergata, Italy</div>
+          <p class="ph-desc">Цей напрямок буде присвячений відновленню центрального зору у пацієнтів із макулодистрофією, зокрема ретинальному імпланту PRIMA, клінічним результатам і перспективам застосування ретинальних технологій в офтальмології.</p>
+        </div>
+        <div class="ph-item">
+          <div class="ph-topic">Кератопігментація</div>
+          <div class="ph-expert">Dr. Renato de Natale</div>
+          <p class="ph-desc">Програма з кератопігментації представить сучасні можливості пігментації рогівки з акцентом на безпеку, нові клінічні протоколи та практичне застосування в реконструктивній офтальмології.</p>
+        </div>
+        <div class="ph-item">
+          <div class="ph-topic">Штучна рогівка та хірургічні техніки</div>
+          <div class="ph-expert">Dr. Tetiana Dovzhuk</div>
+          <p class="ph-desc">Ця сесія буде присвячена показанням та сферам застосування процедур із використанням штучної рогівки. Програма включатиме поетапні відеодемонстрації, клінічні кейси та хірургічні техніки.</p>
+        </div>
+        <div class="ph-item">
+          <div class="ph-topic">Практичне навчання Wet Lab</div>
+          <div class="ph-expert">Під керівництвом експертів UMH: Prof. Jorge Alió та Mr. Nicolas Lutrand</div>
+          <p class="ph-desc">Практична програма Wet Lab запропонує учасникам навчання з ключових офтальмологічних процедур, включно з кератопігментацією, рефракційною хірургією та імплантацією факічних лінз ICL.</p>
+        </div>
+        <div class="ph-item">
+          <div class="ph-topic">Періорбітальна хірургія та CO₂-лазерні технології</div>
+          <div class="ph-expert">Dr. Serhiy Gavryliuk</div>
+          <p class="ph-desc">Цей напрямок буде присвячений використанню CO₂-лазерних технологій у хірургічній корекції птозу верхньої повіки, складним випадкам дефіциту об'єму в середній зоні орбіти, а також авторським хірургічним алгоритмам.</p>
+        </div>
+        <div class="ph-item">
+          <div class="ph-topic">CO₂-лазерна хірургія та періорбітальна естетика</div>
+          <div class="ph-expert">Dr. Igor Janik, LLS Clinic, Czech Republic</div>
+          <p class="ph-desc">Програма включатиме сучасні результати CO₂-лазерної хірургії, аналіз клінічних кейсів і актуальні стандарти періорбітальної естетики.</p>
+        </div>
+        <div class="ph-item">
+          <div class="ph-topic">Освітня програма ScalprumPro</div>
+          <div class="ph-expert">Куратори програми: Dr. Igor Janik та Dr. Serhiy Gavryliuk</div>
+          <p class="ph-desc">ScalprumPro запропонує сфокусований освітній формат, присвячений професійному обміну досвідом, індивідуальному наставництву та розвитку поглиблених навичок у періорбітопластиці й хірургічній практиці.</p>
+        </div>
+        <div class="ph-item">
+          <div class="ph-topic">Додаткові хірургічні напрямки</div>
+          <div class="ph-expert">Rasit Cervizci, Istanbul, Turkey</div>
+          <p class="ph-desc">Саміт також представить сучасні теми в галузі хірургічної модифікації голосу, включно з естетико-функціональними аспектами зміни голосу, а також золотий стандарт вторинної ринопластики, складні повторні хірургічні втручання та методи досягнення стабільних естетичних результатів.</p>
+        </div>
+        <div class="ph-item">
+          <div class="ph-topic">Цифрові рішення в офтальмології</div>
+          <div class="ph-expert">DuDo Software</div>
+          <p class="ph-desc">Секція цифрової офтальмології буде присвячена підвищенню точності розрахунку інтраокулярних лінз, підтримці пацієнтів із міопією, гіперметропією та астигматизмом, а також покращенню розрахунків після рефракційних операцій і кератопігментації. Мета — підвищити передбачуваність, безпеку та якість хірургічних результатів.</p>
+        </div>
+        <div class="ph-item ph-item-full">
+          <div class="ph-topic">Естетична медицина та косметологія</div>
+          <p class="ph-desc">Програма з естетичної медицини та косметології включатиме інноваційні доповіді, обмін клінічним досвідом і сучасні підходи до лікування вікових змін. Серед ключових тем — протоколи на основі екзосом, регенеративні методики, неофіброліфтинг, сучасні косметологічні технології та пацієнт-орієнтовані стратегії для природних і довготривалих результатів.</p>
+        </div>
+      </div>
+      <div class="ph-outro">
+        Beauty Expert Summit 2026 — це синтез науки, хірургічної практики, технологій і клінічних інновацій. Програма створена для професійного середовища, де різні медичні спеціальності зустрічаються, обмінюються досвідом і формують нові стандарти сучасної медицини та естетичної хірургії.
+        <em class="ph-join">Приєднуйтесь.</em>
+      </div>
+    </div>
+
+    <!-- ES -->
+    <div class="lang-block" data-lang="es" style="display:none">
+      <div class="ph-eyebrow">Temas principales</div>
+      <p class="ph-intro">Beauty Expert Summit 2026 es una cumbre médica internacional de carácter científico y práctico que reúne a destacados expertos en oftalmología, cirugía plástica y reconstructiva, cirugía periorbitaria, medicina estética, cosmetología y tecnologías médicas innovadoras.</p>
+      <p class="ph-intro">Antes de publicar el horario final y el orden exacto de las sesiones, presentamos los temas clave y las áreas dirigidas por expertos que darán forma al programa de este año. La cumbre combinará conferencias científicas, discusión de casos clínicos, sesiones prácticas Wet Lab, intensivos educativos e intercambio profesional entre especialistas internacionales.</p>
+      <div class="ph-grid">
+        <div class="ph-item">
+          <div class="ph-topic">Visión artificial y neurotecnología</div>
+          <div class="ph-expert">Prof. Eduardo Fernández, UMH, España</div>
+          <p class="ph-desc">El programa presentará investigaciones avanzadas en visión artificial, neuroprótesis y restauración de funciones visuales. Los participantes conocerán enfoques modernos de bioingeniería del sistema visual y el futuro de la innovación médica relacionada con la visión.</p>
+        </div>
+        <div class="ph-item">
+          <div class="ph-topic">Tecnologías retinianas y degeneración macular</div>
+          <div class="ph-expert">Prof. Andrea Cusumano, Università Tor Vergata, Italia</div>
+          <p class="ph-desc">Esta sección se centrará en la restauración de la visión central en pacientes con degeneración macular, incluyendo el implante retiniano PRIMA, los resultados clínicos y las perspectivas futuras de las tecnologías retinianas en oftalmología.</p>
+        </div>
+        <div class="ph-item">
+          <div class="ph-topic">Queratopigmentación</div>
+          <div class="ph-expert">Dr. Renato de Natale</div>
+          <p class="ph-desc">El programa de queratopigmentación presentará las posibilidades actuales de la pigmentación corneal, con énfasis en la seguridad, los protocolos clínicos modernos y las aplicaciones prácticas en oftalmología reconstructiva.</p>
+        </div>
+        <div class="ph-item">
+          <div class="ph-topic">Córnea artificial y técnicas quirúrgicas</div>
+          <div class="ph-expert">Dr. Tetiana Dovzhuk</div>
+          <p class="ph-desc">Esta sesión explorará las indicaciones y áreas de aplicación de los procedimientos con córnea artificial. El programa incluirá demostraciones en vídeo paso a paso, casos clínicos y técnicas quirúrgicas.</p>
+        </div>
+        <div class="ph-item">
+          <div class="ph-topic">Formación práctica Wet Lab</div>
+          <div class="ph-expert">Dirigida por expertos de UMH: Prof. Jorge Alió y Mr. Nicolas Lutrand</div>
+          <p class="ph-desc">El programa práctico Wet Lab ofrecerá formación aplicada en procedimientos oftalmológicos clave, incluyendo queratopigmentación, cirugía refractiva e implantación de lentes fáquicas ICL.</p>
+        </div>
+        <div class="ph-item">
+          <div class="ph-topic">Cirugía periorbitaria y tecnologías láser CO₂</div>
+          <div class="ph-expert">Dr. Serhiy Gavryliuk</div>
+          <p class="ph-desc">Esta sección se centrará en el uso de tecnologías láser CO₂ en la corrección quirúrgica de la ptosis del párpado superior, en casos complejos de déficit de volumen en la zona media orbitaria y en algoritmos quirúrgicos propios.</p>
+        </div>
+        <div class="ph-item">
+          <div class="ph-topic">Cirugía láser CO₂ y estética periorbitaria</div>
+          <div class="ph-expert">Dr. Igor Janik, LLS Clinic, República Checa</div>
+          <p class="ph-desc">El programa incluirá resultados actuales de la cirugía láser CO₂, análisis de casos clínicos y estándares modernos en estética periorbitaria.</p>
+        </div>
+        <div class="ph-item">
+          <div class="ph-topic">Programa educativo ScalprumPro</div>
+          <div class="ph-expert">Dirigido por Dr. Igor Janik y Dr. Serhiy Gavryliuk</div>
+          <p class="ph-desc">ScalprumPro ofrecerá un formato educativo especializado dedicado al intercambio profesional, la mentoría individual y el desarrollo de habilidades avanzadas en periorbitoplastia y práctica quirúrgica.</p>
+        </div>
+        <div class="ph-item">
+          <div class="ph-topic">Áreas quirúrgicas adicionales</div>
+          <div class="ph-expert">Rasit Cervizci, Estambul, Turquía</div>
+          <p class="ph-desc">La cumbre también presentará temas avanzados en cirugía de modificación de la voz, incluyendo aspectos estéticos y funcionales de la transformación vocal, así como el estándar de oro en rinoplastia secundaria, procedimientos complejos de revisión quirúrgica y métodos para lograr resultados estéticos estables.</p>
+        </div>
+        <div class="ph-item">
+          <div class="ph-topic">Soluciones digitales en oftalmología</div>
+          <div class="ph-expert">DuDo Software</div>
+          <p class="ph-desc">La sección de oftalmología digital se centrará en aumentar la precisión del cálculo de lentes intraoculares, apoyar a pacientes con miopía, hipermetropía y astigmatismo, y mejorar los cálculos después de procedimientos refractivos y queratopigmentación. El objetivo es aumentar la previsibilidad, la seguridad y la calidad de los resultados quirúrgicos.</p>
+        </div>
+        <div class="ph-item ph-item-full">
+          <div class="ph-topic">Medicina estética y cosmetología</div>
+          <p class="ph-desc">El programa de medicina estética y cosmetología incluirá conferencias innovadoras, intercambio de experiencia clínica y enfoques modernos para el tratamiento de los cambios relacionados con la edad. Los temas clave incluirán protocolos basados en exosomas, métodos regenerativos, neofibrolifting, tecnologías cosmetológicas avanzadas y estrategias centradas en el paciente para obtener resultados naturales y duraderos.</p>
+        </div>
+      </div>
+      <div class="ph-outro">
+        Beauty Expert Summit 2026 es una síntesis de ciencia, práctica quirúrgica, tecnología e innovación clínica. El programa está diseñado para crear un entorno profesional donde distintas especialidades médicas se encuentran, intercambian experiencia y contribuyen a nuevos estándares en la medicina moderna y la cirugía estética.
+        <em class="ph-join">Únase a nosotros.</em>
+      </div>
+    </div>
+  </div>
+
   <img src="/IDENTITY/test_bes26_horizontal.png" alt="" style="display:block;width:100%;margin:0;padding:0;border:none;">
 </div>
 
@@ -2545,6 +2841,9 @@ function setLang(lang) {
   document.querySelectorAll('.track-ophth').forEach(function(el){ el.textContent = t['track.ophth']; });
   document.querySelectorAll('.track-cosm').forEach(function(el){ el.textContent = t['track.cosm']; });
   document.querySelectorAll('.track-surg').forEach(function(el){ el.textContent = t['track.surg']; });
+  document.querySelectorAll('.lang-block').forEach(function(el){
+    el.style.display = el.getAttribute('data-lang') === lang ? '' : 'none';
+  });
   localStorage.setItem('lang', lang);
 }
 

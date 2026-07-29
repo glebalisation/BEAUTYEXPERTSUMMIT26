@@ -300,8 +300,9 @@ nav {
 .fields-carousel-outer {
   --fc-w: 210px;
   --fc-h: 270px;
-  --fc-radius: 63px;
-  --fc-stage-h: 310px;
+  --fc-radius: 200px;
+  --fc-stage-h: 320px;
+  --fc-duration: 26s;
   width: 100%;
   max-width: 640px;
   margin: 56px auto 4px;
@@ -311,7 +312,7 @@ nav {
 .fields-carousel-stage {
   position: relative;
   height: var(--fc-stage-h);
-  perspective: 700px;
+  perspective: 900px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -329,22 +330,37 @@ nav {
   width: var(--fc-w);
   height: var(--fc-h);
   transform-style: preserve-3d;
-  animation: fieldsSpin 26s linear infinite;
+  animation: fieldsSpin var(--fc-duration) linear infinite;
 }
-.fields-carousel:hover { animation-play-state: paused; }
+/* orbit position only — each card sits at a fixed point on the ring */
 .field-card {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+}
+.field-card:nth-child(1) { transform: rotateY(0deg) translateZ(var(--fc-radius)); }
+.field-card:nth-child(2) { transform: rotateY(120deg) translateZ(var(--fc-radius)); }
+.field-card:nth-child(3) { transform: rotateY(240deg) translateZ(var(--fc-radius)); }
+
+/* counter-rotates at the same rate as the ring so the photo itself
+   always faces the camera — only its position orbits, never its face */
+.field-card-face {
   position: absolute;
   inset: 0;
   border-radius: 10px;
   overflow: hidden;
   border: 1px solid var(--border);
   box-shadow: 0 12px 40px rgba(0,0,0,0.45);
-  backface-visibility: hidden;
+  animation: fieldsCounterSpin var(--fc-duration) linear infinite;
 }
-.field-card:nth-child(1) { transform: rotateY(0deg) translateZ(var(--fc-radius)); }
-.field-card:nth-child(2) { transform: rotateY(120deg) translateZ(var(--fc-radius)); }
-.field-card:nth-child(3) { transform: rotateY(240deg) translateZ(var(--fc-radius)); }
-.field-card img {
+.field-card:nth-child(2) .field-card-face { animation-delay: calc(var(--fc-duration) * -1 / 3); }
+.field-card:nth-child(3) .field-card-face { animation-delay: calc(var(--fc-duration) * -2 / 3); }
+
+.fields-carousel:hover, .fields-carousel:hover .field-card-face {
+  animation-play-state: paused;
+}
+
+.field-card-face img {
   width: 100%; height: 100%; object-fit: cover; display: block;
 }
 .field-card-overlay {
@@ -365,6 +381,10 @@ nav {
 @keyframes fieldsSpin {
   from { transform: rotateY(0deg); }
   to   { transform: rotateY(360deg); }
+}
+@keyframes fieldsCounterSpin {
+  from { transform: rotateY(0deg); }
+  to   { transform: rotateY(-360deg); }
 }
 
 .hero-stats {
@@ -1103,7 +1123,7 @@ footer {
   .hero-stats { grid-template-columns: 1fr; }
   .tickets-grid { grid-template-columns: 1fr; }
   .footer-inner { grid-template-columns: 1fr; gap: 28px; }
-  .fields-carousel-outer { --fc-w: 150px; --fc-h: 195px; --fc-radius: 45px; --fc-stage-h: 230px; margin-top: 40px; }
+  .fields-carousel-outer { --fc-w: 150px; --fc-h: 195px; --fc-radius: 130px; --fc-stage-h: 250px; margin-top: 40px; }
   .field-card-label { font-size: 15px; bottom: 10px; }
 }
 
@@ -1817,19 +1837,25 @@ footer {
         <div class="fields-carousel-stage">
           <div class="fields-carousel">
             <div class="field-card">
-              <img src="/IDENTITY/Periorbital.jpg" alt="Periorbital" loading="lazy">
-              <div class="field-card-overlay"></div>
-              <div class="field-card-label">Periorbital</div>
+              <div class="field-card-face">
+                <img src="/IDENTITY/Periorbital.jpg" alt="Periorbital" loading="lazy">
+                <div class="field-card-overlay"></div>
+                <div class="field-card-label">Periorbital</div>
+              </div>
             </div>
             <div class="field-card">
-              <img src="/IDENTITY/Aesthetic.jpg" alt="Aesthetic" loading="lazy">
-              <div class="field-card-overlay"></div>
-              <div class="field-card-label">Aesthetic</div>
+              <div class="field-card-face">
+                <img src="/IDENTITY/Aesthetic.jpg" alt="Aesthetic" loading="lazy">
+                <div class="field-card-overlay"></div>
+                <div class="field-card-label">Aesthetic</div>
+              </div>
             </div>
             <div class="field-card">
-              <img src="/IDENTITY/refractive.jpg" alt="Refractive" loading="lazy">
-              <div class="field-card-overlay"></div>
-              <div class="field-card-label">Refractive</div>
+              <div class="field-card-face">
+                <img src="/IDENTITY/refractive.jpg" alt="Refractive" loading="lazy">
+                <div class="field-card-overlay"></div>
+                <div class="field-card-label">Refractive</div>
+              </div>
             </div>
           </div>
         </div>

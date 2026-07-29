@@ -294,6 +294,79 @@ nav {
 }
 .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
 
+/* ══════════════════════════════════════════
+   FIELDS OF EXPERTISE — 3D ROTATING CAROUSEL
+══════════════════════════════════════════ */
+.fields-carousel-outer {
+  --fc-w: 210px;
+  --fc-h: 270px;
+  --fc-radius: 290px;
+  --fc-stage-h: 310px;
+  width: 100%;
+  max-width: 640px;
+  margin: 56px auto 4px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.8s forwards;
+}
+.fields-carousel-stage {
+  position: relative;
+  height: var(--fc-stage-h);
+  perspective: 1100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fields-carousel-stage::before {
+  content: '';
+  position: absolute;
+  width: 320px; height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,169,110,0.10) 0%, transparent 70%);
+  pointer-events: none;
+}
+.fields-carousel {
+  position: relative;
+  width: var(--fc-w);
+  height: var(--fc-h);
+  transform-style: preserve-3d;
+  animation: fieldsSpin 26s linear infinite;
+}
+.fields-carousel:hover { animation-play-state: paused; }
+.field-card {
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.45);
+  backface-visibility: hidden;
+}
+.field-card:nth-child(1) { transform: rotateY(0deg) translateZ(var(--fc-radius)); }
+.field-card:nth-child(2) { transform: rotateY(120deg) translateZ(var(--fc-radius)); }
+.field-card:nth-child(3) { transform: rotateY(240deg) translateZ(var(--fc-radius)); }
+.field-card img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.field-card-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, transparent 50%, rgba(13,27,42,0.85));
+}
+.field-card-label {
+  position: absolute; left: 0; right: 0; bottom: 16px;
+  text-align: center;
+  font-family: var(--ff-display);
+  font-style: italic;
+  font-size: 19px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  text-shadow: 0 0 16px rgba(201,169,110,0.4);
+}
+@keyframes fieldsSpin {
+  from { transform: rotateY(0deg); }
+  to   { transform: rotateY(360deg); }
+}
+
 .hero-stats {
   display: grid; grid-template-columns: repeat(3, 1fr);
   gap: 1px;
@@ -1030,6 +1103,8 @@ footer {
   .hero-stats { grid-template-columns: 1fr; }
   .tickets-grid { grid-template-columns: 1fr; }
   .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+  .fields-carousel-outer { --fc-w: 150px; --fc-h: 195px; --fc-radius: 210px; --fc-stage-h: 230px; margin-top: 40px; }
+  .field-card-label { font-size: 15px; bottom: 10px; }
 }
 
 /* ── UGAMC NAV LOGO ── */
@@ -1736,6 +1811,28 @@ footer {
       <div class="hero-buttons">
         <button class="btn-gold-anim" onclick="showPage('register')" data-i18n="home.cta_ticket">Get Your Ticket</button>
         <button class="btn-outline" onclick="showPage('program')" data-i18n="home.cta_program">View Program</button>
+      </div>
+
+      <div class="fields-carousel-outer">
+        <div class="fields-carousel-stage">
+          <div class="fields-carousel">
+            <div class="field-card">
+              <img src="/IDENTITY/Periorbital.jpg" alt="Periorbital" loading="lazy">
+              <div class="field-card-overlay"></div>
+              <div class="field-card-label">Periorbital</div>
+            </div>
+            <div class="field-card">
+              <img src="/IDENTITY/Aesthetic.jpg" alt="Aesthetic" loading="lazy">
+              <div class="field-card-overlay"></div>
+              <div class="field-card-label">Aesthetic</div>
+            </div>
+            <div class="field-card">
+              <img src="/IDENTITY/refractive.jpg" alt="Refractive" loading="lazy">
+              <div class="field-card-overlay"></div>
+              <div class="field-card-label">Refractive</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

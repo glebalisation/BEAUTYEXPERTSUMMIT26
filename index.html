@@ -6,15 +6,15 @@
 <title>Beauty Expert Summit 2026</title>
 
 <!-- Favicon — shows logo in Google search results and browser tab -->
-<link rel="icon" type="image/png" href="IDENTITY/UGAMC.png">
-<link rel="shortcut icon" type="image/png" href="IDENTITY/UGAMC.png">
-<link rel="apple-touch-icon" href="IDENTITY/UGAMC.png">
+<link rel="icon" type="image/png" href="IDENTITY/ugamc circle.png">
+<link rel="shortcut icon" type="image/png" href="IDENTITY/ugamc circle.png">
+<link rel="apple-touch-icon" href="IDENTITY/ugamc circle.png">
 <meta name="theme-color" content="#0D1B2A">
 
 <!-- Open Graph — controls preview when sharing the link -->
 <meta property="og:title" content="Beauty Expert Summit 2026">
 <meta property="og:description" content="Connecting Visionaries Across Ophthalmology, Plastic Surgery, and Cosmetology. 28–29 November · Elche, Alicante, Spain.">
-<meta property="og:image" content="IDENTITY/UGAMC.png">
+<meta property="og:image" content="IDENTITY/ugamc circle.png">
 <meta property="og:type" content="website">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -596,6 +596,42 @@ nav {
 .schedule-speaker {
   font-size: 13px; color: var(--text-muted);
 }
+.track-live { background: rgba(224,112,112,0.15); color: #e07070; }
+
+.program-caption {
+  font-size: 12px; color: var(--gold); letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: -40px 0 32px;
+}
+
+.day-panel-header { margin-bottom: 8px; }
+.day-panel-title {
+  font-family: var(--ff-display);
+  font-size: clamp(26px, 3vw, 34px); font-weight: 400;
+  color: var(--gold-light);
+  margin-bottom: 4px;
+}
+.day-panel-title em { font-style: italic; color: var(--gold); }
+.day-panel-sub {
+  font-size: 12px; color: var(--text-muted);
+  letter-spacing: 0.1em; text-transform: uppercase;
+  margin-bottom: 28px;
+}
+
+.committee-section { margin-top: 64px; }
+.committee-group { margin-bottom: 48px; }
+.committee-group:last-child { margin-bottom: 0; }
+.committee-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 4px 32px;
+  margin-bottom: 24px;
+}
+.committee-grid:last-child { margin-bottom: 0; }
+.committee-person {
+  padding: 14px 0; border-bottom: 1px solid var(--border);
+}
+.committee-name { font-size: 14px; color: var(--gold-light); font-weight: 500; }
+.committee-role { font-size: 12px; color: var(--text-muted); margin-top: 3px; }
 
 /* ── SPEAKERS ── */
 #page-speakers { background: linear-gradient(180deg, var(--navy-deep) 0%, #0F2336 100%); }
@@ -1102,7 +1138,7 @@ footer {
   .nav-hamburger { display: flex; }
   .nav-logo-text { font-size: 15px; }
   .nav-logo-sub { display: none; }
-  .nav-ugamc-logo { height: 32px; }
+  .nav-ugamc-logo { height: 32px; width: 32px; }
   .nav-logo { gap: 8px; }
   .hero-inner { grid-template-columns: 1fr; gap: 40px; padding: 20px 20px 20px !important; }
   .hero-right { display: none; }
@@ -1125,16 +1161,17 @@ footer {
   .footer-inner { grid-template-columns: 1fr; gap: 28px; }
   .fields-carousel-outer { --fc-w: 150px; --fc-h: 195px; --fc-radius: 130px; --fc-stage-h: 250px; margin-top: 40px; }
   .field-card-label { font-size: 15px; bottom: 10px; }
+  .committee-grid { grid-template-columns: 1fr; }
+  .schedule-item { grid-template-columns: 78px 1fr; gap: 16px; }
 }
 
 /* ── UGAMC NAV LOGO ── */
 .nav-ugamc-logo {
   height: 40px;
-  width: auto;
-  mix-blend-mode: screen;
-  filter: brightness(0.95);
+  width: 40px;
   flex-shrink: 0;
-  border-radius: 4px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(201,169,110,0.35), 0 2px 8px rgba(0,0,0,0.3);
 }
 
 /* ── SUMMIT TITLE IMAGE ── */
@@ -1775,7 +1812,7 @@ footer {
 <!-- NAV -->
 <nav id="mainNav">
   <a class="nav-logo" onclick="showPage('home')">
-    <img src="/IDENTITY/UGAMC.png" class="nav-ugamc-logo" alt="UGAMC">
+    <img src="/IDENTITY/ugamc circle.png" class="nav-ugamc-logo" alt="UGAMC">
     <div>
       <div class="nav-logo-text">Beauty Expert Summit</div>
       <div class="nav-logo-sub" data-i18n="nav.logo_sub">28–29 Nov 2026 · Elche, Spain</div>
@@ -1885,6 +1922,7 @@ footer {
     <div class="section-eyebrow" data-i18n="program.eyebrow">Scientific Program</div>
     <h2 class="section-title" data-i18n-html="program.title">Two Days of <em>Excellence</em></h2>
     <p class="section-lead" data-i18n="program.lead">World-class presentations, live demonstrations and interactive workshops across three specialist tracks: Ophthalmology, Cosmetology, and Plastic Surgery.</p>
+    <p class="program-caption">Alicante, Elche, Spain · November 28–29, 2026</p>
 
     <div class="day-tabs">
       <button class="day-tab active" onclick="switchDay(1)" data-i18n="program.day1_tab">Day 1 · 28 Nov</button>
@@ -1892,24 +1930,250 @@ footer {
     </div>
 
     <div class="schedule-panel active" id="day1">
+      <div class="day-panel-header">
+        <h3 class="day-panel-title">Day 1 — <em>PRAS Summit</em></h3>
+        <p class="day-panel-sub">Periorbital, Refractive &amp; Aesthetic Surgery</p>
+      </div>
+
       <div class="schedule-item">
-        <div class="schedule-time">10:00–17:00</div>
+        <div class="schedule-time">08:30 – 09:00</div>
+        <div><div class="schedule-title">Registration &amp; Welcome Coffee</div></div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">09:00 – 09:20</div>
         <div>
-          <span class="schedule-track track-surg">Plastic Surgery</span>
-          <span class="schedule-track track-cosm" style="margin-left:6px;">Cosmetology</span>
-          <div class="schedule-title" data-i18n="program.day1_title">Day 1 · 28 November</div>
-          <div class="schedule-speaker" data-i18n="program.tba">Full program details to be announced</div>
+          <div class="schedule-title">Opening Ceremony</div>
+          <div class="schedule-speaker">Dr. Serhii Havryliuk, MD — Ukraine · President, UGAMC</div>
         </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">09:20 – 10:00</div>
+        <div>
+          <div class="schedule-title">Modern Blepharoplasty Combined with BBL Technology</div>
+          <div class="schedule-speaker">Dr. Agasi, MD, PhD — Spain</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">10:00 – 10:40</div>
+        <div>
+          <div class="schedule-title">CO₂ Laser Blepharoplasty: Techniques &amp; Clinical Results</div>
+          <div class="schedule-speaker">Dr. Igor Janik, MD, PhD — Czech Republic</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">10:40 – 11:30</div>
+        <div><div class="schedule-title">Coffee Break</div></div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">11:30 – 12:10</div>
+        <div>
+          <div class="schedule-title">CO₂ Laser Ptosis Correction with Volume Restoration</div>
+          <div class="schedule-speaker">Dr. Serhii Havryliuk, MD — Ukraine · Video Demonstration</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">12:10 – 12:40</div>
+        <div>
+          <div class="schedule-title">Orbital Surgery in Periorbital Rejuvenation</div>
+          <div class="schedule-speaker">Dr. Alejandra Amesty, MD — Spain</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">12:40 – 13:00</div>
+        <div>
+          <div class="schedule-title">Complications in Blepharoplasty: Prevention &amp; Management</div>
+          <div class="schedule-speaker">Dr. Olesia Leybedinets, MD — Ukraine</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">13:00 – 13:20</div>
+        <div>
+          <div class="schedule-title">Rehabilitation After Blepharoplasty: Modern Protocols</div>
+          <div class="schedule-speaker">Dr. Tatevik Mavkunyan, MD</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">13:20 – 13:40</div>
+        <div>
+          <div class="schedule-title">Fibroblast Therapy in Periorbital Rejuvenation &amp; Pre-Surgical Preparation</div>
+          <div class="schedule-speaker">Yulia Kichik — Aesthetic Specialist</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">13:40 – 15:30</div>
+        <div><div class="schedule-title">Lunch Break &amp; Exhibition</div></div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">15:30 – 16:30</div>
+        <div><div class="schedule-title">Scientific Discussions / Networking</div></div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">16:30 – 18:30</div>
+        <div>
+          <span class="schedule-track track-live">Live Surgery</span>
+          <div class="schedule-title">CO₂ Laser Blepharoplasty / Ptosis Correction</div>
+          <div class="schedule-speaker">Moderator: Dr. Agasi, MD</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">19:30</div>
+        <div><div class="schedule-title">Gala Dinner &amp; Networking</div></div>
       </div>
     </div>
 
     <div class="schedule-panel" id="day2">
+      <div class="day-panel-header">
+        <h3 class="day-panel-title">Day 2 — <em>VISUS</em> Beauty Expert Summit</h3>
+        <p class="day-panel-sub">Ophthalmology, Refractive Surgery &amp; Future Vision Technologies</p>
+      </div>
+
       <div class="schedule-item">
-        <div class="schedule-time">10:00–17:00</div>
+        <div class="schedule-time">09:00 – 09:10</div>
+        <div><div class="schedule-title">Opening of the Congress</div></div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">09:10 – 09:40</div>
         <div>
-          <span class="schedule-track track-ophth">Ophthalmology</span>
-          <div class="schedule-title" data-i18n="program.day2_title">Day 2 · 29 November</div>
-          <div class="schedule-speaker" data-i18n="program.tba">Full program details to be announced</div>
+          <div class="schedule-title">Introduction to Keratopigmentation Techniques</div>
+          <div class="schedule-speaker">Mr. Nicolas Lutrand — France</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">09:40 – 10:10</div>
+        <div>
+          <div class="schedule-title">Keratopigmentation in Complicated Cases. Manual Keratopigmentation</div>
+          <div class="schedule-speaker">Prof. Jorge Alió, MD, PhD — Spain · Scientific Advisor to the Organizing Associations</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">10:10 – 10:40</div>
+        <div>
+          <div class="schedule-title">Aesthetic Keratopigmentation</div>
+          <div class="schedule-speaker">Dr. Renato De Natale, MD — France</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">10:40 – 11:10</div>
+        <div>
+          <div class="schedule-title">Corneal Tattoo and Artificial Cornea — Keratoprosthetics</div>
+          <div class="schedule-speaker">Dr. Tetyana Dovzhuk, MD, PhD — USA</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">11:10 – 11:40</div>
+        <div><div class="schedule-title">Coffee Break</div></div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">11:40 – 12:00</div>
+        <div>
+          <div class="schedule-title">Scleral Fixation Techniques &amp; Complex Cataract Surgery</div>
+          <div class="schedule-speaker">Prof. Dmytro Zhaboiedov, MD, PhD — Ukraine</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">12:00 – 12:20</div>
+        <div>
+          <div class="schedule-title">DuDo Software: Modern IOL Calculation Technologies</div>
+          <div class="schedule-speaker">Dr. Mykola Dovbysh, MD — Slovakia</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">12:20 – 12:40</div>
+        <div>
+          <div class="schedule-title">Rayner Galaxy Lenses: Clinical Experience &amp; Calculations</div>
+          <div class="schedule-speaker">Dr. Ivo Durkovic, MD — Austria</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">12:40 – 13:00</div>
+        <div>
+          <span class="schedule-track track-gen">Panel Discussion</span>
+          <div class="schedule-title">Future of IOL Calculation: AI, Biometry &amp; DuDo Software</div>
+          <div class="schedule-speaker">Moderator: Dr. Mykola Dovbysh, MD</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">13:00 – 14:00</div>
+        <div><div class="schedule-title">Lunch Break</div></div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">14:00 – 16:00</div>
+        <div>
+          <div class="schedule-title">Artificial Vision &amp; Future of Neuro-Ophthalmology</div>
+          <div class="schedule-speaker">Prof. Eduardo Fernández, MD, PhD — Spain</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">16:00 – 16:30</div>
+        <div>
+          <div class="schedule-title">PRIMA Subretinal Implant in AMD: Clinical Experience</div>
+          <div class="schedule-speaker">Prof. Andrea Cusumano, MD, PhD — Italy</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">16:30 – 17:00</div>
+        <div>
+          <div class="schedule-title">Artificial Iris Implantation &amp; Reconstructive Ophthalmology</div>
+          <div class="schedule-speaker">Dr. Serhii Havryliuk, MD — Ukraine · Video Presentation</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">17:00 – 17:30</div>
+        <div>
+          <span class="schedule-track track-gen">Final Panel Discussion</span>
+          <div class="schedule-title">“The Future of Ophthalmology &amp; Vision Restoration”</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">17:30</div>
+        <div><div class="schedule-title">Closing Ceremony &amp; Certificates</div></div>
+      </div>
+    </div>
+
+    <div class="committee-section">
+      <div class="committee-group">
+        <div class="sponsor-tier-label">Scientific Committee</div>
+        <div class="committee-grid">
+          <div class="committee-person">
+            <div class="committee-name">Prof. Jorge Alió, MD, PhD — Spain</div>
+            <div class="committee-role">Scientific Advisor to the Organizing Associations</div>
+          </div>
+          <div class="committee-person">
+            <div class="committee-name">Dr. Tetyana Dovzhuk, MD, PhD — Ukraine / USA</div>
+          </div>
+        </div>
+        <div class="sponsor-tier-label">Members</div>
+        <div class="committee-grid">
+          <div class="committee-person"><div class="committee-name">Prof. Eduardo Fernández, MD, PhD — Spain</div></div>
+          <div class="committee-person"><div class="committee-name">Prof. Andrea Cusumano, MD, PhD — Italy</div></div>
+          <div class="committee-person"><div class="committee-name">Prof. Dmytro Zhaboiedov, MD, PhD — Ukraine</div></div>
+          <div class="committee-person"><div class="committee-name">Dr. Igor Janik, MD, PhD — Czech Republic</div></div>
+          <div class="committee-person"><div class="committee-name">Dr. Alejandra Amesty, MD — Spain</div></div>
+        </div>
+      </div>
+      <div class="committee-group">
+        <div class="sponsor-tier-label">Organizing Committee</div>
+        <div class="committee-grid">
+          <div class="committee-person">
+            <div class="committee-name">Dr. Serhii Havryliuk, MD — Ukraine</div>
+            <div class="committee-role">President, UGAMC</div>
+          </div>
+          <div class="committee-person">
+            <div class="committee-name">Yulia Kichik</div>
+            <div class="committee-role">Secretary General</div>
+          </div>
+          <div class="committee-person">
+            <div class="committee-name">Dr. Ivo Durkovic, MD — Austria</div>
+            <div class="committee-role">International Relations</div>
+          </div>
+          <div class="committee-person">
+            <div class="committee-name">Dr. Mykola Dovbysh, MD — Slovakia</div>
+            <div class="committee-role">Scientific &amp; Digital Technologies</div>
+          </div>
+          <div class="committee-person">
+            <div class="committee-name">Sofia Reznichenko</div>
+            <div class="committee-role">Conference Manager</div>
+          </div>
         </div>
       </div>
     </div>
@@ -2312,6 +2576,24 @@ footer {
           <span class="speaker-tag track-ophth">Ophthalmology</span>
         </div>
       </div>
+      <!-- 23 -->
+      <div class="speaker-card">
+        <div class="speaker-photo"><img src="/IDENTITY/SPEAKERS/Jorge_Alió,_MD,_PhD,_Ophtalmologist,_President_of_the_European.png" alt="Jorge Alió" loading="lazy"><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-info">
+          <div class="speaker-name">Jorge Alió</div>
+          <div class="speaker-role">MD, PhD · Ophthalmologist<br>President, European Academy of Ophthalmology · Spain</div>
+          <span class="speaker-tag track-ophth">Ophthalmology</span>
+        </div>
+      </div>
+      <!-- 24 -->
+      <div class="speaker-card">
+        <div class="speaker-photo"><img src="/IDENTITY/SPEAKERS/Alejandra Amesty, MD, Oculoplastic Surgeon, Spain.png" alt="Alejandra Amesty" loading="lazy"><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-info">
+          <div class="speaker-name">Alejandra Amesty</div>
+          <div class="speaker-role">MD · Oculoplastic Surgeon<br>Spain</div>
+          <span class="speaker-tag track-surg">Plastic Surgery</span>
+        </div>
+      </div>
       <!-- TBA -->
       <div class="speaker-card" style="border-style:dashed;border-color:rgba(201,169,110,0.25);background:rgba(201,169,110,0.03);">
         <div class="speaker-photo" style="background:linear-gradient(160deg,rgba(26,58,92,0.4),rgba(13,27,42,0.6));">
@@ -2516,7 +2798,10 @@ footer {
       <div>
         <div class="sponsor-tier-label" data-i18n="sponsors.institutional">Institutional Partners</div>
         <div class="sponsor-logos">
-          <a href="https://www.ugamc.info/" target="_blank" class="sponsor-placeholder sponsor-lg" style="text-decoration:none;cursor:pointer;">UGAMC</a>
+          <a href="https://www.ugamc.info/" target="_blank" class="sponsor-placeholder sponsor-lg" style="text-decoration:none;cursor:pointer;gap:10px;">
+            <img src="/IDENTITY/ugamc circle.png" alt="UGAMC" style="height:44px;width:44px;border-radius:50%;flex-shrink:0;">
+            <span>UGAMC</span>
+          </a>
           <div class="sponsor-placeholder sponsor-lg">IARPS</div>
           <div class="sponsor-placeholder sponsor-lg" style="width:280px;">UMH Universidad Miguel Hernández de Elche</div>
         </div>
@@ -2632,7 +2917,7 @@ footer {
           <div class="contact-info-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
           <div>
             <div class="contact-info-label" data-i18n="contact.lbl.email">Email</div>
-            <div class="contact-info-value">info.beautyexpertsummit@gmail.com</div>
+            <div class="contact-info-value"><a href="mailto:events@ugamc.org" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(201,169,110,0.3);transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(201,169,110,0.8)'" onmouseout="this.style.borderColor='rgba(201,169,110,0.3)'">events@ugamc.org</a></div>
           </div>
         </div>
         <div class="contact-info-item">
@@ -2667,7 +2952,7 @@ footer {
         <div style="color:var(--gold-light);font-size:20px;font-weight:600;margin-bottom:10px;" data-i18n="contact.success_title">Message Sent!</div>
         <div style="color:var(--text-muted);font-size:14px;line-height:1.6;" data-i18n="contact.success_sub">Thank you for reaching out.<br>We'll be in touch within 2 business days.</div>
       </div>
-      <div id="contact-error" style="display:none;color:#e07070;padding:12px;font-size:13px;border:1px solid rgba(224,112,112,0.3);border-radius:8px;margin-bottom:12px;" data-i18n="contact.error">Something went wrong. Please email us at info.beautyexpertsummit@gmail.com</div>
+      <div id="contact-error" style="display:none;color:#e07070;padding:12px;font-size:13px;border:1px solid rgba(224,112,112,0.3);border-radius:8px;margin-bottom:12px;" data-i18n="contact.error">Something went wrong. Please email us at events@ugamc.org</div>
       <form id="contact-form" class="contact-form" onsubmit="submitContact(event)">
         <div class="form-row">
           <div class="form-group">
@@ -2748,7 +3033,7 @@ footer {
   </div>
   <div class="footer-bottom">
     <div class="footer-copy" data-i18n="footer.copyright">© 2026 Beauty Expert Summit. All rights reserved.</div>
-    <div class="footer-ugamc"><span data-i18n="footer.organised">Organised by</span> <a href="https://www.ugamc.info/" target="_blank" style="color:var(--gold);font-weight:500;text-decoration:none;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">UGAMC Non Profit Organisation</a></div>
+    <div class="footer-ugamc"><img src="/IDENTITY/ugamc circle.png" alt="UGAMC" style="height:20px;width:20px;border-radius:50%;flex-shrink:0;"> <span data-i18n="footer.organised">Organised by</span> <a href="https://www.ugamc.info/" target="_blank" style="color:var(--gold);font-weight:500;text-decoration:none;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">UGAMC Non Profit Organisation</a></div>
   </div>
 </footer>
 
@@ -2844,7 +3129,7 @@ en:{
 'faq.still_q':'Still have questions?','faq.contact_btn':'Contact the Organising Team',
 'contact.eyebrow':'Get in Touch','contact.title':'Contact <em>Us</em>','contact.lead':'For general enquiries, speaker submissions, sponsorship proposals or group bookings.',
 'contact.lbl.email':'Email','contact.lbl.website':'Website','contact.lbl.organiser':'Organiser','contact.lbl.location':'Conference Location','contact.lbl.response':'Response Time','contact.response_val':'We aim to respond to all enquiries within 2 business days.',
-'contact.success_title':'Message Sent!','contact.success_sub':'Thank you for reaching out. We\'ll be in touch within 2 business days.','contact.error':'Something went wrong. Please email us at info.beautyexpertsummit@gmail.com',
+'contact.success_title':'Message Sent!','contact.success_sub':'Thank you for reaching out. We\'ll be in touch within 2 business days.','contact.error':'Something went wrong. Please email us at events@ugamc.org',
 'contact.form.first':'First Name','contact.form.last':'Last Name','contact.form.enquiry':'Enquiry Type','contact.form.select':'Select a topic','contact.form.opt1':'General Information','contact.form.opt2':'Registration & Tickets','contact.form.opt3':'Speaker Submission','contact.form.opt4':'Sponsorship & Partnerships','contact.form.opt5':'Group Booking','contact.form.opt6':'Visa Invitation Letter','contact.form.opt7':'Press & Media','contact.form.opt8':'Other','contact.form.message':'Message','contact.form.send':'Send Message',
 'contact.ph.first':'Your first name','contact.ph.last':'Your last name','contact.ph.email':'your@email.com','contact.ph.message':'How can we help you?',
 'footer.brand_sub':'28–29 November 2026 · Elche, Spain','footer.tagline':'An international conference on Ophthalmology, Cosmetology, and Plastic Surgery.',
@@ -2880,7 +3165,7 @@ es:{
 'faq.still_q':'¿Todavía tiene preguntas?','faq.contact_btn':'Contactar al Equipo Organizador',
 'contact.eyebrow':'Contáctenos','contact.title':'Contáctenos','contact.lead':'Para consultas generales, presentaciones de ponentes, propuestas de patrocinio o reservas grupales.',
 'contact.lbl.email':'Correo electrónico','contact.lbl.website':'Sitio web','contact.lbl.organiser':'Organizador','contact.lbl.location':'Lugar del congreso','contact.lbl.response':'Tiempo de respuesta','contact.response_val':'Nos comprometemos a responder todas las consultas en un plazo de 2 días hábiles.',
-'contact.success_title':'¡Mensaje Enviado!','contact.success_sub':'Gracias por ponerse en contacto. Le responderemos en 2 días hábiles.','contact.error':'Algo salió mal. Por favor escríbanos a info.beautyexpertsummit@gmail.com',
+'contact.success_title':'¡Mensaje Enviado!','contact.success_sub':'Gracias por ponerse en contacto. Le responderemos en 2 días hábiles.','contact.error':'Algo salió mal. Por favor escríbanos a events@ugamc.org',
 'contact.form.first':'Nombre','contact.form.last':'Apellido','contact.form.enquiry':'Tipo de consulta','contact.form.select':'Seleccione un tema','contact.form.opt1':'Información General','contact.form.opt2':'Registro y Entradas','contact.form.opt3':'Solicitud de Ponente','contact.form.opt4':'Patrocinio y Asociaciones','contact.form.opt5':'Reserva de Grupo','contact.form.opt6':'Carta de Invitación para Visado','contact.form.opt7':'Prensa y Medios','contact.form.opt8':'Otro','contact.form.message':'Mensaje','contact.form.send':'Enviar Mensaje',
 'contact.ph.first':'Su nombre','contact.ph.last':'Su apellido','contact.ph.email':'su@correo.com','contact.ph.message':'¿En qué podemos ayudarle?',
 'footer.brand_sub':'28–29 de noviembre 2026 · Elche, España','footer.tagline':'Una conferencia internacional sobre Oftalmología, Cosmetología y Cirugía Plástica.',
@@ -2916,7 +3201,7 @@ uk:{
 'faq.still_q':'Ще є запитання?','faq.contact_btn':"Зв'язатися з Командою",
 'contact.eyebrow':"Зв'язатися",'contact.title':"Зв'яжіться <em>з Нами</em>",'contact.lead':"Для загальних запитів, заявок доповідачів, спонсорських пропозицій або групового бронювання.",
 'contact.lbl.email':'Електронна пошта','contact.lbl.website':'Вебсайт','contact.lbl.organiser':'Організатор','contact.lbl.location':'Місце проведення','contact.lbl.response':'Час відповіді','contact.response_val':'Ми прагнемо відповідати на всі запити протягом 2 робочих днів.',
-'contact.success_title':'Повідомлення Надіслано!','contact.success_sub':'Дякуємо за звернення. Ми відповімо протягом 2 робочих днів.','contact.error':'Щось пішло не так. Будь ласка, напишіть нам на info.beautyexpertsummit@gmail.com',
+'contact.success_title':'Повідомлення Надіслано!','contact.success_sub':'Дякуємо за звернення. Ми відповімо протягом 2 робочих днів.','contact.error':'Щось пішло не так. Будь ласка, напишіть нам на events@ugamc.org',
 'contact.form.first':"Ім'я",'contact.form.last':'Прізвище','contact.form.enquiry':'Тип запиту','contact.form.select':'Виберіть тему','contact.form.opt1':'Загальна Інформація','contact.form.opt2':'Реєстрація та Квитки','contact.form.opt3':'Заявка Доповідача','contact.form.opt4':'Спонсорство та Партнерство','contact.form.opt5':'Групове Бронювання','contact.form.opt6':'Лист-Запрошення для Візи','contact.form.opt7':'Преса та ЗМІ','contact.form.opt8':'Інше','contact.form.message':'Повідомлення','contact.form.send':'Надіслати Повідомлення',
 'contact.ph.first':"Ваше ім'я",'contact.ph.last':'Ваше прізвище','contact.ph.email':'ваша@пошта.com','contact.ph.message':'Чим ми можемо допомогти?',
 'footer.brand_sub':'28–29 листопада 2026 · Ельче, Іспанія','footer.tagline':'Міжнародна конференція з офтальмології, косметології та пластичної хірургії.',

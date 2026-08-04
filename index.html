@@ -1457,6 +1457,28 @@ nav {
   border: 1px solid rgba(201,169,110,0.12) !important;
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), 0 4px 24px rgba(0,0,0,0.28) !important;
 }
+/* per-tier liquid-glass tinting so ticket groups read as distinct sets */
+.ticket-group.tier-2day .ticket-card {
+  background: linear-gradient(160deg, rgba(201,169,110,0.20), rgba(10,20,34,0.5)) !important;
+  border: 1px solid rgba(201,169,110,0.32) !important;
+}
+.ticket-group.tier-2day .ticket-card.featured {
+  background: linear-gradient(160deg, rgba(201,169,110,0.30), rgba(10,20,34,0.5)) !important;
+  border: 1px solid var(--gold) !important;
+}
+.ticket-group.tier-1day .ticket-card {
+  background: linear-gradient(160deg, rgba(123,184,240,0.18), rgba(10,20,34,0.5)) !important;
+  border: 1px solid rgba(123,184,240,0.35) !important;
+}
+.ticket-group.tier-other .ticket-card {
+  background: linear-gradient(160deg, rgba(142,207,160,0.16), rgba(10,20,34,0.5)) !important;
+  border: 1px solid rgba(142,207,160,0.32) !important;
+}
+.ticket-group.tier-wetlab .ticket-card.premium {
+  background: linear-gradient(160deg, rgba(201,169,110,0.34), rgba(10,20,34,0.5)) !important;
+  border: 1px solid var(--gold) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 4px 32px rgba(201,169,110,0.12) !important;
+}
 .faq-item {
   background: rgba(10,20,34,0.38) !important;
   backdrop-filter: blur(12px) !important;
@@ -2758,7 +2780,7 @@ footer {
     <p class="section-lead" data-i18n="register.lead">Early Bird prices valid until 30 September 2026. All tickets include certificate of attendance and access to recorded sessions.</p>
 
     <div class="tickets-grid">
-      <div class="ticket-group">
+      <div class="ticket-group tier-2day">
         <div class="ticket-group-label">2-Day Passes</div>
         <div class="ticket-group-row">
       <!-- 2-Day Delegate -->
@@ -2796,7 +2818,7 @@ footer {
         </div>
       </div>
 
-      <div class="ticket-group">
+      <div class="ticket-group tier-1day">
         <div class="ticket-group-label">1-Day Passes</div>
         <div class="ticket-group-row">
       <!-- 1-Day Delegate -->
@@ -2833,7 +2855,7 @@ footer {
         </div>
       </div>
 
-      <div class="ticket-group">
+      <div class="ticket-group tier-other">
         <div class="ticket-group-label">Other Options</div>
         <div class="ticket-group-row">
       <!-- Online -->
@@ -2885,7 +2907,7 @@ footer {
         </div>
       </div>
 
-      <div class="ticket-group">
+      <div class="ticket-group tier-wetlab">
         <div class="ticket-group-label">Hands-On Training</div>
         <div class="ticket-group-row">
       <!-- ScalprumPro Wet Lab -->

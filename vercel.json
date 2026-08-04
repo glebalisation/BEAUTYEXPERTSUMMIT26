@@ -2,8 +2,8 @@
   "redirects": [
     { "source": "/become-a-speaker",    "destination": "/", "permanent": true },
     { "source": "/become-a-speaker/",   "destination": "/", "permanent": true },
-    { "source": "/partners",            "destination": "/sponsors", "permanent": true },
-    { "source": "/partners/",           "destination": "/sponsors", "permanent": true },
+    { "source": "/sponsors",            "destination": "/partners", "permanent": true },
+    { "source": "/sponsors/",           "destination": "/partners", "permanent": true },
     { "source": "/registration",        "destination": "/tickets", "permanent": true },
     { "source": "/registration/",       "destination": "/tickets", "permanent": true },
     { "source": "/register",            "destination": "/tickets", "permanent": true },
@@ -17,8 +17,8 @@
     { "source": "/fotogalereya/",       "destination": "/", "permanent": true },
     { "source": "/staty-spikerom",      "destination": "/", "permanent": true },
     { "source": "/staty-spikerom/",     "destination": "/", "permanent": true },
-    { "source": "/partnery",            "destination": "/sponsors", "permanent": true },
-    { "source": "/partnery/",           "destination": "/sponsors", "permanent": true },
+    { "source": "/partnery",            "destination": "/partners", "permanent": true },
+    { "source": "/partnery/",           "destination": "/partners", "permanent": true },
     { "source": "/reyestratsiia",       "destination": "/tickets", "permanent": true },
     { "source": "/reyestratsiia/",      "destination": "/tickets", "permanent": true }
   ],

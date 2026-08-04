@@ -950,6 +950,17 @@ nav {
   transition: var(--transition);
   background: rgba(26,58,92,0.1);
 }
+.partner-logo-tile {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  background: #fff;
+  padding: 12px 20px;
+  transition: var(--transition);
+  text-decoration: none;
+}
+.partner-logo-tile img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
+.partner-logo-tile:hover { border-color: var(--gold); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
 .sponsor-placeholder:hover { border-color: var(--gold); color: var(--gold); }
 .sponsor-lg  { width: 220px; height: 80px; }
 .sponsor-md  { width: 160px; height: 64px; }
@@ -1822,7 +1833,7 @@ footer {
     <li><a href="/program" onclick="event.preventDefault();showPage('program')" data-page="program" data-i18n="nav.program">Program</a></li>
     <li><a href="/speakers" onclick="event.preventDefault();showPage('speakers')" data-page="speakers" data-i18n="nav.speakers">Speakers</a></li>
     <li><a href="/venue" onclick="event.preventDefault();showPage('venue')" data-page="venue" data-i18n="nav.venue">Venue</a></li>
-    <li><a href="/sponsors" onclick="event.preventDefault();showPage('sponsors')" data-page="sponsors" data-i18n="nav.sponsors">Sponsors</a></li>
+    <li><a href="/partners" onclick="event.preventDefault();showPage('sponsors')" data-page="sponsors" data-i18n="nav.sponsors">Partners</a></li>
     <li><a href="/faq" onclick="event.preventDefault();showPage('faq')" data-page="faq" data-i18n="nav.faq">FAQ</a></li>
     <li><a href="/contact" onclick="event.preventDefault();showPage('contact')" data-page="contact" data-i18n="nav.contact">Contact</a></li>
     <li><a href="/tickets" onclick="event.preventDefault();showPage('register')" class="nav-cta" data-page="register" data-i18n="nav.register">Tickets</a></li>
@@ -1846,7 +1857,7 @@ footer {
   <a href="/program" onclick="event.preventDefault();showPage('program');toggleMobileMenu()" data-i18n="nav.program">Program</a>
   <a href="/speakers" onclick="event.preventDefault();showPage('speakers');toggleMobileMenu()" data-i18n="nav.speakers">Speakers</a>
   <a href="/venue" onclick="event.preventDefault();showPage('venue');toggleMobileMenu()" data-i18n="nav.venue">Venue</a>
-  <a href="/sponsors" onclick="event.preventDefault();showPage('sponsors');toggleMobileMenu()" data-i18n="nav.sponsors">Sponsors</a>
+  <a href="/partners" onclick="event.preventDefault();showPage('sponsors');toggleMobileMenu()" data-i18n="nav.sponsors">Partners</a>
   <a href="/faq" onclick="event.preventDefault();showPage('faq');toggleMobileMenu()" data-i18n="nav.faq">FAQ</a>
   <a href="/contact" onclick="event.preventDefault();showPage('contact');toggleMobileMenu()" data-i18n="nav.contact">Contact</a>
   <a href="/tickets" onclick="event.preventDefault();showPage('register');toggleMobileMenu()" style="color:var(--gold);font-weight:500;" data-i18n="mobile.register">Tickets</a>
@@ -2788,7 +2799,7 @@ footer {
 <!-- ══════════ SPONSORS ══════════ -->
 <div class="page" id="page-sponsors">
   <div class="section-inner">
-    <div class="section-eyebrow" data-i18n="sponsors.eyebrow">Partners & Sponsors</div>
+    <div class="section-eyebrow" data-i18n="sponsors.eyebrow">Partners</div>
     <h2 class="section-title" data-i18n-html="sponsors.title">Our <em>Partners</em></h2>
     <p class="section-lead" data-i18n="sponsors.lead">Beauty Expert Summit 2026 is supported by leading companies in ophthalmology, aesthetic medicine, pharmaceutical and technology sectors.</p>
 
@@ -2796,28 +2807,30 @@ footer {
       <div>
         <div class="sponsor-tier-label" data-i18n="sponsors.institutional">Institutional Partners</div>
         <div class="sponsor-logos">
-          <a href="https://www.ugamc.info/" target="_blank" class="sponsor-placeholder sponsor-lg" style="text-decoration:none;cursor:pointer;gap:10px;">
-            <img src="/IDENTITY/ugamc circle.png" alt="UGAMC" style="height:44px;width:44px;border-radius:50%;flex-shrink:0;">
-            <span>UGAMC</span>
-          </a>
-          <div class="sponsor-placeholder sponsor-lg">IARPS</div>
-          <div class="sponsor-placeholder sponsor-lg" style="width:280px;">UMH Universidad Miguel Hernández de Elche</div>
+          <div class="partner-logo-tile sponsor-lg"><img src="/IDENTITY/iarps.png" alt="IARPS"></div>
+          <div class="partner-logo-tile sponsor-lg"><img src="/IDENTITY/UMH.png" alt="Universidad Miguel Hernández de Elche"></div>
         </div>
       </div>
       <div>
         <div class="sponsor-tier-label" data-i18n="sponsors.clinic">Clinic Partners</div>
         <div class="sponsor-logos">
-          <div class="sponsor-placeholder sponsor-md">iClinic</div>
-          <div class="sponsor-placeholder sponsor-md">LLC Clinic</div>
-          <div class="sponsor-placeholder sponsor-md">FLAAK</div>
+          <div class="partner-logo-tile sponsor-md"><img src="/IDENTITY/iCLINIC.JPG" alt="iClinic"></div>
+          <div class="partner-logo-tile sponsor-md"><img src="/IDENTITY/LLC.svg" alt="LLC Clinic"></div>
+          <div class="partner-logo-tile sponsor-md"><img src="/IDENTITY/FLAAK.jpeg" alt="FLAAK by New Color"></div>
+        </div>
+      </div>
+      <div>
+        <div class="sponsor-tier-label" data-i18n="sponsors.technology">Technology Partners</div>
+        <div class="sponsor-logos">
+          <div class="partner-logo-tile sponsor-lg"><img src="/IDENTITY/DUDO.png" alt="DuDo Software"></div>
         </div>
       </div>
     </div>
 
     <div class="become-sponsor">
       <div class="become-sponsor-text">
-        <h3 data-i18n="sponsors.become_title">Become a Sponsor</h3>
-        <p data-i18n="sponsors.become_desc">Reach 500+ specialists in ophthalmology, cosmetology and plastic surgery. Download our sponsorship brochure or contact us directly.</p>
+        <h3 data-i18n="sponsors.become_title">Become a Partner</h3>
+        <p data-i18n="sponsors.become_desc">Reach 500+ specialists in ophthalmology, cosmetology and plastic surgery. Download our partnership brochure or contact us directly.</p>
       </div>
       <div style="display:flex;gap:12px;flex-wrap:wrap;">
         <button class="btn-gold" data-i18n="sponsors.download">Download Brochure</button>
@@ -3011,7 +3024,7 @@ footer {
       <div class="footer-col-title" data-i18n="footer.event.title">Event</div>
       <ul class="footer-links">
         <li><a href="/tickets" onclick="event.preventDefault();showPage('register')" data-i18n="footer.event.register">Tickets</a></li>
-        <li><a href="/sponsors" onclick="event.preventDefault();showPage('sponsors')" data-i18n="footer.event.sponsors">Sponsors</a></li>
+        <li><a href="/partners" onclick="event.preventDefault();showPage('sponsors')" data-i18n="footer.event.sponsors">Partners</a></li>
         <li><a href="/faq" onclick="event.preventDefault();showPage('faq')" data-i18n="footer.event.faq">FAQ</a></li>
         <li><a href="/contact" onclick="event.preventDefault();showPage('contact')" data-i18n="footer.event.contact">Contact</a></li>
       </ul>
@@ -3062,12 +3075,12 @@ footer {
 // ── PAGE ROUTING ──
 var PAGE_TO_SLUG = {
   home:'/', program:'/program', speakers:'/speakers',
-  venue:'/venue', sponsors:'/sponsors', faq:'/faq',
+  venue:'/venue', sponsors:'/partners', faq:'/faq',
   contact:'/contact', register:'/tickets'
 };
 var SLUG_TO_PAGE = {
   '':'home','program':'program','speakers':'speakers',
-  'venue':'venue','sponsors':'sponsors','faq':'faq',
+  'venue':'venue','partners':'sponsors','sponsors':'sponsors','faq':'faq',
   'contact':'contact','tickets':'register','register':'register'
 };
 
@@ -3101,7 +3114,7 @@ function toggleFaq(btn) {
 // ── i18n ──
 var i18n = {
 en:{
-'nav.program':'Program','nav.speakers':'Speakers','nav.venue':'Venue','nav.sponsors':'Sponsors','nav.faq':'FAQ','nav.contact':'Contact','nav.register':'Tickets','nav.logo_sub':'28–29 Nov 2026 · Elche, Spain','mobile.register':'Tickets',
+'nav.program':'Program','nav.speakers':'Speakers','nav.venue':'Venue','nav.sponsors':'Partners','nav.faq':'FAQ','nav.contact':'Contact','nav.register':'Tickets','nav.logo_sub':'28–29 Nov 2026 · Elche, Spain','mobile.register':'Tickets',
 'home.motto':'Built for <em>Medical Leaders</em>','home.tagline':'Connecting Visionaries Across Ophthalmology, Plastic Surgery, and Cosmetology.','home.date':'28–29 November · Centro de Congresos de Elche, Alicante, Spain','home.cta_ticket':'Get Your Ticket','home.cta_program':'View Program','home.explore':'Explore','home.dama':'✦ La Dama de Elche invites you ✦',
 'program.eyebrow':'Scientific Program','program.title':'Two Days of <em>Excellence</em>','program.lead':'World-class presentations, live demonstrations and interactive workshops across three specialist tracks: Ophthalmology, Cosmetology, and Plastic Surgery.','program.day1_tab':'Day 1 · 28 Nov','program.day2_tab':'Day 2 · 29 Nov','program.day1_title':'Day 1 · 28 November','program.day2_title':'Day 2 · 29 November','program.tba':'Full program details to be announced',
 'track.ophth':'Ophthalmology','track.cosm':'Cosmetology','track.surg':'Plastic Surgery','track.gen':'General',
@@ -3115,7 +3128,7 @@ en:{
 'ticket.online_type':'Early Bird · Online','ticket.online_name':'Live Streaming','ticket.online_note':'Final price €200 · 2 days online','ticket.online_f1':'Live stream — both days','ticket.online_f2':'Interactive live chat','ticket.online_f3':'Web certificate of attendance','ticket.online_f4':'Access to recorded sessions',
 'ticket.student_type':'Academic','ticket.student_name':'Student','ticket.student_note':'Valid student ID required · 2 days','ticket.student_f1':'Access to all sessions — both days','ticket.student_f2':'Conference materials & badge','ticket.student_f3':'Coffee breaks included','ticket.student_f4':'Certificate of attendance','ticket.student_f5':'Access to recorded sessions',
 'ticket.buy_now':'Buy Now — Stripe','register.stripe_note':'Secure payment powered by Stripe. All major cards accepted.','register.group_title':'Need a group booking or invoice?','register.group_desc':'Groups of 5+ receive a 15% discount. Contact us for corporate invoicing.','register.group_btn':'Contact for Group Rates',
-'sponsors.eyebrow':'Partners & Sponsors','sponsors.title':'Our <em>Partners</em>','sponsors.lead':'Beauty Expert Summit 2026 is supported by leading companies in ophthalmology, aesthetic medicine, pharmaceutical and technology sectors.','sponsors.institutional':'Institutional Partners','sponsors.clinic':'Clinic Partners','sponsors.become_title':'Become a Sponsor','sponsors.become_desc':'Reach 500+ specialists in ophthalmology, cosmetology and plastic surgery. Download our sponsorship brochure or contact us directly.','sponsors.download':'Download Brochure','sponsors.contact':'Contact Us',
+'sponsors.eyebrow':'Partners','sponsors.title':'Our <em>Partners</em>','sponsors.lead':'Beauty Expert Summit 2026 is supported by leading companies in ophthalmology, aesthetic medicine, pharmaceutical and technology sectors.','sponsors.institutional':'Institutional Partners','sponsors.clinic':'Clinic Partners','sponsors.technology':'Technology Partners','sponsors.become_title':'Become a Partner','sponsors.become_desc':'Reach 500+ specialists in ophthalmology, cosmetology and plastic surgery. Download our partnership brochure or contact us directly.','sponsors.download':'Download Brochure','sponsors.contact':'Contact Us',
 'faq.eyebrow':'FAQ','faq.title':'Frequently Asked <em>Questions</em>','faq.lead':'Everything you need to know before registering.',
 'faq.q1':'Who should attend Beauty Expert Summit 2026?','faq.a1':'The summit is designed for licensed medical professionals including ophthalmologists, dermatologists, cosmetologists, plastic surgeons, and residents or fellows in these specialties. Medical students are welcome with a Student ticket.',
 'faq.q2':'Will sessions be available in multiple languages?','faq.a2':'Yes. The conference will be conducted in English, Spanish and Ukrainian. Simultaneous interpretation will be available for the main plenary sessions. Workshop materials will be provided in all three languages.',
@@ -3132,12 +3145,12 @@ en:{
 'contact.ph.first':'Your first name','contact.ph.last':'Your last name','contact.ph.email':'your@email.com','contact.ph.message':'How can we help you?',
 'footer.brand_sub':'28–29 November 2026 · Elche, Spain','footer.tagline':'An international conference on Ophthalmology, Cosmetology, and Plastic Surgery.',
 'footer.nav.title':'Navigate','footer.nav.home':'Home','footer.nav.program':'Program','footer.nav.speakers':'Speakers','footer.nav.venue':'Venue & Travel',
-'footer.event.title':'Event','footer.event.register':'Tickets','footer.event.sponsors':'Sponsors','footer.event.faq':'FAQ','footer.event.contact':'Contact',
+'footer.event.title':'Event','footer.event.register':'Tickets','footer.event.sponsors':'Partners','footer.event.faq':'FAQ','footer.event.contact':'Contact',
 'footer.org.title':'Organiser','footer.org.sponsorship':'Sponsorship','footer.org.press':'Press Enquiries',
 'footer.copyright':'© 2026 Beauty Expert Summit. All rights reserved.','footer.organised':'Organised by'
 },
 es:{
-'nav.program':'Programa','nav.speakers':'Ponentes','nav.venue':'Sede','nav.sponsors':'Patrocinadores','nav.faq':'FAQ','nav.contact':'Contacto','nav.register':'Entradas','nav.logo_sub':'28–29 Nov 2026 · Elche, España','mobile.register':'Entradas',
+'nav.program':'Programa','nav.speakers':'Ponentes','nav.venue':'Sede','nav.sponsors':'Socios','nav.faq':'FAQ','nav.contact':'Contacto','nav.register':'Entradas','nav.logo_sub':'28–29 Nov 2026 · Elche, España','mobile.register':'Entradas',
 'home.motto':'Para <em>Líderes Médicos</em>','home.tagline':'Conectando visionarios en Oftalmología, Cirugía Plástica y Cosmetología.','home.date':'28–29 de noviembre · Centro de Congresos de Elche, Alicante, España','home.cta_ticket':'Obtener Entrada','home.cta_program':'Ver Programa','home.explore':'Explorar','home.dama':'✦ La Dama de Elche te invita ✦',
 'program.eyebrow':'Programa Científico','program.title':'Dos Días de <em>Excelencia</em>','program.lead':'Presentaciones de clase mundial, demostraciones en vivo y talleres interactivos en tres áreas especializadas: Oftalmología, Cosmetología y Cirugía Plástica.','program.day1_tab':'Día 1 · 28 Nov','program.day2_tab':'Día 2 · 29 Nov','program.day1_title':'Día 1 · 28 de noviembre','program.day2_title':'Día 2 · 29 de noviembre','program.tba':'El programa completo será anunciado próximamente',
 'track.ophth':'Oftalmología','track.cosm':'Cosmetología','track.surg':'Cirugía Plástica','track.gen':'General',
@@ -3151,7 +3164,7 @@ es:{
 'ticket.online_type':'Early Bird · Online','ticket.online_name':'Retransmisión en Vivo','ticket.online_note':'Precio final €200 · 2 días online','ticket.online_f1':'Retransmisión en vivo — ambos días','ticket.online_f2':'Chat en vivo interactivo','ticket.online_f3':'Certificado de asistencia web','ticket.online_f4':'Acceso a sesiones grabadas',
 'ticket.student_type':'Académico','ticket.student_name':'Estudiante','ticket.student_note':'ID de estudiante válido requerido · 2 días','ticket.student_f1':'Acceso a todas las sesiones — ambos días','ticket.student_f2':'Materiales del congreso y acreditación','ticket.student_f3':'Pausas para café incluidas','ticket.student_f4':'Certificado de asistencia','ticket.student_f5':'Acceso a sesiones grabadas',
 'ticket.buy_now':'Comprar — Stripe','register.stripe_note':'Pago seguro a través de Stripe. Se aceptan todas las tarjetas principales.','register.group_title':'¿Necesita reserva grupal o factura?','register.group_desc':'Grupos de 5+ reciben un 15% de descuento. Contáctenos para facturación corporativa.','register.group_btn':'Contactar para Tarifas Grupales',
-'sponsors.eyebrow':'Socios y Patrocinadores','sponsors.title':'Nuestros <em>Socios</em>','sponsors.lead':'Beauty Expert Summit 2026 cuenta con el apoyo de empresas líderes en oftalmología, medicina estética, farmacéutica y tecnología.','sponsors.institutional':'Socios Institucionales','sponsors.clinic':'Socios Clínicos','sponsors.become_title':'Conviértase en Patrocinador','sponsors.become_desc':'Llegue a más de 500 especialistas en oftalmología, cosmetología y cirugía plástica. Descargue nuestro folleto de patrocinio o contáctenos directamente.','sponsors.download':'Descargar Folleto','sponsors.contact':'Contáctenos',
+'sponsors.eyebrow':'Socios','sponsors.title':'Nuestros <em>Socios</em>','sponsors.lead':'Beauty Expert Summit 2026 cuenta con el apoyo de empresas líderes en oftalmología, medicina estética, farmacéutica y tecnología.','sponsors.institutional':'Socios Institucionales','sponsors.clinic':'Socios Clínicos','sponsors.technology':'Socios Tecnológicos','sponsors.become_title':'Conviértase en Socio','sponsors.become_desc':'Llegue a más de 500 especialistas en oftalmología, cosmetología y cirugía plástica. Descargue nuestro folleto de colaboración o contáctenos directamente.','sponsors.download':'Descargar Folleto','sponsors.contact':'Contáctenos',
 'faq.eyebrow':'FAQ','faq.title':'Preguntas <em>Frecuentes</em>','faq.lead':'Todo lo que necesita saber antes de registrarse.',
 'faq.q1':'¿Quién debería asistir a Beauty Expert Summit 2026?','faq.a1':'El congreso está diseñado para profesionales médicos con licencia: oftalmólogos, dermatólogos, cosmetólogos, cirujanos plásticos y residentes o becarios en estas especialidades. Los estudiantes de medicina son bienvenidos con una entrada de Estudiante.',
 'faq.q2':'¿Las sesiones estarán disponibles en varios idiomas?','faq.a2':'Sí. La conferencia se realizará en inglés, español y ucraniano. Se dispondrá de interpretación simultánea para las sesiones plenarias principales. Los materiales de los talleres se proporcionarán en los tres idiomas.',
@@ -3168,12 +3181,12 @@ es:{
 'contact.ph.first':'Su nombre','contact.ph.last':'Su apellido','contact.ph.email':'su@correo.com','contact.ph.message':'¿En qué podemos ayudarle?',
 'footer.brand_sub':'28–29 de noviembre 2026 · Elche, España','footer.tagline':'Una conferencia internacional sobre Oftalmología, Cosmetología y Cirugía Plástica.',
 'footer.nav.title':'Navegar','footer.nav.home':'Inicio','footer.nav.program':'Programa','footer.nav.speakers':'Ponentes','footer.nav.venue':'Sede y Viaje',
-'footer.event.title':'Evento','footer.event.register':'Entradas','footer.event.sponsors':'Patrocinadores','footer.event.faq':'FAQ','footer.event.contact':'Contacto',
+'footer.event.title':'Evento','footer.event.register':'Entradas','footer.event.sponsors':'Socios','footer.event.faq':'FAQ','footer.event.contact':'Contacto',
 'footer.org.title':'Organizador','footer.org.sponsorship':'Patrocinio','footer.org.press':'Consultas de Prensa',
 'footer.copyright':'© 2026 Beauty Expert Summit. Todos los derechos reservados.','footer.organised':'Organizado por'
 },
 uk:{
-'nav.program':'Програма','nav.speakers':'Доповідачі','nav.venue':'Місце','nav.sponsors':'Спонсори','nav.faq':'FAQ','nav.contact':'Контакт','nav.register':'Квитки','nav.logo_sub':'28–29 Лист 2026 · Ельче, Іспанія','mobile.register':'Квитки',
+'nav.program':'Програма','nav.speakers':'Доповідачі','nav.venue':'Місце','nav.sponsors':'Партнери','nav.faq':'FAQ','nav.contact':'Контакт','nav.register':'Квитки','nav.logo_sub':'28–29 Лист 2026 · Ельче, Іспанія','mobile.register':'Квитки',
 'home.motto':'Для <em>Медичних Лідерів</em>','home.tagline':"Об'єднуємо лідерів офтальмології, пластичної хірургії та косметології.",'home.date':'28–29 листопада · Centro de Congresos de Elche, Аліканте, Іспанія','home.cta_ticket':'Отримати Квиток','home.cta_program':'Переглянути Програму','home.explore':'Досліджувати','home.dama':'✦ Дама Ельчська запрошує вас ✦',
 'program.eyebrow':'Наукова Програма','program.title':'Два Дні <em>Досконалості</em>','program.lead':'Доповіді світового рівня, живі демонстрації та інтерактивні майстер-класи у трьох спеціалізованих напрямках: офтальмологія, косметологія та пластична хірургія.','program.day1_tab':'День 1 · 28 Лист','program.day2_tab':'День 2 · 29 Лист','program.day1_title':'День 1 · 28 листопада','program.day2_title':'День 2 · 29 листопада','program.tba':'Повна програма буде оголошена найближчим часом',
 'track.ophth':'Офтальмологія','track.cosm':'Косметологія','track.surg':'Пластична Хірургія','track.gen':'Загальне',
@@ -3187,7 +3200,7 @@ uk:{
 'ticket.online_type':'Early Bird · Онлайн','ticket.online_name':'Онлайн Трансляція','ticket.online_note':'Кінцева ціна €200 · 2 дні онлайн','ticket.online_f1':'Пряма трансляція — обидва дні','ticket.online_f2':'Інтерактивний чат','ticket.online_f3':'Електронний сертифікат участі','ticket.online_f4':'Доступ до записів сесій',
 'ticket.student_type':'Академічний','ticket.student_name':'Студентський','ticket.student_note':'Потрібне дійсне студентське посвідчення · 2 дні','ticket.student_f1':'Доступ до всіх сесій — обидва дні','ticket.student_f2':'Матеріали конференції та бейдж','ticket.student_f3':'Кавові паузи включені','ticket.student_f4':'Сертифікат участі','ticket.student_f5':'Доступ до записів сесій',
 'ticket.buy_now':'Купити — Stripe','register.stripe_note':'Захищена оплата через Stripe. Приймаються всі основні картки.','register.group_title':'Потрібне групове бронювання або рахунок-фактура?','register.group_desc':"Групи від 5 осіб отримують знижку 15%. Зв'яжіться з нами для корпоративного виставлення рахунків.",'register.group_btn':"Зв'язатися для Групових Цін",
-'sponsors.eyebrow':'Партнери та Спонсори','sponsors.title':'Наші <em>Партнери</em>','sponsors.lead':'Beauty Expert Summit 2026 підтримується провідними компаніями у галузі офтальмології, естетичної медицини, фармацевтики та технологій.','sponsors.institutional':'Інституційні Партнери','sponsors.clinic':'Клінічні Партнери','sponsors.become_title':'Стати Спонсором','sponsors.become_desc':"Охопіть 500+ спеціалістів з офтальмології, косметології та пластичної хірургії. Завантажте нашу спонсорську брошуру або зв'яжіться з нами.",'sponsors.download':'Завантажити Брошуру','sponsors.contact':"Зв'язатися",
+'sponsors.eyebrow':'Партнери','sponsors.title':'Наші <em>Партнери</em>','sponsors.lead':'Beauty Expert Summit 2026 підтримується провідними компаніями у галузі офтальмології, естетичної медицини, фармацевтики та технологій.','sponsors.institutional':'Інституційні Партнери','sponsors.clinic':'Клінічні Партнери','sponsors.technology':'Технологічні Партнери','sponsors.become_title':'Стати Партнером','sponsors.become_desc':"Охопіть 500+ спеціалістів з офтальмології, косметології та пластичної хірургії. Завантажте нашу партнерську брошуру або зв'яжіться з нами.",'sponsors.download':'Завантажити Брошуру','sponsors.contact':"Зв'язатися",
 'faq.eyebrow':'FAQ','faq.title':'Часті <em>Запитання</em>','faq.lead':'Все, що вам потрібно знати перед реєстрацією.',
 'faq.q1':'Кому призначений Beauty Expert Summit 2026?','faq.a1':'Конференція розроблена для ліцензованих медичних фахівців: офтальмологів, дерматологів, косметологів, пластичних хірургів, а також інтернів і ординаторів цих спеціальностей. Студенти медичних закладів можуть взяти участь за студентським квитком.',
 'faq.q2':'Чи будуть сесії доступні кількома мовами?','faq.a2':'Так. Конференція проводитиметься англійською, іспанською та українською мовами. На головних пленарних сесіях буде забезпечено синхронний переклад. Матеріали майстер-класів надаватимуться трьома мовами.',
@@ -3204,7 +3217,7 @@ uk:{
 'contact.ph.first':"Ваше ім'я",'contact.ph.last':'Ваше прізвище','contact.ph.email':'ваша@пошта.com','contact.ph.message':'Чим ми можемо допомогти?',
 'footer.brand_sub':'28–29 листопада 2026 · Ельче, Іспанія','footer.tagline':'Міжнародна конференція з офтальмології, косметології та пластичної хірургії.',
 'footer.nav.title':'Навігація','footer.nav.home':'Головна','footer.nav.program':'Програма','footer.nav.speakers':'Доповідачі','footer.nav.venue':'Місце та Подорож',
-'footer.event.title':'Подія','footer.event.register':'Квитки','footer.event.sponsors':'Спонсори','footer.event.faq':'FAQ','footer.event.contact':'Контакт',
+'footer.event.title':'Подія','footer.event.register':'Квитки','footer.event.sponsors':'Партнери','footer.event.faq':'FAQ','footer.event.contact':'Контакт',
 'footer.org.title':'Організатор','footer.org.sponsorship':'Спонсорство','footer.org.press':'Запити ЗМІ',
 'footer.copyright':'© 2026 Beauty Expert Summit. Усі права захищені.','footer.organised':'Організовано'
 }

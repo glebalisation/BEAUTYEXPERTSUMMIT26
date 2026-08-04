@@ -830,7 +830,18 @@ nav {
 }
 
 .tickets-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  display: flex; flex-direction: column;
+  gap: 48px;
+}
+.ticket-group-label {
+  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); font-weight: 500;
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 12px;
+}
+.ticket-group-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.ticket-group-row {
+  display: flex; flex-wrap: wrap; justify-content: center;
   gap: 24px;
 }
 
@@ -843,6 +854,8 @@ nav {
   transition: var(--transition);
   position: relative;
   overflow: visible;
+  flex: 1 1 280px;
+  max-width: 340px;
 }
 .ticket-card:hover { border-color: var(--gold); transform: translateY(-4px); }
 .ticket-card.featured {
@@ -850,7 +863,8 @@ nav {
   background: rgba(26,58,92,0.4);
 }
 .ticket-card.premium {
-  grid-column: span 2;
+  flex: 1 1 100%;
+  max-width: 720px;
   border: 1px solid var(--gold);
   background: linear-gradient(160deg, rgba(201,169,110,0.12), rgba(26,58,92,0.5));
   box-shadow: 0 0 0 1px rgba(201,169,110,0.15);
@@ -1180,9 +1194,15 @@ footer {
   .hotel-name-display { font-size: 28px; }
 }
 
+/* tickets get their own, wider breakpoint: the cards are too content-dense
+   to share a row on anything narrower than a small tablet */
+@media (max-width: 720px) {
+  .ticket-group-row { flex-direction: column; align-items: center; }
+  .ticket-card, .ticket-card.premium { width: 100%; max-width: 420px; }
+}
+
 @media (max-width: 600px) {
   .hero-stats { grid-template-columns: 1fr; }
-  .tickets-grid { grid-template-columns: 1fr; }
   .footer-inner { grid-template-columns: 1fr; gap: 28px; }
   .fields-carousel-outer { --fc-w: 150px; --fc-h: 195px; --fc-radius: 130px; --fc-stage-h: 250px; margin-top: 40px; }
   .field-card-label { font-size: 15px; bottom: 10px; }
@@ -2738,6 +2758,9 @@ footer {
     <p class="section-lead" data-i18n="register.lead">Early Bird prices valid until 30 September 2026. All tickets include certificate of attendance and access to recorded sessions.</p>
 
     <div class="tickets-grid">
+      <div class="ticket-group">
+        <div class="ticket-group-label">2-Day Passes</div>
+        <div class="ticket-group-row">
       <!-- 2-Day Delegate -->
       <div class="ticket-card featured" data-glow>
         <span class="ticket-badge" data-i18n="ticket.popular">MOST POPULAR</span>
@@ -2770,7 +2793,12 @@ footer {
         </ul>
         <a href="https://buy.stripe.com/7sY14oe0U4gg0A82UQgEg0U" target="_blank" class="btn-ticket" style="display:block;text-align:center;text-decoration:none;">Buy Now — Stripe</a>
       </div>
+        </div>
+      </div>
 
+      <div class="ticket-group">
+        <div class="ticket-group-label">1-Day Passes</div>
+        <div class="ticket-group-row">
       <!-- 1-Day Delegate -->
       <div class="ticket-card" data-glow>
         <div class="ticket-type" data-i18n="ticket.1day_type">Early Bird</div>
@@ -2802,7 +2830,12 @@ footer {
         </ul>
         <a href="https://buy.stripe.com/aFaeVef4YcMM6Yw3YUgEg0Q" target="_blank" class="btn-ticket" style="display:block;text-align:center;text-decoration:none;">Buy Now — Stripe</a>
       </div>
+        </div>
+      </div>
 
+      <div class="ticket-group">
+        <div class="ticket-group-label">Other Options</div>
+        <div class="ticket-group-row">
       <!-- Online -->
       <div class="ticket-card" data-glow>
         <div class="ticket-type" data-i18n="ticket.online_type">Early Bird</div>
@@ -2849,7 +2882,12 @@ footer {
         </ul>
         <a href="https://buy.stripe.com/6oU5kE2ic5kk96EbrmgEg0V" target="_blank" class="btn-ticket" style="display:block;text-align:center;text-decoration:none;">Buy Now — Stripe</a>
       </div>
+        </div>
+      </div>
 
+      <div class="ticket-group">
+        <div class="ticket-group-label">Hands-On Training</div>
+        <div class="ticket-group-row">
       <!-- ScalprumPro Wet Lab -->
       <div class="ticket-card premium" data-glow>
         <span class="ticket-badge">LIMITED SEATS</span>
@@ -2867,6 +2905,8 @@ footer {
           <li>Includes a 2-Day Beauty Expert Summit ticket (28–29 November)</li>
         </ul>
         <a href="https://buy.stripe.com/7sY14oaOI6oo3MkeDygEg0W" target="_blank" class="btn-ticket" style="display:block;text-align:center;text-decoration:none;">Buy Now — Stripe</a>
+      </div>
+        </div>
       </div>
     </div>
 

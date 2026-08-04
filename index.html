@@ -849,6 +849,13 @@ nav {
   border-color: var(--gold);
   background: rgba(26,58,92,0.4);
 }
+.ticket-card.premium {
+  grid-column: span 2;
+  border: 1px solid var(--gold);
+  background: linear-gradient(160deg, rgba(201,169,110,0.12), rgba(26,58,92,0.5));
+  box-shadow: 0 0 0 1px rgba(201,169,110,0.15);
+}
+.ticket-card.premium .ticket-name { font-size: 24px; }
 .ticket-badge {
   position: absolute; top: 0; right: 0;
   background: var(--gold);
@@ -2731,13 +2738,13 @@ footer {
     <p class="section-lead" data-i18n="register.lead">Early Bird prices valid until 30 September 2026. All tickets include certificate of attendance and access to recorded sessions.</p>
 
     <div class="tickets-grid">
-      <!-- 2-Day In-Person -->
+      <!-- 2-Day Delegate -->
       <div class="ticket-card featured" data-glow>
         <span class="ticket-badge" data-i18n="ticket.popular">MOST POPULAR</span>
-        <div class="ticket-type" data-i18n="ticket.2day_type">Early Bird · Limited</div>
-        <div class="ticket-name" data-i18n="ticket.2day_name">2-Day In-Person</div>
-        <div class="ticket-price"><span>€</span>400</div>
-        <div class="ticket-price-note" data-i18n="ticket.2day_note">Final price €550 · Save €150</div>
+        <div class="ticket-type" data-i18n="ticket.2day_type">Early Bird</div>
+        <div class="ticket-name" data-i18n="ticket.2day_name">2-Day Delegate</div>
+        <div class="ticket-price"><span>€</span>340</div>
+        <div class="ticket-price-note" data-i18n="ticket.2day_note">Final price €400 · Save €60</div>
         <ul class="ticket-features">
           <li data-i18n="ticket.2day_f1">Access to all sessions — both days</li>
           <li data-i18n="ticket.2day_f2">Conference materials &amp; badge</li>
@@ -2745,38 +2752,70 @@ footer {
           <li data-i18n="ticket.2day_f4">Certificate of attendance</li>
           <li data-i18n="ticket.2day_f5">Access to recorded sessions</li>
         </ul>
-        <a href="https://buy.stripe.com/6oU8wQg928ww3MkdzugEg0I" target="_blank" class="btn-ticket" style="display:block;text-align:center;text-decoration:none;" data-i18n="ticket.buy_now">Buy Now — Stripe</a>
+        <a href="https://buy.stripe.com/00w28sbSM6oo3MkdzugEg0T" target="_blank" class="btn-ticket" style="display:block;text-align:center;text-decoration:none;" data-i18n="ticket.buy_now">Buy Now — Stripe</a>
       </div>
 
-      <!-- 1-Day In-Person -->
+      <!-- 2-Day Delegate + Gala Dinner -->
       <div class="ticket-card" data-glow>
-        <div class="ticket-type" data-i18n="ticket.1day_type">Early Bird · 1 Day</div>
-        <div class="ticket-name" data-i18n="ticket.1day_name">1-Day In-Person</div>
-        <div class="ticket-price"><span>€</span>200</div>
-        <div class="ticket-price-note" data-i18n="ticket.1day_note">Final price €270 · Save €70</div>
+        <div class="ticket-type">Early Bird</div>
+        <div class="ticket-name">2-Day Delegate + Gala Dinner</div>
+        <div class="ticket-price"><span>€</span>400</div>
+        <div class="ticket-price-note">Final price €500 · Save €100</div>
         <ul class="ticket-features">
-          <li data-i18n="ticket.1day_f1">Access to all sessions during one day of your choice</li>
+          <li>Access to all sessions — both days</li>
+          <li>Gala Dinner included</li>
+          <li>Conference materials &amp; badge</li>
+          <li>Certificate of attendance</li>
+          <li>Access to recorded sessions</li>
+        </ul>
+        <a href="https://buy.stripe.com/7sY14oe0U4gg0A82UQgEg0U" target="_blank" class="btn-ticket" style="display:block;text-align:center;text-decoration:none;">Buy Now — Stripe</a>
+      </div>
+
+      <!-- 1-Day Delegate -->
+      <div class="ticket-card" data-glow>
+        <div class="ticket-type" data-i18n="ticket.1day_type">Early Bird</div>
+        <div class="ticket-name" data-i18n="ticket.1day_name">1-Day Delegate</div>
+        <div class="ticket-price"><span>€</span>200</div>
+        <div class="ticket-price-note" data-i18n="ticket.1day_note">Final price €250 · Save €50</div>
+        <ul class="ticket-features">
+          <li data-i18n="ticket.1day_f1">Access to all sessions on Nov 28 or Nov 29 — your choice</li>
           <li data-i18n="ticket.1day_f3">Conference materials &amp; badge</li>
           <li data-i18n="ticket.1day_f4">Coffee breaks included</li>
           <li data-i18n="ticket.1day_f5">Certificate of attendance</li>
           <li data-i18n="ticket.1day_f6">Access to recorded sessions</li>
         </ul>
-        <a href="https://buy.stripe.com/5kQ9AU8GAbII4QofHCgEg0H" target="_blank" class="btn-ticket" style="display:block;text-align:center;text-decoration:none;" data-i18n="ticket.buy_now">Buy Now — Stripe</a>
+        <a href="https://buy.stripe.com/8x2aEY8GA000aaIfHCgEg0P" target="_blank" class="btn-ticket" style="display:block;text-align:center;text-decoration:none;" data-i18n="ticket.buy_now">Buy Now — Stripe</a>
       </div>
 
-      <!-- Online Streaming -->
+      <!-- 1-Day Delegate + Gala Dinner -->
       <div class="ticket-card" data-glow>
-        <div class="ticket-type" data-i18n="ticket.online_type">Early Bird · Online</div>
-        <div class="ticket-name" data-i18n="ticket.online_name">Live Streaming</div>
-        <div class="ticket-price"><span>€</span>150</div>
-        <div class="ticket-price-note" data-i18n="ticket.online_note">Final price €200 · 2 days online</div>
+        <div class="ticket-type">Early Bird</div>
+        <div class="ticket-name">1-Day Delegate + Gala Dinner</div>
+        <div class="ticket-price"><span>€</span>260</div>
+        <div class="ticket-price-note">Final price €310 · Save €50</div>
+        <ul class="ticket-features">
+          <li>Access to all sessions on Nov 28 or Nov 29 — your choice</li>
+          <li>Gala Dinner included</li>
+          <li>Conference materials &amp; badge</li>
+          <li>Certificate of attendance</li>
+          <li>Access to recorded sessions</li>
+        </ul>
+        <a href="https://buy.stripe.com/aFaeVef4YcMM6Yw3YUgEg0Q" target="_blank" class="btn-ticket" style="display:block;text-align:center;text-decoration:none;">Buy Now — Stripe</a>
+      </div>
+
+      <!-- Online -->
+      <div class="ticket-card" data-glow>
+        <div class="ticket-type" data-i18n="ticket.online_type">Early Bird</div>
+        <div class="ticket-name" data-i18n="ticket.online_name">Online</div>
+        <div class="ticket-price"><span>€</span>99</div>
+        <div class="ticket-price-note" data-i18n="ticket.online_note">Final price €150 · Save €51</div>
         <ul class="ticket-features">
           <li data-i18n="ticket.online_f1">Live stream — both days</li>
           <li data-i18n="ticket.online_f2">Interactive live chat</li>
           <li data-i18n="ticket.online_f3">Web certificate of attendance</li>
           <li data-i18n="ticket.online_f4">Access to recorded sessions</li>
         </ul>
-        <a href="https://buy.stripe.com/9B614ocWQdQQ0A8gLGgEg0J" target="_blank" class="btn-ticket" style="display:block;text-align:center;text-decoration:none;" data-i18n="ticket.buy_now">Buy Now — Stripe</a>
+        <a href="https://buy.stripe.com/00wbJ24qkfYY0A87b6gEg0R" target="_blank" class="btn-ticket" style="display:block;text-align:center;text-decoration:none;" data-i18n="ticket.buy_now">Buy Now — Stripe</a>
       </div>
 
       <!-- Student -->
@@ -2784,15 +2823,50 @@ footer {
         <div class="ticket-type" data-i18n="ticket.student_type">Academic</div>
         <div class="ticket-name" data-i18n="ticket.student_name">Student</div>
         <div class="ticket-price"><span>€</span>100</div>
-        <div class="ticket-price-note" data-i18n="ticket.student_note">Valid student ID required · 2 days</div>
+        <div class="ticket-price-note" data-i18n="ticket.student_note">30 free places, then €100</div>
         <ul class="ticket-features">
           <li data-i18n="ticket.student_f1">Access to all sessions — both days</li>
-          <li data-i18n="ticket.student_f2">Conference materials &amp; badge</li>
-          <li data-i18n="ticket.student_f3">Coffee breaks included</li>
+          <li data-i18n="ticket.student_f2">Requires student ID verification before payment</li>
+          <li data-i18n="ticket.student_f3">Conference materials &amp; badge</li>
           <li data-i18n="ticket.student_f4">Certificate of attendance</li>
           <li data-i18n="ticket.student_f5">Access to recorded sessions</li>
         </ul>
-        <a href="https://buy.stripe.com/4gMcN68GAfYY0A82UQgEg0D" target="_blank" class="btn-ticket" style="display:block;text-align:center;text-decoration:none;" data-i18n="ticket.buy_now">Buy Now — Stripe</a>
+        <a href="https://buy.stripe.com/cNidRa1e8bIIciQdzugEg0S" target="_blank" class="btn-ticket" style="display:block;text-align:center;text-decoration:none;" data-i18n="ticket.buy_now">Buy Now — Stripe</a>
+      </div>
+
+      <!-- Industry Delegate + Gala Dinner -->
+      <div class="ticket-card" data-glow>
+        <div class="ticket-type">Industry Rate</div>
+        <div class="ticket-name">Industry Delegate + Gala Dinner</div>
+        <div class="ticket-price"><span>€</span>600</div>
+        <div class="ticket-price-note">Both days · Gala Dinner included</div>
+        <ul class="ticket-features">
+          <li>Access to all sessions — both days</li>
+          <li>Gala Dinner included</li>
+          <li>Conference materials &amp; badge</li>
+          <li>Certificate of attendance</li>
+          <li>Access to recorded sessions</li>
+        </ul>
+        <a href="https://buy.stripe.com/6oU5kE2ic5kk96EbrmgEg0V" target="_blank" class="btn-ticket" style="display:block;text-align:center;text-decoration:none;">Buy Now — Stripe</a>
+      </div>
+
+      <!-- ScalprumPro Wet Lab -->
+      <div class="ticket-card premium" data-glow>
+        <span class="ticket-badge">LIMITED SEATS</span>
+        <div class="ticket-type">ScalprumPro</div>
+        <div class="ticket-name">Intensive CO₂ Laser Blepharoplasty Wet Lab</div>
+        <div class="ticket-price"><span>€</span>2600</div>
+        <div class="ticket-price-note">4h 50min intensive course · 29 November 2026</div>
+        <ul class="ticket-features">
+          <li>Led by Dr. Serhii Havryliuk &amp; Dr. Igor Janik, PhD</li>
+          <li>Plenary Session (1h 20min) — theory, surgical algorithms, laser safety, complication prevention &amp; management</li>
+          <li>Video Session / Live Demonstration (40min) — step-by-step procedure review with expert discussion</li>
+          <li>Hands-on Wet Lab (2h 10min) — biological model: laser setup, simulated surgery, advanced techniques</li>
+          <li>Simulation &amp; Discussion (40min) — full-procedure simulation, case analysis, round-table</li>
+          <li>VISSUM Clinic, Alicante, Spain</li>
+          <li>Includes a 2-Day Beauty Expert Summit ticket (28–29 November)</li>
+        </ul>
+        <a href="https://buy.stripe.com/7sY14oaOI6oo3MkeDygEg0W" target="_blank" class="btn-ticket" style="display:block;text-align:center;text-decoration:none;">Buy Now — Stripe</a>
       </div>
     </div>
 
@@ -3133,10 +3207,10 @@ en:{
 'venue.lbl.venue':'Venue','venue.lbl.dates':'Dates','venue.val.dates':'28–29 November 2026','venue.sub.dates':'Two full days · Registration from 08:30','venue.lbl.airport':'Nearest Airport','venue.val.airport':'Alicante–Elche Airport (ALC)','venue.sub.airport':'~15 min drive · International connections','venue.lbl.hotel':'Partner Hotel','venue.sub.hotel':'3–5 min walk · Discounted rates for delegates',
 'hotel.eyebrow':'Official Partner Hotel','hotel.desc':'A UNESCO-listed palm grove oasis in the heart of Elche — the ideal retreat for summit delegates. Nestled within ancient date palms, this award-winning garden hotel is just a short stroll from the congress centre. Discounted rates available for registered attendees upon request.','hotel.walk':'3–5 min walk to venue','hotel.map':'View on Map','hotel.website':'Hotel Website',
 'register.eyebrow':'Registration','register.title':'Choose Your <em>Ticket</em>','register.lead':'Early Bird prices valid until 30 September 2026. All tickets include certificate of attendance and access to recorded sessions.',
-'ticket.popular':'MOST POPULAR','ticket.2day_type':'Early Bird · Limited','ticket.2day_name':'2-Day In-Person','ticket.2day_note':'Final price €550 · Save €150','ticket.2day_f1':'Access to all sessions — both days','ticket.2day_f2':'Conference materials & badge','ticket.2day_f3':'Coffee breaks included','ticket.2day_f4':'Certificate of attendance','ticket.2day_f5':'Access to recorded sessions',
-'ticket.1day_type':'Early Bird · 1 Day','ticket.1day_name':'1-Day In-Person','ticket.1day_note':'Final price €270 · Save €70','ticket.1day_f1':'Access to all sessions during one day of your choice','ticket.1day_f3':'Conference materials & badge','ticket.1day_f4':'Coffee breaks included','ticket.1day_f5':'Certificate of attendance','ticket.1day_f6':'Access to recorded sessions',
-'ticket.online_type':'Early Bird · Online','ticket.online_name':'Live Streaming','ticket.online_note':'Final price €200 · 2 days online','ticket.online_f1':'Live stream — both days','ticket.online_f2':'Interactive live chat','ticket.online_f3':'Web certificate of attendance','ticket.online_f4':'Access to recorded sessions',
-'ticket.student_type':'Academic','ticket.student_name':'Student','ticket.student_note':'Valid student ID required · 2 days','ticket.student_f1':'Access to all sessions — both days','ticket.student_f2':'Conference materials & badge','ticket.student_f3':'Coffee breaks included','ticket.student_f4':'Certificate of attendance','ticket.student_f5':'Access to recorded sessions',
+'ticket.popular':'MOST POPULAR','ticket.2day_type':'Early Bird','ticket.2day_name':'2-Day Delegate','ticket.2day_note':'Final price €400 · Save €60','ticket.2day_f1':'Access to all sessions — both days','ticket.2day_f2':'Conference materials & badge','ticket.2day_f3':'Coffee breaks included','ticket.2day_f4':'Certificate of attendance','ticket.2day_f5':'Access to recorded sessions',
+'ticket.1day_type':'Early Bird','ticket.1day_name':'1-Day Delegate','ticket.1day_note':'Final price €250 · Save €50','ticket.1day_f1':'Access to all sessions on Nov 28 or Nov 29 — your choice','ticket.1day_f3':'Conference materials & badge','ticket.1day_f4':'Coffee breaks included','ticket.1day_f5':'Certificate of attendance','ticket.1day_f6':'Access to recorded sessions',
+'ticket.online_type':'Early Bird','ticket.online_name':'Online','ticket.online_note':'Final price €150 · Save €51','ticket.online_f1':'Live stream — both days','ticket.online_f2':'Interactive live chat','ticket.online_f3':'Web certificate of attendance','ticket.online_f4':'Access to recorded sessions',
+'ticket.student_type':'Academic','ticket.student_name':'Student','ticket.student_note':'30 free places, then €100','ticket.student_f1':'Access to all sessions — both days','ticket.student_f2':'Requires student ID verification before payment','ticket.student_f3':'Conference materials & badge','ticket.student_f4':'Certificate of attendance','ticket.student_f5':'Access to recorded sessions',
 'ticket.buy_now':'Buy Now — Stripe','register.stripe_note':'Secure payment powered by Stripe. All major cards accepted.','register.group_title':'Need a group booking or invoice?','register.group_desc':'Groups of 5+ receive a 15% discount. Contact us for corporate invoicing.','register.group_btn':'Contact for Group Rates',
 'sponsors.eyebrow':'Partners','sponsors.title':'Our <em>Partners</em>','sponsors.lead':'Beauty Expert Summit 2026 is supported by leading companies in ophthalmology, aesthetic medicine, pharmaceutical and technology sectors.','sponsors.institutional':'Institutional Partners','sponsors.clinic':'Clinic Partners','sponsors.technology':'Technology Partners','sponsors.become_title':'Become a Partner','sponsors.become_desc':'Reach 500+ specialists in ophthalmology, cosmetology and plastic surgery. Contact us to discuss partnership opportunities.','sponsors.contact':'Contact Us',
 'faq.eyebrow':'FAQ','faq.title':'Frequently Asked <em>Questions</em>','faq.lead':'Everything you need to know before registering.',
@@ -3169,10 +3243,10 @@ es:{
 'venue.lbl.venue':'Sede','venue.lbl.dates':'Fechas','venue.val.dates':'28–29 de noviembre de 2026','venue.sub.dates':'Dos días completos · Registro desde las 08:30','venue.lbl.airport':'Aeropuerto más cercano','venue.val.airport':'Aeropuerto de Alicante–Elche (ALC)','venue.sub.airport':'~15 min en coche · Conexiones internacionales','venue.lbl.hotel':'Hotel Socio','venue.sub.hotel':'3–5 min a pie · Tarifas con descuento para delegados',
 'hotel.eyebrow':'Hotel Socio Oficial','hotel.desc':'Un oasis en el palmeral catalogado por la UNESCO en el corazón de Elche — el retiro ideal para los delegados del congreso. Rodeado de antiguas palmeras datileras, este galardonado hotel jardín está a solo unos pasos del centro de congresos. Tarifas con descuento disponibles para los asistentes registrados previa solicitud.','hotel.walk':'3–5 min a pie al recinto','hotel.map':'Ver en el Mapa','hotel.website':'Sitio Web del Hotel',
 'register.eyebrow':'Registro','register.title':'Elige Tu <em>Entrada</em>','register.lead':'Precios Early Bird válidos hasta el 30 de septiembre de 2026. Todas las entradas incluyen certificado de asistencia y acceso a sesiones grabadas.',
-'ticket.popular':'MÁS POPULAR','ticket.2day_type':'Early Bird · Limitada','ticket.2day_name':'2 Días Presencial','ticket.2day_note':'Precio final €550 · Ahorre €150','ticket.2day_f1':'Acceso a todas las sesiones — ambos días','ticket.2day_f2':'Materiales del congreso y acreditación','ticket.2day_f3':'Pausas para café incluidas','ticket.2day_f4':'Certificado de asistencia','ticket.2day_f5':'Acceso a sesiones grabadas',
-'ticket.1day_type':'Early Bird · 1 Día','ticket.1day_name':'1 Día Presencial','ticket.1day_note':'Precio final €270 · Ahorre €70','ticket.1day_f1':'Acceso a todas las sesiones durante el día de su elección','ticket.1day_f3':'Materiales del congreso y acreditación','ticket.1day_f4':'Pausas para café incluidas','ticket.1day_f5':'Certificado de asistencia','ticket.1day_f6':'Acceso a sesiones grabadas',
-'ticket.online_type':'Early Bird · Online','ticket.online_name':'Retransmisión en Vivo','ticket.online_note':'Precio final €200 · 2 días online','ticket.online_f1':'Retransmisión en vivo — ambos días','ticket.online_f2':'Chat en vivo interactivo','ticket.online_f3':'Certificado de asistencia web','ticket.online_f4':'Acceso a sesiones grabadas',
-'ticket.student_type':'Académico','ticket.student_name':'Estudiante','ticket.student_note':'ID de estudiante válido requerido · 2 días','ticket.student_f1':'Acceso a todas las sesiones — ambos días','ticket.student_f2':'Materiales del congreso y acreditación','ticket.student_f3':'Pausas para café incluidas','ticket.student_f4':'Certificado de asistencia','ticket.student_f5':'Acceso a sesiones grabadas',
+'ticket.popular':'MÁS POPULAR','ticket.2day_type':'Early Bird','ticket.2day_name':'2 Días Presencial','ticket.2day_note':'Precio final €400 · Ahorre €60','ticket.2day_f1':'Acceso a todas las sesiones — ambos días','ticket.2day_f2':'Materiales del congreso y acreditación','ticket.2day_f3':'Pausas para café incluidas','ticket.2day_f4':'Certificado de asistencia','ticket.2day_f5':'Acceso a sesiones grabadas',
+'ticket.1day_type':'Early Bird','ticket.1day_name':'1 Día Presencial','ticket.1day_note':'Precio final €250 · Ahorre €50','ticket.1day_f1':'Acceso a todas las sesiones el 28 o 29 de nov. — usted elige','ticket.1day_f3':'Materiales del congreso y acreditación','ticket.1day_f4':'Pausas para café incluidas','ticket.1day_f5':'Certificado de asistencia','ticket.1day_f6':'Acceso a sesiones grabadas',
+'ticket.online_type':'Early Bird','ticket.online_name':'Online','ticket.online_note':'Precio final €150 · Ahorre €51','ticket.online_f1':'Retransmisión en vivo — ambos días','ticket.online_f2':'Chat en vivo interactivo','ticket.online_f3':'Certificado de asistencia web','ticket.online_f4':'Acceso a sesiones grabadas',
+'ticket.student_type':'Académico','ticket.student_name':'Estudiante','ticket.student_note':'30 plazas gratuitas, luego €100','ticket.student_f1':'Acceso a todas las sesiones — ambos días','ticket.student_f2':'Requiere verificación de ID de estudiante antes del pago','ticket.student_f3':'Materiales del congreso y acreditación','ticket.student_f4':'Certificado de asistencia','ticket.student_f5':'Acceso a sesiones grabadas',
 'ticket.buy_now':'Comprar — Stripe','register.stripe_note':'Pago seguro a través de Stripe. Se aceptan todas las tarjetas principales.','register.group_title':'¿Necesita reserva grupal o factura?','register.group_desc':'Grupos de 5+ reciben un 15% de descuento. Contáctenos para facturación corporativa.','register.group_btn':'Contactar para Tarifas Grupales',
 'sponsors.eyebrow':'Socios','sponsors.title':'Nuestros <em>Socios</em>','sponsors.lead':'Beauty Expert Summit 2026 cuenta con el apoyo de empresas líderes en oftalmología, medicina estética, farmacéutica y tecnología.','sponsors.institutional':'Socios Institucionales','sponsors.clinic':'Socios Clínicos','sponsors.technology':'Socios Tecnológicos','sponsors.become_title':'Conviértase en Socio','sponsors.become_desc':'Llegue a más de 500 especialistas en oftalmología, cosmetología y cirugía plástica. Contáctenos para hablar sobre oportunidades de colaboración.','sponsors.contact':'Contáctenos',
 'faq.eyebrow':'FAQ','faq.title':'Preguntas <em>Frecuentes</em>','faq.lead':'Todo lo que necesita saber antes de registrarse.',
@@ -3205,10 +3279,10 @@ uk:{
 'venue.lbl.venue':'Місце','venue.lbl.dates':'Дати','venue.val.dates':'28–29 листопада 2026','venue.sub.dates':'Два повних дні · Реєстрація з 08:30','venue.lbl.airport':'Найближчий Аеропорт','venue.val.airport':'Аеропорт Аліканте–Ельче (ALC)','venue.sub.airport':'~15 хв їзди · Міжнародні рейси','venue.lbl.hotel':'Готель-Партнер','venue.sub.hotel':'3–5 хв пішки · Знижені тарифи для делегатів',
 'hotel.eyebrow':'Офіційний Готель-Партнер','hotel.desc':"Оаза серед пальмового гаю, внесеного до списку ЮНЕСКО, у серці Ельче — ідеальне місце для делегатів конференції. Оточений стародавніми фінікові пальмами, цей відзначений нагородами готель-сад знаходиться за кілька хвилин ходьби від конгрес-центру. Знижені тарифи доступні для зареєстрованих учасників за запитом.",'hotel.walk':'3–5 хв пішки до місця','hotel.map':'Переглянути на Карті','hotel.website':'Сайт Готелю',
 'register.eyebrow':'Реєстрація','register.title':'Оберіть Свій <em>Квиток</em>','register.lead':'Ціни Early Bird дійсні до 30 вересня 2026. Усі квитки включають сертифікат участі та доступ до записів сесій.',
-'ticket.popular':'НАЙПОПУЛЯРНІШИЙ','ticket.2day_type':'Early Bird · Обмежено','ticket.2day_name':'2 Дні Очно','ticket.2day_note':'Кінцева ціна €550 · Економія €150','ticket.2day_f1':'Доступ до всіх сесій — обидва дні','ticket.2day_f2':'Матеріали конференції та бейдж','ticket.2day_f3':'Кавові паузи включені','ticket.2day_f4':'Сертифікат участі','ticket.2day_f5':'Доступ до записів сесій',
-'ticket.1day_type':'Early Bird · 1 День','ticket.1day_name':'1 День Очно','ticket.1day_note':'Кінцева ціна €270 · Економія €70','ticket.1day_f1':'Доступ до всіх сесій протягом одного дня на ваш вибір','ticket.1day_f3':'Матеріали конференції та бейдж','ticket.1day_f4':'Кавові паузи включені','ticket.1day_f5':'Сертифікат участі','ticket.1day_f6':'Доступ до записів сесій',
-'ticket.online_type':'Early Bird · Онлайн','ticket.online_name':'Онлайн Трансляція','ticket.online_note':'Кінцева ціна €200 · 2 дні онлайн','ticket.online_f1':'Пряма трансляція — обидва дні','ticket.online_f2':'Інтерактивний чат','ticket.online_f3':'Електронний сертифікат участі','ticket.online_f4':'Доступ до записів сесій',
-'ticket.student_type':'Академічний','ticket.student_name':'Студентський','ticket.student_note':'Потрібне дійсне студентське посвідчення · 2 дні','ticket.student_f1':'Доступ до всіх сесій — обидва дні','ticket.student_f2':'Матеріали конференції та бейдж','ticket.student_f3':'Кавові паузи включені','ticket.student_f4':'Сертифікат участі','ticket.student_f5':'Доступ до записів сесій',
+'ticket.popular':'НАЙПОПУЛЯРНІШИЙ','ticket.2day_type':'Early Bird','ticket.2day_name':'2 Дні Очно','ticket.2day_note':'Кінцева ціна €400 · Економія €60','ticket.2day_f1':'Доступ до всіх сесій — обидва дні','ticket.2day_f2':'Матеріали конференції та бейдж','ticket.2day_f3':'Кавові паузи включені','ticket.2day_f4':'Сертифікат участі','ticket.2day_f5':'Доступ до записів сесій',
+'ticket.1day_type':'Early Bird','ticket.1day_name':'1 День Очно','ticket.1day_note':'Кінцева ціна €250 · Економія €50','ticket.1day_f1':'Доступ до всіх сесій 28 або 29 листопада — на ваш вибір','ticket.1day_f3':'Матеріали конференції та бейдж','ticket.1day_f4':'Кавові паузи включені','ticket.1day_f5':'Сертифікат участі','ticket.1day_f6':'Доступ до записів сесій',
+'ticket.online_type':'Early Bird','ticket.online_name':'Онлайн','ticket.online_note':'Кінцева ціна €150 · Економія €51','ticket.online_f1':'Пряма трансляція — обидва дні','ticket.online_f2':'Інтерактивний чат','ticket.online_f3':'Електронний сертифікат участі','ticket.online_f4':'Доступ до записів сесій',
+'ticket.student_type':'Академічний','ticket.student_name':'Студентський','ticket.student_note':'30 безкоштовних місць, потім €100','ticket.student_f1':'Доступ до всіх сесій — обидва дні','ticket.student_f2':'Потрібна перевірка студентського посвідчення перед оплатою','ticket.student_f3':'Матеріали конференції та бейдж','ticket.student_f4':'Сертифікат участі','ticket.student_f5':'Доступ до записів сесій',
 'ticket.buy_now':'Купити — Stripe','register.stripe_note':'Захищена оплата через Stripe. Приймаються всі основні картки.','register.group_title':'Потрібне групове бронювання або рахунок-фактура?','register.group_desc':"Групи від 5 осіб отримують знижку 15%. Зв'яжіться з нами для корпоративного виставлення рахунків.",'register.group_btn':"Зв'язатися для Групових Цін",
 'sponsors.eyebrow':'Партнери','sponsors.title':'Наші <em>Партнери</em>','sponsors.lead':'Beauty Expert Summit 2026 підтримується провідними компаніями у галузі офтальмології, естетичної медицини, фармацевтики та технологій.','sponsors.institutional':'Інституційні Партнери','sponsors.clinic':'Клінічні Партнери','sponsors.technology':'Технологічні Партнери','sponsors.become_title':'Стати Партнером','sponsors.become_desc':"Охопіть 500+ спеціалістів з офтальмології, косметології та пластичної хірургії. Зв'яжіться з нами, щоб обговорити можливості партнерства.",'sponsors.contact':"Зв'язатися",
 'faq.eyebrow':'FAQ','faq.title':'Часті <em>Запитання</em>','faq.lead':'Все, що вам потрібно знати перед реєстрацією.',

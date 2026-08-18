@@ -1,0 +1,81 @@
+<meta name="robots" content="noindex,nofollow,noarchive">
+<link rel="stylesheet" href="./styles.css">
+<main id="bes-registration" class="bes-page">
+  <div class="bes-shell">
+    <nav class="bes-languages" aria-label="Choose language">
+      <button type="button" data-language="en" aria-pressed="true">EN</button>
+      <button type="button" data-language="es" aria-pressed="false">ES</button>
+      <button type="button" data-language="uk" aria-pressed="false">UA</button>
+    </nav>
+
+    <header class="bes-header">
+      <img src="/assets/bes26-logo.png" alt="Beauty Expert Summit 2026" class="bes-logo">
+      <h1 data-i18n="heading">Complete your registration</h1>
+      <p data-i18n="subtitle">Confirm your details so we can prepare your event registration.</p>
+      <strong>28–29 November 2026 · Elche, Spain</strong>
+    </header>
+
+    <section id="bes-loading" class="bes-card bes-status">Loading your registration…</section>
+    <section id="bes-link-error" class="bes-card bes-status bes-hidden" role="alert"></section>
+
+    <form id="bes-form" class="bes-card bes-hidden" novalidate>
+      <div class="bes-progress" aria-label="Registration progress">
+        <span class="active" data-step-label="1">1 · Your details</span>
+        <span data-step-label="2">2 · Event details</span>
+        <span data-step-label="3">3 · Confirm</span>
+      </div>
+
+      <div class="bes-body">
+        <div class="bes-ticket"><div><strong id="ticket-name"></strong><small id="ticket-description"></small></div><span data-i18n="paid">Confirmed by Stripe</span></div>
+        <div id="form-error" class="bes-error bes-hidden" role="alert"></div>
+
+        <section class="bes-step active" data-step="1">
+          <h2 data-i18n="detailsTitle">Your details</h2>
+          <div class="bes-grid">
+            <label><span data-i18n="firstName">First name</span><b>*</b><input name="first_name" autocomplete="given-name" required></label>
+            <label><span data-i18n="lastName">Last name</span><b>*</b><input name="last_name" autocomplete="family-name" required></label>
+            <label class="wide"><span data-i18n="email">Email</span><b>*</b><input name="email" type="email" readonly required></label>
+            <label><span data-i18n="phone">Phone number</span><b>*</b><input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+34 600 000 000" required></label>
+            <label><span data-i18n="country">Country of residence</span><b>*</b><input name="country" autocomplete="country-name" required></label>
+            <label class="wide"><span data-i18n="specialty">Professional specialty</span><b>*</b><select name="specialty" required></select></label>
+            <label class="wide"><span data-i18n="institution">Institution, clinic or university</span><b>*</b><input name="institution" required></label>
+            <label id="badge-field" class="wide"><span data-i18n="badge">Name exactly as it should appear on your badge</span><b>*</b><input name="badge_name" required></label>
+            <label id="day-field" class="wide bes-hidden"><span data-i18n="day">Which day will you attend?</span><b>*</b><select name="selected_day"></select></label>
+          </div>
+        </section>
+
+        <section class="bes-step" data-step="2">
+          <h2 data-i18n="eventTitle">Event details</h2>
+          <div class="bes-grid">
+            <label class="wide"><span data-i18n="accessibility">Accessibility or assistance needs</span><textarea name="accessibility_needs"></textarea></label>
+            <div id="gala-fields" class="wide bes-hidden">
+              <fieldset><legend data-i18n="galaAttendance">Will you attend the gala dinner?</legend><label><input type="radio" name="gala_attending" value="true"> <span data-i18n="yes">Yes</span></label><label><input type="radio" name="gala_attending" value="false"> <span data-i18n="no">No</span></label></fieldset>
+              <label><span data-i18n="diet">Dietary preference</span><select name="dietary_preference"></select></label>
+              <label><span data-i18n="allergies">Food allergies or important dietary details</span><textarea name="allergies"></textarea></label>
+            </div>
+            <div id="student-fields" class="wide bes-hidden"><label><span data-i18n="studentProof">Proof of student status</span><b>*</b><input name="student_proof" type="file" accept="image/jpeg,image/png,application/pdf"></label></div>
+            <div id="speaker-fields" class="wide bes-hidden">
+              <label><span data-i18n="jobTitle">Professional title / position</span><b>*</b><input name="job_title"></label>
+              <label><span data-i18n="talkTitle">Presentation title</span><b>*</b><input name="presentation_title"></label>
+              <label><span data-i18n="biography">Short professional biography</span><textarea name="biography"></textarea></label>
+              <label><span data-i18n="portrait">Speaker portrait</span><b>*</b><input name="speaker_portrait" type="file" accept="image/jpeg,image/png"></label>
+              <label class="check"><input name="speaker_consent" type="checkbox"> <span data-i18n="speakerConsent">I approve the use of this information in the event programme and promotion.</span></label>
+            </div>
+          </div>
+        </section>
+
+        <section class="bes-step" data-step="3">
+          <h2 data-i18n="reviewTitle">Review and confirm</h2>
+          <div id="review" class="bes-review"></div>
+          <label class="check"><input name="privacy_confirmed" type="checkbox" required> <span data-i18n="privacyConfirm">I confirm these details are correct and accept the privacy notice.</span></label>
+        </section>
+
+        <div class="bes-actions"><button id="back" class="back bes-hidden" type="button" data-i18n="back">Back</button><button id="continue" class="continue" type="button" disabled data-i18n="continue">Continue</button></div>
+      </div>
+    </form>
+
+    <section id="bes-success" class="bes-card bes-status bes-hidden"><div class="success-icon">✓</div><h2 data-i18n="successTitle">Registration complete</h2><p data-i18n="successText">A confirmation will be sent by email.</p></section>
+  </div>
+</main>
+<script src="./app.js"></script>
+

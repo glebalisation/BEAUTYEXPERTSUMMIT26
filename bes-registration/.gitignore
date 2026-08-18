@@ -1,0 +1,4 @@
+# Supabase CLI local state — machine-specific, never commit
+supabase/.temp/
+.env
+.env.local

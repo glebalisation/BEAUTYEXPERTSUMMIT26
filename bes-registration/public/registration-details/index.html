@@ -32,33 +32,33 @@
         <section class="bes-step active" data-step="1">
           <h2 data-i18n="detailsTitle">Your details</h2>
           <div class="bes-grid">
-            <label><span data-i18n="firstName">First name</span><b>*</b><input name="first_name" autocomplete="given-name" required></label>
-            <label><span data-i18n="lastName">Last name</span><b>*</b><input name="last_name" autocomplete="family-name" required></label>
-            <label class="wide"><span data-i18n="email">Email</span><b>*</b><input name="email" type="email" readonly required></label>
-            <label><span data-i18n="phone">Phone number</span><b>*</b><input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+34 600 000 000" required></label>
-            <label><span data-i18n="country">Country of residence</span><b>*</b><input name="country" autocomplete="country-name" required></label>
-            <label class="wide"><span data-i18n="specialty">Professional specialty</span><b>*</b><select name="specialty" required></select></label>
-            <label class="wide"><span data-i18n="institution">Institution, clinic or university</span><b>*</b><input name="institution" required></label>
-            <label id="badge-field" class="wide"><span data-i18n="badge">Name exactly as it should appear on your badge</span><b>*</b><input name="badge_name" required></label>
-            <label id="day-field" class="wide bes-hidden"><span data-i18n="day">Which day will you attend?</span><b>*</b><select name="selected_day"></select></label>
+            <label><span class="bes-label-text"><b class="req">*</b><span data-i18n="firstName">First name</span></span><input name="first_name" autocomplete="given-name" required></label>
+            <label><span class="bes-label-text"><b class="req">*</b><span data-i18n="lastName">Last name</span></span><input name="last_name" autocomplete="family-name" required></label>
+            <label class="wide"><span class="bes-label-text"><b class="req">*</b><span data-i18n="email">Email</span></span><input name="email" type="email" readonly required></label>
+            <label><span class="bes-label-text"><b class="req">*</b><span data-i18n="phone">Phone number</span></span><input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+34 600 000 000" required></label>
+            <label><span class="bes-label-text"><b class="req">*</b><span data-i18n="country">Country of residence</span></span><input name="country" autocomplete="country-name" required></label>
+            <label class="wide"><span class="bes-label-text"><b class="req">*</b><span data-i18n="specialty">Professional specialty</span></span><select name="specialty" required></select></label>
+            <label class="wide"><span class="bes-label-text"><b class="req">*</b><span data-i18n="institution">Institution, clinic or university</span></span><input name="institution" required></label>
+            <label id="badge-field" class="wide"><span class="bes-label-text"><b class="req">*</b><span data-i18n="badge">Name exactly as it should appear on your badge</span></span><input name="badge_name" required></label>
+            <label id="day-field" class="wide bes-hidden"><span class="bes-label-text"><b class="req">*</b><span data-i18n="day">Which day will you attend?</span></span><select name="selected_day"></select></label>
           </div>
         </section>
 
         <section class="bes-step" data-step="2">
           <h2 data-i18n="eventTitle">Event details</h2>
           <div class="bes-grid">
-            <label class="wide"><span data-i18n="accessibility">Accessibility or assistance needs</span><textarea name="accessibility_needs"></textarea></label>
+            <label class="wide"><span class="bes-label-text"><span data-i18n="accessibility">Accessibility or assistance needs</span></span><textarea name="accessibility_needs"></textarea></label>
             <div id="gala-fields" class="wide bes-hidden">
               <fieldset><legend data-i18n="galaAttendance">Will you attend the gala dinner?</legend><label><input type="radio" name="gala_attending" value="true"> <span data-i18n="yes">Yes</span></label><label><input type="radio" name="gala_attending" value="false"> <span data-i18n="no">No</span></label></fieldset>
-              <label><span data-i18n="diet">Dietary preference</span><select name="dietary_preference"></select></label>
-              <label><span data-i18n="allergies">Food allergies or important dietary details</span><textarea name="allergies"></textarea></label>
+              <label><span class="bes-label-text"><span data-i18n="diet">Dietary preference</span></span><select name="dietary_preference"></select></label>
+              <label><span class="bes-label-text"><span data-i18n="allergies">Food allergies or important dietary details</span></span><textarea name="allergies"></textarea></label>
             </div>
-            <div id="student-fields" class="wide bes-hidden"><label><span data-i18n="studentProof">Proof of student status</span><b>*</b><input name="student_proof" type="file" accept="image/jpeg,image/png,application/pdf"></label></div>
+            <div id="student-fields" class="wide bes-hidden"><label><span class="bes-label-text"><b class="req">*</b><span data-i18n="studentProof">Proof of student status</span></span><input name="student_proof" type="file" accept="image/jpeg,image/png,application/pdf"></label></div>
             <div id="speaker-fields" class="wide bes-hidden">
-              <label><span data-i18n="jobTitle">Professional title / position</span><b>*</b><input name="job_title"></label>
-              <label><span data-i18n="talkTitle">Presentation title</span><b>*</b><input name="presentation_title"></label>
-              <label><span data-i18n="biography">Short professional biography</span><textarea name="biography"></textarea></label>
-              <label><span data-i18n="portrait">Speaker portrait</span><b>*</b><input name="speaker_portrait" type="file" accept="image/jpeg,image/png"></label>
+              <label><span class="bes-label-text"><b class="req">*</b><span data-i18n="jobTitle">Professional title / position</span></span><input name="job_title"></label>
+              <label><span class="bes-label-text"><b class="req">*</b><span data-i18n="talkTitle">Presentation title</span></span><input name="presentation_title"></label>
+              <label><span class="bes-label-text"><span data-i18n="biography">Short professional biography</span></span><textarea name="biography"></textarea></label>
+              <label><span class="bes-label-text"><b class="req">*</b><span data-i18n="portrait">Speaker portrait</span></span><input name="speaker_portrait" type="file" accept="image/jpeg,image/png"></label>
               <label class="check"><input name="speaker_consent" type="checkbox"> <span data-i18n="speakerConsent">I approve the use of this information in the event programme and promotion.</span></label>
             </div>
           </div>

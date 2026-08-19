@@ -584,12 +584,50 @@ nav {
 }
 
 .scalprum-banner {
-  border: 1px solid rgba(124,107,214,0.5);
-  background: linear-gradient(160deg, rgba(124,107,214,0.14), rgba(26,58,92,0.4));
-  border-radius: 12px;
-  padding: 32px 36px;
+  position: relative;
+  border-radius: 18px;
+  padding: 3px;
   margin-bottom: 40px;
+  animation: scalprumGlow 3s ease-in-out infinite;
 }
+.scalprum-banner::before {
+  content: '';
+  position: absolute;
+  inset: -80%;
+  background: conic-gradient(from 0deg,
+    transparent 0%, rgba(201,169,110,0.95) 6%, transparent 16%,
+    transparent 45%, rgba(124,107,214,0.95) 54%, transparent 64%,
+    transparent 100%);
+  animation: scalprumSpin 5s linear infinite;
+}
+.scalprum-banner-inner {
+  position: relative;
+  z-index: 1;
+  border-radius: 15px;
+  background: linear-gradient(160deg, rgba(124,107,214,0.18), rgba(13,27,42,0.94));
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  align-items: stretch;
+  overflow: hidden;
+}
+.scalprum-banner-media {
+  position: relative;
+  overflow: hidden;
+  min-height: 260px;
+}
+.scalprum-banner-media img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  animation: scalprumZoom 6s ease-in-out infinite;
+}
+.scalprum-banner-media::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent 55%, rgba(13,27,42,0.9) 100%);
+}
+.scalprum-banner-text { padding: 32px 36px; }
 .scalprum-banner h3 {
   font-family: var(--ff-display);
   font-size: 24px; font-weight: 300;
@@ -601,6 +639,23 @@ nav {
   color: var(--text-muted);
   max-width: 640px;
   margin-bottom: 22px;
+}
+@keyframes scalprumSpin { to { transform: rotate(360deg); } }
+@keyframes scalprumZoom {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+@keyframes scalprumGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(201,169,110,0.25), 0 0 50px rgba(124,107,214,0.15); }
+  50% { box-shadow: 0 0 36px rgba(201,169,110,0.55), 0 0 84px rgba(124,107,214,0.4); }
+}
+@media (max-width: 700px) {
+  .scalprum-banner-inner { grid-template-columns: 1fr; }
+  .scalprum-banner-media { min-height: 180px; }
+  .scalprum-banner-media::after { background: linear-gradient(to bottom, transparent 55%, rgba(13,27,42,0.9) 100%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scalprum-banner, .scalprum-banner::before, .scalprum-banner-media img { animation: none; }
 }
 
 /* ── PROGRAM ── */
@@ -2296,10 +2351,17 @@ footer {
     <p class="section-lead" data-i18n="home.pgm.lead">World-class presentations, live demonstrations and interactive workshops across three specialist tracks.</p>
 
     <div class="scalprum-banner">
-      <span class="ticket-badge" style="position:static;display:inline-block;margin-bottom:14px;" data-i18n="pgm.badge_live">Live Surgery</span>
-      <h3 data-i18n-html="home.pgm.scalprum_t">Live CO₂ Laser Surgery &amp; the ScalprumPro Wet Lab</h3>
-      <p data-i18n="home.pgm.scalprum_d">Watch live blepharoplasty on Day 1, then train hands-on in the ScalprumPro intensive wet lab led by Dr. Serhii Havryliuk &amp; Dr. Igor Janik — biological models, real instruments, 4h 50min intensive.</p>
-      <button class="btn-outline" onclick="showPage('register')" data-i18n="home.pgm.scalprum_btn">Reserve a Wet Lab Seat</button>
+      <div class="scalprum-banner-inner">
+        <div class="scalprum-banner-media">
+          <img src="/IDENTITY/CO2 BLEPHAROPLASTY.PNG" alt="CO₂ Laser Blepharoplasty" loading="lazy">
+        </div>
+        <div class="scalprum-banner-text">
+          <span class="ticket-badge" style="position:static;display:inline-block;margin-bottom:14px;" data-i18n="pgm.badge_live">Live Surgery</span>
+          <h3 data-i18n-html="home.pgm.scalprum_t">Live CO₂ Laser Surgery &amp; the ScalprumPro Wet Lab</h3>
+          <p data-i18n="home.pgm.scalprum_d">Watch live blepharoplasty on Day 1, then train hands-on in the ScalprumPro intensive wet lab led by Dr. Serhii Havryliuk &amp; Dr. Igor Janik — biological models, real instruments, 4h 50min intensive.</p>
+          <button class="btn-outline" onclick="showPage('register')" data-i18n="home.pgm.scalprum_btn">Reserve a Wet Lab Seat</button>
+        </div>
+      </div>
     </div>
 
     <div id="home-pgm-full">

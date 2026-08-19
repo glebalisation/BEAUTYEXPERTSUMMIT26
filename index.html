@@ -188,7 +188,7 @@ nav {
 }
 
 .hero-inner {
-  max-width: 1200px; margin: 0 auto;
+  max-width: 1800px; margin: 0 auto;
   padding: 80px 40px 80px;
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 80px; align-items: center;
@@ -496,7 +496,7 @@ nav {
 
 /* ── SHARED SECTION STYLES ── */
 .section-inner {
-  max-width: 1200px; margin: 0 auto;
+  max-width: 1800px; margin: 0 auto;
   padding: 80px 40px;
 }
 
@@ -549,7 +549,8 @@ nav {
   transition: var(--transition);
 }
 .reason-card:hover { border-color: var(--gold); transform: translateY(-4px); }
-.reason-mark { font-size: 15px; color: var(--gold); margin-bottom: 18px; }
+.reason-mark { color: var(--gold); margin-bottom: 18px; }
+.reason-mark svg { width: 34px; height: 34px; display: block; }
 .reason-card h3 {
   font-family: var(--ff-display);
   font-size: 19px; font-weight: 400;
@@ -601,9 +602,6 @@ nav {
   max-width: 640px;
   margin-bottom: 22px;
 }
-
-.reveal-extra { display: block; }
-.reveal-extra.is-hidden { display: none; }
 
 /* ── PROGRAM ── */
 #page-program { background: var(--navy-deep); }
@@ -770,10 +768,10 @@ nav {
   padding: 3px 8px; border-radius: 99px;
 }
 @media (max-width: 768px) {
-  .speakers-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .speakers-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
 }
 @media (max-width: 600px) {
-  .speakers-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .speakers-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
   .speaker-info { padding: 8px 10px 10px; }
   .speaker-name { font-size: 12px; }
   .speaker-role { font-size: 10px; margin-bottom: 5px; }
@@ -1168,7 +1166,7 @@ footer {
   position: relative; z-index: 1;
 }
 .footer-inner {
-  max-width: 1200px; margin: 0 auto;
+  max-width: 1800px; margin: 0 auto;
   display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 48px; margin-bottom: 40px;
 }
@@ -1182,8 +1180,11 @@ footer {
 .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 .footer-links a { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: var(--transition); cursor: pointer; }
 .footer-links a:hover { color: var(--gold-light); }
+.footer-partners {
+  max-width: 1800px; margin: 0 auto 40px;
+}
 .footer-bottom {
-  max-width: 1200px; margin: 0 auto;
+  max-width: 1800px; margin: 0 auto;
   padding-top: 24px; border-top: 1px solid var(--border);
   display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
 }
@@ -1850,7 +1851,7 @@ footer {
 
 /* ── PROGRAM HIGHLIGHTS ── */
 .program-highlights {
-  max-width: 1200px;
+  max-width: 1800px;
   margin: 0 auto;
   padding: 0 40px 80px;
 }
@@ -2074,24 +2075,24 @@ footer {
     <p class="section-lead" data-i18n="home.why.lead">Two days built around what actually changes clinical practice — not spectacle for its own sake.</p>
     <div class="reasons-grid">
       <div class="reason-card">
-        <div class="reason-mark">✦</div>
-        <h3 data-i18n="home.why.r1_t">International Faculty</h3>
-        <p data-i18n="home.why.r1_d">30+ practicing surgeons and clinicians from Spain, Ukraine, Italy, France, Turkey and beyond, sharing real case data.</p>
+        <div class="reason-mark"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 16c3.5-6 8-9 12-9s8.5 3 12 9c-3.5 6-8 9-12 9s-8.5-3-12-9z"/><circle cx="16" cy="16" r="4"/><circle cx="16" cy="16" r="1" fill="currentColor" stroke="none"/></svg></div>
+        <h3 data-i18n="home.why.r1_t">Exclusive Topics</h3>
+        <p data-i18n="home.why.r1_d">Sessions you won't find on a standard program — artificial vision, artificial cornea &amp; retina, and neurotechnology, presented by the researchers building them.</p>
       </div>
       <div class="reason-card">
-        <div class="reason-mark">✦</div>
-        <h3 data-i18n="home.why.r2_t">Live Surgery &amp; Wet Lab</h3>
-        <p data-i18n="home.why.r2_d">Watch CO₂ laser blepharoplasty performed live, then train hands-on in the ScalprumPro intensive wet lab.</p>
+        <div class="reason-mark"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="16" cy="16" r="11"/><ellipse cx="16" cy="16" rx="4.5" ry="11"/><path d="M5 16h22M6.5 10h19M6.5 22h19"/></svg></div>
+        <h3 data-i18n="home.why.r2_t">International Faculty</h3>
+        <p data-i18n="home.why.r2_d">30+ practicing surgeons and clinicians from Spain, Ukraine, Italy, France, Turkey and beyond, sharing real case data.</p>
       </div>
       <div class="reason-card">
-        <div class="reason-mark">✦</div>
-        <h3 data-i18n="home.why.r3_t">Three Specialties, One Stage</h3>
-        <p data-i18n="home.why.r3_d">Ophthalmology, plastic surgery and cosmetology share a single program — cross-disciplinary conversations you won't find at a single-track congress.</p>
+        <div class="reason-mark"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M8 24l12-12 3 3-12 12z"/><path d="M20 12l3-3 3 3-3 3z"/><circle cx="9" cy="23" r="1.6" fill="currentColor" stroke="none"/></svg></div>
+        <h3 data-i18n="home.why.r3_t">Live Surgery &amp; Wet Lab</h3>
+        <p data-i18n="home.why.r3_d">Watch CO₂ laser blepharoplasty performed live, then train hands-on in the ScalprumPro intensive wet lab.</p>
       </div>
       <div class="reason-card">
-        <div class="reason-mark">✦</div>
-        <h3 data-i18n="home.why.r4_t">Certificate of Attendance</h3>
-        <p data-i18n="home.why.r4_d">Included with every ticket, with CME/CPD accreditation currently in process.</p>
+        <div class="reason-mark"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="7.5"/><circle cx="20" cy="12" r="7.5"/><circle cx="16" cy="19" r="7.5"/></svg></div>
+        <h3 data-i18n="home.why.r4_t">Three Specialties, One Stage</h3>
+        <p data-i18n="home.why.r4_d">Ophthalmology, plastic surgery and cosmetology share a single program — cross-disciplinary conversations you won't find at a single-track congress.</p>
       </div>
     </div>
   </section>
@@ -2305,43 +2306,7 @@ footer {
       <button class="btn-outline" onclick="showPage('register')" data-i18n="home.pgm.scalprum_btn">Reserve a Wet Lab Seat</button>
     </div>
 
-    <div class="speaker-group">
-      <div class="group-label" data-i18n="program.day1_tab">Day 1 · 28 Nov</div>
-      <div class="schedule-item">
-        <div class="schedule-time">09:00 – 09:20</div>
-        <div><div class="schedule-title" data-i18n="pgm.d1.i2_t">Opening Ceremony</div><div class="schedule-speaker" data-i18n="pgm.d1.i2_s">Serhii Havryliuk, MD — Ukraine · President, UGAMC</div></div>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">09:20 – 10:00</div>
-        <div><div class="schedule-title" data-i18n="pgm.d1.i3_t">Modern Blepharoplasty Combined with BBL Technology</div><div class="schedule-speaker" data-i18n="pgm.d1.i3_s">Agassi Charchoglyan, MD, PhD — Spain</div></div>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">16:30 – 18:30</div>
-        <div><span class="schedule-track track-live" data-i18n="pgm.badge_live">Live Surgery</span><div class="schedule-title" data-i18n="pgm.d1.i14_t">CO₂ Laser Blepharoplasty / Ptosis Correction</div><div class="schedule-speaker" data-i18n="pgm.d1.i14_s">Moderator: Agassi Charchoglyan, MD</div></div>
-      </div>
-    </div>
-
-    <div class="speaker-group">
-      <div class="group-label" data-i18n="program.day2_tab">Day 2 · 29 Nov</div>
-      <div class="schedule-item">
-        <div class="schedule-time">09:40 – 10:10</div>
-        <div><div class="schedule-title" data-i18n="pgm.d2.i3_t">Keratopigmentation in Complicated Cases. Manual Keratopigmentation</div><div class="schedule-speaker" data-i18n="pgm.d2.i3_s">Prof. Jorge Alió, MD, PhD — Spain · Scientific Advisor to the Organizing Associations</div></div>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">14:00 – 16:00</div>
-        <div><div class="schedule-title" data-i18n="pgm.d2.i12_t">Artificial Vision &amp; Future of Neuro-Ophthalmology</div><div class="schedule-speaker" data-i18n="pgm.d2.i12_s">Prof. Eduardo Fernández, MD, PhD — Spain</div></div>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">17:30</div>
-        <div><div class="schedule-title" data-i18n="pgm.d2.i16_t">Closing Ceremony &amp; Certificates</div></div>
-      </div>
-    </div>
-
-    <div style="margin-top:32px;text-align:center;">
-      <button class="btn-outline" id="home-pgm-toggle" onclick="toggleReveal('home-pgm-full', this, 'home.pgm.viewfull', 'home.pgm.hidefull')" data-i18n="home.pgm.viewfull">View Full Program</button>
-    </div>
-
-    <div id="home-pgm-full" class="reveal-extra is-hidden" style="margin-top:32px;">
+    <div id="home-pgm-full">
       <div class="day-tabs">
         <button class="day-tab active" onclick="switchHomeDay(1)" data-i18n="program.day1_tab">Day 1 · 28 Nov</button>
         <button class="day-tab" onclick="switchHomeDay(2)" data-i18n="program.day2_tab">Day 2 · 29 Nov</button>
@@ -3731,8 +3696,16 @@ footer {
       </ul>
     </div>
   </div>
-  <div style="margin-top:40px;border-radius:12px;overflow:hidden;border:1px solid var(--border);box-shadow:0 8px 32px rgba(0,0,0,0.4);">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d483.26634005382806!2d-0.6958276999999999!3d38.2636107!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd63b68d3015fb67%3A0x8a5d9268d846445c!2sCentro%20De%20Congresos%20De%20Elche!5e1!3m2!1suk!2spl!4v1778981995049!5m2!1suk!2spl" width="100%" height="280" style="border:0;display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <div class="footer-partners">
+    <div class="footer-col-title" data-i18n="footer.partners_title">Partners</div>
+    <div class="sponsor-logos">
+      <div class="partner-logo-tile sponsor-badge"><img src="/IDENTITY/iarps-transparent.png" alt="IARPS"></div>
+      <a href="https://www.umh.es/" target="_blank" class="partner-logo-tile sponsor-badge"><img src="/IDENTITY/UMH.png" alt="Universidad Miguel Hernández de Elche"></a>
+      <a href="https://www.iclinic.sk/" target="_blank" class="partner-logo-tile sponsor-lg on-light"><img src="/IDENTITY/iCLINIC-transparent.png" alt="iClinic"></a>
+      <a href="https://llc.cz/" target="_blank" class="partner-logo-tile sponsor-md"><img src="/IDENTITY/LLC.svg" alt="LLC Clinic"></a>
+      <a href="https://flaak-newcolor.art/" target="_blank" class="partner-logo-tile sponsor-lg on-light"><img src="/IDENTITY/FLAAK-transparent.png" alt="FLAAK by New Color"></a>
+      <a href="https://www.dudosoftware.com/" target="_blank" class="partner-logo-tile sponsor-lg"><img src="/IDENTITY/DUDO.png" alt="DuDo Software"></a>
+    </div>
   </div>
   <div class="footer-bottom">
     <div class="footer-copy" data-i18n="footer.copyright">© 2026 Beauty Expert Summit. All rights reserved.</div>
@@ -3795,18 +3768,7 @@ function switchDay(n) {
   document.querySelectorAll('.schedule-panel').forEach((p,i) => p.classList.toggle('active', i === n-1));
 }
 
-// ── HOME PAGE: in-place reveal (used by Speakers/Program "view full" buttons) ──
-function toggleReveal(id, btn, showKey, hideKey) {
-  var el = document.getElementById(id);
-  var opening = el.classList.contains('is-hidden');
-  el.classList.toggle('is-hidden');
-  var newKey = opening ? hideKey : showKey;
-  btn.setAttribute('data-i18n', newKey);
-  var t = i18n[currentLang] || i18n.en;
-  if (t[newKey] !== undefined) btn.textContent = t[newKey];
-}
-
-// ── HOME PAGE: scoped day switcher for the full-program reveal (does not affect the Program page) ──
+// ── HOME PAGE: scoped day switcher for the full program (does not affect the Program page) ──
 function switchHomeDay(n) {
   var wrap = document.getElementById('home-pgm-full');
   if (!wrap) return;
@@ -3827,10 +3789,10 @@ var i18n = {
 en:{
 'nav.program':'Program','nav.speakers':'Speakers','nav.venue':'Venue','nav.sponsors':'Partners','nav.faq':'FAQ','nav.contact':'Contact','nav.register':'Tickets','nav.logo_sub':'28–29 Nov 2026 · Elche, Spain','mobile.register':'Tickets',
 'home.motto':'Built for <em>Medical Leaders</em>','home.tagline':'Connecting Visionaries Across Ophthalmology, Plastic Surgery, and Cosmetology.','home.date':'28–29 November · Centro de Congresos de Elche, Alicante, Spain','home.cta_ticket':'Get Your Ticket','home.cta_program':'View Program','home.explore':'Explore','home.dama':'✦ La Dama de Elche invites you ✦',
-'home.why.eyebrow':'Why Attend','home.why.title':'Four Reasons to <em>Be in the Room</em>','home.why.lead':'Two days built around what actually changes clinical practice — not spectacle for its own sake.','home.why.r1_t':'International Faculty','home.why.r1_d':'30+ practicing surgeons and clinicians from Spain, Ukraine, Italy, France, Turkey and beyond, sharing real case data.','home.why.r2_t':'Live Surgery & Wet Lab','home.why.r2_d':'Watch CO₂ laser blepharoplasty performed live, then train hands-on in the ScalprumPro intensive wet lab.','home.why.r3_t':'Three Specialties, One Stage','home.why.r3_d':'Ophthalmology, plastic surgery and cosmetology share a single program — cross-disciplinary conversations you won\'t find at a single-track congress.','home.why.r4_t':'Certificate of Attendance','home.why.r4_d':'Included with every ticket, with CME/CPD accreditation currently in process.',
+'home.why.eyebrow':'Why Attend','home.why.title':'Four Reasons to <em>Be in the Room</em>','home.why.lead':'Two days built around what actually changes clinical practice — not spectacle for its own sake.','home.why.r1_t':'Exclusive Topics','home.why.r1_d':'Sessions you won\'t find on a standard program — artificial vision, artificial cornea & retina, and neurotechnology, presented by the researchers building them.','home.why.r2_t':'International Faculty','home.why.r2_d':'30+ practicing surgeons and clinicians from Spain, Ukraine, Italy, France, Turkey and beyond, sharing real case data.','home.why.r3_t':'Live Surgery & Wet Lab','home.why.r3_d':'Watch CO₂ laser blepharoplasty performed live, then train hands-on in the ScalprumPro intensive wet lab.','home.why.r4_t':'Three Specialties, One Stage','home.why.r4_d':'Ophthalmology, plastic surgery and cosmetology share a single program — cross-disciplinary conversations you won\'t find at a single-track congress.',
 'home.spk.eyebrow':'Faculty','home.spk.title':'Meet the <em>Speakers</em>','home.spk.lead':'An international faculty of practicing surgeons and clinicians, organised by specialty.',
 'home.com.eyebrow':'Committee','home.com.title':'Scientific &amp; <em>Organizing Committee</em>','home.com.lead':'The clinicians and organisers shaping the scientific program and running the summit.',
-'home.pgm.eyebrow':'Scientific Program','home.pgm.title':'Two Days of <em>Excellence</em>','home.pgm.lead':'World-class presentations, live demonstrations and interactive workshops across three specialist tracks.','home.pgm.scalprum_t':'Live CO₂ Laser Surgery &amp; the ScalprumPro Wet Lab','home.pgm.scalprum_d':'Watch live blepharoplasty on Day 1, then train hands-on in the ScalprumPro intensive wet lab led by Dr. Serhii Havryliuk &amp; Dr. Igor Janik — biological models, real instruments, 4h 50min intensive.','home.pgm.scalprum_btn':'Reserve a Wet Lab Seat','home.pgm.viewfull':'View Full Program','home.pgm.hidefull':'Hide Full Program',
+'home.pgm.eyebrow':'Scientific Program','home.pgm.title':'Two Days of <em>Excellence</em>','home.pgm.lead':'World-class presentations, live demonstrations and interactive workshops across three specialist tracks.','home.pgm.scalprum_t':'Live CO₂ Laser Surgery &amp; the ScalprumPro Wet Lab','home.pgm.scalprum_d':'Watch live blepharoplasty on Day 1, then train hands-on in the ScalprumPro intensive wet lab led by Dr. Serhii Havryliuk &amp; Dr. Igor Janik — biological models, real instruments, 4h 50min intensive.','home.pgm.scalprum_btn':'Reserve a Wet Lab Seat',
 'home.tix.eyebrow':'Registration','home.tix.title':'Secure Your <em>Seat</em>','home.tix.lead':'Early Bird pricing valid until 30 September 2026.','home.tix.viewall':'View All Ticket Options',
 'program.eyebrow':'Scientific Program','program.title':'Two Days of <em>Excellence</em>','program.lead':'World-class presentations, live demonstrations and interactive workshops across three specialist tracks: Ophthalmology, Cosmetology, and Plastic Surgery.','program.day1_tab':'Day 1 · 28 Nov','program.day2_tab':'Day 2 · 29 Nov','program.day1_title':'Day 1 · 28 November','program.day2_title':'Day 2 · 29 November','program.tba':'Full program details to be announced',
 'track.ophth':'Ophthalmology','track.cosm':'Cosmetology','track.surg':'Plastic Surgery','track.gen':'General',
@@ -3863,15 +3825,15 @@ en:{
 'footer.nav.title':'Navigate','footer.nav.home':'Home','footer.nav.program':'Program','footer.nav.speakers':'Speakers','footer.nav.venue':'Venue & Travel',
 'footer.event.title':'Event','footer.event.register':'Tickets','footer.event.sponsors':'Partners','footer.event.faq':'FAQ','footer.event.contact':'Contact',
 'footer.org.title':'Organiser','footer.org.sponsorship':'Sponsorship','footer.org.press':'Press Enquiries',
-'footer.copyright':'© 2026 Beauty Expert Summit. All rights reserved.','footer.organised':'Organised by'
+'footer.partners_title':'Partners','footer.copyright':'© 2026 Beauty Expert Summit. All rights reserved.','footer.organised':'Organised by'
 },
 es:{
 'nav.program':'Programa','nav.speakers':'Ponentes','nav.venue':'Sede','nav.sponsors':'Socios','nav.faq':'FAQ','nav.contact':'Contacto','nav.register':'Entradas','nav.logo_sub':'28–29 Nov 2026 · Elche, España','mobile.register':'Entradas',
 'home.motto':'Para <em>Líderes Médicos</em>','home.tagline':'Conectando visionarios en Oftalmología, Cirugía Plástica y Cosmetología.','home.date':'28–29 de noviembre · Centro de Congresos de Elche, Alicante, España','home.cta_ticket':'Obtener Entrada','home.cta_program':'Ver Programa','home.explore':'Explorar','home.dama':'✦ La Dama de Elche te invita ✦',
-'home.why.eyebrow':'Por Qué Asistir','home.why.title':'Cuatro Razones para <em>Estar Presente</em>','home.why.lead':'Dos días diseñados en torno a lo que realmente transforma la práctica clínica — no el espectáculo por sí mismo.','home.why.r1_t':'Facultad Internacional','home.why.r1_d':'Más de 30 cirujanos y clínicos en ejercicio de España, Ucrania, Italia, Francia, Turquía y más, compartiendo casos reales.','home.why.r2_t':'Cirugía en Vivo y Wet Lab','home.why.r2_d':'Presencie una blefaroplastia con láser de CO₂ en vivo y luego fórmese en el wet lab intensivo ScalprumPro.','home.why.r3_t':'Tres Especialidades, un Escenario','home.why.r3_d':'Oftalmología, cirugía plástica y cosmetología comparten un mismo programa — el diálogo interdisciplinar que no encontrará en un congreso de una sola vía.','home.why.r4_t':'Certificado de Asistencia','home.why.r4_d':'Incluido en todas las entradas; la acreditación CME/CPD está actualmente en trámite.',
+'home.why.eyebrow':'Por Qué Asistir','home.why.title':'Cuatro Razones para <em>Estar Presente</em>','home.why.lead':'Dos días diseñados en torno a lo que realmente transforma la práctica clínica — no el espectáculo por sí mismo.','home.why.r1_t':'Temas Exclusivos','home.why.r1_d':'Sesiones que no encontrará en un programa estándar — visión artificial, córnea y retina artificiales, y neurotecnología, presentadas por quienes las están desarrollando.','home.why.r2_t':'Facultad Internacional','home.why.r2_d':'Más de 30 cirujanos y clínicos en ejercicio de España, Ucrania, Italia, Francia, Turquía y más, compartiendo casos reales.','home.why.r3_t':'Cirugía en Vivo y Wet Lab','home.why.r3_d':'Presencie una blefaroplastia con láser de CO₂ en vivo y luego fórmese en el wet lab intensivo ScalprumPro.','home.why.r4_t':'Tres Especialidades, un Escenario','home.why.r4_d':'Oftalmología, cirugía plástica y cosmetología comparten un mismo programa — el diálogo interdisciplinar que no encontrará en un congreso de una sola vía.',
 'home.spk.eyebrow':'Facultad','home.spk.title':'Conozca a los <em>Ponentes</em>','home.spk.lead':'Un claustro internacional de cirujanos y clínicos en ejercicio, organizado por especialidad.',
 'home.com.eyebrow':'Comité','home.com.title':'Comité Científico y <em>Organizador</em>','home.com.lead':'Los clínicos y organizadores que dan forma al programa científico y dirigen la cumbre.',
-'home.pgm.eyebrow':'Programa Científico','home.pgm.title':'Dos Días de <em>Excelencia</em>','home.pgm.lead':'Presentaciones de clase mundial, demostraciones en vivo y talleres interactivos en tres áreas especializadas.','home.pgm.scalprum_t':'Cirugía en Vivo con Láser de CO₂ y el Wet Lab ScalprumPro','home.pgm.scalprum_d':'Presencie una blefaroplastia en vivo el Día 1 y luego fórmese en el wet lab intensivo ScalprumPro dirigido por el Dr. Serhii Havryliuk y el Dr. Igor Janik — modelos biológicos, instrumental real, 4h 50min intensivas.','home.pgm.scalprum_btn':'Reservar Plaza en el Wet Lab','home.pgm.viewfull':'Ver Programa Completo','home.pgm.hidefull':'Ocultar Programa Completo',
+'home.pgm.eyebrow':'Programa Científico','home.pgm.title':'Dos Días de <em>Excelencia</em>','home.pgm.lead':'Presentaciones de clase mundial, demostraciones en vivo y talleres interactivos en tres áreas especializadas.','home.pgm.scalprum_t':'Cirugía en Vivo con Láser de CO₂ y el Wet Lab ScalprumPro','home.pgm.scalprum_d':'Presencie una blefaroplastia en vivo el Día 1 y luego fórmese en el wet lab intensivo ScalprumPro dirigido por el Dr. Serhii Havryliuk y el Dr. Igor Janik — modelos biológicos, instrumental real, 4h 50min intensivas.','home.pgm.scalprum_btn':'Reservar Plaza en el Wet Lab',
 'home.tix.eyebrow':'Registro','home.tix.title':'Asegure Su <em>Plaza</em>','home.tix.lead':'Precios Early Bird válidos hasta el 30 de septiembre de 2026.','home.tix.viewall':'Ver Todas las Opciones de Entrada',
 'program.eyebrow':'Programa Científico','program.title':'Dos Días de <em>Excelencia</em>','program.lead':'Presentaciones de clase mundial, demostraciones en vivo y talleres interactivos en tres áreas especializadas: Oftalmología, Cosmetología y Cirugía Plástica.','program.day1_tab':'Día 1 · 28 Nov','program.day2_tab':'Día 2 · 29 Nov','program.day1_title':'Día 1 · 28 de noviembre','program.day2_title':'Día 2 · 29 de noviembre','program.tba':'El programa completo será anunciado próximamente',
 'track.ophth':'Oftalmología','track.cosm':'Cosmetología','track.surg':'Cirugía Plástica','track.gen':'General',
@@ -3904,15 +3866,15 @@ es:{
 'footer.nav.title':'Navegar','footer.nav.home':'Inicio','footer.nav.program':'Programa','footer.nav.speakers':'Ponentes','footer.nav.venue':'Sede y Viaje',
 'footer.event.title':'Evento','footer.event.register':'Entradas','footer.event.sponsors':'Socios','footer.event.faq':'FAQ','footer.event.contact':'Contacto',
 'footer.org.title':'Organizador','footer.org.sponsorship':'Patrocinio','footer.org.press':'Consultas de Prensa',
-'footer.copyright':'© 2026 Beauty Expert Summit. Todos los derechos reservados.','footer.organised':'Organizado por'
+'footer.partners_title':'Socios','footer.copyright':'© 2026 Beauty Expert Summit. Todos los derechos reservados.','footer.organised':'Organizado por'
 },
 uk:{
 'nav.program':'Програма','nav.speakers':'Доповідачі','nav.venue':'Місце','nav.sponsors':'Партнери','nav.faq':'FAQ','nav.contact':'Контакт','nav.register':'Квитки','nav.logo_sub':'28–29 Лист 2026 · Ельче, Іспанія','mobile.register':'Квитки',
 'home.motto':'Для <em>Медичних Лідерів</em>','home.tagline':"Об'єднуємо лідерів офтальмології, пластичної хірургії та косметології.",'home.date':'28–29 листопада · Centro de Congresos de Elche, Аліканте, Іспанія','home.cta_ticket':'Отримати Квиток','home.cta_program':'Переглянути Програму','home.explore':'Досліджувати','home.dama':'✦ Дама Ельчська запрошує вас ✦',
-'home.why.eyebrow':'Чому Варто Відвідати','home.why.title':'Чотири Причини <em>Бути Тут</em>','home.why.lead':'Два дні, побудовані навколо того, що дійсно змінює клінічну практику — а не заради видовища.','home.why.r1_t':'Міжнародна Команда','home.why.r1_d':"30+ практикуючих хірургів та клініцистів з Іспанії, України, Італії, Франції, Туреччини та інших країн, які діляться реальними клінічними випадками.",'home.why.r2_t':'Хірургія Наживо та Wet Lab','home.why.r2_d':'Спостерігайте за блефаропластикою CO₂-лазером наживо, а потім тренуйтеся практично в інтенсивному wet lab ScalprumPro.','home.why.r3_t':'Три Спеціальності, Одна Сцена','home.why.r3_d':"Офтальмологія, пластична хірургія та косметологія об'єднані в одній програмі — міждисциплінарні дискусії, яких не знайти на вузькоспеціалізованому конгресі.",'home.why.r4_t':'Сертифікат Участі','home.why.r4_d':'Включено в кожен квиток; акредитація CME/CPD наразі перебуває в процесі.',
+'home.why.eyebrow':'Чому Варто Відвідати','home.why.title':'Чотири Причини <em>Бути Тут</em>','home.why.lead':'Два дні, побудовані навколо того, що дійсно змінює клінічну практику — а не заради видовища.','home.why.r1_t':'Ексклюзивні Теми','home.why.r1_d':'Сесії, яких немає у стандартній програмі — штучний зір, штучна рогівка та сітківка, нейротехнології — представлені дослідниками, які їх розробляють.','home.why.r2_t':'Міжнародна Команда','home.why.r2_d':"30+ практикуючих хірургів та клініцистів з Іспанії, України, Італії, Франції, Туреччини та інших країн, які діляться реальними клінічними випадками.",'home.why.r3_t':'Хірургія Наживо та Wet Lab','home.why.r3_d':'Спостерігайте за блефаропластикою CO₂-лазером наживо, а потім тренуйтеся практично в інтенсивному wet lab ScalprumPro.','home.why.r4_t':'Три Спеціальності, Одна Сцена','home.why.r4_d':"Офтальмологія, пластична хірургія та косметологія об'єднані в одній програмі — міждисциплінарні дискусії, яких не знайти на вузькоспеціалізованому конгресі.",
 'home.spk.eyebrow':'Факультет','home.spk.title':'Знайомтеся з <em>Доповідачами</em>','home.spk.lead':'Міжнародна команда практикуючих хірургів та клініцистів, впорядкована за спеціальністю.',
 'home.com.eyebrow':'Комітет','home.com.title':'Науковий та <em>Організаційний Комітет</em>','home.com.lead':'Клініцисти та організатори, які формують наукову програму та проводять саміт.',
-'home.pgm.eyebrow':'Наукова Програма','home.pgm.title':'Два Дні <em>Досконалості</em>','home.pgm.lead':'Доповіді світового рівня, живі демонстрації та інтерактивні майстер-класи у трьох спеціалізованих напрямках.','home.pgm.scalprum_t':'Жива хірургія CO₂-лазером та Wet Lab ScalprumPro','home.pgm.scalprum_d':"Спостерігайте за блефаропластикою наживо у День 1, а потім тренуйтеся практично в інтенсивному wet lab ScalprumPro під керівництвом д-ра Serhii Havryliuk та д-ра Igor Janik — біологічні моделі, реальні інструменти, 4г 50хв інтенсиву.",'home.pgm.scalprum_btn':'Забронювати Місце у Wet Lab','home.pgm.viewfull':'Переглянути Повну Програму','home.pgm.hidefull':'Сховати Повну Програму',
+'home.pgm.eyebrow':'Наукова Програма','home.pgm.title':'Два Дні <em>Досконалості</em>','home.pgm.lead':'Доповіді світового рівня, живі демонстрації та інтерактивні майстер-класи у трьох спеціалізованих напрямках.','home.pgm.scalprum_t':'Жива хірургія CO₂-лазером та Wet Lab ScalprumPro','home.pgm.scalprum_d':"Спостерігайте за блефаропластикою наживо у День 1, а потім тренуйтеся практично в інтенсивному wet lab ScalprumPro під керівництвом д-ра Serhii Havryliuk та д-ра Igor Janik — біологічні моделі, реальні інструменти, 4г 50хв інтенсиву.",'home.pgm.scalprum_btn':'Забронювати Місце у Wet Lab',
 'home.tix.eyebrow':'Реєстрація','home.tix.title':'Забронюйте Своє <em>Місце</em>','home.tix.lead':'Ціни Early Bird дійсні до 30 вересня 2026 року.','home.tix.viewall':'Переглянути Всі Варіанти Квитків',
 'program.eyebrow':'Наукова Програма','program.title':'Два Дні <em>Досконалості</em>','program.lead':'Доповіді світового рівня, живі демонстрації та інтерактивні майстер-класи у трьох спеціалізованих напрямках: офтальмологія, косметологія та пластична хірургія.','program.day1_tab':'День 1 · 28 Лист','program.day2_tab':'День 2 · 29 Лист','program.day1_title':'День 1 · 28 листопада','program.day2_title':'День 2 · 29 листопада','program.tba':'Повна програма буде оголошена найближчим часом',
 'track.ophth':'Офтальмологія','track.cosm':'Косметологія','track.surg':'Пластична Хірургія','track.gen':'Загальне',
@@ -3945,7 +3907,7 @@ uk:{
 'footer.nav.title':'Навігація','footer.nav.home':'Головна','footer.nav.program':'Програма','footer.nav.speakers':'Доповідачі','footer.nav.venue':'Місце та Подорож',
 'footer.event.title':'Подія','footer.event.register':'Квитки','footer.event.sponsors':'Партнери','footer.event.faq':'FAQ','footer.event.contact':'Контакт',
 'footer.org.title':'Організатор','footer.org.sponsorship':'Спонсорство','footer.org.press':'Запити ЗМІ',
-'footer.copyright':'© 2026 Beauty Expert Summit. Усі права захищені.','footer.organised':'Організовано'
+'footer.partners_title':'Партнери','footer.copyright':'© 2026 Beauty Expert Summit. Усі права захищені.','footer.organised':'Організовано'
 }
 };
 var currentLang = localStorage.getItem('lang') || 'en';

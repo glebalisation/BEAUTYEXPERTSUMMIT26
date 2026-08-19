@@ -587,12 +587,15 @@ nav {
   position: relative;
   border-radius: 18px;
   margin-bottom: 40px;
-  animation: scalprumPulse 4s ease-in-out infinite;
+  animation: scalprumPulse 3s ease-in-out infinite;
 }
 .scalprum-banner-inner {
   border-radius: 18px;
-  border: 1px solid rgba(124,107,214,0.5);
-  background: linear-gradient(160deg, rgba(124,107,214,0.18), rgba(13,27,42,0.94));
+  border: 1px solid rgba(124,107,214,0.6);
+  background:
+    radial-gradient(120% 160% at 0% 0%, rgba(124,107,214,0.35), transparent 60%),
+    radial-gradient(120% 160% at 100% 100%, rgba(79,216,255,0.18), transparent 60%),
+    linear-gradient(160deg, #1a1140 0%, #0e1330 55%, #060911 100%);
   display: grid;
   grid-template-columns: 1fr 1.3fr;
   align-items: center;
@@ -600,7 +603,7 @@ nav {
 }
 .scalprum-banner-media {
   display: flex; align-items: center; justify-content: center;
-  background: rgba(13,27,42,0.5);
+  background: rgba(6,9,17,0.5);
   padding: 16px;
 }
 .scalprum-banner-media img {
@@ -620,15 +623,33 @@ nav {
   max-width: 640px;
   margin-bottom: 22px;
 }
+.btn-neon-blue {
+  padding: 14px 32px;
+  border-radius: 6px;
+  font-size: 13px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  font-family: var(--ff-body);
+  border: 1px solid #5fe3ff;
+  color: #8fedff;
+  background: rgba(95,227,255,0.08);
+  cursor: pointer;
+  animation: neonPulse 1.8s ease-in-out infinite;
+  transition: var(--transition);
+}
+.btn-neon-blue:hover { background: rgba(95,227,255,0.2); color: #ffffff; }
 @keyframes scalprumPulse {
-  0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(201,169,110,0.25), 0 0 50px rgba(124,107,214,0.15); }
-  50% { transform: scale(1.015); box-shadow: 0 0 36px rgba(201,169,110,0.55), 0 0 84px rgba(124,107,214,0.4); }
+  0%, 100% { transform: scale(1); box-shadow: 0 0 28px rgba(201,169,110,0.35), 0 0 70px rgba(124,107,214,0.25), 0 0 110px rgba(79,216,255,0.1); }
+  50% { transform: scale(1.025); box-shadow: 0 0 55px rgba(201,169,110,0.7), 0 0 130px rgba(124,107,214,0.55), 0 0 190px rgba(79,216,255,0.3); }
+}
+@keyframes neonPulse {
+  0%, 100% { box-shadow: 0 0 8px rgba(95,227,255,0.5), 0 0 22px rgba(95,227,255,0.3), inset 0 0 10px rgba(95,227,255,0.15); text-shadow: 0 0 6px rgba(95,227,255,0.7); }
+  50% { box-shadow: 0 0 18px rgba(95,227,255,0.95), 0 0 46px rgba(95,227,255,0.6), inset 0 0 16px rgba(95,227,255,0.35); text-shadow: 0 0 14px rgba(95,227,255,1); }
 }
 @media (max-width: 700px) {
   .scalprum-banner-inner { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .scalprum-banner { animation: none; }
+  .scalprum-banner, .btn-neon-blue { animation: none; }
 }
 
 /* ── PROGRAM ── */
@@ -2332,7 +2353,7 @@ footer {
           <span class="ticket-badge" style="position:static;display:inline-block;margin-bottom:14px;" data-i18n="pgm.badge_live">Live Surgery</span>
           <h3 data-i18n-html="home.pgm.scalprum_t">Live CO₂ Laser Surgery &amp; the ScalprumPro Wet Lab</h3>
           <p data-i18n="home.pgm.scalprum_d">Watch live blepharoplasty on Day 1, then train hands-on in the ScalprumPro intensive wet lab led by Dr. Serhii Havryliuk &amp; Dr. Igor Janik — biological models, real instruments, 4h 50min intensive.</p>
-          <button class="btn-outline" onclick="showPage('register')" data-i18n="home.pgm.scalprum_btn">Reserve a Wet Lab Seat</button>
+          <button class="btn-neon-blue" onclick="showPage('register')" data-i18n="home.pgm.scalprum_btn">Reserve a Wet Lab Seat</button>
         </div>
       </div>
     </div>

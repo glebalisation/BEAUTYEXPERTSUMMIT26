@@ -162,6 +162,8 @@ nav {
 }
 #page-home.active { display: block; }
 
+.home-hero { position: relative; overflow: hidden; }
+
 .hero-orb {
   position: absolute;
   border-radius: 50%;
@@ -525,6 +527,42 @@ nav {
   width: 100%; height: 1px;
   background: var(--border);
   margin: 0;
+}
+
+/* ── HOME HIGHLIGHTS ── */
+.home-highlights {
+  position: relative; z-index: 1;
+  background: var(--navy-deep);
+  border-top: 1px solid var(--border);
+}
+
+.reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.reason-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 32px 26px;
+  background: rgba(13,27,42,0.6);
+  transition: var(--transition);
+}
+.reason-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+.reason-mark { font-size: 15px; color: var(--gold); margin-bottom: 18px; }
+.reason-card h3 {
+  font-family: var(--ff-display);
+  font-size: 19px; font-weight: 400;
+  color: var(--gold-light);
+  margin-bottom: 10px; line-height: 1.25;
+}
+.reason-card p { font-size: 13px; line-height: 1.6; color: var(--text-muted); }
+
+@media (max-width: 900px) {
+  .reasons-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .reasons-grid { grid-template-columns: 1fr; }
 }
 
 /* ── PROGRAM ── */
@@ -1924,6 +1962,7 @@ footer {
 
 <!-- ══════════ HOME ══════════ -->
 <div class="page active" id="page-home">
+<div class="home-hero">
   <canvas id="mesh-canvas" aria-hidden="true"></canvas>
   <div class="hero-orb hero-orb-1"></div>
   <div class="hero-orb hero-orb-2"></div>
@@ -1980,10 +2019,151 @@ footer {
     <div class="dama-quote-text" id="damaQuote" data-i18n="home.dama">✦ La Dama de Elche invites you ✦</div>
   </div>
 
-  <div class="scroll-indicator" onclick="showPage('program')">
+  <div class="scroll-indicator" onclick="document.getElementById('home-highlights').scrollIntoView({behavior:'smooth'})">
     <span data-i18n="home.explore">Explore</span>
     <div class="scroll-arrow"></div>
   </div>
+</div>
+
+<!-- ══════════ HOME HIGHLIGHTS (Why Attend / Speakers / Tickets) ══════════ -->
+<div id="home-highlights" class="home-highlights">
+
+  <section class="section-inner">
+    <div class="section-eyebrow" data-i18n="home.why.eyebrow">Why Attend</div>
+    <h2 class="section-title" data-i18n-html="home.why.title">Four Reasons to <em>Be in the Room</em></h2>
+    <p class="section-lead" data-i18n="home.why.lead">Two days built around what actually changes clinical practice — not spectacle for its own sake.</p>
+    <div class="reasons-grid">
+      <div class="reason-card">
+        <div class="reason-mark">✦</div>
+        <h3 data-i18n="home.why.r1_t">International Faculty</h3>
+        <p data-i18n="home.why.r1_d">30+ practicing surgeons and clinicians from Spain, Ukraine, Italy, France, Turkey and beyond, sharing real case data.</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-mark">✦</div>
+        <h3 data-i18n="home.why.r2_t">Live Surgery &amp; Wet Lab</h3>
+        <p data-i18n="home.why.r2_d">Watch CO₂ laser blepharoplasty performed live, then train hands-on in the ScalprumPro intensive wet lab.</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-mark">✦</div>
+        <h3 data-i18n="home.why.r3_t">Three Specialties, One Stage</h3>
+        <p data-i18n="home.why.r3_d">Ophthalmology, plastic surgery and cosmetology share a single program — cross-disciplinary conversations you won't find at a single-track congress.</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-mark">✦</div>
+        <h3 data-i18n="home.why.r4_t">Certificate of Attendance</h3>
+        <p data-i18n="home.why.r4_d">Included with every ticket, with CME/CPD accreditation currently in process.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-inner" style="padding-top:0;">
+    <div class="section-eyebrow" data-i18n="home.spk.eyebrow">Faculty</div>
+    <h2 class="section-title" data-i18n-html="home.spk.title">Meet Some of the <em>Speakers</em></h2>
+    <p class="section-lead" data-i18n="home.spk.lead">A preview of the international faculty confirmed for Beauty Expert Summit 2026.</p>
+    <div class="speakers-grid">
+      <div class="speaker-card">
+        <div class="speaker-photo"><img src="/IDENTITY/SPEAKERS/Jorge_Alió,_MD,_PhD,_Ophtalmologist,_President_of_the_European.png" alt="Jorge Alió" loading="lazy"><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-info">
+          <div class="speaker-name">Jorge Alió</div>
+          <div class="speaker-role">MD, PhD · Ophthalmologist<br>President, European Academy of Ophthalmology · Spain</div>
+          <span class="speaker-tag track-ophth">Ophthalmology</span>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-photo"><img src="/IDENTITY/SPEAKERS/1.Serhii Havryliuk, MD, Ophthalmologist, plastic surgeon, President UGAMC, Ukraine.png" alt="Serhii Havryliuk" loading="lazy"><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-info">
+          <div class="speaker-name">Serhii Havryliuk</div>
+          <div class="speaker-role">MD · Ophthalmologist &amp; Plastic Surgeon<br>President UGAMC · Ukraine · Albania</div>
+          <span class="speaker-tag track-ophth">Ophthalmology</span>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-photo"><img src="/IDENTITY/SPEAKERS/Alejandra Amesty, MD, Oculoplastic Surgeon, Spain.png" alt="Alejandra Amesty" loading="lazy"><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-info">
+          <div class="speaker-name">Alejandra Amesty</div>
+          <div class="speaker-role">MD · Oculoplastic Surgeon<br>Spain</div>
+          <span class="speaker-tag track-surg">Plastic Surgery</span>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-photo"><img src="/IDENTITY/SPEAKERS/4.Agassi Charchoglyan, MD, Plastic Surgeon, Spain.png" alt="Agassi Charchoglyan" loading="lazy"><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-info">
+          <div class="speaker-name">Agassi Charchoglyan</div>
+          <div class="speaker-role">MD · Plastic Surgeon<br>Spain</div>
+          <span class="speaker-tag track-surg">Plastic Surgery</span>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-photo"><img src="/IDENTITY/SPEAKERS/7.Ivo Durkovic MD, Ophthalmologist, President IARPS, Slovakia.png" alt="Ivo Durkovic" loading="lazy"><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-info">
+          <div class="speaker-name">Ivo Durkovic</div>
+          <div class="speaker-role">MD · Ophthalmologist<br>President IARPS · Austria / Slovakia</div>
+          <span class="speaker-tag track-ophth">Ophthalmology</span>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-photo"><img src="/IDENTITY/SPEAKERS/9.Igor Janik, MD, Plastic surgeon, Czech Republic.png" alt="Igor Janik" loading="lazy"><div class="speaker-photo-overlay"></div></div>
+        <div class="speaker-info">
+          <div class="speaker-name">Igor Janik</div>
+          <div class="speaker-role">MD, PhD · Plastic Surgeon<br>Czech Republic</div>
+          <span class="speaker-tag track-surg">Plastic Surgery</span>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:40px;text-align:center;">
+      <button class="btn-outline" onclick="showPage('speakers')" data-i18n="home.spk.viewall">View All Speakers</button>
+    </div>
+  </section>
+
+  <section class="section-inner" style="padding-top:0;">
+    <div class="section-eyebrow" data-i18n="home.tix.eyebrow">Registration</div>
+    <h2 class="section-title" data-i18n-html="home.tix.title">Secure Your <em>Seat</em></h2>
+    <p class="section-lead" data-i18n="home.tix.lead">Early Bird pricing valid until 30 September 2026.</p>
+    <div class="ticket-group-row">
+      <div class="ticket-card featured" data-glow>
+        <span class="ticket-badge" data-i18n="ticket.popular">MOST POPULAR</span>
+        <div class="ticket-type" data-i18n="ticket.2day_type">Early Bird</div>
+        <div class="ticket-name" data-i18n="ticket.2day_name">2-Day Delegate</div>
+        <div class="ticket-price"><span>€</span>340</div>
+        <div class="ticket-price-note" data-i18n="ticket.2day_note">Final price €400 · Save €60</div>
+        <ul class="ticket-features">
+          <li data-i18n="ticket.2day_f1">Access to all sessions — both days</li>
+          <li data-i18n="ticket.2day_f4">Certificate of attendance</li>
+          <li data-i18n="ticket.2day_f5">Access to recorded sessions</li>
+        </ul>
+        <a href="https://buy.stripe.com/00w28sbSM6oo3MkdzugEg0T" target="_blank" class="btn-ticket" style="display:block;text-align:center;text-decoration:none;" data-i18n="ticket.buy_now">Buy Now — Stripe</a>
+      </div>
+      <div class="ticket-card" data-glow>
+        <div class="ticket-type" data-i18n="ticket.1day_type">Early Bird</div>
+        <div class="ticket-name" data-i18n="ticket.1day_name">1-Day Delegate</div>
+        <div class="ticket-price"><span>€</span>200</div>
+        <div class="ticket-price-note" data-i18n="ticket.1day_note">Final price €250 · Save €50</div>
+        <ul class="ticket-features">
+          <li data-i18n="ticket.1day_f1">Access to all sessions on Nov 28 or Nov 29 — your choice</li>
+          <li data-i18n="ticket.1day_f4">Coffee breaks included</li>
+          <li data-i18n="ticket.1day_f5">Certificate of attendance</li>
+        </ul>
+        <a href="https://buy.stripe.com/8x2aEY8GA000aaIfHCgEg0P" target="_blank" class="btn-ticket" style="display:block;text-align:center;text-decoration:none;" data-i18n="ticket.buy_now">Buy Now — Stripe</a>
+      </div>
+      <div class="ticket-card" data-glow>
+        <div class="ticket-type" data-i18n="ticket.online_type">Early Bird</div>
+        <div class="ticket-name" data-i18n="ticket.online_name">Online</div>
+        <div class="ticket-price"><span>€</span>99</div>
+        <div class="ticket-price-note" data-i18n="ticket.online_note">Final price €150 · Save €51</div>
+        <ul class="ticket-features">
+          <li data-i18n="ticket.online_f1">Live stream — both days</li>
+          <li data-i18n="ticket.online_f3">Web certificate of attendance</li>
+          <li data-i18n="ticket.online_f4">Access to recorded sessions</li>
+        </ul>
+        <a href="https://buy.stripe.com/00wbJ24qkfYY0A87b6gEg0R" target="_blank" class="btn-ticket" style="display:block;text-align:center;text-decoration:none;" data-i18n="ticket.buy_now">Buy Now — Stripe</a>
+      </div>
+    </div>
+    <div style="margin-top:40px;text-align:center;">
+      <button class="btn-outline" onclick="showPage('register')" data-i18n="home.tix.viewall">View All Ticket Options</button>
+    </div>
+  </section>
+
+</div>
 </div>
 
 <!-- ══════════ PROGRAM ══════════ -->
@@ -3262,6 +3442,9 @@ var i18n = {
 en:{
 'nav.program':'Program','nav.speakers':'Speakers','nav.venue':'Venue','nav.sponsors':'Partners','nav.faq':'FAQ','nav.contact':'Contact','nav.register':'Tickets','nav.logo_sub':'28–29 Nov 2026 · Elche, Spain','mobile.register':'Tickets',
 'home.motto':'Built for <em>Medical Leaders</em>','home.tagline':'Connecting Visionaries Across Ophthalmology, Plastic Surgery, and Cosmetology.','home.date':'28–29 November · Centro de Congresos de Elche, Alicante, Spain','home.cta_ticket':'Get Your Ticket','home.cta_program':'View Program','home.explore':'Explore','home.dama':'✦ La Dama de Elche invites you ✦',
+'home.why.eyebrow':'Why Attend','home.why.title':'Four Reasons to <em>Be in the Room</em>','home.why.lead':'Two days built around what actually changes clinical practice — not spectacle for its own sake.','home.why.r1_t':'International Faculty','home.why.r1_d':'30+ practicing surgeons and clinicians from Spain, Ukraine, Italy, France, Turkey and beyond, sharing real case data.','home.why.r2_t':'Live Surgery & Wet Lab','home.why.r2_d':'Watch CO₂ laser blepharoplasty performed live, then train hands-on in the ScalprumPro intensive wet lab.','home.why.r3_t':'Three Specialties, One Stage','home.why.r3_d':'Ophthalmology, plastic surgery and cosmetology share a single program — cross-disciplinary conversations you won\'t find at a single-track congress.','home.why.r4_t':'Certificate of Attendance','home.why.r4_d':'Included with every ticket, with CME/CPD accreditation currently in process.',
+'home.spk.eyebrow':'Faculty','home.spk.title':'Meet Some of the <em>Speakers</em>','home.spk.lead':'A preview of the international faculty confirmed for Beauty Expert Summit 2026.','home.spk.viewall':'View All Speakers',
+'home.tix.eyebrow':'Registration','home.tix.title':'Secure Your <em>Seat</em>','home.tix.lead':'Early Bird pricing valid until 30 September 2026.','home.tix.viewall':'View All Ticket Options',
 'program.eyebrow':'Scientific Program','program.title':'Two Days of <em>Excellence</em>','program.lead':'World-class presentations, live demonstrations and interactive workshops across three specialist tracks: Ophthalmology, Cosmetology, and Plastic Surgery.','program.day1_tab':'Day 1 · 28 Nov','program.day2_tab':'Day 2 · 29 Nov','program.day1_title':'Day 1 · 28 November','program.day2_title':'Day 2 · 29 November','program.tba':'Full program details to be announced',
 'track.ophth':'Ophthalmology','track.cosm':'Cosmetology','track.surg':'Plastic Surgery','track.gen':'General',
 'speakers.eyebrow':'Faculty','speakers.title':'Meet the <em>Speakers</em>','speakers.lead':'An international faculty of practicing surgeons, clinicians and innovators at the forefront of ophthalmology, aesthetic medicine and surgery.','speakers.tba_text':'More speakers<br>to be announced','speakers.tba_name':'Coming Soon','speakers.tba_role':'Additional faculty<br>to be confirmed','speakers.inquiry':'Interested in speaking at Beauty Expert Summit 2026?','speakers.inquiry_btn':'Submit Speaker Inquiry',
@@ -3298,6 +3481,9 @@ en:{
 es:{
 'nav.program':'Programa','nav.speakers':'Ponentes','nav.venue':'Sede','nav.sponsors':'Socios','nav.faq':'FAQ','nav.contact':'Contacto','nav.register':'Entradas','nav.logo_sub':'28–29 Nov 2026 · Elche, España','mobile.register':'Entradas',
 'home.motto':'Para <em>Líderes Médicos</em>','home.tagline':'Conectando visionarios en Oftalmología, Cirugía Plástica y Cosmetología.','home.date':'28–29 de noviembre · Centro de Congresos de Elche, Alicante, España','home.cta_ticket':'Obtener Entrada','home.cta_program':'Ver Programa','home.explore':'Explorar','home.dama':'✦ La Dama de Elche te invita ✦',
+'home.why.eyebrow':'Por Qué Asistir','home.why.title':'Cuatro Razones para <em>Estar Presente</em>','home.why.lead':'Dos días diseñados en torno a lo que realmente transforma la práctica clínica — no el espectáculo por sí mismo.','home.why.r1_t':'Facultad Internacional','home.why.r1_d':'Más de 30 cirujanos y clínicos en ejercicio de España, Ucrania, Italia, Francia, Turquía y más, compartiendo casos reales.','home.why.r2_t':'Cirugía en Vivo y Wet Lab','home.why.r2_d':'Presencie una blefaroplastia con láser de CO₂ en vivo y luego fórmese en el wet lab intensivo ScalprumPro.','home.why.r3_t':'Tres Especialidades, un Escenario','home.why.r3_d':'Oftalmología, cirugía plástica y cosmetología comparten un mismo programa — el diálogo interdisciplinar que no encontrará en un congreso de una sola vía.','home.why.r4_t':'Certificado de Asistencia','home.why.r4_d':'Incluido en todas las entradas; la acreditación CME/CPD está actualmente en trámite.',
+'home.spk.eyebrow':'Facultad','home.spk.title':'Conozca a Algunos <em>Ponentes</em>','home.spk.lead':'Un adelanto de la facultad internacional confirmada para Beauty Expert Summit 2026.','home.spk.viewall':'Ver Todos los Ponentes',
+'home.tix.eyebrow':'Registro','home.tix.title':'Asegure Su <em>Plaza</em>','home.tix.lead':'Precios Early Bird válidos hasta el 30 de septiembre de 2026.','home.tix.viewall':'Ver Todas las Opciones de Entrada',
 'program.eyebrow':'Programa Científico','program.title':'Dos Días de <em>Excelencia</em>','program.lead':'Presentaciones de clase mundial, demostraciones en vivo y talleres interactivos en tres áreas especializadas: Oftalmología, Cosmetología y Cirugía Plástica.','program.day1_tab':'Día 1 · 28 Nov','program.day2_tab':'Día 2 · 29 Nov','program.day1_title':'Día 1 · 28 de noviembre','program.day2_title':'Día 2 · 29 de noviembre','program.tba':'El programa completo será anunciado próximamente',
 'track.ophth':'Oftalmología','track.cosm':'Cosmetología','track.surg':'Cirugía Plástica','track.gen':'General',
 'speakers.eyebrow':'Facultad','speakers.title':'Conozca a los <em>Ponentes</em>','speakers.lead':'Un claustro internacional de cirujanos en ejercicio, clínicos e innovadores a la vanguardia de la oftalmología, la medicina estética y la cirugía.','speakers.tba_text':'Más ponentes<br>por anunciar','speakers.tba_name':'Próximamente','speakers.tba_role':'Profesorado adicional<br>por confirmar','speakers.inquiry':'¿Interesado en hablar en Beauty Expert Summit 2026?','speakers.inquiry_btn':'Enviar Solicitud de Ponente',
@@ -3334,6 +3520,9 @@ es:{
 uk:{
 'nav.program':'Програма','nav.speakers':'Доповідачі','nav.venue':'Місце','nav.sponsors':'Партнери','nav.faq':'FAQ','nav.contact':'Контакт','nav.register':'Квитки','nav.logo_sub':'28–29 Лист 2026 · Ельче, Іспанія','mobile.register':'Квитки',
 'home.motto':'Для <em>Медичних Лідерів</em>','home.tagline':"Об'єднуємо лідерів офтальмології, пластичної хірургії та косметології.",'home.date':'28–29 листопада · Centro de Congresos de Elche, Аліканте, Іспанія','home.cta_ticket':'Отримати Квиток','home.cta_program':'Переглянути Програму','home.explore':'Досліджувати','home.dama':'✦ Дама Ельчська запрошує вас ✦',
+'home.why.eyebrow':'Чому Варто Відвідати','home.why.title':'Чотири Причини <em>Бути Тут</em>','home.why.lead':'Два дні, побудовані навколо того, що дійсно змінює клінічну практику — а не заради видовища.','home.why.r1_t':'Міжнародна Команда','home.why.r1_d':"30+ практикуючих хірургів та клініцистів з Іспанії, України, Італії, Франції, Туреччини та інших країн, які діляться реальними клінічними випадками.",'home.why.r2_t':'Хірургія Наживо та Wet Lab','home.why.r2_d':'Спостерігайте за блефаропластикою CO₂-лазером наживо, а потім тренуйтеся практично в інтенсивному wet lab ScalprumPro.','home.why.r3_t':'Три Спеціальності, Одна Сцена','home.why.r3_d':"Офтальмологія, пластична хірургія та косметологія об'єднані в одній програмі — міждисциплінарні дискусії, яких не знайти на вузькоспеціалізованому конгресі.",'home.why.r4_t':'Сертифікат Участі','home.why.r4_d':'Включено в кожен квиток; акредитація CME/CPD наразі перебуває в процесі.',
+'home.spk.eyebrow':'Факультет','home.spk.title':'Знайомтеся з Деякими <em>Доповідачами</em>','home.spk.lead':'Попередній перегляд міжнародної команди, підтвердженої для Beauty Expert Summit 2026.','home.spk.viewall':'Переглянути Всіх Доповідачів',
+'home.tix.eyebrow':'Реєстрація','home.tix.title':'Забронюйте Своє <em>Місце</em>','home.tix.lead':'Ціни Early Bird дійсні до 30 вересня 2026 року.','home.tix.viewall':'Переглянути Всі Варіанти Квитків',
 'program.eyebrow':'Наукова Програма','program.title':'Два Дні <em>Досконалості</em>','program.lead':'Доповіді світового рівня, живі демонстрації та інтерактивні майстер-класи у трьох спеціалізованих напрямках: офтальмологія, косметологія та пластична хірургія.','program.day1_tab':'День 1 · 28 Лист','program.day2_tab':'День 2 · 29 Лист','program.day1_title':'День 1 · 28 листопада','program.day2_title':'День 2 · 29 листопада','program.tba':'Повна програма буде оголошена найближчим часом',
 'track.ophth':'Офтальмологія','track.cosm':'Косметологія','track.surg':'Пластична Хірургія','track.gen':'Загальне',
 'speakers.eyebrow':'Факультет','speakers.title':'Знайомтеся з <em>Доповідачами</em>','speakers.lead':'Міжнародна команда практикуючих хірургів, клініцистів та інноваторів у галузі офтальмології, естетичної медицини та хірургії.','speakers.tba_text':'Більше доповідачів<br>буде оголошено','speakers.tba_name':'Незабаром','speakers.tba_role':'Додатковий склад<br>буде підтверджено','speakers.inquiry':'Бажаєте виступити на Beauty Expert Summit 2026?','speakers.inquiry_btn':'Подати Заявку Доповідача',

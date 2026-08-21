@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /registration-details
+
+Sitemap: https://beautyexpertsummit.com/sitemap.xml

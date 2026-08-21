@@ -122,16 +122,25 @@ header {
   border-bottom: 1px solid var(--border);
   padding: 20px 0;
 }
-.header-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.header-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
 .brand img { width: 34px; height: 34px; border-radius: 50%; }
 .brand-name { font-family: var(--ff-display); font-size: 18px; color: var(--gold-light); }
+.header-right { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.lang-switch { display: flex; gap: 4px; }
+.lang-btn {
+  background: none; border: 1px solid var(--border); border-radius: 4px;
+  color: var(--text-muted); font-family: var(--ff-body); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.05em; padding: 5px 9px; cursor: pointer; transition: var(--transition);
+}
+.lang-btn.active, .lang-btn:hover { color: var(--gold); border-color: var(--gold); }
 .back-link {
   font-size: 13px; letter-spacing: 0.05em;
   color: var(--gold); text-decoration: none;
   border: 1px solid var(--border); border-radius: 6px;
   padding: 8px 16px;
   transition: var(--transition);
+  white-space: nowrap;
 }
 .back-link:hover { border-color: var(--gold); }
 
@@ -170,6 +179,14 @@ h2 {
 }
 p { font-size: 15px; line-height: 1.75; color: var(--text-muted); margin-bottom: 14px; }
 p:last-child { margin-bottom: 0; }
+
+.video-wrap {
+  max-width: 420px; margin: 0 auto;
+  border-radius: 16px; overflow: hidden;
+  border: 1px solid var(--border);
+  background: #000;
+}
+.video-wrap video { width: 100%; max-height: 80vh; display: block; }
 
 .format-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 24px; }
 .format-card {
@@ -242,49 +259,67 @@ footer { padding: 32px 0 48px; }
       <img src="/IDENTITY/ugamc circle.png" alt="UGAMC">
       <span class="brand-name">Beauty Expert Summit</span>
     </a>
-    <a class="back-link" href="/">← Back to Beauty Expert Summit 2026</a>
+    <div class="header-right">
+      <div class="lang-switch">
+        <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" data-lang="es" onclick="setLang('es')">ES</button>
+        <button class="lang-btn" data-lang="uk" onclick="setLang('uk')">UK</button>
+      </div>
+      <a class="back-link" href="/" data-i18n="back_link">← Back to Beauty Expert Summit 2026</a>
+    </div>
   </div>
 </header>
 
 <div class="hero">
   <div class="wrap">
-    <div class="eyebrow">Hands-On Surgical Masterclass · Alicante, Spain</div>
-    <h1>CO₂ Laser Blepharoplasty Training — ScalprumPro Wet Lab</h1>
-    <p class="hero-lead">An intensive, hands-on CO2 laser blepharoplasty course for practicing ophthalmologists, plastic surgeons and oculoplastic surgeons — live demonstration, biological-model wet lab, and real instruments, led by Dr. Serhii Havryliuk and Dr. Igor Janik at VISSUM Clinic, Alicante, on 29 November 2026.</p>
+    <div class="eyebrow" data-i18n="eyebrow">Hands-On Surgical Masterclass · Alicante, Spain</div>
+    <h1 data-i18n="h1">CO₂ Laser Blepharoplasty Training — ScalprumPro Wet Lab</h1>
+    <p class="hero-lead" data-i18n="hero_lead">An intensive, hands-on CO2 laser blepharoplasty course for practicing ophthalmologists, plastic surgeons and oculoplastic surgeons — live demonstration, biological-model wet lab, and real instruments, led by Dr. Serhii Havryliuk and Dr. Igor Janik at VISSUM Clinic, Alicante, on 29 November 2026.</p>
   </div>
 </div>
 
 <section>
   <div class="wrap">
-    <h2>What Is CO2 Laser Blepharoplasty Training?</h2>
-    <p>ScalprumPro is Beauty Expert Summit's advanced blepharoplasty training track — a practical masterclass in CO2 laser eyelid surgery, built around the same live-surgery faculty presenting on the summit's main stage. Rather than a lecture-only course, it is a hands-on blepharoplasty training day: theory in the morning, a live video demonstration, then direct practice on biological models under expert supervision.</p>
-    <p>It's designed for surgeons who already perform eyelid or periorbital procedures and want structured, supervised experience with CO2 laser technique specifically — laser setup, tissue handling, complication prevention, and the surgical algorithms that differ from blade-based blepharoplasty.</p>
+    <h2 data-i18n="reel_title">Watch the ScalprumPro Wet Lab</h2>
+    <div class="video-wrap">
+      <video controls autoplay muted loop playsinline preload="metadata" poster="/IDENTITY/CO2 BLEPHAROPLASTY.PNG">
+        <source src="/IDENTITY/SCALPRUMPRO_reel.mp4" type="video/mp4">
+      </video>
+    </div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <h2>Course Format</h2>
+    <h2 data-i18n="s1_h2">What Is CO2 Laser Blepharoplasty Training?</h2>
+    <p data-i18n="s1_p1">ScalprumPro is Beauty Expert Summit's advanced blepharoplasty training track — a practical masterclass in CO2 laser eyelid surgery, built around the same live-surgery faculty presenting on the summit's main stage. Rather than a lecture-only course, it is a hands-on blepharoplasty training day: theory in the morning, a live video demonstration, then direct practice on biological models under expert supervision.</p>
+    <p data-i18n="s1_p2">It's designed for surgeons who already perform eyelid or periorbital procedures and want structured, supervised experience with CO2 laser technique specifically — laser setup, tissue handling, complication prevention, and the surgical algorithms that differ from blade-based blepharoplasty.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 data-i18n="s2_h2">Course Format</h2>
     <div class="format-grid">
       <div class="format-card">
         <div class="format-time">1h 20min</div>
-        <div class="format-title">Plenary Session</div>
-        <div class="format-desc">Theory, surgical algorithms, laser safety, and complication prevention & management.</div>
+        <div class="format-title" data-i18n="f1_title">Plenary Session</div>
+        <div class="format-desc" data-i18n="f1_desc">Theory, surgical algorithms, laser safety, and complication prevention &amp; management.</div>
       </div>
       <div class="format-card">
         <div class="format-time">40min</div>
-        <div class="format-title">Video Session / Live Demonstration</div>
-        <div class="format-desc">Step-by-step procedure review with expert discussion.</div>
+        <div class="format-title" data-i18n="f2_title">Video Session / Live Demonstration</div>
+        <div class="format-desc" data-i18n="f2_desc">Step-by-step procedure review with expert discussion.</div>
       </div>
       <div class="format-card">
         <div class="format-time">2h 10min</div>
-        <div class="format-title">Hands-On Wet Lab</div>
-        <div class="format-desc">Biological model: laser setup, simulated surgery, advanced techniques.</div>
+        <div class="format-title" data-i18n="f3_title">Hands-On Wet Lab</div>
+        <div class="format-desc" data-i18n="f3_desc">Biological model: laser setup, simulated surgery, advanced techniques.</div>
       </div>
       <div class="format-card">
         <div class="format-time">40min</div>
-        <div class="format-title">Simulation & Discussion</div>
-        <div class="format-desc">Full-procedure simulation, case analysis, round-table.</div>
+        <div class="format-title" data-i18n="f4_title">Simulation &amp; Discussion</div>
+        <div class="format-desc" data-i18n="f4_desc">Full-procedure simulation, case analysis, round-table.</div>
       </div>
     </div>
   </div>
@@ -292,20 +327,20 @@ footer { padding: 32px 0 48px; }
 
 <section>
   <div class="wrap">
-    <h2>Led By</h2>
+    <h2 data-i18n="s3_h2">Led By</h2>
     <div class="instructors">
       <div class="instructor-card">
         <img src="/IDENTITY/SPEAKERS/1.Serhii Havryliuk, MD, Ophthalmologist, plastic surgeon, President UGAMC, Ukraine.png" alt="Dr. Serhii Havryliuk">
         <div class="instructor-info">
           <div class="instructor-name">Dr. Serhii Havryliuk</div>
-          <div class="instructor-role">MD · Ophthalmologist &amp; Plastic Surgeon<br>President, UGAMC · Ukraine</div>
+          <div class="instructor-role" data-i18n-html="havryliuk_role">MD · Ophthalmologist &amp; Plastic Surgeon<br>President, UGAMC · Ukraine</div>
         </div>
       </div>
       <div class="instructor-card">
         <img src="/IDENTITY/SPEAKERS/9.Igor Janik, MD, Plastic surgeon, Czech Republic.png" alt="Dr. Igor Janik">
         <div class="instructor-info">
           <div class="instructor-name">Dr. Igor Janik</div>
-          <div class="instructor-role">MD, PhD · Plastic Surgeon<br>Czech Republic</div>
+          <div class="instructor-role" data-i18n-html="janik_role">MD, PhD · Plastic Surgeon<br>Czech Republic</div>
         </div>
       </div>
     </div>
@@ -314,69 +349,69 @@ footer { padding: 32px 0 48px; }
 
 <section>
   <div class="wrap">
-    <h2>Where &amp; When</h2>
+    <h2 data-i18n="s4_h2">Where &amp; When</h2>
     <div class="details-grid">
       <div>
-        <div class="detail-label">Location</div>
-        <div class="detail-value">VISSUM Clinic, Alicante, Spain</div>
+        <div class="detail-label" data-i18n="lbl_location">Location</div>
+        <div class="detail-value" data-i18n="val_location">VISSUM Clinic, Alicante, Spain</div>
       </div>
       <div>
-        <div class="detail-label">Date</div>
-        <div class="detail-value">29 November 2026</div>
+        <div class="detail-label" data-i18n="lbl_date">Date</div>
+        <div class="detail-value" data-i18n="val_date">29 November 2026</div>
       </div>
       <div>
-        <div class="detail-label">Duration</div>
-        <div class="detail-value">4h 50min intensive</div>
+        <div class="detail-label" data-i18n="lbl_duration">Duration</div>
+        <div class="detail-value" data-i18n="val_duration">4h 50min intensive</div>
       </div>
       <div>
-        <div class="detail-label">Part of</div>
-        <div class="detail-value">Beauty Expert Summit 2026 · 28–29 November</div>
+        <div class="detail-label" data-i18n="lbl_partof">Part of</div>
+        <div class="detail-value" data-i18n="val_partof">Beauty Expert Summit 2026 · 28–29 November</div>
       </div>
     </div>
-    <p style="margin-top:24px;">A live CO2 laser blepharoplasty / ptosis correction procedure is also performed and moderated on the main stage on Day 1 of the summit, alongside lectures on modern blepharoplasty technique — a complementary view of the same procedure before the hands-on wet lab.</p>
+    <p style="margin-top:24px;" data-i18n="s4_p">A live CO2 laser blepharoplasty / ptosis correction procedure is also performed and moderated on the main stage on Day 1 of the summit, alongside lectures on modern blepharoplasty technique — a complementary view of the same procedure before the hands-on wet lab.</p>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <h2>Price &amp; Registration</h2>
+    <h2 data-i18n="s5_h2">Price &amp; Registration</h2>
     <div class="pricing-card">
       <div class="price"><span>€</span>2600</div>
-      <div class="price-note">Limited seats · 4h 50min intensive course · 29 November 2026</div>
+      <div class="price-note" data-i18n="price_note">Limited seats · 4h 50min intensive course · 29 November 2026</div>
       <ul class="includes">
-        <li>Plenary session, live demonstration, hands-on wet lab &amp; simulation</li>
-        <li>Led by Dr. Serhii Havryliuk &amp; Dr. Igor Janik</li>
-        <li>Biological models &amp; real instruments, VISSUM Clinic, Alicante</li>
-        <li>Includes a 2-Day Beauty Expert Summit ticket (28–29 November)</li>
+        <li data-i18n="inc1">Plenary session, live demonstration, hands-on wet lab &amp; simulation</li>
+        <li data-i18n="inc2">Led by Dr. Serhii Havryliuk &amp; Dr. Igor Janik</li>
+        <li data-i18n="inc3">Biological models &amp; real instruments, VISSUM Clinic, Alicante</li>
+        <li data-i18n="inc4">Includes a 2-Day Beauty Expert Summit ticket (28–29 November)</li>
       </ul>
-      <a class="btn-gold" href="https://buy.stripe.com/7sY14oaOI6oo3MkeDygEg0W" target="_blank">Reserve Your Seat — Stripe</a>
+      <a class="btn-gold" href="https://buy.stripe.com/7sY14oaOI6oo3MkeDygEg0W" target="_blank" data-i18n="cta_btn">Reserve Your Seat — Stripe</a>
     </div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <h2>Frequently Asked Questions</h2>
+    <h2 data-i18n="s6_h2">Frequently Asked Questions</h2>
 
     <div class="faq-item">
-      <div class="faq-q">What is CO2 laser blepharoplasty?</div>
-      <div class="faq-a">CO2 laser blepharoplasty is an eyelid surgery technique that uses a carbon dioxide laser to remove or reposition excess skin, fat and muscle around the eyes, combining precise tissue cutting with immediate coagulation for a cleaner surgical field and faster recovery than traditional blade techniques.</div>
+      <div class="faq-q" data-i18n="faq1_q">What is CO2 laser blepharoplasty?</div>
+      <div class="faq-a" data-i18n="faq1_a">CO2 laser blepharoplasty is an eyelid surgery technique that uses a carbon dioxide laser to remove or reposition excess skin, fat and muscle around the eyes, combining precise tissue cutting with immediate coagulation for a cleaner surgical field and faster recovery than traditional blade techniques.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q">Who can attend the ScalprumPro CO2 laser blepharoplasty training?</div>
-      <div class="faq-a">The course is designed for licensed ophthalmologists, plastic surgeons and oculoplastic surgeons who want hands-on experience with CO2 laser techniques in periorbital and eyelid surgery. Prior surgical experience is expected; this is an advanced, practical masterclass rather than an introductory course.</div>
+      <div class="faq-q" data-i18n="faq2_q">Who can attend the ScalprumPro CO2 laser blepharoplasty training?</div>
+      <div class="faq-a" data-i18n="faq2_a">The course is designed for licensed ophthalmologists, plastic surgeons and oculoplastic surgeons who want hands-on experience with CO2 laser techniques in periorbital and eyelid surgery. Prior surgical experience is expected; this is an advanced, practical masterclass rather than an introductory course.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q">Where can I learn CO2 laser blepharoplasty in Europe?</div>
-      <div class="faq-a">The ScalprumPro intensive wet lab takes place at VISSUM Clinic in Alicante, Spain, on 29 November 2026, as part of Beauty Expert Summit. It combines a plenary session, a live video demonstration and hands-on practice on biological models under the direct supervision of Dr. Serhii Havryliuk and Dr. Igor Janik.</div>
+      <div class="faq-q" data-i18n="faq3_q">Where can I learn CO2 laser blepharoplasty in Europe?</div>
+      <div class="faq-a" data-i18n="faq3_a">The ScalprumPro intensive wet lab takes place at VISSUM Clinic in Alicante, Spain, on 29 November 2026, as part of Beauty Expert Summit. It combines a plenary session, a live video demonstration and hands-on practice on biological models under the direct supervision of Dr. Serhii Havryliuk and Dr. Igor Janik.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q">What is included in the ScalprumPro wet lab price?</div>
-      <div class="faq-a">The €2,600 price includes the 4h 50min intensive training (plenary session, live demonstration, hands-on wet lab and case simulation) plus a 2-Day Beauty Expert Summit ticket for 28–29 November 2026, giving access to the full scientific program.</div>
+      <div class="faq-q" data-i18n="faq4_q">What is included in the ScalprumPro wet lab price?</div>
+      <div class="faq-a" data-i18n="faq4_a">The €2,600 price includes the 4h 50min intensive training (plenary session, live demonstration, hands-on wet lab and case simulation) plus a 2-Day Beauty Expert Summit ticket for 28–29 November 2026, giving access to the full scientific program.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q">Is there live CO2 laser blepharoplasty surgery at Beauty Expert Summit?</div>
-      <div class="faq-a">Yes. On Day 1 of the summit, a live CO2 laser blepharoplasty / ptosis correction procedure is performed and moderated on stage, alongside lectures on modern blepharoplasty technique, before the ScalprumPro wet lab session on Day 2.</div>
+      <div class="faq-q" data-i18n="faq5_q">Is there live CO2 laser blepharoplasty surgery at Beauty Expert Summit?</div>
+      <div class="faq-a" data-i18n="faq5_a">Yes. On Day 1 of the summit, a live CO2 laser blepharoplasty / ptosis correction procedure is performed and moderated on stage, alongside lectures on modern blepharoplasty technique, before the ScalprumPro wet lab session on Day 2.</div>
     </div>
   </div>
 </section>
@@ -384,15 +419,168 @@ footer { padding: 32px 0 48px; }
 <footer>
   <div class="wrap">
     <div class="footer-links">
-      <a href="/">Beauty Expert Summit 2026</a>
-      <a href="/program">Full Program</a>
-      <a href="/speakers">Speakers</a>
-      <a href="/tickets">All Tickets</a>
-      <a href="/contact">Contact</a>
+      <a href="/" data-i18n="footer_home">Beauty Expert Summit 2026</a>
+      <a href="/program" data-i18n="footer_program">Full Program</a>
+      <a href="/speakers" data-i18n="footer_speakers">Speakers</a>
+      <a href="/tickets" data-i18n="footer_tickets">All Tickets</a>
+      <a href="/contact" data-i18n="footer_contact">Contact</a>
     </div>
-    <div class="footer-copy">© 2026 Beauty Expert Summit. Organised by UGAMC Non Profit Organisation.</div>
+    <div class="footer-copy" data-i18n="footer_copy">© 2026 Beauty Expert Summit. Organised by UGAMC Non Profit Organisation.</div>
   </div>
 </footer>
+
+<script>
+var i18n = {
+en: {
+  back_link: '← Back to Beauty Expert Summit 2026',
+  eyebrow: 'Hands-On Surgical Masterclass · Alicante, Spain',
+  h1: 'CO₂ Laser Blepharoplasty Training — ScalprumPro Wet Lab',
+  hero_lead: "An intensive, hands-on CO2 laser blepharoplasty course for practicing ophthalmologists, plastic surgeons and oculoplastic surgeons — live demonstration, biological-model wet lab, and real instruments, led by Dr. Serhii Havryliuk and Dr. Igor Janik at VISSUM Clinic, Alicante, on 29 November 2026.",
+  reel_title: 'Watch the ScalprumPro Wet Lab',
+  s1_h2: 'What Is CO2 Laser Blepharoplasty Training?',
+  s1_p1: "ScalprumPro is Beauty Expert Summit's advanced blepharoplasty training track — a practical masterclass in CO2 laser eyelid surgery, built around the same live-surgery faculty presenting on the summit's main stage. Rather than a lecture-only course, it is a hands-on blepharoplasty training day: theory in the morning, a live video demonstration, then direct practice on biological models under expert supervision.",
+  s1_p2: "It's designed for surgeons who already perform eyelid or periorbital procedures and want structured, supervised experience with CO2 laser technique specifically — laser setup, tissue handling, complication prevention, and the surgical algorithms that differ from blade-based blepharoplasty.",
+  s2_h2: 'Course Format',
+  f1_title: 'Plenary Session', f1_desc: 'Theory, surgical algorithms, laser safety, and complication prevention & management.',
+  f2_title: 'Video Session / Live Demonstration', f2_desc: 'Step-by-step procedure review with expert discussion.',
+  f3_title: 'Hands-On Wet Lab', f3_desc: 'Biological model: laser setup, simulated surgery, advanced techniques.',
+  f4_title: 'Simulation & Discussion', f4_desc: 'Full-procedure simulation, case analysis, round-table.',
+  s3_h2: 'Led By',
+  havryliuk_role: 'MD · Ophthalmologist &amp; Plastic Surgeon<br>President, UGAMC · Ukraine',
+  janik_role: 'MD, PhD · Plastic Surgeon<br>Czech Republic',
+  s4_h2: 'Where &amp; When',
+  lbl_location: 'Location', val_location: 'VISSUM Clinic, Alicante, Spain',
+  lbl_date: 'Date', val_date: '29 November 2026',
+  lbl_duration: 'Duration', val_duration: '4h 50min intensive',
+  lbl_partof: 'Part of', val_partof: 'Beauty Expert Summit 2026 · 28–29 November',
+  s4_p: 'A live CO2 laser blepharoplasty / ptosis correction procedure is also performed and moderated on the main stage on Day 1 of the summit, alongside lectures on modern blepharoplasty technique — a complementary view of the same procedure before the hands-on wet lab.',
+  s5_h2: 'Price &amp; Registration',
+  price_note: 'Limited seats · 4h 50min intensive course · 29 November 2026',
+  inc1: 'Plenary session, live demonstration, hands-on wet lab &amp; simulation',
+  inc2: 'Led by Dr. Serhii Havryliuk &amp; Dr. Igor Janik',
+  inc3: 'Biological models &amp; real instruments, VISSUM Clinic, Alicante',
+  inc4: 'Includes a 2-Day Beauty Expert Summit ticket (28–29 November)',
+  cta_btn: 'Reserve Your Seat — Stripe',
+  s6_h2: 'Frequently Asked Questions',
+  faq1_q: 'What is CO2 laser blepharoplasty?',
+  faq1_a: 'CO2 laser blepharoplasty is an eyelid surgery technique that uses a carbon dioxide laser to remove or reposition excess skin, fat and muscle around the eyes, combining precise tissue cutting with immediate coagulation for a cleaner surgical field and faster recovery than traditional blade techniques.',
+  faq2_q: 'Who can attend the ScalprumPro CO2 laser blepharoplasty training?',
+  faq2_a: 'The course is designed for licensed ophthalmologists, plastic surgeons and oculoplastic surgeons who want hands-on experience with CO2 laser techniques in periorbital and eyelid surgery. Prior surgical experience is expected; this is an advanced, practical masterclass rather than an introductory course.',
+  faq3_q: 'Where can I learn CO2 laser blepharoplasty in Europe?',
+  faq3_a: 'The ScalprumPro intensive wet lab takes place at VISSUM Clinic in Alicante, Spain, on 29 November 2026, as part of Beauty Expert Summit. It combines a plenary session, a live video demonstration and hands-on practice on biological models under the direct supervision of Dr. Serhii Havryliuk and Dr. Igor Janik.',
+  faq4_q: 'What is included in the ScalprumPro wet lab price?',
+  faq4_a: 'The €2,600 price includes the 4h 50min intensive training (plenary session, live demonstration, hands-on wet lab and case simulation) plus a 2-Day Beauty Expert Summit ticket for 28–29 November 2026, giving access to the full scientific program.',
+  faq5_q: 'Is there live CO2 laser blepharoplasty surgery at Beauty Expert Summit?',
+  faq5_a: 'Yes. On Day 1 of the summit, a live CO2 laser blepharoplasty / ptosis correction procedure is performed and moderated on stage, alongside lectures on modern blepharoplasty technique, before the ScalprumPro wet lab session on Day 2.',
+  footer_home: 'Beauty Expert Summit 2026', footer_program: 'Full Program', footer_speakers: 'Speakers', footer_tickets: 'All Tickets', footer_contact: 'Contact',
+  footer_copy: '© 2026 Beauty Expert Summit. Organised by UGAMC Non Profit Organisation.'
+},
+es: {
+  back_link: '← Volver a Beauty Expert Summit 2026',
+  eyebrow: 'Masterclass Quirúrgica Práctica · Alicante, España',
+  h1: 'Entrenamiento de Blefaroplastia con Láser de CO₂ — Wet Lab ScalprumPro',
+  hero_lead: 'Un curso intensivo y práctico de blefaroplastia con láser de CO2 para oftalmólogos, cirujanos plásticos y cirujanos oculoplásticos en ejercicio — demostración en vivo, wet lab con modelos biológicos e instrumental real, dirigido por el Dr. Serhii Havryliuk y el Dr. Igor Janik en la Clínica VISSUM, Alicante, el 29 de noviembre de 2026.',
+  reel_title: 'Vea el Wet Lab ScalprumPro',
+  s1_h2: '¿Qué es el Entrenamiento de Blefaroplastia con Láser de CO2?',
+  s1_p1: 'ScalprumPro es la línea avanzada de formación en blefaroplastia de Beauty Expert Summit — una masterclass práctica de cirugía palpebral con láser de CO2, impartida por el mismo profesorado de cirugía en vivo que presenta en el escenario principal de la cumbre. En lugar de ser solo teoría, es una jornada de formación práctica: teoría por la mañana, una demostración en vídeo en vivo y luego práctica directa en modelos biológicos bajo supervisión experta.',
+  s1_p2: 'Está diseñado para cirujanos que ya realizan procedimientos palpebrales o periorbitarios y desean experiencia estructurada y supervisada específicamente con la técnica de láser de CO2 — configuración del láser, manejo de tejidos, prevención de complicaciones y los algoritmos quirúrgicos que difieren de la blefaroplastia con bisturí.',
+  s2_h2: 'Formato del Curso',
+  f1_title: 'Sesión Plenaria', f1_desc: 'Teoría, algoritmos quirúrgicos, seguridad láser y prevención y manejo de complicaciones.',
+  f2_title: 'Sesión de Vídeo / Demostración en Vivo', f2_desc: 'Revisión paso a paso del procedimiento con debate de expertos.',
+  f3_title: 'Wet Lab Práctico', f3_desc: 'Modelo biológico: configuración láser, cirugía simulada, técnicas avanzadas.',
+  f4_title: 'Simulación y Debate', f4_desc: 'Simulación completa del procedimiento, análisis de casos, mesa redonda.',
+  s3_h2: 'Dirigido Por',
+  havryliuk_role: 'MD · Oftalmólogo y Cirujano Plástico<br>Presidente, UGAMC · Ucrania',
+  janik_role: 'MD, PhD · Cirujano Plástico<br>República Checa',
+  s4_h2: 'Dónde y Cuándo',
+  lbl_location: 'Ubicación', val_location: 'Clínica VISSUM, Alicante, España',
+  lbl_date: 'Fecha', val_date: '29 de noviembre de 2026',
+  lbl_duration: 'Duración', val_duration: '4h 50min intensivas',
+  lbl_partof: 'Parte de', val_partof: 'Beauty Expert Summit 2026 · 28–29 de noviembre',
+  s4_p: 'El primer día de la cumbre también se realiza y modera en el escenario principal una blefaroplastia / corrección de ptosis con láser de CO2 en vivo, junto con conferencias sobre técnicas modernas de blefaroplastia — una visión complementaria del mismo procedimiento antes del wet lab práctico.',
+  s5_h2: 'Precio y Registro',
+  price_note: 'Plazas limitadas · Curso intensivo de 4h 50min · 29 de noviembre de 2026',
+  inc1: 'Sesión plenaria, demostración en vivo, wet lab práctico y simulación',
+  inc2: 'Dirigido por el Dr. Serhii Havryliuk y el Dr. Igor Janik',
+  inc3: 'Modelos biológicos e instrumental real, Clínica VISSUM, Alicante',
+  inc4: 'Incluye una entrada de 2 Días a Beauty Expert Summit (28–29 de noviembre)',
+  cta_btn: 'Reserve Su Plaza — Stripe',
+  s6_h2: 'Preguntas Frecuentes',
+  faq1_q: '¿Qué es la blefaroplastia con láser de CO2?',
+  faq1_a: 'La blefaroplastia con láser de CO2 es una técnica de cirugía palpebral que utiliza un láser de dióxido de carbono para eliminar o reposicionar el exceso de piel, grasa y músculo alrededor de los ojos, combinando un corte de tejido preciso con coagulación inmediata para un campo quirúrgico más limpio y una recuperación más rápida que las técnicas tradicionales con bisturí.',
+  faq2_q: '¿Quién puede asistir al entrenamiento de blefaroplastia con láser de CO2 de ScalprumPro?',
+  faq2_a: 'El curso está diseñado para oftalmólogos, cirujanos plásticos y cirujanos oculoplásticos con licencia que deseen experiencia práctica con técnicas de láser de CO2 en cirugía periorbitaria y palpebral. Se espera experiencia quirúrgica previa; se trata de una masterclass avanzada y práctica, no de un curso introductorio.',
+  faq3_q: '¿Dónde puedo aprender blefaroplastia con láser de CO2 en Europa?',
+  faq3_a: 'El wet lab intensivo ScalprumPro se realiza en la Clínica VISSUM en Alicante, España, el 29 de noviembre de 2026, como parte de Beauty Expert Summit. Combina una sesión plenaria, una demostración en vídeo en vivo y práctica directa en modelos biológicos bajo la supervisión directa del Dr. Serhii Havryliuk y el Dr. Igor Janik.',
+  faq4_q: '¿Qué incluye el precio del wet lab ScalprumPro?',
+  faq4_a: 'El precio de €2.600 incluye la formación intensiva de 4h 50min (sesión plenaria, demostración en vivo, wet lab práctico y simulación de casos) más una entrada de 2 Días a Beauty Expert Summit para el 28–29 de noviembre de 2026, con acceso al programa científico completo.',
+  faq5_q: '¿Hay cirugía de blefaroplastia con láser de CO2 en vivo en Beauty Expert Summit?',
+  faq5_a: 'Sí. El primer día de la cumbre se realiza y modera en el escenario un procedimiento en vivo de blefaroplastia / corrección de ptosis con láser de CO2, junto con conferencias sobre técnica moderna de blefaroplastia, antes de la sesión de wet lab ScalprumPro del segundo día.',
+  footer_home: 'Beauty Expert Summit 2026', footer_program: 'Programa Completo', footer_speakers: 'Ponentes', footer_tickets: 'Todas las Entradas', footer_contact: 'Contacto',
+  footer_copy: '© 2026 Beauty Expert Summit. Organizado por UGAMC Non Profit Organisation.'
+},
+uk: {
+  back_link: '← Повернутися до Beauty Expert Summit 2026',
+  eyebrow: 'Практичний Хірургічний Майстер-клас · Аліканте, Іспанія',
+  h1: 'Тренінг з Блефаропластики CO₂-лазером — Wet Lab ScalprumPro',
+  hero_lead: 'Інтенсивний практичний курс блефаропластики CO2-лазером для практикуючих офтальмологів, пластичних та окулопластичних хірургів — жива демонстрація, wet lab на біологічних моделях та реальні інструменти, під керівництвом д-ра Serhii Havryliuk та д-ра Igor Janik у клініці VISSUM, Аліканте, 29 листопада 2026 року.',
+  reel_title: 'Перегляньте Wet Lab ScalprumPro',
+  s1_h2: 'Що таке Тренінг з Блефаропластики CO2-лазером?',
+  s1_p1: 'ScalprumPro — це передовий тренінговий напрямок Beauty Expert Summit з блефаропластики: практичний майстер-клас з хірургії повік CO2-лазером від тих самих викладачів, які проводять живу хірургію на головній сцені саміту. Це не лекційний курс, а день практичного навчання: теорія вранці, жива відеодемонстрація, а потім безпосередня практика на біологічних моделях під керівництвом експертів.',
+  s1_p2: 'Курс розроблено для хірургів, які вже виконують операції на повіках чи періорбітальній ділянці та хочуть отримати структурований, супервізований досвід саме з технікою CO2-лазера — налаштування лазера, робота з тканинами, профілактика ускладнень та хірургічні алгоритми, що відрізняються від блефаропластики скальпелем.',
+  s2_h2: 'Формат Курсу',
+  f1_title: 'Пленарна Сесія', f1_desc: 'Теорія, хірургічні алгоритми, лазерна безпека, профілактика та лікування ускладнень.',
+  f2_title: 'Відеосесія / Жива Демонстрація', f2_desc: 'Покроковий огляд процедури з обговоренням експертів.',
+  f3_title: 'Практичний Wet Lab', f3_desc: 'Біологічна модель: налаштування лазера, симульована операція, передові техніки.',
+  f4_title: 'Симуляція та Обговорення', f4_desc: 'Повна симуляція процедури, аналіз кейсів, круглий стіл.',
+  s3_h2: 'Викладачі',
+  havryliuk_role: 'MD · Офтальмолог та Пластичний Хірург<br>Президент UGAMC · Україна',
+  janik_role: 'MD, PhD · Пластичний Хірург<br>Чеська Республіка',
+  s4_h2: 'Де і Коли',
+  lbl_location: 'Місце', val_location: 'Клініка VISSUM, Аліканте, Іспанія',
+  lbl_date: 'Дата', val_date: '29 листопада 2026',
+  lbl_duration: 'Тривалість', val_duration: '4г 50хв інтенсиву',
+  lbl_partof: 'Частина', val_partof: 'Beauty Expert Summit 2026 · 28–29 листопада',
+  s4_p: 'У перший день саміту на головній сцені також проводиться та модерується жива операція блефаропластики / корекції птозу CO2-лазером, поряд із лекціями про сучасну техніку блефаропластики — доповнення до того самого практичного wet lab.',
+  s5_h2: 'Ціна та Реєстрація',
+  price_note: 'Обмежена кількість місць · Інтенсивний курс 4г 50хв · 29 листопада 2026',
+  inc1: 'Пленарна сесія, жива демонстрація, практичний wet lab та симуляція',
+  inc2: 'Ведучі: д-р Serhii Havryliuk та д-р Igor Janik',
+  inc3: 'Біологічні моделі та реальні інструменти, клініка VISSUM, Аліканте',
+  inc4: 'Включає квиток на 2-денний Beauty Expert Summit (28–29 листопада)',
+  cta_btn: 'Забронювати Місце — Stripe',
+  s6_h2: 'Часті Запитання',
+  faq1_q: 'Що таке блефаропластика CO2-лазером?',
+  faq1_a: "Блефаропластика CO2-лазером — це техніка хірургії повік, яка використовує лазер на вуглекислому газі для видалення або репозиціонування надлишку шкіри, жиру та м'язів навколо очей, поєднуючи точний розріз тканини з негайною коагуляцією для чистішого операційного поля та швидшого відновлення порівняно з традиційними техніками скальпелем.",
+  faq2_q: 'Хто може відвідати тренінг ScalprumPro з блефаропластики CO2-лазером?',
+  faq2_a: 'Курс розроблено для ліцензованих офтальмологів, пластичних та окулопластичних хірургів, які хочуть отримати практичний досвід роботи з технікою CO2-лазера в періорбітальній та повіковій хірургії. Очікується попередній хірургічний досвід — це просунутий практичний майстер-клас, а не вступний курс.',
+  faq3_q: 'Де можна навчитися блефаропластики CO2-лазером в Європі?',
+  faq3_a: "Інтенсивний wet lab ScalprumPro проходить у клініці VISSUM в Аліканте, Іспанія, 29 листопада 2026 року, у рамках Beauty Expert Summit. Він поєднує пленарну сесію, живу відеодемонстрацію та безпосередню практику на біологічних моделях під безпосереднім керівництвом д-ра Serhii Havryliuk та д-ра Igor Janik.",
+  faq4_q: 'Що входить у вартість wet lab ScalprumPro?',
+  faq4_a: 'Ціна €2600 включає інтенсивне навчання тривалістю 4г 50хв (пленарна сесія, жива демонстрація, практичний wet lab та симуляція кейсів) плюс квиток на 2-денний Beauty Expert Summit на 28–29 листопада 2026 року з доступом до повної наукової програми.',
+  faq5_q: 'Чи є жива операція блефаропластики CO2-лазером на Beauty Expert Summit?',
+  faq5_a: 'Так. У перший день саміту на головній сцені проводиться та модерується жива операція блефаропластики / корекції птозу CO2-лазером, поряд із лекціями про сучасну техніку блефаропластики, перед сесією wet lab ScalprumPro другого дня.',
+  footer_home: 'Beauty Expert Summit 2026', footer_program: 'Повна Програма', footer_speakers: 'Доповідачі', footer_tickets: 'Усі Квитки', footer_contact: 'Контакт',
+  footer_copy: '© 2026 Beauty Expert Summit. Організовано UGAMC Non Profit Organisation.'
+}
+};
+
+function setLang(lang) {
+  var t = i18n[lang] || i18n.en;
+  document.querySelectorAll('.lang-btn').forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-lang') === lang); });
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k = el.getAttribute('data-i18n');
+    if (t[k] !== undefined) el.textContent = t[k];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(function(el){
+    var k = el.getAttribute('data-i18n-html');
+    if (t[k] !== undefined) el.innerHTML = t[k];
+  });
+  document.documentElement.setAttribute('lang', lang === 'uk' ? 'uk' : lang);
+  localStorage.setItem('lang', lang);
+}
+setLang(localStorage.getItem('lang') || 'en');
+</script>
 
 </body>
 </html>

@@ -3958,8 +3958,10 @@ function showPage(name, skipHistory) {
 
 // ── DAY TABS ──
 function switchDay(n) {
-  document.querySelectorAll('.day-tab').forEach((t,i) => t.classList.toggle('active', i === n-1));
-  document.querySelectorAll('.schedule-panel').forEach((p,i) => p.classList.toggle('active', i === n-1));
+  var wrap = document.getElementById('page-program');
+  if (!wrap) return;
+  wrap.querySelectorAll('.day-tab').forEach((t,i) => t.classList.toggle('active', i === n-1));
+  wrap.querySelectorAll('.schedule-panel').forEach((p,i) => p.classList.toggle('active', i === n-1));
 }
 
 // ── HOME PAGE: scoped day switcher for the full program (does not affect the Program page) ──

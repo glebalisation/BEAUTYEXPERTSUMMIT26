@@ -4639,7 +4639,7 @@ if (currentLang !== 'en') setLang(currentLang);
 if (localStorage.getItem('bes_consult_seen')) {
   document.getElementById('consultFab').classList.add('visible');
 } else {
-  setTimeout(showConsultPopup, 12000);
+  setTimeout(showConsultPopup, 5000);
 }
 window.addEventListener('popstate', function(e) {
   var page = (e.state && e.state.page) ? e.state.page : 'home';

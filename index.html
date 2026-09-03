@@ -3955,6 +3955,37 @@ footer {
 <!-- Toast -->
 <div class="toast" id="toast">Redirecting to Stripe checkout…</div>
 
+<!-- ══════════ FREE CONSULTATION POPUP ══════════ -->
+<div class="modal-overlay" id="consultModal" onclick="closeConsultOutside(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeConsult()">✕</button>
+    <div class="modal-title" data-i18n="consult.title">Free Consultation</div>
+    <div class="modal-sub" data-i18n="consult.lead">Have questions about tickets, the program, or speaking opportunities? Leave your phone or email and our team will get back to you shortly.</div>
+    <form id="consult-form" onsubmit="submitConsult(event)">
+      <div class="form-group" style="margin-bottom:14px;">
+        <label class="form-label" data-i18n="consult.name_label">Name</label>
+        <input class="form-input" type="text" name="name" placeholder="Your name" data-i18n-ph="consult.name_ph">
+      </div>
+      <div class="form-group" style="margin-bottom:14px;">
+        <label class="form-label" data-i18n="consult.email_label">Email</label>
+        <input class="form-input" type="email" name="email" id="consult-email" placeholder="your@email.com" data-i18n-ph="consult.email_ph">
+      </div>
+      <div class="form-group" style="margin-bottom:16px;">
+        <label class="form-label" data-i18n="consult.phone_label">Phone</label>
+        <input class="form-input" type="tel" name="phone" id="consult-phone" placeholder="+34 600 000 000" data-i18n-ph="consult.phone_ph">
+      </div>
+      <input type="hidden" name="_subject" value="Free Consultation Request — Beauty Expert Summit">
+      <div id="consult-validation-error" style="display:none;color:#e07070;padding:10px 12px;font-size:13px;border:1px solid rgba(224,112,112,0.3);border-radius:8px;margin-bottom:12px;" data-i18n="consult.validation">Please leave your phone or email so we can reach you.</div>
+      <div id="consult-submit-error" style="display:none;color:#e07070;padding:10px 12px;font-size:13px;border:1px solid rgba(224,112,112,0.3);border-radius:8px;margin-bottom:12px;" data-i18n="consult.error">Something went wrong. Please email us at events@ugamc.org</div>
+      <button type="submit" class="btn-gold" id="consult-btn" style="width:100%;padding:14px;font-size:13px;letter-spacing:0.08em;" data-i18n="consult.submit">Request a Callback</button>
+    </form>
+    <div id="consult-success" style="display:none;text-align:center;padding:20px 0;">
+      <div style="font-family:var(--ff-display);font-size:24px;font-weight:300;color:var(--gold-light);margin-bottom:8px;" data-i18n="consult.success_title">Thank You!</div>
+      <div style="font-size:14px;color:var(--text-muted);" data-i18n="consult.success_sub">We've received your request and will contact you shortly.</div>
+    </div>
+  </div>
+</div>
+
 <script>
 // ── PAGE ROUTING ──
 var PAGE_TO_SLUG = {
@@ -4046,7 +4077,8 @@ en:{
 'footer.nav.title':'Navigate','footer.nav.home':'Home','footer.nav.program':'Program','footer.nav.speakers':'Speakers','footer.nav.venue':'Venue & Travel',
 'footer.event.title':'Event','footer.event.register':'Tickets','footer.event.sponsors':'Partners','footer.event.faq':'FAQ','footer.event.contact':'Contact',
 'footer.org.title':'Organiser','footer.org.sponsorship':'Sponsorship','footer.org.press':'Press Enquiries',
-'footer.partners_title':'Partners','footer.copyright':'© 2026 Beauty Expert Summit. All rights reserved.','footer.organised':'Organised by'
+'footer.partners_title':'Partners','footer.copyright':'© 2026 Beauty Expert Summit. All rights reserved.','footer.organised':'Organised by',
+'consult.title':'Free Consultation','consult.lead':"Have questions about tickets, the program, or speaking opportunities? Leave your phone or email and our team will get back to you shortly.",'consult.name_label':'Name','consult.name_ph':'Your name','consult.email_label':'Email','consult.email_ph':'your@email.com','consult.phone_label':'Phone','consult.phone_ph':'+34 600 000 000','consult.submit':'Request a Callback','consult.sending':'Sending…','consult.success_title':'Thank You!','consult.success_sub':"We've received your request and will contact you shortly.",'consult.error':'Something went wrong. Please email us at events@ugamc.org','consult.validation':'Please leave your phone or email so we can reach you.'
 },
 es:{
 'nav.program':'Programa','nav.speakers':'Ponentes','nav.venue':'Sede','nav.sponsors':'Socios','nav.faq':'FAQ','nav.contact':'Contacto','nav.register':'Entradas','nav.logo_sub':'28–29 Nov 2026 · Elche, España','mobile.register':'Entradas',
@@ -4087,7 +4119,8 @@ es:{
 'footer.nav.title':'Navegar','footer.nav.home':'Inicio','footer.nav.program':'Programa','footer.nav.speakers':'Ponentes','footer.nav.venue':'Sede y Viaje',
 'footer.event.title':'Evento','footer.event.register':'Entradas','footer.event.sponsors':'Socios','footer.event.faq':'FAQ','footer.event.contact':'Contacto',
 'footer.org.title':'Organizador','footer.org.sponsorship':'Patrocinio','footer.org.press':'Consultas de Prensa',
-'footer.partners_title':'Socios','footer.copyright':'© 2026 Beauty Expert Summit. Todos los derechos reservados.','footer.organised':'Organizado por'
+'footer.partners_title':'Socios','footer.copyright':'© 2026 Beauty Expert Summit. Todos los derechos reservados.','footer.organised':'Organizado por',
+'consult.title':'Consulta Gratuita','consult.lead':'¿Tiene preguntas sobre las entradas, el programa o cómo participar como ponente? Déjenos su teléfono o correo electrónico y nuestro equipo se pondrá en contacto con usted en breve.','consult.name_label':'Nombre','consult.name_ph':'Su nombre','consult.email_label':'Correo electrónico','consult.email_ph':'su@correo.com','consult.phone_label':'Teléfono','consult.phone_ph':'+34 600 000 000','consult.submit':'Solicitar una Llamada','consult.sending':'Enviando…','consult.success_title':'¡Gracias!','consult.success_sub':'Hemos recibido su solicitud y nos pondremos en contacto con usted en breve.','consult.error':'Algo salió mal. Por favor escríbanos a events@ugamc.org','consult.validation':'Por favor, déjenos su teléfono o correo electrónico para poder contactarle.'
 },
 uk:{
 'nav.program':'Програма','nav.speakers':'Доповідачі','nav.venue':'Місце','nav.sponsors':'Партнери','nav.faq':'FAQ','nav.contact':'Контакт','nav.register':'Квитки','nav.logo_sub':'28–29 Лист 2026 · Ельче, Іспанія','mobile.register':'Квитки',
@@ -4128,7 +4161,8 @@ uk:{
 'footer.nav.title':'Навігація','footer.nav.home':'Головна','footer.nav.program':'Програма','footer.nav.speakers':'Доповідачі','footer.nav.venue':'Місце та Подорож',
 'footer.event.title':'Подія','footer.event.register':'Квитки','footer.event.sponsors':'Партнери','footer.event.faq':'FAQ','footer.event.contact':'Контакт',
 'footer.org.title':'Організатор','footer.org.sponsorship':'Спонсорство','footer.org.press':'Запити ЗМІ',
-'footer.partners_title':'Партнери','footer.copyright':'© 2026 Beauty Expert Summit. Усі права захищені.','footer.organised':'Організовано'
+'footer.partners_title':'Партнери','footer.copyright':'© 2026 Beauty Expert Summit. Усі права захищені.','footer.organised':'Організовано',
+'consult.title':'Безкоштовна Консультація','consult.lead':"Маєте питання щодо квитків, програми чи виступу як спікер? Залиште свій телефон або email, і наша команда зв'яжеться з вами найближчим часом.",'consult.name_label':"Ім'я",'consult.name_ph':"Ваше ім'я",'consult.email_label':'Email','consult.email_ph':'ваша@пошта.com','consult.phone_label':'Телефон','consult.phone_ph':'+380 00 000 0000','consult.submit':'Замовити Дзвінок','consult.sending':'Надсилання…','consult.success_title':'Дякуємо!','consult.success_sub':'Ми отримали ваш запит і незабаром зв\'яжемося з вами.','consult.error':'Щось пішло не так. Будь ласка, напишіть нам на events@ugamc.org','consult.validation':"Будь ласка, залиште свій телефон або email, щоб ми могли з вами зв'язатися."
 }
 };
 var currentLang = localStorage.getItem('lang') || 'en';
@@ -4176,6 +4210,56 @@ function closeModal() {
 }
 function closeModalOutside(e) {
   if (e.target === document.getElementById('ticketModal')) closeModal();
+}
+
+// ── FREE CONSULTATION POPUP ──
+function showConsultPopup() {
+  if (localStorage.getItem('bes_consult_seen')) return;
+  document.getElementById('consultModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeConsult() {
+  document.getElementById('consultModal').classList.remove('open');
+  document.body.style.overflow = '';
+  localStorage.setItem('bes_consult_seen', '1');
+}
+function closeConsultOutside(e) {
+  if (e.target === document.getElementById('consultModal')) closeConsult();
+}
+async function submitConsult(e) {
+  e.preventDefault();
+  const form = document.getElementById('consult-form');
+  const btn = document.getElementById('consult-btn');
+  const validationEl = document.getElementById('consult-validation-error');
+  const submitErrorEl = document.getElementById('consult-submit-error');
+  const email = document.getElementById('consult-email').value.trim();
+  const phone = document.getElementById('consult-phone').value.trim();
+  submitErrorEl.style.display = 'none';
+  if (!email && !phone) { validationEl.style.display = 'block'; return; }
+  validationEl.style.display = 'none';
+  const t = i18n[currentLang] || i18n.en;
+  btn.disabled = true;
+  btn.textContent = t['consult.sending'] || 'Sending…';
+  try {
+    const res = await fetch('https://formspree.io/f/xykvwwlk', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form)
+    });
+    if (res.ok) {
+      form.style.display = 'none';
+      document.getElementById('consult-success').style.display = 'block';
+      localStorage.setItem('bes_consult_seen', '1');
+    } else {
+      submitErrorEl.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = t['consult.submit'] || 'Request a Callback';
+    }
+  } catch {
+    submitErrorEl.style.display = 'block';
+    btn.disabled = false;
+    btn.textContent = t['consult.submit'] || 'Request a Callback';
+  }
 }
 
 // ── TOAST ──
@@ -4500,6 +4584,7 @@ var initSlug = location.pathname.replace(/^\//, '').replace(/\/$/, '');
 var initPage = SLUG_TO_PAGE[initSlug] || 'home';
 showPage(initPage, true);
 if (currentLang !== 'en') setLang(currentLang);
+setTimeout(showConsultPopup, 12000);
 window.addEventListener('popstate', function(e) {
   var page = (e.state && e.state.page) ? e.state.page : 'home';
   showPage(page, true);

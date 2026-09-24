@@ -4862,6 +4862,7 @@ function syncHeroLineWidths() {
   if (!target) return;
   var targetWidth = widestLineWidth(target);
   if (!targetWidth) return;
+  var highlightFontSize = parseFloat(getComputedStyle(target).fontSize);
   [document.getElementById('heroMottoIntro'), document.getElementById('heroDateLine')].forEach(function (el) {
     if (!el) return;
     el.style.whiteSpace = 'nowrap';
@@ -4875,7 +4876,7 @@ function syncHeroLineWidths() {
       var maxAllowed = naturalFontSize * ((containerWidth * 0.98) / naturalWidth);
       fitted = Math.min(fitted, maxAllowed);
     }
-    fitted = Math.min(fitted, 32);
+    fitted = Math.min(fitted, highlightFontSize * 0.9);
     fitted = Math.max(fitted, 11);
     el.style.fontSize = fitted + 'px';
   });

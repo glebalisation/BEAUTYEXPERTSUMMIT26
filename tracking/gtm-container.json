@@ -1,0 +1,81 @@
+{
+  "exportFormatVersion": 2,
+  "containerVersion": {
+    "container": {
+      "publicId": "GTM-K9JFTP54",
+      "usageContext": [
+        "WEB"
+      ],
+      "name": "beautyexpertsummit.com"
+    },
+    "tag": [
+      {
+        "name": "BES - consented GA4 and Meta events",
+        "type": "html",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "html",
+            "value": "<script>\n(function () {\n  if (!/^(www\\.)?beautyexpertsummit\\.com$/.test(location.hostname)) return;\n  var p = {{DLV - BES payload}};\n  if (!p || !/^(page_view|view_specialty_landing|view_program|view_pricing|click_register|click_ticket|begin_checkout|generate_lead|contact_click|sponsor_interest|click_contact_us|click_speaker_inquiry|click_group_booking|click_program|click_speakers|change_language|click_faq|click_map|click_hotel)$/.test(p.name)) return;\n  var w = window;\n  w.dataLayer = w.dataLayer || [];\n  w.gtag = w.gtag || function () { w.dataLayer.push(arguments); };\n  if (!w.besGoogleStarted) {\n    w.besGoogleStarted = true;\n    w.gtag('js', new Date());\n    w.gtag('config', 'G-9K6V46V6L0', {send_page_view: false, page_location:p.params.page_location, page_referrer:p.params.page_referrer});\n    var g = document.createElement('script');\n    g.async = true; g.src = 'https://www.googletagmanager.com/gtag/js?id=G-9K6V46V6L0';\n    document.head.appendChild(g);\n  }\n  p.params.send_to = 'G-9K6V46V6L0';\n  w.gtag('event', p.name, p.params);\n  if (!p.advertising) return;\n  if (!w.fbq) {\n    var n = w.fbq = function () { n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments); };\n    n.push = n; n.loaded = true; n.version = '2.0'; n.queue = [];\n    var f = document.createElement('script'); f.async = true; f.src = 'https://connect.facebook.net/en_US/fbevents.js'; document.head.appendChild(f);\n    w.fbq('set', 'autoConfig', false, '1843576903471823');\n    w.fbq('init', '1843576903471823');\n  }\n  // Purchases belong to a verified payment workflow, never this browser router.\n  if (p.name === 'page_view') w.fbq('track', 'PageView');\n  if (p.name === 'generate_lead') w.fbq('track', 'Lead', {content_name:p.params.lead_type});\n  if (p.name === 'begin_checkout') {\n    var items = p.params.items || [];\n    w.fbq('track', 'InitiateCheckout', {currency:p.params.currency,value:p.params.value,content_type:'product',content_ids:items.map(function(i){return i.item_id;}),num_items:1});\n  }\n})();\n</script>\n"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "supportDocumentWrite",
+            "value": "false"
+          }
+        ],
+        "firingTriggerId": [
+          "1"
+        ],
+        "tagFiringOption": "ONCE_PER_EVENT"
+      }
+    ],
+    "trigger": [
+      {
+        "triggerId": "1",
+        "name": "BES - explicit measurement event",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "bes_event"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "variable": [
+      {
+        "name": "DLV - BES payload",
+        "type": "v",
+        "parameter": [
+          {
+            "type": "INTEGER",
+            "key": "dataLayerVersion",
+            "value": "1"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "setDefaultValue",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "name",
+            "value": "bes_payload"
+          }
+        ]
+      }
+    ]
+  }
+}

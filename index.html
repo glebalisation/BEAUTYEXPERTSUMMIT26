@@ -1910,23 +1910,31 @@ footer {
 ══════════════════════════════════════════ */
 .hero-motto-serif {
   font-family: var(--ff-display);
-  font-size: clamp(44px, 5.5vw, 80px);
-  font-weight: 300;
-  line-height: 1.05;
   color: var(--gold-light);
-  margin-bottom: 10px;
-  letter-spacing: -0.02em;
+  margin-bottom: 14px;
   opacity: 0;
   animation: fadeUp 0.8s 0.38s forwards;
   text-align: center;
 }
-.hero-motto-serif em { font-style: italic; color: var(--gold); }
-.hero-motto-serif .hero-motto-sm {
-  font-size: 0.42em;
-  font-style: normal;
-  font-weight: 400;
+.hero-motto-serif em { font-style: italic; color: var(--gold); font-weight: 400; }
+.hero-motto-intro {
+  display: block;
+  font-size: clamp(18px, 2.2vw, 26px);
+  font-weight: 300;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
   color: var(--gold-light);
-  letter-spacing: 0;
+  margin-bottom: 4px;
+}
+.hero-motto-highlight {
+  display: block;
+  font-size: clamp(42px, 6.2vw, 88px);
+  font-weight: 500;
+  font-style: normal;
+  line-height: 1.05;
+  letter-spacing: 0.035em;
+  color: var(--gold);
+  text-shadow: 0 0 40px rgba(201,169,110,0.3), 0 0 90px rgba(201,169,110,0.15);
 }
 .hero-motto-tagline {
   font-size: clamp(14px, 1.3vw, 17px);
@@ -2307,7 +2315,7 @@ footer {
       <div class="hero-summit-logo">
         <img src="/IDENTITY/BEAUTY_EXPERT_SUMMIT26.png" alt="Beauty Expert Summit 2026">
       </div>
-      <h1 class="hero-motto-serif" data-i18n-html="home.motto"><span class="hero-motto-sm">Built for</span> <em>Medical Leaders</em> <span class="hero-motto-sm">of the</span> <em>PERIORBITAL</em> <span class="hero-motto-sm">Zone</span></h1>
+      <h1 class="hero-motto-serif" data-i18n-html="home.motto"><span class="hero-motto-intro">Built for <em>Medical Leaders</em> of the</span><span class="hero-motto-highlight">PERIORBITAL ZONE</span></h1>
       <p class="hero-motto-tagline" data-i18n="home.tagline">Connecting Visionaries Across Ophthalmology, Plastic Surgery, and Cosmetology.</p>
       <p class="hero-desc" data-i18n="home.date">28–29 November · Centro de Congresos de Elche, Alicante, Spain</p>
       <div class="hero-buttons">
@@ -4232,7 +4240,7 @@ function toggleFaq(btn) {
 var i18n = {
 en:{
 'nav.program':'Program','nav.speakers':'Speakers','nav.venue':'Venue','nav.sponsors':'Partners','nav.faq':'FAQ','nav.contact':'Contact','nav.register':'Tickets','nav.logo_sub':'28–29 Nov 2026 · Elche, Spain','mobile.register':'Tickets',
-'home.motto':'<span class="hero-motto-sm">Built for</span> <em>Medical Leaders</em> <span class="hero-motto-sm">of the</span> <em>PERIORBITAL</em> <span class="hero-motto-sm">Zone</span>','home.tagline':'Connecting Visionaries Across Ophthalmology, Plastic Surgery, and Cosmetology.','home.date':'28–29 November · Centro de Congresos de Elche, Alicante, Spain','home.cta_ticket':'Get Your Ticket','home.cta_program':'View Program','home.explore':'Explore','home.dama':'✦ La Dama de Elche invites you ✦','home.countdown_label':'Early Bird Pricing Ends In','home.countdown_days':'Days','home.countdown_hours':'Hours','home.countdown_minutes':'Minutes','home.countdown_seconds':'Seconds',
+'home.motto':'<span class="hero-motto-intro">Built for <em>Medical Leaders</em> of the</span><span class="hero-motto-highlight">PERIORBITAL ZONE</span>','home.tagline':'Connecting Visionaries Across Ophthalmology, Plastic Surgery, and Cosmetology.','home.date':'28–29 November · Centro de Congresos de Elche, Alicante, Spain','home.cta_ticket':'Get Your Ticket','home.cta_program':'View Program','home.explore':'Explore','home.dama':'✦ La Dama de Elche invites you ✦','home.countdown_label':'Early Bird Pricing Ends In','home.countdown_days':'Days','home.countdown_hours':'Hours','home.countdown_minutes':'Minutes','home.countdown_seconds':'Seconds',
 'home.why.eyebrow':'Why Attend','home.why.title':'Four Reasons to <em>Be in the Room</em>','home.why.lead':'Two days built around what actually changes clinical practice — not spectacle for its own sake.','home.why.r1_t':'Exclusive Topics','home.why.r1_d':'Sessions you won\'t find on a standard program — artificial vision, artificial cornea & retina, and neurotechnology, presented by the researchers building them.','home.why.r2_t':'International Faculty','home.why.r2_d':'30+ practicing surgeons and clinicians from Spain, Ukraine, Italy, France, Turkey and beyond, sharing real case data.','home.why.r3_t':'Live Surgery & Wet Lab','home.why.r3_d':'Watch CO₂ laser blepharoplasty performed live, then train hands-on in the ScalprumPro intensive wet lab.','home.why.r4_t':'Three Specialties, One Stage','home.why.r4_d':'Ophthalmology, plastic surgery and cosmetology share a single program — cross-disciplinary conversations you won\'t find at a single-track congress.',
 'home.spk.eyebrow':'Faculty','home.spk.title':'Meet the <em>Speakers</em>','home.spk.lead':'An international faculty of practicing surgeons and clinicians, organised by specialty.',
 'home.com.eyebrow':'Committee','home.com.title':'Scientific &amp; <em>Organizing Committee</em>','home.com.lead':'The clinicians and organisers shaping the scientific program and running the summit.',
@@ -4275,7 +4283,7 @@ en:{
 },
 es:{
 'nav.program':'Programa','nav.speakers':'Ponentes','nav.venue':'Sede','nav.sponsors':'Socios','nav.faq':'FAQ','nav.contact':'Contacto','nav.register':'Entradas','nav.logo_sub':'28–29 Nov 2026 · Elche, España','mobile.register':'Entradas',
-'home.motto':'<span class="hero-motto-sm">Para</span> <em>Líderes Médicos</em> <span class="hero-motto-sm">de la zona</span> <em>PERIORBITARIA</em>','home.tagline':'Conectando visionarios en Oftalmología, Cirugía Plástica y Cosmetología.','home.date':'28–29 de noviembre · Centro de Congresos de Elche, Alicante, España','home.cta_ticket':'Obtener Entrada','home.cta_program':'Ver Programa','home.explore':'Explorar','home.dama':'✦ La Dama de Elche te invita ✦','home.countdown_label':'El Precio Early Bird Termina En','home.countdown_days':'Días','home.countdown_hours':'Horas','home.countdown_minutes':'Minutos','home.countdown_seconds':'Segundos',
+'home.motto':'<span class="hero-motto-intro">Para <em>Líderes Médicos</em> de la</span><span class="hero-motto-highlight">ZONA PERIORBITARIA</span>','home.tagline':'Conectando visionarios en Oftalmología, Cirugía Plástica y Cosmetología.','home.date':'28–29 de noviembre · Centro de Congresos de Elche, Alicante, España','home.cta_ticket':'Obtener Entrada','home.cta_program':'Ver Programa','home.explore':'Explorar','home.dama':'✦ La Dama de Elche te invita ✦','home.countdown_label':'El Precio Early Bird Termina En','home.countdown_days':'Días','home.countdown_hours':'Horas','home.countdown_minutes':'Minutos','home.countdown_seconds':'Segundos',
 'home.why.eyebrow':'Por Qué Asistir','home.why.title':'Cuatro Razones para <em>Estar Presente</em>','home.why.lead':'Dos días diseñados en torno a lo que realmente transforma la práctica clínica — no el espectáculo por sí mismo.','home.why.r1_t':'Temas Exclusivos','home.why.r1_d':'Sesiones que no encontrará en un programa estándar — visión artificial, córnea y retina artificiales, y neurotecnología, presentadas por quienes las están desarrollando.','home.why.r2_t':'Facultad Internacional','home.why.r2_d':'Más de 30 cirujanos y clínicos en ejercicio de España, Ucrania, Italia, Francia, Turquía y más, compartiendo casos reales.','home.why.r3_t':'Cirugía en Vivo y Wet Lab','home.why.r3_d':'Presencie una blefaroplastia con láser de CO₂ en vivo y luego fórmese en el wet lab intensivo ScalprumPro.','home.why.r4_t':'Tres Especialidades, un Escenario','home.why.r4_d':'Oftalmología, cirugía plástica y cosmetología comparten un mismo programa — el diálogo interdisciplinar que no encontrará en un congreso de una sola vía.',
 'home.spk.eyebrow':'Facultad','home.spk.title':'Conozca a los <em>Ponentes</em>','home.spk.lead':'Un claustro internacional de cirujanos y clínicos en ejercicio, organizado por especialidad.',
 'home.com.eyebrow':'Comité','home.com.title':'Comité Científico y <em>Organizador</em>','home.com.lead':'Los clínicos y organizadores que dan forma al programa científico y dirigen la cumbre.',
@@ -4318,7 +4326,7 @@ es:{
 },
 uk:{
 'nav.program':'Програма','nav.speakers':'Доповідачі','nav.venue':'Місце','nav.sponsors':'Партнери','nav.faq':'FAQ','nav.contact':'Контакт','nav.register':'Квитки','nav.logo_sub':'28–29 Лист 2026 · Ельче, Іспанія','mobile.register':'Квитки',
-'home.motto':'<span class="hero-motto-sm">Для</span> <em>Медичних Лідерів ПЕРІОРБІТАЛЬНОЇ</em> <span class="hero-motto-sm">Зони</span>','home.tagline':"Об'єднуємо лідерів офтальмології, пластичної хірургії та косметології.",'home.date':'28–29 листопада · Centro de Congresos de Elche, Аліканте, Іспанія','home.cta_ticket':'Отримати Квиток','home.cta_program':'Переглянути Програму','home.explore':'Досліджувати','home.dama':'✦ Дама Ельчська запрошує вас ✦','home.countdown_label':'До Завершення Ціни Early Bird','home.countdown_days':'Дні','home.countdown_hours':'Години','home.countdown_minutes':'Хвилини','home.countdown_seconds':'Секунди',
+'home.motto':'<span class="hero-motto-intro">Для <em>Медичних Лідерів</em></span><span class="hero-motto-highlight">ПЕРІОРБІТАЛЬНОЇ ЗОНИ</span>','home.tagline':"Об'єднуємо лідерів офтальмології, пластичної хірургії та косметології.",'home.date':'28–29 листопада · Centro de Congresos de Elche, Аліканте, Іспанія','home.cta_ticket':'Отримати Квиток','home.cta_program':'Переглянути Програму','home.explore':'Досліджувати','home.dama':'✦ Дама Ельчська запрошує вас ✦','home.countdown_label':'До Завершення Ціни Early Bird','home.countdown_days':'Дні','home.countdown_hours':'Години','home.countdown_minutes':'Хвилини','home.countdown_seconds':'Секунди',
 'home.why.eyebrow':'Чому Варто Відвідати','home.why.title':'Чотири Причини <em>Бути Тут</em>','home.why.lead':'Два дні, побудовані навколо того, що дійсно змінює клінічну практику — а не заради видовища.','home.why.r1_t':'Ексклюзивні Теми','home.why.r1_d':'Сесії, яких немає у стандартній програмі — штучний зір, штучна рогівка та сітківка, нейротехнології — представлені дослідниками, які їх розробляють.','home.why.r2_t':'Міжнародна Команда','home.why.r2_d':"30+ практикуючих хірургів та клініцистів з Іспанії, України, Італії, Франції, Туреччини та інших країн, які діляться реальними клінічними випадками.",'home.why.r3_t':'Хірургія Наживо та Wet Lab','home.why.r3_d':'Спостерігайте за блефаропластикою CO₂-лазером наживо, а потім тренуйтеся практично в інтенсивному wet lab ScalprumPro.','home.why.r4_t':'Три Спеціальності, Одна Сцена','home.why.r4_d':"Офтальмологія, пластична хірургія та косметологія об'єднані в одній програмі — міждисциплінарні дискусії, яких не знайти на вузькоспеціалізованому конгресі.",
 'home.spk.eyebrow':'Факультет','home.spk.title':'Знайомтеся з <em>Доповідачами</em>','home.spk.lead':'Міжнародна команда практикуючих хірургів та клініцистів, впорядкована за спеціальністю.',
 'home.com.eyebrow':'Комітет','home.com.title':'Науковий та <em>Організаційний Комітет</em>','home.com.lead':'Клініцисти та організатори, які формують наукову програму та проводять саміт.',

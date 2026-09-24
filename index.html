@@ -742,7 +742,7 @@ nav {
   font-style: italic;
   font-size: clamp(16px, 1.8vw, 20px);
   color: var(--gold);
-  margin: -8px 0 32px;
+  margin: -8px 0 72px;
 }
 .mission-prose p {
   font-size: 16.5px; line-height: 1.85;
@@ -4915,7 +4915,9 @@ setInterval(showDamaQuote, 15000);        // then every 15 s
     '           + b * vec3(0.353, 0.478, 0.604);',
     '  float fx = 1.0 - pow(abs(uv.x - 0.5) * 2.0, 2.5);',
     '  float fy = 1.0 - pow(abs(uv.y - 0.5) * 2.0, 1.8);',
-    '  gl_FragColor = vec4(col * clamp(fx, 0.0, 1.0) * clamp(fy, 0.0, 1.0), 1.0);',
+    '  vec3 finalCol = col * clamp(fx, 0.0, 1.0) * clamp(fy, 0.0, 1.0);',
+    '  float a = clamp(max(max(finalCol.r, finalCol.g), finalCol.b), 0.0, 1.0);',
+    '  gl_FragColor = vec4(finalCol, a);',
     '}'
   ].join('\n');
 

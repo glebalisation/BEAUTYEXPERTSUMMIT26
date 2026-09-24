@@ -1911,30 +1911,49 @@ footer {
 .hero-motto-serif {
   font-family: var(--ff-display);
   color: var(--gold-light);
-  margin-bottom: 14px;
-  opacity: 0;
-  animation: fadeUp 0.8s 0.38s forwards;
+  margin-bottom: 18px;
   text-align: center;
 }
 .hero-motto-serif em { font-style: italic; color: var(--gold); font-weight: 400; }
 .hero-motto-intro {
   display: block;
-  font-size: clamp(18px, 2.2vw, 26px);
+  font-size: clamp(17px, 2vw, 23px);
   font-weight: 300;
-  line-height: 1.4;
-  letter-spacing: 0.01em;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
   color: var(--gold-light);
-  margin-bottom: 4px;
+  text-shadow: 0 1px 14px rgba(8,16,26,0.65);
+  margin-bottom: 12px;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.48s forwards;
 }
 .hero-motto-highlight {
   display: block;
-  font-size: clamp(42px, 6.2vw, 88px);
-  font-weight: 500;
+  font-size: clamp(46px, 6.8vw, 96px);
+  font-weight: 600;
   font-style: normal;
-  line-height: 1.05;
-  letter-spacing: 0.035em;
+  line-height: 0.95;
+  letter-spacing: 0.045em;
+  background: linear-gradient(120deg, var(--gold-light) 15%, var(--gold) 65%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   color: var(--gold);
-  text-shadow: 0 0 40px rgba(201,169,110,0.3), 0 0 90px rgba(201,169,110,0.15);
+  text-shadow: 0 0 46px rgba(201,169,110,0.35), 0 0 100px rgba(201,169,110,0.18);
+  opacity: 0;
+  animation: fadeUp 0.8s 0.68s forwards;
+}
+.hero-motto-highlight::after {
+  content: '';
+  display: block;
+  width: 64px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 16px auto 0;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.95s forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-motto-intro, .hero-motto-highlight, .hero-motto-highlight::after { animation: none; opacity: 1; }
 }
 .hero-motto-tagline {
   font-size: clamp(14px, 1.3vw, 17px);

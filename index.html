@@ -4094,6 +4094,17 @@ var SLUG_TO_PAGE = {
   'venue':'venue','partners':'sponsors','sponsors':'sponsors','faq':'faq',
   'contact':'contact','tickets':'register','register':'register'
 };
+var PAGE_TITLES = {
+  home: 'Beauty Expert Summit 2026',
+  program: 'Program | Beauty Expert Summit 2026',
+  speakers: 'Speakers | Beauty Expert Summit 2026',
+  venue: 'Venue | Beauty Expert Summit 2026',
+  sponsors: 'Partners | Beauty Expert Summit 2026',
+  faq: 'FAQ | Beauty Expert Summit 2026',
+  contact: 'Contact | Beauty Expert Summit 2026',
+  register: 'Tickets | Beauty Expert Summit 2026'
+};
+var gaSkipFirstPageView = true;
 
 function showPage(name, skipHistory) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -4105,6 +4116,17 @@ function showPage(name, skipHistory) {
   });
   if (!skipHistory) {
     history.pushState({page: name}, '', PAGE_TO_SLUG[name] || '/');
+  }
+  document.title = PAGE_TITLES[name] || document.title;
+  if (gaSkipFirstPageView) {
+    gaSkipFirstPageView = false;
+  } else if (typeof gtag === 'function') {
+    var path = PAGE_TO_SLUG[name] || '/';
+    gtag('event', 'page_view', {
+      page_title: document.title,
+      page_location: location.origin + path,
+      page_path: path
+    });
   }
 }
 

@@ -1913,6 +1913,8 @@ footer {
   color: var(--gold-light);
   margin-bottom: 18px;
   text-align: center;
+  width: 100%;
+  min-width: 0;
 }
 .hero-motto-serif em { font-style: italic; color: var(--gold); font-weight: 400; }
 .hero-motto-intro {
@@ -1983,6 +1985,7 @@ footer {
   flex-direction: column;
   align-items: center;
   width: 100%;
+  min-width: 0;
   text-align: center;
 }
 .hero-summit-logo {
@@ -4813,10 +4816,51 @@ setInterval(showDamaQuote, 15000);        // then every 15 s
 // ── HERO LINE WIDTH MATCHING ──
 // Scales the intro line and the date line so their rendered width matches
 // "PERIORBITAL ZONE" (or its translated equivalent) exactly.
+function widestLineWidth(el) {
+  var range = document.createRange();
+  range.selectNodeContents(el);
+  var rects = range.getClientRects();
+  var lines = [];
+  for (var i = 0; i < rects.length; i++) {
+    var r = rects[i];
+    var line = null;
+    for (var j = 0; j < lines.length; j++) {
+      if (Math.abs(lines[j].top - r.top) < 1) { line = lines[j]; break; }
+    }
+    if (!line) {
+      lines.push({ top: r.top, left: r.left, right: r.right });
+    } else {
+      line.left = Math.min(line.left, r.left);
+      line.right = Math.max(line.right, r.right);
+    }
+  }
+  var max = 0;
+  for (var k = 0; k < lines.length; k++) {
+    max = Math.max(max, lines[k].right - lines[k].left);
+  }
+  return max || el.getBoundingClientRect().width;
+}
+function heroContainerWidth() {
+  var container = document.querySelector('.hero-left');
+  return container ? container.getBoundingClientRect().width : 0;
+}
+function fitHighlightToContainer(containerWidth) {
+  var el = document.getElementById('heroMottoHighlight');
+  if (!el) return;
+  el.style.fontSize = '';
+  var fontSize = parseFloat(getComputedStyle(el).fontSize);
+  var widest = widestLineWidth(el);
+  if (containerWidth && widest > containerWidth * 0.98 && widest > 0) {
+    var scaled = fontSize * ((containerWidth * 0.98) / widest);
+    el.style.fontSize = Math.max(scaled, 24) + 'px';
+  }
+}
 function syncHeroLineWidths() {
+  var containerWidth = heroContainerWidth();
+  fitHighlightToContainer(containerWidth);
   var target = document.getElementById('heroMottoHighlight');
   if (!target) return;
-  var targetWidth = target.getBoundingClientRect().width;
+  var targetWidth = widestLineWidth(target);
   if (!targetWidth) return;
   [document.getElementById('heroMottoIntro'), document.getElementById('heroDateLine')].forEach(function (el) {
     if (!el) return;
@@ -4824,10 +4868,15 @@ function syncHeroLineWidths() {
     el.style.maxWidth = 'none';
     el.style.fontSize = '';
     var naturalFontSize = parseFloat(getComputedStyle(el).fontSize);
-    var naturalWidth = el.scrollWidth;
+    var naturalWidth = widestLineWidth(el);
     if (!naturalWidth) return;
     var fitted = naturalFontSize * (targetWidth / naturalWidth);
-    fitted = Math.max(11, Math.min(fitted, 30));
+    if (containerWidth) {
+      var maxAllowed = naturalFontSize * ((containerWidth * 0.98) / naturalWidth);
+      fitted = Math.min(fitted, maxAllowed);
+    }
+    fitted = Math.min(fitted, 32);
+    fitted = Math.max(fitted, 11);
     el.style.fontSize = fitted + 'px';
   });
 }

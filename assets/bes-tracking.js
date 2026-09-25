@@ -102,6 +102,10 @@
     if (consent.analytics) {
       var context = read(w.sessionStorage, 'bes_campaign_v1');
       if (context && Date.now() - context.at < 30 * 60000) Object.keys(context.params).filter(function(k) { return k.indexOf('utm_') === 0 && k !== 'utm_id'; }).forEach(function(k) { u.searchParams.set(k,context.params[k]); });
+      // Pass GA's consented pseudonymous client ID through Stripe for server-side purchase attribution.
+      var gaCookie = d.cookie.split(';').map(function(v){ return v.trim(); }).find(function(v){ return v.indexOf('_ga=') === 0; });
+      var gaMatch = gaCookie && gaCookie.slice(4).match(/^GA\d+\.\d+\.(\d+\.\d+)$/);
+      if (gaMatch) u.searchParams.set('client_reference_id','bes_'+gaMatch[1].replace('.','_'));
       a.href = u.href;
     }
   }

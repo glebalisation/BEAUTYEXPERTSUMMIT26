@@ -32,10 +32,10 @@ Only allowlisted campaign query parameters enter GA page URLs; arbitrary paramet
 ## Remaining rollout dependencies
 
 1. Review the published GTM configuration in preview; deploy this website branch; check Tag Assistant/GA4 DebugView on real routed URLs and back/forward. Keep enhanced-measurement browser-history page views disabled (already saved in GA4). Review automatic form/outbound-click measurement for unwanted redundant events and destination data.
-2. Use the existing n8n Stripe workflow, whose link/access is still needed. Only paid Checkout sessions (including delayed payment success) may emit purchase; use actual line items and paid currency/value. Existing registration-create code is not itself a verified Stripe webhook.
-3. Implement an opaque checkout reference plus consented GA client_id/session_id server-side join, then an idempotent purchase delivery ledger. Deduplicate on Stripe Checkout session ID/transaction_id, not webhook delivery ID. Handle retries and reconciliation. No GA Measurement Protocol secret belongs in website code. Do not use registration completion or thank-you page visits as purchases.
-4. Verify whether any n8n/Meta CAPI purchase integration already exists. Coordinate browser/server event_id and event_name if both send conversions. Never sum platform-attributed sales as unique sales.
-5. Link the intended Google Ads account; purchase primary, ticket/checkout events secondary. Connect campaign costs before reporting CPA/ROAS.
+2. Replace n8n with the included signed `stripe-webhook` Supabase Edge Function and `registration-start` redirect. Apply migration 002, map the live Price IDs, set secrets, deploy both functions and configure the Stripe endpoint/Payment Link redirects. Test in Stripe test mode before enabling live mode.
+3. Create a GA4 Measurement Protocol secret and configure it only in Supabase. For analytics-consented visitors, the site passes GA's pseudonymous client ID through Stripe's `client_reference_id`; purchases without that consent marker are not sent to GA. Purchase uses the Checkout session ID as `transaction_id`; the private ledger plus GA transaction deduplication handles retries. Add a consented session ID later if same-session reporting is required.
+4. Obtain Meta Business access and verify the Pixel/CAPI state. If CAPI is added, coordinate browser/server `event_id` and `event_name`. Never sum platform-attributed sales as unique sales.
+5. Google Ads is intentionally unlinked because BES does not run Google Ads.
 6. Create PostHog project (none exists yet); install through GTM only after consent and masking configuration, with private registration/payment pages excluded. No replay is enabled by this change.
 7. Expand the private marketing dashboard after validated purchase/cost events arrive; get named marketing emails for Viewer sharing.
 

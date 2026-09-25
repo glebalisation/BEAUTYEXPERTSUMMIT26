@@ -12,7 +12,8 @@ The page is omitted from site navigation and includes `noindex, nofollow`, but s
 - `public/registration-details/styles.css` — BES visual design
 - `public/registration-details/app.js` — EN/ES/UA form logic and Supabase Function calls
 - `supabase/migrations/001_registration.sql` — relational database and private upload bucket
-- `supabase/functions/registration-create/index.ts` — called by n8n after Stripe payment
+- `supabase/functions/stripe-webhook/index.ts` — verifies Stripe and records each paid checkout once
+- `supabase/functions/registration-start/index.ts` — confirms the paid session and opens its private registration form
 - `supabase/functions/registration-get/index.ts` — validates a form link and returns safe prefilling data
 - `supabase/functions/registration-submit/index.ts` — validates and stores the completed form
 - `CLAUDE_CODE_INSTRUCTIONS.md` — handoff prompt and implementation checklist
@@ -34,8 +35,20 @@ SUPABASE_URL
 SUPABASE_SERVICE_ROLE_KEY
 ALLOWED_ORIGIN=https://beautyexpertsummit.com
 REGISTRATION_URL=https://beautyexpertsummit.com/registration-details
-N8N_SHARED_SECRET=<long-random-secret>
+STRIPE_SECRET_KEY=<restricted Stripe secret key>
+STRIPE_WEBHOOK_SECRET=<Stripe endpoint signing secret>
+STRIPE_PRICE_MAP_JSON=<JSON keyed by Stripe Price ID>
+REGISTRATION_TOKEN_SECRET=<long-random-secret>
+GA4_API_SECRET=<GA4 Measurement Protocol secret>
 ```
 
-Never place the service-role key or the n8n secret in browser code.
+Never place these secrets in browser code.
 
+## Stripe without n8n
+
+1. Apply migration `002_stripe_delivery.sql` and deploy `stripe-webhook` plus `registration-start`.
+2. Create a Stripe webhook endpoint for `checkout.session.completed` and `checkout.session.async_payment_succeeded` at `https://YOUR_PROJECT.supabase.co/functions/v1/stripe-webhook`.
+3. For every Payment Link, set the after-payment redirect to `https://YOUR_PROJECT.supabase.co/functions/v1/registration-start?session_id={CHECKOUT_SESSION_ID}`.
+4. Set `STRIPE_PRICE_MAP_JSON` to an object whose keys are the live Stripe Price IDs and values contain `type`, `label`, and `description`.
+
+The webhook is authoritative for purchase measurement. The redirect gives the purchaser their deterministic private form link without an email automation subscription. Stripe retries failed webhook deliveries, while `stripe_events` and the checkout-session uniqueness constraint prevent duplicate processing.

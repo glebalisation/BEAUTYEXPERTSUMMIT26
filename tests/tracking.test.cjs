@@ -9,7 +9,7 @@ function setup(consent, url = 'https://beautyexpertsummit.com/?utm_source=meta&u
   const localStorage = storage(), sessionStorage = storage();
   if (consent) localStorage.setItem('bes_measurement_consent_v1', JSON.stringify({version:1,at:Date.now(),...consent}));
   function element() {return {dataset:{},setAttribute(){},addEventListener(k,f){this[k]=f;},querySelector(){return {focus(){}};}};}
-  const document = {referrer:'https://example.com/?email=secret@example.com',title:'BES',readyState:'loading',documentElement:{lang:'en'},head:{appendChild:e=>scripts.push(e)},body:{appendChild:e=>elements[e.id]=e},createElement:element,querySelector:()=>null,querySelectorAll:()=>[],getElementById:id=>elements[id],addEventListener:(k,f)=>listeners[k]=f};
+  const document = {cookie:'_ga=GA1.1.123456.987654',referrer:'https://example.com/?email=secret@example.com',title:'BES',readyState:'loading',documentElement:{lang:'en'},head:{appendChild:e=>scripts.push(e)},body:{appendChild:e=>elements[e.id]=e},createElement:element,querySelector:()=>null,querySelectorAll:()=>[],getElementById:id=>elements[id],addEventListener:(k,f)=>listeners[k]=f};
   const location = new URL(url); location.reload=()=>{};
   const window = {localStorage,sessionStorage};
   vm.runInNewContext(source, {window,document,location,URL,URLSearchParams,Date,Object});
@@ -45,6 +45,7 @@ test('ticket handoff has exact item and currency, preserved UTM, and never purch
  const click=t.events().find(x=>x.name==='click_ticket'); const checkout=t.events().find(x=>x.name==='begin_checkout');
  assert.equal(click.params.item_name,'2-Day Delegate');assert.equal(click.params.price,340);assert.equal(click.params.currency,'EUR');
  assert.equal(checkout.params.items[0].item_id,'delegate_2day');assert.equal(new URL(a.href).searchParams.get('utm_source'),'meta');
+ assert.equal(new URL(a.href).searchParams.get('client_reference_id'),'bes_123456_987654');
  assert.equal(t.events().some(x=>x.name==='purchase'),false);
 });
 test('unknown ticket URL is never assigned a fabricated price',()=>{

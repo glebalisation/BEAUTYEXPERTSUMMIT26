@@ -1,8 +1,8 @@
 # BES website measurement rollout
 
-Status: implementation branch; NOT deployed or end-to-end validated.
+Status: implementation branch; website NOT deployed or end-to-end validated. GTM version 2 is published.
 
-- GTM: `GTM-K9JFTP54`, account 6378751721, container 265139894.
+- GTM: `GTM-K9JFTP54`, account 6378751721, container 265139894. Live version 2: `BES consented funnel tracking v1`, published 25 September 2026.
 - GA4: `G-9K6V46V6L0`, property 553730115.
 - Meta Pixel: `1843576903471823`.
 - Dashboard: https://datastudio.google.com/reporting/0b5b0f74-e3ef-492b-8b2f-eabd4b5930fb
@@ -11,7 +11,7 @@ Status: implementation branch; NOT deployed or end-to-end validated.
 
 The two public entry points load `assets/bes-tracking.js`. Optional tracking waits for an explicit stored choice. Analytics-only and analytics+advertising are separate choices. GTM loads once, then receives `bes_event` messages with an isolated `bes_payload` object. The supplied GTM router initializes Google once with automatic page views disabled, then forwards the explicit events. Meta receives PageView, Lead, and InitiateCheckout only with advertising consent. No browser purchase is emitted.
 
-Install `tracking/gtm-container.json` into the empty container, or create its one Data Layer Variable (version 1, `bes_payload`), Custom Event trigger (`bes_event`) and Custom HTML tag (`gtm-event-router.html`). Publish the container before releasing the website branch. Review GTM preview first. The HTML file is configuration, not a publicly executable endpoint. Do not leave the old direct GA/Meta snippets alongside it.
+The container now has one Data Layer Variable (`bes_payload`, version 2), Custom Event trigger (`bes_event`) and Custom HTML tag matching `gtm-event-router.html`. Version 2 is live, but cannot collect anything until the website branch is deployed and a visitor grants consent. Review GTM preview against the production hostname before merging. The HTML file is configuration, not a publicly executable endpoint. Do not leave the old direct GA/Meta snippets alongside it.
 
 The registration-details page contains secure tokens and personal data. All analytics/pixel code was removed from that page; it must stay outside GTM and replay coverage.
 
@@ -31,7 +31,7 @@ Only allowlisted campaign query parameters enter GA page URLs; arbitrary paramet
 
 ## Remaining rollout dependencies
 
-1. Review and publish GTM configuration; deploy this website branch; check Tag Assistant/GA4 DebugView on real routed URLs and back/forward. Keep enhanced-measurement browser-history page views disabled (already saved in GA4). Review automatic form/outbound-click measurement for unwanted redundant events and destination data.
+1. Review the published GTM configuration in preview; deploy this website branch; check Tag Assistant/GA4 DebugView on real routed URLs and back/forward. Keep enhanced-measurement browser-history page views disabled (already saved in GA4). Review automatic form/outbound-click measurement for unwanted redundant events and destination data.
 2. Use the existing n8n Stripe workflow, whose link/access is still needed. Only paid Checkout sessions (including delayed payment success) may emit purchase; use actual line items and paid currency/value. Existing registration-create code is not itself a verified Stripe webhook.
 3. Implement an opaque checkout reference plus consented GA client_id/session_id server-side join, then an idempotent purchase delivery ledger. Deduplicate on Stripe Checkout session ID/transaction_id, not webhook delivery ID. Handle retries and reconciliation. No GA Measurement Protocol secret belongs in website code. Do not use registration completion or thank-you page visits as purchases.
 4. Verify whether any n8n/Meta CAPI purchase integration already exists. Coordinate browser/server event_id and event_name if both send conversions. Never sum platform-attributed sales as unique sales.

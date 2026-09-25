@@ -40,6 +40,8 @@ STRIPE_WEBHOOK_SECRET=<Stripe endpoint signing secret>
 STRIPE_PRICE_MAP_JSON=<JSON keyed by Stripe Price ID>
 REGISTRATION_TOKEN_SECRET=<long-random-secret>
 GA4_API_SECRET=<GA4 Measurement Protocol secret>
+META_CAPI_ACCESS_TOKEN=<Meta dataset access token>
+META_GRAPH_API_VERSION=<currently supported Graph API version, for example vXX.X>
 ```
 
 Never place these secrets in browser code.
@@ -51,4 +53,4 @@ Never place these secrets in browser code.
 3. For every Payment Link, set the after-payment redirect to `https://YOUR_PROJECT.supabase.co/functions/v1/registration-start?session_id={CHECKOUT_SESSION_ID}`.
 4. Set `STRIPE_PRICE_MAP_JSON` to an object whose keys are the live Stripe Price IDs and values contain `type`, `label`, and `description`.
 
-The webhook is authoritative for purchase measurement. The redirect gives the purchaser their deterministic private form link without an email automation subscription. Stripe retries failed webhook deliveries, while `stripe_events` and the checkout-session uniqueness constraint prevent duplicate processing.
+The webhook is authoritative for purchase measurement. It sends GA4 only when the consented GA client reference exists and Meta CAPI only when that reference also records advertising consent. Meta uses the Stripe Checkout session ID as `event_id`. The redirect gives the purchaser their deterministic private form link without an email automation subscription. Stripe retries failed webhook deliveries, while `stripe_events`, Checkout-session uniqueness and platform transaction/event IDs prevent duplicate processing.

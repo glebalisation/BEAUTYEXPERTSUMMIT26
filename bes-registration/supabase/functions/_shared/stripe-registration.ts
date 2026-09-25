@@ -58,7 +58,7 @@ export async function ensureRegistration(sessionId:string) {
 export async function sendGaPurchase(result:Awaited<ReturnType<typeof ensureRegistration>>) {
   const secret=Deno.env.get('GA4_API_SECRET');
   const reference=result.session.client_reference_id||'';
-  const match=reference.match(/^bes_(\d+)_(\d+)$/);
+  const match=reference.match(/^bes_[an]_(\d+)_(\d+)(?:_fb_\d+_\d+)?$/);
   // No analytics consent marker/client ID came through checkout: do not send GA.
   if(!secret||!match)return;
   const value=(result.session.amount_total||0)/100;
@@ -72,4 +72,27 @@ export async function sendGaPurchase(result:Awaited<ReturnType<typeof ensureRegi
     method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body)
   });
   if(!response.ok)throw new Error(`GA4 purchase delivery failed: ${response.status}`);
+}
+
+export async function sendMetaPurchase(result:Awaited<ReturnType<typeof ensureRegistration>>) {
+  const token=Deno.env.get('META_CAPI_ACCESS_TOKEN');
+  const version=Deno.env.get('META_GRAPH_API_VERSION');
+  const reference=result.session.client_reference_id||'';
+  const match=reference.match(/^bes_a_\d+_\d+(?:_fb_(\d+)_(\d+))?$/);
+  // Advertising consent was not passed through checkout: do not send Meta CAPI.
+  if(!token||!version||!match)return;
+  const email=result.session.customer_details!.email!.trim().toLowerCase();
+  const userData:Record<string,unknown>={em:[await sha256(email)]};
+  if(match[1]&&match[2])userData.fbp=`fb.1.${match[1]}.${match[2]}`;
+  const value=(result.session.amount_total||0)/100;
+  const currency=(result.session.currency||'eur').toUpperCase();
+  const payload={data:[{
+    event_name:'Purchase',event_time:result.session.created,event_id:result.session.id,
+    action_source:'website',event_source_url:'https://beautyexpertsummit.com/tickets',user_data:userData,
+    custom_data:{value,currency,content_type:'product',content_ids:[result.priceId],contents:[{id:result.priceId,quantity:1,item_price:(result.line.amount_total||0)/100}]}
+  }]};
+  const response=await fetch(`https://graph.facebook.com/${encodeURIComponent(version)}/1843576903471823/events?access_token=${encodeURIComponent(token)}`,{
+    method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(payload)
+  });
+  if(!response.ok)throw new Error(`Meta purchase delivery failed: ${response.status}`);
 }

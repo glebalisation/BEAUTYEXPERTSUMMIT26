@@ -1,5 +1,5 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
-import { cryptoProvider,ensureRegistration,sendGaPurchase,stripe } from '../_shared/stripe-registration.ts';
+import { cryptoProvider,ensureRegistration,sendGaPurchase,sendMetaPurchase,stripe } from '../_shared/stripe-registration.ts';
 
 const json=(body:unknown,status=200)=>new Response(JSON.stringify(body),{status,headers:{'content-type':'application/json'}});
 
@@ -23,6 +23,7 @@ Deno.serve(async req=>{
   try {
     const result=await ensureRegistration(session.id);
     await sendGaPurchase(result);
+    await sendMetaPurchase(result);
     return json({received:true});
   } catch (error) {
     await supabase.from('stripe_events').delete().eq('stripe_event_id',event.id);

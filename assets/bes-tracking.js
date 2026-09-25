@@ -105,7 +105,13 @@
       // Pass GA's consented pseudonymous client ID through Stripe for server-side purchase attribution.
       var gaCookie = d.cookie.split(';').map(function(v){ return v.trim(); }).find(function(v){ return v.indexOf('_ga=') === 0; });
       var gaMatch = gaCookie && gaCookie.slice(4).match(/^GA\d+\.\d+\.(\d+\.\d+)$/);
-      if (gaMatch) u.searchParams.set('client_reference_id','bes_'+gaMatch[1].replace('.','_'));
+      if (gaMatch) {
+        var reference = 'bes_' + (consent.advertising ? 'a_' : 'n_') + gaMatch[1].replace('.','_');
+        var fbpCookie = d.cookie.split(';').map(function(v){ return v.trim(); }).find(function(v){ return v.indexOf('_fbp=') === 0; });
+        var fbpMatch = fbpCookie && fbpCookie.slice(5).match(/^fb\.1\.(\d+)\.(\d+)$/);
+        if (consent.advertising && fbpMatch) reference += '_fb_' + fbpMatch[1] + '_' + fbpMatch[2];
+        u.searchParams.set('client_reference_id',reference);
+      }
       a.href = u.href;
     }
   }

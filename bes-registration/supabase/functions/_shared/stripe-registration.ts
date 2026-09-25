@@ -49,11 +49,40 @@ export async function ensureRegistration(sessionId:string) {
   };
   const {data,error}=await supabase.from('registrations').upsert(record,{onConflict:'stripe_checkout_session_id',ignoreDuplicates:true}).select('id').maybeSingle();
   if(error)throw error;
+  let registrationId=data?.id;
+  if(!registrationId){
+    const existing=await supabase.from('registrations').select('id').eq('stripe_checkout_session_id',session.id).single();
+    if(existing.error)throw existing.error;
+    registrationId=existing.data.id;
+  }
   return {
-    id:data?.id,rawToken,session,line,priceId,ticket,
+    id:registrationId,rawToken,session,line,priceId,ticket,
     formUrl:`${requiredEnv('REGISTRATION_URL')}?t=${encodeURIComponent(rawToken)}`
   };
 }
+
+export async function sendRegistrationEmail(result:Awaited<ReturnType<typeof ensureRegistration>>) {
+  const apiKey=Deno.env.get('RESEND_API_KEY');
+  const from=Deno.env.get('EMAIL_FROM');
+  if(!apiKey||!from)return;
+  const supabase=createClient(requiredEnv('SUPABASE_URL'),requiredEnv('SUPABASE_SERVICE_ROLE_KEY'));
+  const current=await supabase.from('registrations').select('registration_email_sent_at').eq('id',result.id).single();
+  if(current.error)throw current.error;
+  if(current.data.registration_email_sent_at)return;
+  const response=await fetch('https://api.resend.com/emails',{
+    method:'POST',headers:{authorization:`Bearer ${apiKey}`,'content-type':'application/json'},
+    body:JSON.stringify({
+      from,to:[result.session.customer_details!.email!],reply_to:Deno.env.get('EMAIL_REPLY_TO')||undefined,
+      subject:'Complete your Beauty Expert Summit 2026 registration',
+      html:`<p>Thank you for purchasing <strong>${escapeHtml(result.ticket.label)}</strong>.</p><p>Please complete your attendee details using your private link:</p><p><a href="${escapeHtml(result.formUrl)}">Complete registration</a></p><p>If you did not make this purchase, please reply to this email.</p>`
+    })
+  });
+  if(!response.ok)throw new Error(`Registration email delivery failed: ${response.status}`);
+  const updated=await supabase.from('registrations').update({registration_email_sent_at:new Date().toISOString()}).eq('id',result.id).is('registration_email_sent_at',null);
+  if(updated.error)throw updated.error;
+}
+
+function escapeHtml(value:string){const entities:Record<string,string>={'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'};return value.replace(/[&<>"']/g,char=>entities[char]);}
 
 export async function sendGaPurchase(result:Awaited<ReturnType<typeof ensureRegistration>>) {
   const secret=Deno.env.get('GA4_API_SECRET');

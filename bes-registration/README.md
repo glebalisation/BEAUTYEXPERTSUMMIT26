@@ -48,9 +48,9 @@ Never place these secrets in browser code.
 
 ## Stripe without n8n
 
-1. Apply migration `002_stripe_delivery.sql` and deploy `stripe-webhook` plus `registration-start`.
+1. Apply migrations `002_stripe_delivery.sql` and `003_registration_email.sql`, then deploy `stripe-webhook` plus `registration-start`.
 2. Create a Stripe webhook endpoint for `checkout.session.completed` and `checkout.session.async_payment_succeeded` at `https://YOUR_PROJECT.supabase.co/functions/v1/stripe-webhook`.
 3. For every Payment Link, set the after-payment redirect to `https://YOUR_PROJECT.supabase.co/functions/v1/registration-start?session_id={CHECKOUT_SESSION_ID}`.
 4. Set `STRIPE_PRICE_MAP_JSON` to an object whose keys are the live Stripe Price IDs and values contain `type`, `label`, and `description`.
 
-The webhook is authoritative for purchase measurement. It sends GA4 only when the consented GA client reference exists and Meta CAPI only when that reference also records advertising consent. Meta uses the Stripe Checkout session ID as `event_id`. The redirect gives the purchaser their deterministic private form link without an email automation subscription. Stripe retries failed webhook deliveries, while `stripe_events`, Checkout-session uniqueness and platform transaction/event IDs prevent duplicate processing.
+The webhook is authoritative for purchase measurement. It sends the existing Resend-powered registration email once, sends GA4 only when the consented GA client reference exists, and sends Meta CAPI only when that reference also records advertising consent. Meta uses the Stripe Checkout session ID as `event_id`. The redirect also gives the purchaser their deterministic private form link without an automation subscription. Stripe retries failed webhook deliveries, while `stripe_events`, Checkout-session uniqueness, the email timestamp and platform transaction/event IDs prevent duplicate processing.

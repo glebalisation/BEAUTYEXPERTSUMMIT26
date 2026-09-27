@@ -1,4 +1,4 @@
-create table public.stripe_events (
+create table if not exists public.stripe_events (
   stripe_event_id text primary key,
   event_type text not null,
   checkout_session_id text,

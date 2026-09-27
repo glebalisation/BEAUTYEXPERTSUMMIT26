@@ -12,10 +12,10 @@ const bytesToHex=(bytes:Uint8Array)=>Array.from(bytes).map(b=>b.toString(16).pad
 const sha256=async(value:string)=>bytesToHex(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(value))));
 
 async function registrationToken(sessionId:string) {
-  const secret=requiredEnv('REGISTRATION_TOKEN_SECRET');
-  if(secret.length<32)throw new Error('REGISTRATION_TOKEN_SECRET must be at least 32 characters');
+  const secret=Deno.env.get('REGISTRATION_TOKEN_SECRET')||requiredEnv('TICKET_SIGNING_SECRET');
+  if(secret.length<32)throw new Error('Registration signing secret must be at least 32 characters');
   const key=await crypto.subtle.importKey('raw',new TextEncoder().encode(secret),{name:'HMAC',hash:'SHA-256'},false,['sign']);
-  return bytesToHex(new Uint8Array(await crypto.subtle.sign('HMAC',key,new TextEncoder().encode(sessionId))));
+  return bytesToHex(new Uint8Array(await crypto.subtle.sign('HMAC',key,new TextEncoder().encode(`registration:${sessionId}`))));
 }
 
 function ticketMap(name:string):Record<string,Ticket> {

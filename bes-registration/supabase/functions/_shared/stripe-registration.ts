@@ -18,9 +18,9 @@ async function registrationToken(sessionId:string) {
   return bytesToHex(new Uint8Array(await crypto.subtle.sign('HMAC',key,new TextEncoder().encode(sessionId))));
 }
 
-function ticketMap():Record<string,Ticket> {
-  const parsed=JSON.parse(Deno.env.get('STRIPE_PRICE_MAP_JSON')||'{}');
-  if(!parsed||Array.isArray(parsed)||typeof parsed!=='object')throw new Error('Invalid STRIPE_PRICE_MAP_JSON');
+function ticketMap(name:string):Record<string,Ticket> {
+  const parsed=JSON.parse(Deno.env.get(name)||'{}');
+  if(!parsed||Array.isArray(parsed)||typeof parsed!=='object')throw new Error(`Invalid ${name}`);
   return parsed;
 }
 
@@ -31,9 +31,11 @@ export async function paidSession(sessionId:string) {
   const lines=session.line_items?.data||[];
   if(lines.length!==1||lines[0].quantity!==1)throw new Error('Expected exactly one ticket');
   const priceId=lines[0].price?.id;
-  const ticket=priceId&&ticketMap()[priceId];
-  if(!priceId||!ticket)throw new Error(`Unmapped Stripe price: ${priceId||'missing'}`);
-  return {session,line:lines[0],priceId,ticket};
+  const paymentLinkId=typeof session.payment_link==='string'?session.payment_link:session.payment_link?.id;
+  const ticket=(paymentLinkId&&ticketMap('STRIPE_PAYMENT_LINK_MAP_JSON')[paymentLinkId])||
+    (priceId&&ticketMap('STRIPE_PRICE_MAP_JSON')[priceId]);
+  if(!priceId||!ticket)throw new Error(`Unmapped Stripe payment link/price: ${paymentLinkId||'missing'} / ${priceId||'missing'}`);
+  return {session,line:lines[0],priceId,paymentLinkId,ticket};
 }
 
 export async function ensureRegistration(sessionId:string) {

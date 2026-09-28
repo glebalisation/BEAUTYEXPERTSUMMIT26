@@ -2552,14 +2552,13 @@ footer {
 :root[data-theme="light"] .form-select option { background: #FFFDF9; }
 </style>
 <script>
-// Applied before first paint so the saved theme never flashes.
+// Applied before first paint so the theme never flashes.
+// Light is what a first-time visitor sees; dark is opt-in and remembered.
 (function () {
-  try {
-    var saved = localStorage.getItem('bes_theme');
-    if (saved === 'light' || saved === 'dark') {
-      document.documentElement.setAttribute('data-theme', saved);
-    }
-  } catch (e) {}
+  var saved = null;
+  try { saved = localStorage.getItem('bes_theme'); } catch (e) {}
+  var theme = (saved === 'dark' || saved === 'light') ? saved : 'light';
+  document.documentElement.setAttribute('data-theme', theme);
 })();
 </script>
 </head>
@@ -4639,11 +4638,9 @@ function currentTheme() {
   return document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
 }
 function applyTheme(theme) {
-  if (theme === 'light') {
-    document.documentElement.setAttribute('data-theme', 'light');
-  } else {
-    document.documentElement.removeAttribute('data-theme');
-  }
+  // Always explicit, so the attribute is a reliable source of truth and the
+  // light-theme component overrides keep matching.
+  document.documentElement.setAttribute('data-theme', theme === 'light' ? 'light' : 'dark');
   try { localStorage.setItem('bes_theme', theme); } catch (e) {}
   window.dispatchEvent(new CustomEvent('bes:themechange', { detail: { theme: theme } }));
 }

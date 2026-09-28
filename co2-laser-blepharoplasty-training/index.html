@@ -1,38 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9K6V46V6L0"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-9K6V46V6L0');
-</script>
+<script src="/assets/bes-tracking.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CO2 Laser Blepharoplasty Training & Course | ScalprumPro Wet Lab — Alicante, Spain</title>
 <meta name="description" content="Hands-on CO2 laser blepharoplasty training in Alicante, Spain. The ScalprumPro intensive wet lab — plenary, live demonstration and hands-on practice on biological models with Dr. Serhii Havryliuk & Dr. Igor Janik. 29 November 2026.">
 <link rel="canonical" href="https://beautyexpertsummit.com/co2-laser-blepharoplasty-training">
-
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1843576903471823');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1843576903471823&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
 
 <link rel="icon" type="image/png" href="/IDENTITY/ugamc circle.png">
 <link rel="shortcut icon" type="image/png" href="/IDENTITY/ugamc circle.png">
@@ -593,6 +567,9 @@ uk: {
 };
 
 function setLang(lang) {
+  var previousLanguage = document.documentElement.lang;
+  document.documentElement.lang = lang;
+  if (window.BESTracking) window.BESTracking.language(previousLanguage, lang);
   var t = i18n[lang] || i18n.en;
   document.querySelectorAll('.lang-btn').forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-lang') === lang); });
   document.querySelectorAll('[data-i18n]').forEach(function(el){

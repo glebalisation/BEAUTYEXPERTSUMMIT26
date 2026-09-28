@@ -1,36 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9K6V46V6L0"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-9K6V46V6L0');
-</script>
+<script src="/assets/bes-tracking.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Beauty Expert Summit 2026</title>
-
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1843576903471823');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1843576903471823&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
 
 <!-- Favicon — shows logo in Google search results and browser tab -->
 <link rel="icon" type="image/png" href="IDENTITY/ugamc circle.png">
@@ -2723,7 +2697,7 @@ footer {
       </div>
     </div>
 
-    <div id="home-pgm-full">
+    <div id="home-pgm-full" data-bes-view="view_program">
       <div class="day-tabs">
         <button class="day-tab active" onclick="switchHomeDay(1)" data-i18n="program.day1_tab">Day 1 · 28 Nov</button>
         <button class="day-tab" onclick="switchHomeDay(2)" data-i18n="program.day2_tab">Day 2 · 29 Nov</button>
@@ -2874,7 +2848,7 @@ footer {
   </section>
 
   <section class="section-inner" style="padding-top:0;">
-    <div class="section-eyebrow" data-i18n="home.tix.eyebrow">Registration</div>
+    <div class="section-eyebrow" data-bes-view="view_pricing" data-i18n="home.tix.eyebrow">Registration</div>
     <h2 class="section-title" data-i18n-html="home.tix.title">Secure Your <em>Seat</em></h2>
     <p class="section-lead" data-i18n="home.tix.lead">Early Bird pricing valid until 30 September 2026.</p>
     <div class="ticket-group-row">
@@ -4384,7 +4358,7 @@ var PAGE_TITLES = {
   contact: 'Contact | Beauty Expert Summit 2026',
   register: 'Tickets | Beauty Expert Summit 2026'
 };
-var gaSkipFirstPageView = true;
+
 
 function showPage(name, skipHistory) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -4398,16 +4372,7 @@ function showPage(name, skipHistory) {
     history.pushState({page: name}, '', PAGE_TO_SLUG[name] || '/');
   }
   document.title = PAGE_TITLES[name] || document.title;
-  if (gaSkipFirstPageView) {
-    gaSkipFirstPageView = false;
-  } else if (typeof gtag === 'function') {
-    var path = PAGE_TO_SLUG[name] || '/';
-    gtag('event', 'page_view', {
-      page_title: document.title,
-      page_location: location.origin + path,
-      page_path: path
-    });
-  }
+  if (window.BESTracking && target) window.BESTracking.route(PAGE_TO_SLUG[name] || '/');
 }
 
 // ── DAY TABS ──
@@ -4569,7 +4534,10 @@ uk:{
 var currentLang = localStorage.getItem('lang') || 'en';
 
 function setLang(lang) {
+  var previousLanguage = currentLang;
   currentLang = lang;
+  document.documentElement.lang = lang;
+  if (window.BESTracking) window.BESTracking.language(previousLanguage, lang);
   document.querySelectorAll('.lang-btn').forEach(function(b){ b.classList.remove('active'); });
   var btn = document.querySelector('.lang-btn[data-lang="'+lang+'"]');
   if (btn) btn.classList.add('active');
@@ -4657,6 +4625,7 @@ async function submitConsult(e) {
       body: new FormData(form)
     });
     if (res.ok) {
+      if (window.BESTracking) window.BESTracking.lead('consult-form', 'consultation');
       form.style.display = 'none';
       document.getElementById('consult-success').style.display = 'block';
       localStorage.setItem('bes_consult_seen', '1');
@@ -4695,6 +4664,7 @@ async function submitContact(e) {
       body: new FormData(form)
     });
     if (res.ok) {
+      if (window.BESTracking) window.BESTracking.lead('contact-form', 'contact');
       form.style.display = 'none';
       successEl.style.display = 'block';
     } else {
@@ -4726,6 +4696,7 @@ async function submitMission(e) {
       body: new FormData(form)
     });
     if (res.ok) {
+      if (window.BESTracking) window.BESTracking.lead('mission-form', 'mission');
       form.style.display = 'none';
       successEl.style.display = 'block';
     } else {
@@ -5139,7 +5110,7 @@ if (localStorage.getItem('bes_consult_seen')) {
   setTimeout(showConsultPopup, 5000);
 }
 window.addEventListener('popstate', function(e) {
-  var page = (e.state && e.state.page) ? e.state.page : 'home';
+  var page = (e.state && e.state.page) || SLUG_TO_PAGE[location.pathname.replace(/^\//, '').replace(/\/$/, '')] || 'home';
   showPage(page, true);
 });
 </script>

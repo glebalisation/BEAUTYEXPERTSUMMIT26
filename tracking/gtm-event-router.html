@@ -1,0 +1,35 @@
+<script>
+(function () {
+  if (!/^(www\.)?beautyexpertsummit\.com$/.test(location.hostname)) return;
+  var p = {{DLV - BES payload}};
+  if (!p || !/^(page_view|view_specialty_landing|view_program|view_pricing|click_register|click_ticket|begin_checkout|generate_lead|contact_click|sponsor_interest|click_contact_us|click_speaker_inquiry|click_group_booking|click_program|click_speakers|change_language|click_faq|click_map|click_hotel)$/.test(p.name)) return;
+  var w = window;
+  w.dataLayer = w.dataLayer || [];
+  w.gtag = w.gtag || function () { w.dataLayer.push(arguments); };
+  if (!w.besGoogleStarted) {
+    w.besGoogleStarted = true;
+    w.gtag('js', new Date());
+    w.gtag('config', 'G-9K6V46V6L0', {send_page_view: false, page_location:p.params.page_location, page_referrer:p.params.page_referrer});
+    var g = document.createElement('script');
+    g.async = true; g.src = 'https://www.googletagmanager.com/gtag/js?id=G-9K6V46V6L0';
+    document.head.appendChild(g);
+  }
+  p.params.send_to = 'G-9K6V46V6L0';
+  w.gtag('event', p.name, p.params);
+  if (!p.advertising) return;
+  if (!w.fbq) {
+    var n = w.fbq = function () { n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments); };
+    n.push = n; n.loaded = true; n.version = '2.0'; n.queue = [];
+    var f = document.createElement('script'); f.async = true; f.src = 'https://connect.facebook.net/en_US/fbevents.js'; document.head.appendChild(f);
+    w.fbq('set', 'autoConfig', false, '1843576903471823');
+    w.fbq('init', '1843576903471823');
+  }
+  // Purchases belong to a verified payment workflow, never this browser router.
+  if (p.name === 'page_view') w.fbq('track', 'PageView');
+  if (p.name === 'generate_lead') w.fbq('track', 'Lead', {content_name:p.params.lead_type});
+  if (p.name === 'begin_checkout') {
+    var items = p.params.items || [];
+    w.fbq('track', 'InitiateCheckout', {currency:p.params.currency,value:p.params.value,content_type:'product',content_ids:items.map(function(i){return i.item_id;}),num_items:1});
+  }
+})();
+</script>

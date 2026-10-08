@@ -36,9 +36,12 @@
     root.querySelector('#ticket-description').textContent=registration.ticket_description;
     root.querySelector('#badge-field').classList.toggle('bes-hidden',type==='online');
     form.elements.badge_name.required=type!=='online';
-    root.querySelector('#day-field').classList.toggle('bes-hidden',type!=='one_day');
-    form.elements.selected_day.required=type==='one_day';
+    const needsDay=type==='one_day'||(type==='gala'&&/1[- ]day|one[- ]day/i.test(registration.ticket_label));
+    root.querySelector('#day-field').classList.toggle('bes-hidden',!needsDay);
+    form.elements.selected_day.required=needsDay;
     root.querySelector('#gala-fields').classList.toggle('bes-hidden',type!=='gala');
+    [...form.querySelectorAll('[name="gala_attending"]')].forEach(el=>el.required=type==='gala');
+    form.elements.dietary_preference.required=type==='gala';
     root.querySelector('#student-fields').classList.toggle('bes-hidden',type!=='student');
     form.elements.student_proof.required=type==='student';
     root.querySelector('#speaker-fields').classList.toggle('bes-hidden',type!=='speaker');
@@ -64,4 +67,3 @@
   root.querySelector('#continue').addEventListener('click',async()=>{if(!activeRequired().every(el=>el.reportValidity()))return;if(step<3){if(step===2)makeReview();showStep(step+1);return}const button=root.querySelector('#continue');button.disabled=true;try{const body=new FormData(form);body.set('token',token);body.set('language',language);const response=await fetch(`${base}/registration-submit`,{method:'POST',body});const result=await response.json();if(!response.ok)throw new Error(result.error||'Unable to save registration.');form.classList.add('bes-hidden');root.querySelector('#bes-success').classList.remove('bes-hidden')}catch(error){root.querySelector('#form-error').textContent=error.message;root.querySelector('#form-error').classList.remove('bes-hidden');validate()}});
   load().catch(error=>{root.querySelector('#bes-loading').classList.add('bes-hidden');const box=root.querySelector('#bes-link-error');box.textContent=error.message;box.classList.remove('bes-hidden')});
 })();
-

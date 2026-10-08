@@ -1,0 +1,12 @@
+{
+ "delegate-2day":{"ticket_type":"standard","ticket_label":"2-Day Delegate","ticket_description":"In-person attendance, 28-29 November 2026","day_choice":false,"gala":false},
+ "delegate-2day-gala":{"ticket_type":"gala","ticket_label":"2-Day Delegate + Gala Dinner","ticket_description":"Both summit days and gala dinner","day_choice":false,"gala":true},
+ "delegate-1day":{"ticket_type":"one_day","ticket_label":"1-Day Delegate","ticket_description":"Choose 28 or 29 November 2026","day_choice":true,"gala":false},
+ "delegate-1day-gala":{"ticket_type":"gala","ticket_label":"1-Day Delegate + Gala Dinner","ticket_description":"Choose one summit day; gala dinner included","day_choice":true,"gala":true},
+ "online":{"ticket_type":"online","ticket_label":"Online Livestream","ticket_description":"Livestream for both days and recorded sessions","day_choice":false,"gala":false},
+ "student":{"ticket_type":"student","ticket_label":"Student","ticket_description":"Student in-person registration","day_choice":true,"gala":false},
+ "student-free":{"ticket_type":"student","ticket_label":"Complimentary Student Admission","ticket_description":"Complimentary student in-person registration","day_choice":true,"gala":false},
+ "industry-gala":{"ticket_type":"gala","ticket_label":"Industry Delegate + Gala Dinner","ticket_description":"Both summit days and gala dinner","day_choice":false,"gala":true},
+ "wetlab":{"ticket_type":"standard","ticket_label":"Intensive CO2 Laser Blepharoplasty Wet Lab","ticket_description":"Wet lab on 29 November; includes summit attendance on 28-29 November","day_choice":false,"gala":false},
+ "speaker":{"ticket_type":"speaker","ticket_label":"Speaker","ticket_description":"Speaker registration for Beauty Expert Summit 2026","day_choice":false,"gala":false}
+}
